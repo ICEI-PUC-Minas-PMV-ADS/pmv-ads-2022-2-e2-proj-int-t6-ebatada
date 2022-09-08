@@ -231,8 +231,8 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |-----------|-------------------------|----|
 |RNF-01     | A consulta do status do pedido deve demorar no máximo 4 segundos | ALTA | 
 |RNF-02     | O sistema deverá  se comunicar  com o banco de dados SQL Server | ALTA | 
-|RNF-03     | Digite o requisito | ALTA | 
-|RNF-04     | Digite o requisito | ALTA | 
+|RNF-03     | O sistema deve ser responsivo e adaptável a resoluções maiores que 576px de *largura | ALTA | 
+|RNF-04     | O sistema deve operar em total conformidade com a Lei Geral de Proteção de Dados Pessoais | ALTA | 
 
 ## Restrições
 
@@ -240,8 +240,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| Digite a restrição |
-|02| Digite a restrição |
+|01| A equipe não pode subcontratar o desenvolvimento do trabalho |
+|02| O projeto deverá ser entregue no final do semestre letivo |
 |03| Digite a restrição |
  
  
