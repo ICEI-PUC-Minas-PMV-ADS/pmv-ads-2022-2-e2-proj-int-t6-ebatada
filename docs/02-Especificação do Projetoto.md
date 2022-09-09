@@ -248,4 +248,5 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
  ## Diagramas de Casos de Uso
  
  
- 
+ ![CasoDeUsoEBatata](https://user-images.githubusercontent.com/80654018/189416750-846becf3-a552-4f7c-af4b-4ba590afeb83.jpg)
+
