@@ -242,7 +242,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| A equipe não pode subcontratar o desenvolvimento do trabalho |
 |02| O projeto deverá ser entregue no final do semestre letivo |
-|03| Digite a restrição |
+
  
  
  ## Diagramas de Casos de Uso
