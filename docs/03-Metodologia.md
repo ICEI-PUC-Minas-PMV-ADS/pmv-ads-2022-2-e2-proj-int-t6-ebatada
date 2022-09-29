@@ -70,4 +70,5 @@ As ferramentas empregadas no projeto são:
 - **Editor de código**: Visual Studio Code
 - **Ferramentas de comunicação**: Discord; WhatsApp; Teams
 - **Ferramentas de desenho de tela (wireframing)**: Figma
+
 O editor de código foi escolhido porque ele possui uma integração com o GitHub. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos o Figma por uma maior facilidade de uso.
