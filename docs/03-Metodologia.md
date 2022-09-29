@@ -37,37 +37,37 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ## Gerenciamento de Projeto
 
-# Divisão de Papéis
+### Divisão de Papéis
 
 A equipe está organizada da seguinte maneira:
 
-Scrum Master: Eduardo Lobo
+- **Scrum Master**: Eduardo Lobo
 
-Product Owner: João Lucas
+- **Product Owner**: João Lucas
 
-Equipe de Desenvolvimento: Leticia Isabela, Jessica Serqueira, Carlos, Eduardo Lobo, João Lucas
+- **Equipe de Desenvolvimento**: Leticia Isabela, Jessica Serqueira, Carlos, Eduardo Lobo, João Lucas
 
-Equipe de Design: Eduardo Lobo, João Lucas
+- **Equipe de Design**: Eduardo Lobo, João Lucas
 
-# Processo
+### Processo
 Recursos: esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. O objetivo é permitir a cópia destes templates para agilizar a criação de novos cartões.
 
 Backlog: recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
 
-To Do: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
+- **To Do**: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
 
-Doing: Quando uma tarefa tiver sido iniciada, ela é movida para cá.
+- **Doing**: Quando uma tarefa tiver sido iniciada, ela é movida para cá.
 
-Test: Checagem de Qualidade. Quando as tarefas são concluídas, eles são movidas para o “CQ”. 
+- **Test**: Checagem de Qualidade. Quando as tarefas são concluídas, eles são movidas para o “CQ”. 
 
-Done: Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
+- **Done**: Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
-Locked: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
+- **Locked**: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
 
-# Ferramentas
+### Ferramentas
 As ferramentas empregadas no projeto são:
 
-Editor de código: Visual Studio Code
-Ferramentas de comunicação: Discord; WhatsApp; Teams
-Ferramentas de desenho de tela (wireframing): Figma
+- **Editor de código**: Visual Studio Code
+- **Ferramentas de comunicação**: Discord; WhatsApp; Teams
+- **Ferramentas de desenho de tela (wireframing)**: Figma
 O editor de código foi escolhido porque ele possui uma integração com o GitHub. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos o Figma por uma maior facilidade de uso.
