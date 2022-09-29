@@ -37,7 +37,7 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ## Gerenciamento de Projeto
 
-## Divisão de Papéis
+# Divisão de Papéis
 
 A equipe está organizada da seguinte maneira:
 
@@ -49,7 +49,7 @@ Equipe de Desenvolvimento: Leticia Isabela, Jessica Serqueira, Carlos, Eduardo L
 
 Equipe de Design: Eduardo Lobo, João Lucas
 
-## Processo
+# Processo
 Recursos: esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. O objetivo é permitir a cópia destes templates para agilizar a criação de novos cartões.
 
 Backlog: recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
@@ -64,7 +64,7 @@ Done: Nesta lista são colocadas as tarefas que passaram pelos testes e controle
 
 Locked: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
 
-## Ferramentas
+# Ferramentas
 As ferramentas empregadas no projeto são:
 
 Editor de código: Visual Studio Code
