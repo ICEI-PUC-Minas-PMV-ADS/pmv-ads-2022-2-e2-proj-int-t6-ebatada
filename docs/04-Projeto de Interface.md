@@ -20,7 +20,7 @@ Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapea
 
 ## Wireframes
 
-As telas do sistema apresentam uma estrutura formado por três grandes blocos descritos a seguir
+As telas do sistema apresentam uma estrutura formado por três grandes blocos descritos a seguir.
 
 - `componente Barra topo`: Barra de navegação do topo onde esta disposto o nome do site e um botão para esconder o menu lateral;
 - `componente Barra lateral`: Barra de navegação lateral onde estão dispostos todas as opções que ajudam na ultilização da aplicação;
