@@ -25,11 +25,12 @@ As telas do sistema apresentam uma estrutura formado por três grandes blocos de
 - `componente Barra topo`: Barra de navegação do topo onde esta disposto o nome do site e um botão para esconder o menu lateral;
 - `componente Barra lateral`: Barra de navegação lateral onde estão dispostos todas as opções que ajudam na ultilização da aplicação;
 
-<img src="" width="">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Nav_bar.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Nav_bar_2.png" width="900">
 
-### Tela - Log in
+### Tela - Login
 
-A tela de log in é onde o usuário tera acesso a aplicação, atraves de um nome de usuário e senha obtidos atraves de um cadastro feito pelo mesmo ou um admnistrador.
+A tela de login é onde o usuário tera acesso a aplicação, atraves de um nome de usuário e senha obtidos atraves de um cadastro feito pelo mesmo ou um admnistrador.
 Podem ser vistos os seguintes elementos:
 
 - `Componente login`: Caixa de texto onde o usuário digitará seu email para autenticação;
@@ -38,7 +39,7 @@ Podem ser vistos os seguintes elementos:
 - `Componente Entrar`: Botão que confirma a autenticação do usuário e o redireciona para a tela caixa;
 - `Componente Cadastre sua empresa`: Redireciona o usuário a tela de cadastro;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Login.png" width="900">
 
 ### Tela - Cadastrar
 
@@ -47,7 +48,7 @@ A tela de cadastro é uma janela onde o usário ira cadastrar sua empresa com o 
 - `Componente Nome fantasia`: Caixa de texto onde o usuário digitará o nome de seu estabelecimento;
 - `Componente CNPJ`: Caixa de texto onde o usuário digitara o CNPJ; 
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Login_dois.png" width="900">
 
 ### Tela - Recuperação de senha
 
@@ -56,7 +57,7 @@ A tela de recuperação de senha é uma janela onde o usuário podera recuperar 
 - `Componente Não precisa, lembrei`: Botão caso o usuário deseje cancelar a tentativa de recuperação de senha;
 - `Componente Sim, me mande o email`: Botão caso o usuário deseje efetivar a tentativa de recuperação de senha;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Recuperar_senha.png" width="900">
 
 ### Tela - Caixa fechado
 
@@ -66,7 +67,7 @@ A tela de caixa fechado é onde o usuário pode inicializar a contabilidade de t
 - `Componente Saldo inicial`: Caixa de texto onde o usuário podera visualizar o saldo inicial em dinheiro ao abrir o caixa;
 - `Componente Observação`: Caixa de texto onde o usuário queira anexar uma mensagem para outro possível usuário;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_fechado.png" width="900">
 
 ### Tela - Caixa aberto
 
@@ -77,20 +78,20 @@ tera acesso a funções extras.
 - `Componente Fechar caixa`: Botão caso o usupario deseje finalizar a contabilidade do saldo no dia;
 - `Componente Acessar como admin`: Botão que da acesso a opções de administrador;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto.png" width="900">
 
-### Tela - Caixa aberto (Permissão de administrador)
+### Tela - Caixa aberto (Login administrador)
 
 A tela permissão de administrador permite o acesso a determinadas funções apenas ao administrado com acesso mediante somente com login e senha.
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_login_admin.png" width="900">
 
 ### Tela - Caixa aberto (Administrador)
 - `componente`:x
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_admin.png" width="900">
 
 ### Tela - Adição de entrada/saida (Administrador)
 
@@ -98,15 +99,15 @@ A tela permissão de administrador permite o acesso a determinadas funções ape
 - `componente`:x
 - `componente`:x
 
-<img src="" witdh="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_E.S.png" witdh="900">
 
-### Tela - Caixa aberto (Administrador)
+### Tela - Deseja realmente fechar o caixa? (Administrador)
 
 - `componente`:x
 - `componente`:x
 - `componente`:x
 
-<img src="" witdh="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_F.png" witdh="900">
 
 ### Tela - Pedidos
 
@@ -118,7 +119,7 @@ A tela de pedidos é separada em dois menus em cascata. O menu superior é chama
 - `componente Filtro`: Botão onde o usuário podera filtrar suas buscas;
 - `componente Barra de pesquisa`: Caixa onde o usuário podera incerir texto para buscar uma informação especifica;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Sessão_pedidos.png" width="900">
 
 ### Tela - Pedidos Criados
 
@@ -128,7 +129,7 @@ A tela de pedidos criados é onde fica todos os pedidos realizados. Nela pode se
 - `componente Botão detalhes`: Botão que leva o usuário a uma tela de visualização e edição do pedido especifico;
 - `componente Botão finalizar`: Botão finalizar termina com o pedido e o remove da sessão pedidos criados;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Pedidos_criados.png" width="900">
 
 ### Tela - Criar novo pedido
 
@@ -137,7 +138,7 @@ A tela de criar novo pedido é onde os pedidos podem ser criados.
 - `componente Botão criar novo pedido`: Botão que abre mais um pedido para ser criado;
 - `componente Botão continuar`: Botão que da seguimento ao um pedido em espera;
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Criar_novo_pedido.png" width="900">
 
 ### Tela - Novo pedido
 
@@ -147,8 +148,8 @@ adicionar novos clientes a lista de clientes, tipo de retirada a ser feita, calc
 - `componente novo produto`: Botão que leva a tela de adição de novos produtos ao pedido;
 - `componente novo cliente`: Botão que leva a tela de adição de novos clientes;
 
-<img src="" width="900">
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Novo_pedido.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Novo_pedido_dois.png" width="900">
 
 ### Tela - Novo produto
 
@@ -158,7 +159,7 @@ A tela novo produto é uma extenção da tela criar novo pedido. Nela é possive
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Novo_pedidos_três.png" width="900">
 
 ### Tela - Selecione o tamanho
 
@@ -167,7 +168,7 @@ A tela selecione o tamanho é uma extenção da tela novo produto. Nela é possi
 - `componente adicionar com um click`: x
 
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Selecione_tamanho.png" width="900">
 
 ### Tela - Adicionar ao pedido
 
@@ -177,7 +178,7 @@ A tela adicionar ao pedido é uma extenção da tela novo produto. Nela pode ser
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Adicionar%20ao%20pedido.png" width="900">
 
 ### Tela - Pagamento
 
@@ -187,7 +188,7 @@ A tela de pagamento é onde mostra o valor total dos pedido, disponibiliza tipos
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Pagamento.png" width="900">
 
 ### Tela - Informações sobre a loja (Administrador)
 
@@ -195,7 +196,7 @@ A tela de pagamento é onde mostra o valor total dos pedido, disponibiliza tipos
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Sobre_loja_admin.png" width="900">
 
 ### Tela - Informações sobre a loja
 
@@ -205,7 +206,7 @@ A tela informações sobre a loja é onde o administrador pode completar seu cad
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Informações_loja.png" width="900">
 
 ### Tela - Produtos
 
@@ -215,8 +216,8 @@ A tela produtos permite o usuário criar uma série de categorias para cadastrar
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
-<img src="" with="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_dois.png" with="900">
 
 ### Tela - Editar tamanho
 
@@ -226,7 +227,7 @@ A tela editar tamanho é uma extenção da tela produtos onde o usuário podera 
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_tamanho.png" width="900">
 
 ### Tela - Clientes
 
@@ -234,7 +235,7 @@ A tela editar tamanho é uma extenção da tela produtos onde o usuário podera 
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Clientes.png" width="900">
 
 ### Tela - Taxas de entrega
 
@@ -244,7 +245,7 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_taxas.png" width="900">
 
 ### Tela - Cardapio online
 
@@ -252,13 +253,15 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online.png" width="900">
+
 ### Tela - Relatórios login (Administrador)
 
 - `componente`:x
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_admin.png" width="900">
 
 ### Tela - Hitórico de caixa
 
@@ -266,7 +269,7 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_online.png" width="900">
 
 ### Tela - Histórico de pedidos
 
@@ -274,8 +277,8 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_pedidos.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Histórico_de_pedidos_pedidos.png" width="900">
 
 ### Tela - Produtos mais vendidos
 
@@ -283,9 +286,9 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
-<img src="" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_produtos_mais_vendidos.png" width="900">
 
-###
+### Tela - Configuração
 
 
 
