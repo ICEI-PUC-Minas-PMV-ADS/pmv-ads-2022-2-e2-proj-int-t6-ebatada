@@ -87,25 +87,37 @@ A tela permissão de administrador permite o acesso a determinadas funções ape
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_login_admin.png" width="900">
 
 ### Tela - Caixa aberto (Administrador)
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Saldo inicial`: Caixa de texto inalterável que exibi o saldo inicial;
+- `componente Observação`: Caixa de texto inalterável que exibi as observaçôes que o usuário realizou ao abrir o caixa;
+- `componente Fechar caixa`: Abre a janela de confirmação de fechamento de caixa;
+- `componente Adicionar entradas / sáidas`: Abre uma janela onde é possível adicionar entradas ou saídas ao caixa;
+- `componente Imprimir relatório`: Gera um documento imprimivel com toda a movimentação do caixa;
+- `componente Imprimir resumo`: Imprimi o resumo do caixa que pode ser visualizado em alaranjado na parte direita da tela;
+- `componente Excluir lançamento`: Abre uma janela de confirmação para excluir o lançamento(entrada ou saída) que está
+selecionado na tabela de movimentações;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_admin.png" width="900">
 
 ### Tela - Adição de entrada/saida (Administrador)
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Valor`: Caixa de texto onde é digitado o valor a ser adionado na entrada ou saída;
+- `componente Observação`: Caixa de texto onde é digitado pelo usuário qualquer observação em relação ao lançamento;
+- `componente Adicionar entrada`: Adiciona a entrada ao caixa com base nos dados digitados pelo usuário;
+- `componente Adicionar entrada`: Adiciona a saída ao caixa com base nos dados digitados pelo usuário;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_E.S.png" witdh="600">
 
 ### Tela - Deseja realmente fechar o caixa? (Administrador)
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Saldo (apenas dinheiro)`: Caixa de texto inalterável que exibi o saldo final em dinheiro no caixa;
+- `componente Saldo Final`: Caixa de texto inalterável que exibi o saldo final total no caixa, incluindo todas entradas e saídas;
+- `componente Fechar e imprimir`: Confirma o fechamento do caixa e imprimi um resumo do mesmo;
+- `componente Fechar caixa`: Confirma o fechamento do caixa;
+
+Saldo (apenas dinheiro): Caixa de texto inalterável que exibi o saldo final em dinheiro no caixa
+Saldo Final: Caixa de texto inalterável que exibi o saldo final total no caixa, incluindo todas entradas e saídas.
+Fechar e imprimir: Confirma o fechamento do caixa e imprimi um resumo do mesmo.
+Fechar caixa: Confirma o fechamento do caixa.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_F.png" witdh="600">
 
@@ -155,9 +167,12 @@ adicionar novos clientes a lista de clientes, tipo de retirada a ser feita, calc
 
 A tela novo produto é uma extenção da tela criar novo pedido. Nela é possivel realizar a adição dos produtos desejados ao pedido que esta sendo criado.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Barra de pesquisa`: Filtra os produtos de acordo com o filtro selecionado (nome ou código) e o que foi 
+digitado pelo usuário;
+- `componente Selecionar`: Abre a janela de escolha de tamanho do produto selecionado, caso o mesmo possua mais de um. Caso o 
+produto seja de tamanho único, é aberto a janela de adicionar no pedido;
+- `componente Adicionar com um click`: Caso o produto seja de tamanho único, o mesmo é adicionado ao pedido sem a 
+necessidade de nehuma confirmação;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Novo_pedidos_três.png" width="900">
 
@@ -165,8 +180,9 @@ A tela novo produto é uma extenção da tela criar novo pedido. Nela é possive
 
 A tela selecione o tamanho é uma extenção da tela novo produto. Nela é possivel realizar a seleção do tamanho de determinados produtos.
 
-- `componente adicionar com um click`: x
-
+- `componente Caixas de tamanho`: Caixas selecionáveis que exibem os tamanhos do produto;
+- `componente Selecionar`: Confirma o tamanho que foi selecionado pelo usuário e abre a janela de 
+adicionar ao pedido;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Selecione_tamanho.png" width="900">
 
