@@ -209,7 +209,7 @@ A tela informações sobre a loja é onde o administrador pode completar seu cad
 
 - `componente foto`: Botão para realizar upload de foto de perfil do estabelecimento;
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Informações_loja.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Informações_loja_corrigido.png" width="900">
 
 ### Tela - Produtos
 
@@ -241,29 +241,29 @@ e editar os já existentes.
 
 ### Tela - Taxas de entrega
 
-A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida aos pedidos podendo ser modificada a qualquer momento.
+A tela taxas de entregas é onde se atribui o valor da taxação a ser incluida aos pedidos podendo ser modificada a qualquer momento.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_taxas.png" width="900">
 
 ### Tela - Cardápio online
 
-A tela cardápio online é possivel editar a pagina de cardápio online disponivel na internet;
+A tela cardápio online é possivel editar a pagina de cardápio disponivel na internet.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online_configuração.png" width="900">
 
-### Tela - Hitórico de caixa
+### Tela - Histórico de caixa
 
-Tela que lista em forma de tabela todos os caixas que foram abertos e fechados no sistema, sendo possível filtrá-las por período ou até mesmo visualizar os detalhes de cada caixa. 
+A tela histórico de caixa lista em forma de tabela todos os caixas que foram abertos e fechados no sistema, sendo possível filtrá-las por período ou até mesmo visualizar os detalhes de cada caixa. 
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_online.png" width="900">
 
 ### Tela - Histórico de pedidos
 
-Tela que lista em forma de tabela todos os pedidos que foram feitos no sistema, sendo possível filtrá-los por período ou até mesmo visualizar os detalhes de cada cada um.
+A teela histórico de pedidos lista em forma de tabela todos os pedidos que foram feitos no sistema, sendo possível filtrá-los por período ou até mesmo visualizar os detalhes de cada cada um.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_pedidos.png" width="900">
 
-### Tela - relatório de pedidos
+### Tela - Relatório de pedidos
 
 A tela Relatório de pedidos exibi os detalhes do pedido que foi selecionado na tela de “Histórico de Pedidos”. Nela é possível visualizar os produtos daquele pedido, os detalhes do pagamento, o cliente que realizou o pedido, dentre outros.
 
@@ -271,7 +271,7 @@ A tela Relatório de pedidos exibi os detalhes do pedido que foi selecionado na 
 
 ### Tela - Produtos mais vendidos
 
-A tela Relatório_pedidos2 exibi os produtos mais vendidos em um determinado período de tempo que é determinado pelo usuário. A exibição é feita através de uma tabela, e os produtos podem ser filtrados através de uma barra de pesquisa.  
+A tela Relatório de pedidos exibi os produtos mais vendidos em um determinado período de tempo que é determinado pelo usuário. A exibição é feita através de uma tabela, e os produtos podem ser filtrados através de uma barra de pesquisa.  
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_produtos_mais_vendidos.png" width="900">
 
@@ -285,7 +285,7 @@ A tela logins administrativos é possivel cadastrar novos usuários sem a necess
 
 A tela de impressora é onde os pedidos são impressos. É possivel anexar varias impressoras modificar tipos de impressão, tamanho da folha dentre outras funcionalidades.
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/impresora_config.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Impressora%20corrigido.png" width="900">
 
 
 
