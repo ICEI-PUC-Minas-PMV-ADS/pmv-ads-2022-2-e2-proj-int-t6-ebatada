@@ -190,9 +190,11 @@ adicionar ao pedido;
 
 A tela adicionar ao pedido é uma extenção da tela novo produto. Nela pode ser feito a adição de complementos a certos pedidos.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Botões Radio (seleção única)`: Exibi os tamanhos do produto e permite a troca do mesmo;
+- `componente Personalizar Meio a Meio`: Abre uma janela para que o usuário escolha os sabores que irão compor
+o meio a meio;
+- `componente Observação personalizada`: Abre uma caixa de texto em que o usuário pode digitar uma observção personalizada 
+para ser adicionada ao produto;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Adicionar%20ao%20pedido.png" width="900">
 
@@ -200,9 +202,8 @@ A tela adicionar ao pedido é uma extenção da tela novo produto. Nela pode ser
 
 A tela de pagamento é onde mostra o valor total dos pedido, disponibiliza tipos de pagamento e possibilita a efetivação do pagamento.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Formas de pagamentos`: Abre uma janela de acordo com a forma de pagamento selecionada, onde o usuário digita a quantia que será ou foi paga pelo cliente;
+- `componente Taxas e descontos`: Abre uma janela que mediante a permissão de um administrador  permite a adição de taxas ou descontos ao pagamento;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Pagamento.png" width="900">
 
@@ -220,9 +221,9 @@ A tela informações sobre a loja é onde o administrador pode completar seu cad
 
 A tela produtos permite o usuário criar uma série de categorias para cadastrar produtos que serão usados em futuras criações de pedidos, podendo classificar os produtos por tamanho, tipo e preço.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Categorias de produtos`: Menus em estilo cascata que separam os produtos por tipo e permite a visualização, criação e exclusão dos mesmos;
+- `componente Adicionar categoria`: Menu em estilo cascata que permite a criação de uma nova categoria/tipo de produtos;
+- `componente Botão de editar`: Abre uma janela onde é possível editar os tamanhos;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos.png" width="900">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_dois.png" with="600">
@@ -231,17 +232,18 @@ A tela produtos permite o usuário criar uma série de categorias para cadastrar
 
 A tela editar tamanho é uma extenção da tela produtos onde o usuário podera editar, dividir e atribuir valor a frações do pedido.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente Descrição do tamanho`: Caixa de texto onde o usuário digita o nome/descrição do tamanho a ser editado;
+- `componente Meio a meio`: Aba onde é possível alterar as configurações de ‘meio a meio’ com vários sabores. Ao marcar a checkbox,
+produtos com aquele tamanho ficam disponíveis na tela “Adicionar ao pedido” para personalização de meio a meio;
+- `componente Cobrar pelo meio a meio`: Configura uma taxa de serviço que é adicionada ao valor do pedido caso o ‘meio a meio’ com produtos
+daquele determinado tamanho feito;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_tamanho.png" width="900">
 
 ### Tela - Clientes
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+Tela que lista todos os clientes cadastrados no sistema em forma de tabela. Nela também é possível criar novos clientes
+e editar os já existentes. 
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Clientes.png" width="900">
 
@@ -255,8 +257,9 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_taxas.png" width="900">
 
-### Tela - Cardapio online
+### Tela - Cardápio online
 
+A tela cardápio online é possivel editar a pagina de cardápio online
 - `componente`:x
 - `componente`:x
 - `componente`:x
@@ -265,6 +268,8 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 
 
 ### Tela - Hitórico de caixa
+
+Tela que lista em forma de tabela todos os caixas que foram abertos e fechados no sistema, sendo possível filtrá-las por período ou até mesmo visualizar os detalhes de cada caixa. 
 
 - `componente`:x
 - `componente`:x
