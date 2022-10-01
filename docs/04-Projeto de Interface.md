@@ -167,12 +167,9 @@ adicionar novos clientes a lista de clientes, tipo de retirada a ser feita, calc
 
 A tela novo produto é uma extenção da tela criar novo pedido. Nela é possivel realizar a adição dos produtos desejados ao pedido que esta sendo criado.
 
-- `componente Barra de pesquisa`: Filtra os produtos de acordo com o filtro selecionado (nome ou código) e o que foi 
-digitado pelo usuário;
-- `componente Selecionar`: Abre a janela de escolha de tamanho do produto selecionado, caso o mesmo possua mais de um. Caso o 
-produto seja de tamanho único, é aberto a janela de adicionar no pedido;
-- `componente Adicionar com um click`: Caso o produto seja de tamanho único, o mesmo é adicionado ao pedido sem a 
-necessidade de nehuma confirmação;
+- `componente Barra de pesquisa`: Filtra os produtos de acordo com o filtro selecionado (nome ou código) e o que foi digitado pelo usuário;
+- `componente Adicionar com um click`: Caso o produto seja de tamanho único, o mesmo é adicionado ao pedido sem a necessidade de nehuma confirmação;
+- `componente Selecionar`: Abre a janela de escolha de tamanho do produto selecionado, caso o mesmo possua mais de um. Caso o produto seja de tamanho único, é aberto a janela de adicionar no pedido;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Novo_pedidos_três.png" width="900">
 
@@ -191,8 +188,7 @@ adicionar ao pedido;
 A tela adicionar ao pedido é uma extenção da tela novo produto. Nela pode ser feito a adição de complementos a certos pedidos.
 
 - `componente Botões Radio (seleção única)`: Exibi os tamanhos do produto e permite a troca do mesmo;
-- `componente Personalizar Meio a Meio`: Abre uma janela para que o usuário escolha os sabores que irão compor
-o meio a meio;
+- `componente Personalizar Meio a Meio`: Abre uma janela para que o usuário escolha os sabores que irão compor o meio a meio;
 - `componente Observação personalizada`: Abre uma caixa de texto em que o usuário pode digitar uma observção personalizada 
 para ser adicionada ao produto;
 
@@ -211,9 +207,7 @@ A tela de pagamento é onde mostra o valor total dos pedido, disponibiliza tipos
 
 A tela informações sobre a loja é onde o administrador pode completar seu cadastro com informações adicionais sobre o seu estabelicimento.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+- `componente foto`: Botão para realizar upload de foto de perfil do estabelecimento;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Informações_loja.png" width="900">
 
@@ -233,10 +227,8 @@ A tela produtos permite o usuário criar uma série de categorias para cadastrar
 A tela editar tamanho é uma extenção da tela produtos onde o usuário podera editar, dividir e atribuir valor a frações do pedido.
 
 - `componente Descrição do tamanho`: Caixa de texto onde o usuário digita o nome/descrição do tamanho a ser editado;
-- `componente Meio a meio`: Aba onde é possível alterar as configurações de ‘meio a meio’ com vários sabores. Ao marcar a checkbox,
-produtos com aquele tamanho ficam disponíveis na tela “Adicionar ao pedido” para personalização de meio a meio;
-- `componente Cobrar pelo meio a meio`: Configura uma taxa de serviço que é adicionada ao valor do pedido caso o ‘meio a meio’ com produtos
-daquele determinado tamanho feito;
+- `componente Meio a meio`: Aba onde é possível alterar as configurações de ‘meio a meio’ com vários sabores. Ao marcar a checkbox, produtos com aquele tamanho ficam disponíveis na tela “Adicionar ao pedido” para personalização de meio a meio;
+- `componente Cobrar pelo meio a meio`: Configura uma taxa de serviço que é adicionada ao valor do pedido caso o ‘meio a meio’ com produtos daquele determinado tamanho feito;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_tamanho.png" width="900">
 
@@ -251,54 +243,47 @@ e editar os já existentes.
 
 A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida aos pedidos podendo ser modificada a qualquer momento.
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
-
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_taxas.png" width="900">
 
 ### Tela - Cardápio online
 
-A tela cardápio online é possivel editar a pagina de cardápio online
-- `componente`:x
-- `componente`:x
-- `componente`:x
+A tela cardápio online é possivel editar a pagina de cardápio online disponivel na internet;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online_configuração.png" width="900">
-
 
 ### Tela - Hitórico de caixa
 
 Tela que lista em forma de tabela todos os caixas que foram abertos e fechados no sistema, sendo possível filtrá-las por período ou até mesmo visualizar os detalhes de cada caixa. 
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
-
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_online.png" width="900">
 
 ### Tela - Histórico de pedidos
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+Tela que lista em forma de tabela todos os pedidos que foram feitos no sistema, sendo possível filtrá-los por período ou até mesmo visualizar os detalhes de cada cada um.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_pedidos.png" width="900">
+
+### Tela - relatório de pedidos
+
+A tela Relatório de pedidos exibi os detalhes do pedido que foi selecionado na tela de “Histórico de Pedidos”. Nela é possível visualizar os produtos daquele pedido, os detalhes do pagamento, o cliente que realizou o pedido, dentre outros.
+
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Histórico_de_pedidos_pedidos.png" width="900">
 
 ### Tela - Produtos mais vendidos
 
-- `componente`:x
-- `componente`:x
-- `componente`:x
+A tela Relatório_pedidos2 exibi os produtos mais vendidos em um determinado período de tempo que é determinado pelo usuário. A exibição é feita através de uma tabela, e os produtos podem ser filtrados através de uma barra de pesquisa.  
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_produtos_mais_vendidos.png" width="900">
 
 ### Tela - Logins Administrativos
 
+A tela logins administrativos é possivel cadastrar novos usuários sem a necessidade de criar uma nova conta vinculada ao email.   
+
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/login_config.png" width="900">
 
 ### Tela - Impressora
+
+A tela de impressora é onde os pedidos são impressos. É possivel anexar varias impressoras modificar tipos de impressão, tamanho da folha dentre outras funcionalidades.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/impresora_config.png" width="900">
 
