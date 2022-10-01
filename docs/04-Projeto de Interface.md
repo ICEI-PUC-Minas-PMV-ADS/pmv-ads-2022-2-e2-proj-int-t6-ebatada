@@ -80,9 +80,9 @@ tera acesso a funções extras.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto.png" width="900">
 
-### Tela - Caixa aberto (Login administrador)
+### Tela - Login administrador
 
-A tela permissão de administrador permite o acesso a determinadas funções apenas ao administrado com acesso mediante somente com login e senha.
+A tela permissão de administrador permite o acesso a determinadas funções apenas ao administrador com acesso mediante somente com login e senha.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_login_admin.png" width="900">
 
@@ -206,14 +206,6 @@ A tela de pagamento é onde mostra o valor total dos pedido, disponibiliza tipos
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Pagamento.png" width="900">
 
-### Tela - Informações sobre a loja (Administrador)
-
-- `componente`:x
-- `componente`:x
-- `componente`:x
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Sobre_loja_admin.png" width="900">
-
 ### Tela - Informações sobre a loja
 
 A tela informações sobre a loja é onde o administrador pode completar seu cadastro com informações adicionais sobre o seu estabelicimento.
@@ -271,13 +263,6 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online.png" width="900">
 
-### Tela - Relatórios login (Administrador)
-
-- `componente`:x
-- `componente`:x
-- `componente`:x
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_admin.png" width="900">
 
 ### Tela - Hitórico de caixa
 
@@ -303,9 +288,6 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_produtos_mais_vendidos.png" width="900">
-
-### Tela - Configuração (Administrador)
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Config_admin.png" width="900">
 
 ### Tela - Logins Administrativos
 
