@@ -277,7 +277,7 @@ A tela Relatório de pedidos exibi os produtos mais vendidos em um determinado p
 
 ### Tela - Logins Administrativos
 
-A tela logins administrativos é possivel cadastrar novos usuários sem a necessidade de criar uma nova conta vinculada ao email.   
+A tela logins administrativos é possivel cadastrar novos usuários sem a necessidade de criar uma nova conta vinculada ao email. Permitindo criar e editar usuários que tem acesso as funcionalidades administrativas do sistema.   
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/login_config.png" width="900">
 
