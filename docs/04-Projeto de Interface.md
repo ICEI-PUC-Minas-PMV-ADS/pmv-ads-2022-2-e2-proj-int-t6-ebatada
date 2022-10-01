@@ -261,7 +261,7 @@ A tela taxa de entregas é onde se atribui o valor da taxação a ser incluida a
 - `componente`:x
 - `componente`:x
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online_configuração.png" width="900">
 
 
 ### Tela - Hitórico de caixa
