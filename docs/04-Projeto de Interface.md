@@ -220,7 +220,7 @@ A tela produtos permite o usuário criar uma série de categorias para cadastrar
 - `componente Botão de editar`: Abre uma janela onde é possível editar os tamanhos;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_corrigido.png" width="900">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_dois.png" with="600">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_corrigido_dois.png" with="600">
 
 ### Tela - Editar tamanho
 
