@@ -45,6 +45,8 @@ Recursos: esta lista mantém template de tarefas recorrentes com as configuraç�
 
 Backlog: recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
 
+- **Backlog**: recebe  as  tarefas  a  serem  trabalhadas  e  representa  o  Product  Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
+
 - **To Do**: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
 
 - **Doing**: Quando uma tarefa tiver sido iniciada, ela é movida para cá.
