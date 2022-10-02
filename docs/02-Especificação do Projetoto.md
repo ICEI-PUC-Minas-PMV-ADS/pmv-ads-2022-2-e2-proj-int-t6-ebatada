@@ -163,7 +163,6 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 |Filipe Fidelis      | Visualizar pedidos realizados no dia                               | Consultas posteriores                                               |  
 |Filipe Fidelis      | O restaurante cadastrar e alterar produtos e valores do cardápio online | personalização                                                 |
 |Filipe Fidelis      | O restaurante alterar as imagens e cores do cardápio online        | personalização                                                      |
-|Filipe Fidelis      | Clientes realizarem pedidos no cardápio online somente quando o restaurante estiver aberto | evitar transtornos                          |
 |Filipe Fidelis      | O cardápio online deve ser integrado ao sistema de gestão          | facilitar a produção                                                |   
 |Filipe Fidelis      | Visualizar os produtos mais vendidos                               | obter feedback                                                      |
 |Filipe Fidelis      | Visualizar a quantidade de pedidos de cada cliente                 | obter feedback                                                      |
@@ -175,11 +174,10 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 |Filipe Fidelis      | Visualizar histórico de caixa                                      | consultar todas as movimentações                                    |
 |Filipe Fidelis      | Ter um sistema de login                                        | que os funcionários não tenham acesso a funcionalidades administrativas |
 |Filipe Fidelis      | Visualizar histórico de caixa para consultar todas as movimentações Opção de dar desconto ou cobrar taxas mediante a um login administrativo | facilitar no ato da venda e obter melhor controle administrativo e financeiro | 
-|Joice Santos        | Cardápio online onde os consumidores poderão realizar pedidos      | automatizar o atendimento                                           |
-|Joice Santos        | Clientes realizarem seu próprio cadastro no cardápio online        | facilitar futuros pedidos                                           |
-|Joice Santos        | Clientes visualizarem seus históricos de pedidos                   | consultá-los posteriormente                                         |
-|Joice Santos        | Clientes visualizarem a situação do seu pedido                     | obter feedbacks                                                     |
-|Joice Santos        | Clientes terem a opção de realizar o pagamento online ou no ato da entrega | facilitar o atendimento                                     |
+|Joice Santos        | Cardápio online onde posso visualizar os produtos                    | facilitar a visualização dos produtos                               |
+|Joice Santos        | Criar um carrinho com os produtos do cardápio online                 | agilizar na hora de fazer o pedido                                  |
+|Joice Santos        | Compartilhar com o restaurante o meu carrinho via whatsapp           | agilizar na hora de fazer o pedido                                  |
+
 
 
 
@@ -205,24 +203,23 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-08| A página de gestão da loja deve permitir cobrar taxas ou dar descontos no ato da venda mediante a acesso administrativo. |Médio
 |RF-09| A página de gestão da loja deve permitir pré-cadastrar taxas de entrega para usá-las no ato da venda. |Médio
 |RF-10| A página de gestão da loja deve permitir visualizar o histórico de caixa mediante o acesso administrativo. |Médio
-|RF-11| A página do cardápio online deve permitir ao cliente dar gorjeta na efetivação do pagamento. |Baixo
-|RF-12| A página de gestão da loja deve permitir criar um cardápio online personalizado onde os clientes possam realizar pedidos. |Alto
-|RF-13| A página do cardápio online deve permitir que os clientes se cadastrem. |Médio
-|RF-14| A página do cardápio online deve permitir aos clientes visualizarem seu histórico de pedidos. |Médio
+|RF-11| Para acessar o sistema, o usuário deve fornecer o login de seu restaurante, bem como poder cadastrar um novo. |Alto
+|RF-12| A página de gestão da loja deve permitir criar um cardápio online personalizado onde os clientes possam visualizar os produtos |Alto
+|RF-13| O sistema deve permitir que o usuário recupere a senha do login do restaurante, mediante a uma confirmação de autenticidade por email. | Alto
+|RF-14| A página de gestão da loja deve permitir alterar as informações da empresa, como foto, nome fantasia e CNPJ. | Médio 
 |RF-15| O sistema deve integrar o cardápio online à página de gestão da loja. |Alto
-|RF-16| A página de gestão da loja deve comunicar com o cardápio online a situação do pedido do cliente. |Médio
-|RF-17| A página do cardápio online deve permitir que o cliente avalie os pedidos e atendimento. |Baixo
+|RF-16| A página do cardápio online deve permitir que o cliente crie um carrinho | Médio 
+|RF-17| O carrinho do cardápio online deve gerar um bloco de texto com o pedido do cliente, e dar a opção de poder compartilhar o mesmo via Whatsapp. | Médio
 |RF-18| A página de gestão da loja deve permitir cadastrar e alterar produtos e valores do cardápio online. |Alto
 |RF-19| A página de gestão da loja deve permitir alterar as imagens e cores do cardápio online. |Baixo
-|RF-20| O sistema deve permitir cadastrar opções de complementação pré-definidas aos produtos. |Alto
+|RF-20| O sistema deve permitir cadastrar opções de complementação pré-definidas aos produtos que posteriormente podem ser acessados no ato de criação do pedido.| Alto
 |RF-21| A página de gestão da loja deve possuir a opção de criar/modificar/excluir o cadastro do cliente no ato de criação de pedido. |Alto
 |RF-22| O sistema deve permitir a adição de comentários/observações aos pedidos para a personalização dos mesmos. |Média
-|RF-23| A página de gestão da loja deve permitir abrir e fechar (ligar e desligar) o cardápio online. |Alta
 |RF-24| A página de gestão da loja deve possuir login com diferentes níveis de permissões para administradores e funcionários. |Alto
 |RF-25| A página de gestão da loja deve permitir a visualização do histórico de pedidos mediante a acesso administrativo. |Baixo
 |RF-26| A página de gestão da loja deve permitir a visualização do histórico de pedidos feitos pelo cliente mediante o acesso administrativo. |Baixo
 |RF-27| A página de gestão da loja deve permitir a impressão de pedidos. |Médio
-|RF-28| A página de gestão da loja deve permitir a visualização de pedidos realizados no dia. |Médio
+|RF-28| A página de gestão da loja deve permitir a visualização de pedidos realizados no dia, bem como possibilitar a reedição dos mesmos. |Médio
 |RF-29| A página de gestão da loja deve permitir a opção de realização dos pedidos apenas com nome e número de telefone. |Alta.
 
 ### Requisitos não Funcionais
