@@ -244,6 +244,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
  
  ## Diagramas de Casos de Uso
  
-![image](https://user-images.githubusercontent.com/80654018/193447889-2bbfec90-6185-41f6-8919-11f1bda0d54c.png)
+![WhatsApp Image 2022-09-29 at 15 18 00](https://user-images.githubusercontent.com/98955531/193478194-627b6149-41d5-4c0a-bba2-8a589db432f0.jpeg)
+
 
 
