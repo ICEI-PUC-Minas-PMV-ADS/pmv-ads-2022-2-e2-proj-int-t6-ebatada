@@ -1,31 +1,31 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+<span style="color:red">Pré-requisitos: <a href="02-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
 Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
 
-## Controle de Versão
+## Relação de Ambientes de Trabalho
 
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório.
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos 
+ambientes com seu respectivo propósito é apresentada na tabela que se segue.
 
-O projeto segue a seguinte convenção para o nome de branches:
+|Ambiente                         |Plataforma e Link de Acesso                                                                                |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------|
+|Repositório de código fonte      |[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata)          |
+|Documentos do projeto            |[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata)          |
+|Projeto de Interface             |[Figma](https://www.figma.com/file/jJy3yx68H78VreGmsXI07a/userflow-eBatata)                      |
+|Wireframes                       |[Figma](https://www.figma.com/file/kLLoy6ks4U78nZB4u0Rzsm/eBatata-wireframes?node-id=0%3A1)                     |
+|Gerenciamento do Projeto         |[Trello](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/161/views/1)                                                            |
 
-- `main`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
-- `dev`: versão de desenvolvimento do software
+## Gestão de código fonte
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
-etiquetas:
+Para  gestão  do  código  fonte  do  software  desenvolvido  pela  equipe,  o  grupo  utiliza  um 
+processo  baseado  no  Git  Flow  abordado  por  Vietro  (2015),  mostrado  na  Figura  a  seguir. 
+Desta  forma,  todas  as  manutenções  no  código  são  realizadas  em  branches  separados, 
+identificados  como  Hotfix,  Release,  Develop  e  Feature.
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
-
+![Gestão de código fonte](img/gestao_de_codigo_fonte.jpg)
 ## Gerenciamento de Projeto
 
 ### Divisão de Papéis
