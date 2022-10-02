@@ -1,6 +1,6 @@
 ##  Plano de teste de usabilidade
 ###  System Usability Scale (SUS)
-O método de avaliação escolhido para testar a usabilidade do sistema foi o System Usability Scale (SUS), que proposto por John Brooke em 1986. Trata-se de um questionário com 10 questões em escala Likert aplicado após o usuário usar o sistema ou conhecer como ele funciona. Ele possui um método de cálculo da pontuação de forma normalizada. Entre suas vantagens está o fato de ser cientificamente apurado e não ser longo. 
+O método de avaliação escolhido para testar a usabilidade do sistema foi o System Usability Scale (SUS), que foi proposto por John Brooke em 1986. Trata-se de um questionário com 10 questões em escala Likert aplicado após o usuário usar o sistema ou conhecer como ele funciona. Ele possui um método de cálculo da pontuação de forma normalizada. Entre suas vantagens está o fato de ser cientificamente apurado e não ser longo. 
 <br>
 O questionário será aplicado aos usuário através da ferramente `Google Forms`, como apresentado nas imagens a seguir:
 <br><br>
