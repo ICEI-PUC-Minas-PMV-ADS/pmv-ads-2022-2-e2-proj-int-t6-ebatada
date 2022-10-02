@@ -16,7 +16,7 @@ ambientes com seu respectivo propósito é apresentada na tabela que se segue.
 |Documentos do projeto            |[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata)          |
 |Projeto de Interface             |[Figma](https://www.figma.com/file/jJy3yx68H78VreGmsXI07a/userflow-eBatata)                      |
 |Wireframes                       |[Figma](https://www.figma.com/file/kLLoy6ks4U78nZB4u0Rzsm/eBatata-wireframes?node-id=0%3A1)                     |
-|Gerenciamento do Projeto         |[Trello](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/161/views/1)                                                            |
+|Gerenciamento do Projeto         |[GitHub](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/161/views/1)                                                            |
 
 ## Gestão de código fonte
 
@@ -49,11 +49,12 @@ Backlog: recebe as tarefas a serem trabalhadas e representa o Product Backlog. T
 
 - **Doing**: Quando uma tarefa tiver sido iniciada, ela é movida para cá.
 
-- **Test**: Checagem de Qualidade. Quando as tarefas são concluídas, eles são movidas para o “CQ”. 
+- **Check**: Checagem de Qualidade. Quando as tarefas são concluídas, eles são movidas para o “CQ”. 
 
 - **Done**: Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
-- **Locked**: Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/bba72c8f986307fce6ca5023849d5327b0cf3ee4/docs/img/Backlog.png">
+
 
 ### Ferramentas
 As ferramentas empregadas no projeto são:
