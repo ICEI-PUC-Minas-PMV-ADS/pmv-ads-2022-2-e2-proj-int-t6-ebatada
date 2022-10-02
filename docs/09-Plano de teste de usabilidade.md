@@ -15,7 +15,7 @@ O questionário será aplicado aos usuário através da ferramente `Google Forms
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/8.png" width="500">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/9.png" width="500">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/10.png" width="500">
-<br>
+
 
 ## Cálculo da Pontuação
 Primeiro faz-se a conversão:
