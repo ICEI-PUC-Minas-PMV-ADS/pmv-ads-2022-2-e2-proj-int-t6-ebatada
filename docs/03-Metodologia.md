@@ -32,7 +32,7 @@ identificados  como  Hotfix,  Release,  Develop  e  Feature.
 
 A equipe está organizada da seguinte maneira:
 
-- **Scrum Master**: Eduardo Lobo
+- **Scrum Master**: João Lucas
 
 - **Product Owner**: João Lucas
 
