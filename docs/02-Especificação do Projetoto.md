@@ -247,5 +247,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
  
  ## Diagramas de Casos de Uso
  
-![image](https://user-images.githubusercontent.com/80654018/189504482-d35f7222-8ba6-4e78-8dad-8893acf9dec1.png)
+![4fdccb56-73e2-4626-a83e-cc63f4e8a906](https://user-images.githubusercontent.com/80654018/193447783-c9c81827-aad5-438a-95a9-844eb1e8fddc.jpg)
+
 
