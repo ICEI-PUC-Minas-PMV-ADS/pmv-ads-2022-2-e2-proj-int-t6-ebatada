@@ -1,13 +1,7 @@
 ### - Plano de teste de usabilidade
-
-Cálculo da Pontuação
-Primeiro faz-se a conversão:
-- Para itens ímpares (1, 3, 5, 7, 9) subtraia 1 da pontuação que o usuário respondeu.
-- Para itens pares (2 , 4, 6, 8, 10) subtraia a resposta do usuário de 5.
-
-Por fim, some todos os valores das 10 respostas convertidas e multiplique por 2.5. Essa é a pontuação final, que pode ir de 0 a 100. 
-
-Esse é o procedimento para as respostas de 1 usuário participante da avaliação. Idealmente, deve-se fazer isso para mais de um usuário e fazer a média do valor final. O valor de referência para análise do resultado final é 68 pontos, que é um valor obtido como típico em avaliação com mais de 400 produtos. Um resultado final abaixo de 50 é um sinal de que problemas de usabilidade podem levar ao insucesso do sistema.
+## - System Usability Scale (SUS)
+O método de avaliação escolhido para testar a usabilidade do sistema foi o System Usability Scale (SUS), que proposto por John Brooke em 1986. Trata-se de um questionário com 10 questões em escala Likert aplicado após o usuário usar o sistema ou conhecer como ele funciona. Ele possui um método de cálculo da pontuação de forma normalizada. Entre suas vantagens está o fato de ser cientificamente apurado e não ser longo. 
+O questionário será aplicado aos usuário através da ferramente **Google Forms**, como apresentado nas imagens a seguir:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/1.png" width="500">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/2.png" width="500">
@@ -19,3 +13,12 @@ Esse é o procedimento para as respostas de 1 usuário participante da avaliaç�
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/8.png" width="500">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/9.png" width="500">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/testeuser/10.png" width="500">
+
+## Cálculo da Pontuação
+Primeiro faz-se a conversão:
+**Para itens ímpares (1, 3, 5, 7, 9) subtraia 1 da pontuação que o usuário respondeu.**
+**Para itens pares (2 , 4, 6, 8, 10) subtraia a resposta do usuário de 5.**
+
+**Por fim, some todos os valores das 10 respostas convertidas e multiplique por 2.5. Essa é a pontuação final, que pode ir de 0 a 100.** 
+
+Esse é o procedimento para as respostas de 1 usuário participante da avaliação. Idealmente, deve-se fazer isso para mais de um usuário e fazer a média do valor final. O valor de referência para análise do resultado final é **68 pontos**, que é um valor obtido como típico em avaliação com mais de 400 produtos. Um resultado final abaixo de 50 é um sinal de que problemas de usabilidade podem levar ao insucesso do sistema.
