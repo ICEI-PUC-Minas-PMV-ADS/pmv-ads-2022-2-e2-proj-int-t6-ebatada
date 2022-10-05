@@ -36,7 +36,7 @@ A equipe está organizada da seguinte maneira:
 
 - **Product Owner**: João Lucas
 
-- **Equipe de Desenvolvimento**: Leticia Isabela, Jessica Serqueira, Carlos, Eduardo Lobo, João Lucas
+- **Equipe de Desenvolvimento**: Leticia Isabela, Jessica Serqueira, Eduardo Lobo, João Lucas
 
 - **Equipe de Design**: Eduardo Lobo, João Lucas
 
