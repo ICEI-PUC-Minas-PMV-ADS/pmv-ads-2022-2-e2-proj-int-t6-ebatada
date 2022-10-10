@@ -40,7 +40,6 @@ body::-webkit-scrollbar-thumb {
 .left-navbar.active .top-navbar{
   padding-left: 12rem;
   transition: var(--transition-speed);
-  
 }
 #ebatata{
   color: #CB6E00; 
@@ -70,7 +69,6 @@ body::-webkit-scrollbar-thumb {
 .nav-item {
   width: 100%;
 }
-
 .nav-logo {
   display: flex;
   align-items: center;
@@ -91,7 +89,6 @@ body::-webkit-scrollbar-thumb {
   text-decoration: none;
   filter: grayscale(100%) opacity(1);
 }
-
 .nav-link:hover {
   filter: grayscale(0%) opacity(1);
   background: var(--bg-secondary);
@@ -113,24 +110,23 @@ body::-webkit-scrollbar-thumb {
   width: 2rem;
   margin-left: 1.5rem;
 }
-
 .seta-minhaloja,.seta-relatorios,.seta-configuracoes{
-  display: none;
+  visibility: hidden;
   width: 1rem;
   position: absolute;
   left: 3rem;
   }
-  .seta-minhaloja.active,.seta-relatorios.active,.seta-configuracoes.active{
-  display: block;
+.seta-minhaloja.active,.seta-relatorios.active,.seta-configuracoes.active{
+ visibility: visible;
   width: 1rem;
   position: absolute;
   left: 14rem;
   transition: var(--transition-speed);
   }
-.seta-minhaloja.active{
+.seta-minhaloja.open,.seta-relatorios.open,.seta-configuracoes.open{
   transform: rotate(-180deg);
-}
-  
+  transition: var(--transition-speed);
+} 
 .fa-primary {
   color: #CB6E00;
   transition: var(--transition-speed);
@@ -146,14 +142,12 @@ body::-webkit-scrollbar-thumb {
   letter-spacing: 0.3ch;
   width: 100%;
 }
-
 .logo svg {
   width: 2rem;
   margin-left: 1.5rem;
   transform: rotate(0deg);
   transition: var(--transition-speed);
 }
-
 .logo-text
 {
   display: inline;
@@ -161,7 +155,6 @@ body::-webkit-scrollbar-thumb {
   left: -500px;
   transition: var(--transition-speed);
 }
-
 .left-navbar.active .logo svg {
   transform: rotate(-180deg);
 }
@@ -188,7 +181,6 @@ body::-webkit-scrollbar-thumb {
   filter: grayscale(100%) opacity(1);
   padding-left: 30px;
 }
-
 .subnav-link:hover {
   filter: grayscale(0%) opacity(1);
   background: var(--text-secondary);
@@ -199,7 +191,6 @@ body::-webkit-scrollbar-thumb {
   background: var(--text-secondary);
   color: white;
 }
-
 /* Small screens */
 @media only screen and (max-width: 600px) {
   .left-navbar {
@@ -207,24 +198,19 @@ body::-webkit-scrollbar-thumb {
     width: 100vw;
     height: 5rem;
   }
-
   .logo {
     display: none;
   }
-
   .navbar-nav {
     flex-direction: row;
   }
-
   .nav-link {
     justify-content: center;
   }
-
   main {
     margin: 0;
   }
 }
-
 /* Large screens */
 @media only screen and (min-width: 600px) {
   .left-navbar {
@@ -232,22 +218,18 @@ body::-webkit-scrollbar-thumb {
     width: 5rem;
     height: 100vh;
   }
-
   .left-navbar.active {
     width: 16rem;
   }
-
   .left-navbar.active .link-text {
     opacity: 1;
     left: 70px;
     font-size: 1rem;
   }
-
   .left-navbar.active .logo svg
   {
     margin-left: 11rem;
   }
-
   .left-navbar.active .logo-text
   {
     left: 20px;
