@@ -12,15 +12,18 @@ class NavBar {
     this.minhaLoja = document.querySelector(".subnav-minhaloja");
     this.relatorios = document.querySelector(".subnav-relatorios");
     this.configuracoes = document.querySelector(".subnav-configuracoes");
+    this.conteudo = document.querySelector('.conteudo')
   }
   abrirNavBar() {
     this.navBar.classList.add('active');
+    this.conteudo.classList.add('nav-ativa');
     this.ativasSetas();
     this.ativarPaginaAtual();
     this.setaAberta();
   }
   fecharNavBar() {
     this.navBar.classList.remove('active');
+    this.conteudo.classList.remove('nav-ativa');
     this.desativarSetas();
     this.fecharSubNavManual();
   }
@@ -38,7 +41,7 @@ class NavBar {
     if (this.navBar.classList.contains('active') == true)
       this.subNav.classList.add('active');
     else {
-      this.navBar.classList.add('active');
+      this.abrirNavBar();
       this.subNav.classList.add('active');
       this.ativasSetas();
     }
