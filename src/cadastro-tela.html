@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/registro.css">
 </head>
+
 <body>
     <div class="center">
-        <h1>Bem vindo ao éBatata!</h1>
-        <h2>Seu gerenciador de pedidos!</h2>
+        <h1>Cadastrar-se</h1>
+        
         <form method="post">
             <div class="txt_field">
                 <input type="text" required>
                 <span></span>
-                <label>Email</label>
+                <label>Nome do estabelecimento</label>
 
+            </div>
+            <div class="txt_field">
+                <input type="number" required>
+                <span></span>
+                <label>CNPJ</label>
+                
+            </div>
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>email</label>
+                
             </div>
             <div class="txt_field">
                 <input type="password" required>
@@ -24,16 +37,16 @@
                 <label>Senha</label>
                 
             </div>
-            <div class="pass">Esqueci minha senha:(</div>
+            
             <input type="submit" value="Entrar">
-            <div class="singnup_link">
-               Deseja cadastrar sua empresa? <a href="cadastro-tela.html">Cadastre-se</a>
-            </div>
+            
         </form>
 
 
     </div>
-    <script href="js/valid.js"></script>
     
+    
+    <script href="js/register.js"></script>
+
 </body>
 </html>
