@@ -350,6 +350,7 @@
     </div>
 
     <div class="primeiro-fade"></div>
+    <div class="fade-novocliente"></div>
     <div class="novo-pedido">
 
       <div class="titulo-novo">
@@ -363,13 +364,33 @@
         <div class="numero-pedido">
           <h4>Pedido Nº0</h4>
           <p>Número Personalizado: 00</p>
-
+          <div id="tempo-pedido">
+            <img src="/src/imgs/clock-white.svg" alt="Relógio">
+            <p>00h00min</p>
+          </div>
+          <button class="botao-excluir">
+            <img src="/src/imgs/lixo-white.svg" alt="Lixo">
+            <p>Excluir</p>
+          </button>
 
         </div>
         <div class="tipos-pedido">
-
+          <h4>Tipo de pedido:</h4>
+          <div class="wrapper">
+            <input type="radio" name="select" id="option-1" checked>
+            <input type="radio" name="select" id="option-2">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>Delivery</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Retirada no Balcão</span>
+            </label>
+          </div>
         </div>
         <div class="taxa-entrega">
+
 
         </div>
         <div class="produtos-pedido">
@@ -379,6 +400,74 @@
 
         </div>
         <div class="cliente-pedido">
+          <div id="nome-cliente">
+            <h4>Cliente</h4>
+            <h4>(Nenhum cliente selecionado)</h4>
+          </div>
+          <div class="pesquisa-cliente">
+            <img src="/src/imgs/search-orange.svg" id="icone-lupa" alt="Lupa">
+            <input type="text" class="texto-busca" placeholder="Buscar cliente por telefone" />
+          </div>
+          <div id="container-encontrados">
+            <div class="cliente-encontrado">
+              <h4>João Lucas</h1>
+                <h4>(31)90000-0000</h4>
+                <p>Rua tal, 2000, Saudade</p>
+            </div>
+            <div class="cliente-encontrado">
+              <h4>João Lucas</h1>
+                <h4>(31)90000-0000</h4>
+                <p>Rua tal, 2000, Saudade</p>
+            </div>
+
+          </div>
+          <button class="botao-novo-cliente">Novo cliente</button>
+          <button id="trocar-cliente">Pesquisa avançada</button>
+          <!--- Cliente Selecionado
+            <div id="nome-cliente">
+            <h4>João Lucas</h4>
+          </div>
+          <div id="telefones-cliente">
+            <div id="telefone-primario">
+              <h4>Telefone primário</h4>
+              <p>(31)90000-0000</p>
+            </div>
+            <div id="telefone-secundario">
+              <h4>Telefone secundário</h4>
+              <p>(31)90000-0000</p>
+            </div>
+          </div>
+          <div id="enderecos-cliente">
+            <div class="enderecos-cadastrados">
+              <div class="container-enderecos">
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-primario" name="endereco" />
+                  <label for="endereco-primario">
+                    <p>Endereço primário</p>
+                  </label>
+                </div>
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-secundario" name="endereco" />
+                  <label for="endereco-secundario">
+                    <p>Endereço secundário</p>
+                  </label>
+                </div>
+              </div>
+              <div class="endereco-selecionado">
+                <div class="endereco-atual">
+                  <p>Endereço principal</p>
+                </div>
+                <img src="/src/imgs/seta-cinza.svg" alt="" class="seta-endereco">
+              </div>
+            </div>
+            <div id="caixa-endereco">
+              <p>Rua tal, 2000, Saudade
+              </p>
+            </div>
+          </div>
+
+          <button id="editar-cliente">Editar cliente</button>
+          <button id="trocar-cliente">Trocar cliente</button>--->
 
         </div>
         <div class="observacao-pedido">
@@ -386,8 +475,61 @@
         </div>
       </div>
     </div>
+    <div class="novo-cliente">
+      <div class="titulo-cliente">
+        <h2>Novo cliente</h2>
+        <button class="botao-fechar-novo">
+          <img src="/src/imgs/fechar-laranja.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
 
+      <div id="container-criacao">
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" required>
+          <label for="nome" class="labelInput">Nome</label>
+        </div>
+        <div class="itens-criacao">
+          <div class="inputBox">
+            <input type="text" name="nome" id="telefone-prim" class="inputUser" required>
+            <label for="nome" class="labelInput">Telefone primário</label>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="nome" id="telefone-sec" class="inputUser" required>
+            <label for="nome" class="labelInput">Telefone secundário</label>
+          </div>
+        </div>
 
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome-rua" class="inputUser" required>
+          <label for="nome" class="labelInput">Rua</label>
+        </div>
+        <div class="itens-criacao2">
+          <div class="inputBox">
+            <input type="text" name="nome" id="bairro" class="inputUser" required>
+            <label for="nome" class="labelInput">Bairro</label>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="nome" id="numero-casa" class="inputUser" required>
+            <label for="nome" class="labelInput">Número</label>
+          </div>
+        </div>
+
+        <div class="inputBox">
+          <input type="text" name="nome" id="complemento-endereco" class="inputUser" required>
+          <label for="nome" class="labelInput">Complemento</label>
+        </div>
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" required>
+          <label for="nome" class="labelInput">Referência</label>
+          <div class="itens-criacao">
+            <button id="cancelar-cliente">Cancelar</button>
+            <button id="salvar-cliente">Salvar</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
       tente seguir as convenções de codificação para html, css e js
