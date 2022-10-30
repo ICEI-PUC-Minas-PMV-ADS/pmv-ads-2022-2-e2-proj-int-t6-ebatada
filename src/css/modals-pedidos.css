@@ -1,0 +1,706 @@
+.primeiro-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.novo-pedido {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  max-width: 90%;
+  height: 700px;
+  border-radius: 8px;
+  z-index: 6;
+  background-color: #CB6E00;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.primeiro-fade.ativo,
+.novo-pedido.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.titulo-novo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.novo-pedido h2 {
+  color: white;
+  margin: 0;
+}
+
+.icone-fechar {
+  width: 25px;
+}
+
+.botao-fechar {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.container-criacao {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template:
+    "numero produtos cliente" 1fr
+    "numero produtos cliente" 1.5fr
+    "tipo produtos cliente" 1fr
+    "tipo produtos cliente" 1fr
+    "tipo produtos cliente" 1fr
+    "taxa produtos observacoes" 1fr
+    "taxa botoes observacoes" 1fr
+    /1fr 2fr 1fr;
+  gap: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.numero-pedido {
+  grid-area: numero;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.numero-pedido p {
+  margin: 0;
+}
+
+.numero-pedido h4 {
+  margin: 0;
+}
+
+#tempo-pedido {
+  display: flex;
+  width: 100%;
+  background-color: #CB6E00;
+  border-radius: 8px;
+  margin-top: 1rem;
+  height: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+#tempo-pedido p {
+  color: white;
+}
+
+#tempo-pedido img {
+  height: 25px;
+  margin-right: 0.5rem;
+}
+
+.botao-excluir {
+  width: 90%;
+  height: 50px;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-excluir img {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.tipos-pedido {
+  grid-area: tipo;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tipos-pedido h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.wrapper .option {
+  background: #fff;
+  height: 50px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid lightgrey;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.wrapper .option .dot {
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+
+.wrapper .option .dot::before {
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #CB6E00;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2 {
+  border-color: #CB6E00;
+  background: #CB6E00;
+}
+
+#option-1:checked:checked~.option-1 .dot,
+#option-2:checked:checked~.option-2 .dot {
+  background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .dot::before,
+#option-2:checked:checked~.option-2 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wrapper .option span {
+  font-size: 20px;
+  color: #808080;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span {
+  color: #fff;
+}
+
+
+.taxa-entrega {
+  grid-area: taxa;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.produtos-pedido {
+  grid-area: produtos;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.botoes-pedido {
+  grid-area: botoes;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.cliente-pedido {
+  grid-area: cliente;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 446px;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+#nome-cliente {
+  margin-bottom: 8px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#telefone-primario {
+  margin-bottom: 8px;
+}
+
+#telefone-secundario {
+  margin-bottom: 8px;
+}
+
+.cliente-pedido p {
+  margin: 0;
+}
+
+.cliente-pedido h4 {
+  margin: 0;
+}
+
+#editar-cliente {
+  width: 90%;
+  min-height: 50px;
+  background-color: #CB6E00;
+  color: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+}
+
+#editar-cliente img {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+#trocar-cliente {
+  width: 90%;
+  min-height: 50px;
+  background-color: #CB6E00;
+  color: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+#trocar-cliente img {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+#caixa-endereco {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #CB6E00;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.observacao-pedido {
+  grid-area: observacoes;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.enderecos-cadastrados {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 100%;
+
+}
+
+.enderecos-cadastrados .container-enderecos {
+  background: rgb(236, 236, 236);
+  color: black;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s;
+  border-radius: 8px;
+  overflow: hidden;
+  order: 1;
+}
+
+.endereco-selecionado {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 43px;
+  background: #ffffff;
+  border: 1px solid #CB6E00;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: black;
+  overflow: hidden;
+  order: 0;
+}
+
+.endereco-atual {
+  margin: 0;
+  align-self: center;
+
+}
+
+.seta-endereco {
+  width: 1.5rem;
+  transition: 200ms;
+}
+
+.seta-endereco.ativo {
+  transform: rotate(-180deg);
+}
+
+.enderecos-cadastrados .container-enderecos.ativo {
+  max-height: 80px;
+  margin-bottom: 8px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.enderecos-cadastrados .container-enderecos::-webkit-scrollbar {
+  width: 8px;
+  background: #646464;
+  border-radius: 0 8px 8px 0;
+}
+
+.enderecos-cadastrados .container-enderecos::-webkit-scrollbar-thumb {
+  background: #CB6E00;
+  border-radius: 0 8px 8px 0;
+}
+
+
+.endereco-selecionado {
+  padding: 0px 15px;
+  cursor: pointer;
+}
+
+.endereco p {
+  padding: 14px 18px;
+  margin: 0;
+}
+
+.endereco .seta-endereco {
+  display: none;
+}
+
+.enderecos-cadastrados .endereco:hover {
+  background: #CB6E00;
+  color: white;
+}
+
+.enderecos-cadastrados label {
+  cursor: pointer;
+}
+
+.enderecos-cadastrados .endereco .radio {
+  display: none;
+}
+
+.pesquisa-cliente {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 2px;
+  background-color: white;
+  border-style: solid;
+  border-color: #CB6E00;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+
+}
+
+.texto-busca {
+  float: left;
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #646464;
+}
+
+#icone-lupa {
+  width: 25px;
+  margin-left: 3px;
+}
+
+#container-encontrados {
+  margin-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 300px;
+  overflow-y: scroll;
+
+}
+
+.cliente-encontrado {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+#container-encontrados::-webkit-scrollbar {
+  width: 8px;
+  background: #646464;
+  border-radius: 0 8px 8px 0;
+}
+
+#container-encontrados::-webkit-scrollbar-thumb {
+  background: #CB6E00;
+  border-radius: 0 8px 8px 0;
+}
+
+.botao-novo-cliente {
+  width: 90%;
+  min-height: 50px;
+  background-color: #CB6E00;
+  color: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.botao-novo-cliente img {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.fade-novocliente {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 7;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.novo-cliente {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  height: 550px;
+  border-radius: 8px;
+  z-index: 8;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.fade-novocliente.ativo,
+.novo-cliente.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.titulo-cliente {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.novo-cliente h2 {
+  color: #CB6E00;
+  margin: 0;
+}
+
+.botao-fechar-novo {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+#container-criacao {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+
+}
+
+.inputBox {
+  position: relative;
+}
+
+.inputUser {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  outline: none;
+  color: #646464;
+  font-size: 15px;
+  width: 100%;
+
+}
+
+.labelInput {
+  position: absolute;
+  color: #646464;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  transition: .5s;
+
+}
+
+.inputUser:focus~.labelInput,
+.inputUser:valid~.labelInput {
+  top: -20px;
+  font-size: 12px;
+  color: #CB6E00;
+
+}
+
+.itens-criacao {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.itens-criacao2 {
+  display: grid;
+  max-width: 100%;
+  gap: 1rem;
+  grid-template-columns: 8fr 2fr;
+
+}
+
+#cancelar-cliente {
+  width: 90%;
+  min-height: 50px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 8px;
+  margin-top: 3rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+#cancelar-cliente img {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+#salvar-cliente {
+  width: 90%;
+  min-height: 50px;
+  background-color: #45B500;
+  color: white;
+  border-radius: 8px;
+  margin-top: 3rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+#salvar-cliente img {
+  height: 30px;
+  margin-right: 0.5rem;
+}

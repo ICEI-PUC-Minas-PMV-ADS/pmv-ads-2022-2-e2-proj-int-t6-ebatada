@@ -5,8 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Pedidos - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
+  <title> Pedidos - éBatata </title>
+  <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="/src/css/navbar.css">
+  <link rel="stylesheet" href="/src/css/barra-de-pesquisa.css">
+  <link rel="stylesheet" href="/src/css/menu-cascata.css">
+  <link rel="stylesheet" href="/src/css/cards.css">
+  <link rel="stylesheet" href="/src/css/modals-pedidos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
@@ -194,6 +199,337 @@
     </ul>
   </nav>
   <main class="conteudo">
+    <div class="pesquisa">
+      <div class="filtros">
+        <div class="container-opcoes">
+          <div class="opcao">
+            <input type="radio" class="radio" id="nome-cliente" name="categoria" />
+            <label for="nome-cliente">
+              <p>Nome do cliente</p>
+            </label>
+          </div>
+          <div class="opcao">
+            <input type="radio" class="radio" id="tipo-pedido" name="categoria" />
+            <label for="tipo-pedido">
+              <p>Tipo de pedido</p>
+            </label>
+          </div>
+          <div class="opcao">
+            <input type="radio" class="radio" id="telefone-cliente" name="categoria" />
+            <label for="telefone-cliente">
+              <p>Telefone do cliente</p>
+            </label>
+          </div>
+          <div class="opcao">
+            <input type="radio" class="radio" id="numero-pedido" name="categoria" />
+            <label for="numero-pedido">
+              <p>Número do pedido</p>
+            </label>
+          </div>
+        </div>
+        <div class="selecionado">
+          <div class="opcao-atual">
+            <p>Selecione o filtro</p>
+          </div>
+          <img src="/src/imgs/seta-cinza.svg" alt="" class="seta-filtro">
+        </div>
+      </div>
+      <div class="barra-de-pesquisa">
+        <input type="text" class="texto-busca" placeholder="Buscar..." />
+      </div>
+      <button class="botao-busca">Buscar</button>
+    </div>
+
+    <div class="criar-novo">
+      <div class="container-criar">
+        <div class="card">
+          <div class="info-pedido">
+            <div class="id-pedido">
+              <h4>#00001</h4>
+            </div>
+            <div class="data-pedido">
+              <h4>17/10/22</h4>
+            </div>
+            <div class="tipo-pedido">
+              <h4>Rascunho</h4>
+            </div>
+            <div class="horas-pedido">
+              <h4>14:55</h4>
+            </div>
+          </div>
+          <div class="info-cliente">
+            <img src="/src/imgs/user.svg" alt="Usuário" class="icone-usuario">
+            <div class="nome-cliente">
+              <h4>João Lucas Pinheiro</h4>
+            </div>
+            <div class="pedidos-cliente">
+              <p>Número de pedidos: 56</p>
+            </div>
+          </div>
+          <div class="entrega">
+            <img src="/src/imgs/marker.svg" alt="Local" class="icone-local">
+            <div class="endereco-cliente">
+              <p>Avenida Manoel Salvador de Oliveira, 1020, Bela Vista</p>
+            </div>
+          </div>
+          <div class="status">
+            <img src="/src/imgs/interrogation.svg" alt="Interrogação" class="icone-interrogacao">
+            <div class="status-pedido">
+              <h4>Em criação</h4>
+            </div>
+          </div>
+          <div class="navegacao">
+            <button class="botao-continuar">Continuar</button>
+          </div>
+        </div>
+        <div class="card-novo">
+          <button class="botao-novo">
+            <img src="/src/imgs/add.svg" alt="Adicionar" class="icone-adicionar">
+            <p>Criar novo pedido</p>
+          </button>
+
+        </div>
+      </div>
+      <div class="titulo-criar">
+        <h3>Criar novo pedido</h3>
+        <img src="/src/imgs/seta-branca.svg" alt="" class="seta-criar">
+      </div>
+    </div>
+
+    <div class="pedidos-criados">
+      <div class="container-cards">
+        <div class="card">
+          <div class="info-pedido">
+            <div class="id-pedido">
+              <h4>#00001</h4>
+            </div>
+            <div class="data-pedido">
+              <h4>17/10/22</h4>
+            </div>
+            <div class="tipo-pedido">
+              <h4>Delivery</h4>
+            </div>
+            <div class="horas-pedido">
+              <h4>14:55</h4>
+            </div>
+          </div>
+          <div class="info-cliente">
+            <img src="/src/imgs/user.svg" alt="Usuário" class="icone-usuario">
+            <div class="nome-cliente">
+              <h4>João Lucas Pinheiro</h4>
+            </div>
+            <div class="pedidos-cliente">
+              <p>Número de pedidos: 56</p>
+            </div>
+          </div>
+          <div class="entrega">
+            <img src="/src/imgs/marker.svg" alt="Local" class="icone-local">
+            <div class="endereco-cliente">
+              <p>Avenida Manoel Salvador de Oliveira, 1020, Bela Vista</p>
+            </div>
+          </div>
+          <div class="status">
+            <img src="/src/imgs/interrogation.svg" alt="Interrogação" class="icone-interrogacao">
+            <div class="status-pedido">
+              <h4>Em aberto</h4>
+            </div>
+            <div class="tempo-entrega">
+              <h4>Tempo em aberto: 0h4min</h4>
+            </div>
+          </div>
+          <div class="navegacao">
+            <button class="botao-finalizar">Finalizar</button>
+            <button class="botao-detalhes">Detalhes</button>
+          </div>
+        </div>
+      </div>
+      <div class="titulo-criados">
+        <h3>Pedidos criados</h3>
+        <img src="/src/imgs/seta-laranja.svg" alt="" class="seta-criar">
+      </div>
+    </div>
+
+    <div class="primeiro-fade"></div>
+    <div class="fade-novocliente"></div>
+    <div class="novo-pedido">
+
+      <div class="titulo-novo">
+        <h2>Novo pedido</h2>
+        <button class="botao-fechar">
+          <img src="/src/imgs/fechar-branco.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
+
+      <div class="container-criacao">
+        <div class="numero-pedido">
+          <h4>Pedido Nº0</h4>
+          <p>Número Personalizado: 00</p>
+          <div id="tempo-pedido">
+            <img src="/src/imgs/clock-white.svg" alt="Relógio">
+            <p>00h00min</p>
+          </div>
+          <button class="botao-excluir">
+            <img src="/src/imgs/lixo-white.svg" alt="Lixo">
+            <p>Excluir</p>
+          </button>
+
+        </div>
+        <div class="tipos-pedido">
+          <h4>Tipo de pedido:</h4>
+          <div class="wrapper">
+            <input type="radio" name="select" id="option-1" checked>
+            <input type="radio" name="select" id="option-2">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>Delivery</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Retirada no Balcão</span>
+            </label>
+          </div>
+        </div>
+        <div class="taxa-entrega">
+
+
+        </div>
+        <div class="produtos-pedido">
+
+        </div>
+        <div class="botoes-pedido">
+
+        </div>
+        <div class="cliente-pedido">
+          <div id="nome-cliente">
+            <h4>Cliente</h4>
+            <h4>(Nenhum cliente selecionado)</h4>
+          </div>
+          <div class="pesquisa-cliente">
+            <img src="/src/imgs/search-orange.svg" id="icone-lupa" alt="Lupa">
+            <input type="text" class="texto-busca" placeholder="Buscar cliente por telefone" />
+          </div>
+          <div id="container-encontrados">
+            <div class="cliente-encontrado">
+              <h4>João Lucas</h1>
+                <h4>(31)90000-0000</h4>
+                <p>Rua tal, 2000, Saudade</p>
+            </div>
+            <div class="cliente-encontrado">
+              <h4>João Lucas</h1>
+                <h4>(31)90000-0000</h4>
+                <p>Rua tal, 2000, Saudade</p>
+            </div>
+
+          </div>
+          <button class="botao-novo-cliente">Novo cliente</button>
+          <button id="trocar-cliente">Pesquisa avançada</button>
+          <!--- Cliente Selecionado
+            <div id="nome-cliente">
+            <h4>João Lucas</h4>
+          </div>
+          <div id="telefones-cliente">
+            <div id="telefone-primario">
+              <h4>Telefone primário</h4>
+              <p>(31)90000-0000</p>
+            </div>
+            <div id="telefone-secundario">
+              <h4>Telefone secundário</h4>
+              <p>(31)90000-0000</p>
+            </div>
+          </div>
+          <div id="enderecos-cliente">
+            <div class="enderecos-cadastrados">
+              <div class="container-enderecos">
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-primario" name="endereco" />
+                  <label for="endereco-primario">
+                    <p>Endereço primário</p>
+                  </label>
+                </div>
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-secundario" name="endereco" />
+                  <label for="endereco-secundario">
+                    <p>Endereço secundário</p>
+                  </label>
+                </div>
+              </div>
+              <div class="endereco-selecionado">
+                <div class="endereco-atual">
+                  <p>Endereço principal</p>
+                </div>
+                <img src="/src/imgs/seta-cinza.svg" alt="" class="seta-endereco">
+              </div>
+            </div>
+            <div id="caixa-endereco">
+              <p>Rua tal, 2000, Saudade
+              </p>
+            </div>
+          </div>
+
+          <button id="editar-cliente">Editar cliente</button>
+          <button id="trocar-cliente">Trocar cliente</button>--->
+
+        </div>
+        <div class="observacao-pedido">
+
+        </div>
+      </div>
+    </div>
+    <div class="novo-cliente">
+      <div class="titulo-cliente">
+        <h2>Novo cliente</h2>
+        <button class="botao-fechar-novo">
+          <img src="/src/imgs/fechar-laranja.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
+
+      <div id="container-criacao">
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" required>
+          <label for="nome" class="labelInput">Nome</label>
+        </div>
+        <div class="itens-criacao">
+          <div class="inputBox">
+            <input type="text" name="nome" id="telefone-prim" class="inputUser" required>
+            <label for="nome" class="labelInput">Telefone primário</label>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="nome" id="telefone-sec" class="inputUser" required>
+            <label for="nome" class="labelInput">Telefone secundário</label>
+          </div>
+        </div>
+
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome-rua" class="inputUser" required>
+          <label for="nome" class="labelInput">Rua</label>
+        </div>
+        <div class="itens-criacao2">
+          <div class="inputBox">
+            <input type="text" name="nome" id="bairro" class="inputUser" required>
+            <label for="nome" class="labelInput">Bairro</label>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="nome" id="numero-casa" class="inputUser" required>
+            <label for="nome" class="labelInput">Número</label>
+          </div>
+        </div>
+
+        <div class="inputBox">
+          <input type="text" name="nome" id="complemento-endereco" class="inputUser" required>
+          <label for="nome" class="labelInput">Complemento</label>
+        </div>
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" required>
+          <label for="nome" class="labelInput">Referência</label>
+          <div class="itens-criacao">
+            <button id="cancelar-cliente">Cancelar</button>
+            <button id="salvar-cliente">Salvar</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
       tente seguir as convenções de codificação para html, css e js
@@ -202,7 +538,10 @@
       ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
 
       Bom trabalho a todos! s2 --->
-    <h1>éBatata</h1>
+
   </main>
   <script type="text/javascript" src="/src/js/navbar.js"></script>
+  <script type="text/javascript" src="/src/js/barra-de-pesquisa.js"></script>
+  <script type="text/javascript" src="/src/js/menu-cascata.js"></script>
+  <script type="text/javascript" src="/src/js/modals-pedido.js"></script>
 </body>
