@@ -195,17 +195,79 @@
     </ul>
   </nav>
   <main class="conteudo">
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
+   <h1>éBatata / <a id="cor-taxa"> taxas de entrega </a></h1><br><br><br><br>
 
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
+    <div>
+      <button id="button-nova-taxa" onclick="openModal('modal-nova-taxa')"><a href="" id="detalhe-button">Nova taxa</a></button>
+    </div>
+    <div>
+      <button id="button-editar-taxa"><a href="" id="detalhe-button">Editar</a></button>
+    </div>
 
-      Bom trabalho a todos! s2 --->
+    <br><br>
 
-    <h1>éBatata</h1>
+    <main>
+      <table class="tabela-taxa">
+        <thead>
+          
+          <tr>
+            
+            <th class="cabecalho-taxa">Descrição da área de entrega</th>
+            <th class="cabecalho-taxa2">Valor</th>
+            <th class="cabecalho-taxa3">Tempo estimado</th>
+            
+          </tr>
+          
+        </thead>
+
+        <tbody>
+          <tr class="destaque2">
+            <td class="colunas-taxa">Cliente fidelizado (reduzida)</td>
+            <td class="colunas-taxa2">1,00</td>
+            <td class="colunas-taxa3">40min</td>
+          </tr>
+
+          <tr class="destaque2">
+            <td class="colunas-taxa">Diferenciada (até 10km)</td>
+            <td class="colunas-taxa2">5,00</td>
+            <td class="colunas-taxa3">90min</td>
+          </tr>
+
+          <tr class="destaque2">
+            <td class="colunas-taxa">Isenta (sem taxa)</td>
+            <td class="colunas-taxa2">0,00</td>
+            <td class="colunas-taxa3">60min</td>
+          </tr>
+
+          <tr class="destaque2">
+            <td class="colunas-taxa">Normal (até 5km)</td>
+            <td class="colunas-taxa2">3,00</td>
+            <td class="colunas-taxa3">60min</td>
+          </tr>
+
+        </tbody>
+        </table>
+    </main>
+
+    <div id="modal-nova-taxa" class="modal-taxa">
+      <div class="modal-content">
+  
+          <div class="modal-body">
+            <h1 class="titulo-novo-cliente">Novo Taxa</h1>
+            <form class="form-add-taxa">            
+              Descrição da área de entrega: <input type="text" name="descricao-area" class="format-input-addcliente"><br><br>
+              Valor: <input type="number" name="valor" class="format-input-addcliente"><br><br>
+              Tempo estimado:<input type="text" name="tempo" class="format-input-addcliente"><br><br>          
+            </form>          
+          </div>
+
+          <div class="modal-footer">
+            <button class="button-salvar-cliente"><a href="#" id="detalhe-button">Salvar</a></button>
+            <button class="button-cancelar" onclick="closeModal('modal-nova-taxa')"><a href="#" id="detalhe-button">Cancelar</a></button>
+          </div>
+        
+      </div>
+    </div>
   </main>
   <script type="text/javascript" src="/src/js/navbar.js"></script>
-  
 </body>

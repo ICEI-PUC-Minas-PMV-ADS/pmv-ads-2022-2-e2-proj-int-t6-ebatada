@@ -288,3 +288,428 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   height: 100%;
 }
+
+#cor-nome {
+  color: #CB6E00;
+}
+
+
+
+#titulo{
+  text-align: center;
+  color:#646464;
+  border-bottom: 1px solid #b7b7b7; 
+}
+
+#button-salvar { 
+  margin-left: 90%;
+  background-color: #CB6E00;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid #CB6E00;
+}
+
+#button-salvar:hover{
+  background-color: #8e4e00;
+}
+
+#foto {
+ 
+  margin-left: 75px;
+}
+
+#imgPhoto {
+  max-width: 300px;
+  width: 120%;
+  padding: 60px;
+  background-color: #E0E0E0;
+  border: 2px solid #ccc;
+  border-radius: 100%;
+}
+
+
+.format-form {  
+  width: 1820px; 
+}
+
+div{
+  display:inline-block;  
+}
+
+.fundo-form {
+  background-color: white;
+  border-radius: 10px;
+  height:700px;
+  border: 2px solid #ccc;
+}
+
+.input-format {
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 750px;
+  height: 45px;
+  border: 2px solid #ccc;
+}
+
+.input-format-tel {
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 750px;
+  height: 45px;
+  border: 2px solid #ccc;
+}
+
+.input-format-num {
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 70px;
+  height: 45px;
+  border: 2px solid #ccc;
+}
+
+.input-format3 {
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 750px;
+  height: 45px; 
+  border: 2px solid #ccc;
+}
+
+.input-format-end {
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 600px;
+  height: 45px;
+  border: 2px solid #ccc;
+}
+
+.container-a {
+  float: left;
+  text-align:right;
+}
+
+.container-b {  
+  float: right;
+  text-align: right;
+}
+
+.fieldset-clientes {
+  background-color:#CB6E00;
+  color: white;
+  border-radius: 10px;
+  width: 1792px;
+  height:70px;
+  border: 2px solid #ccc;
+}
+
+.titulo-cliente {
+  text-align: center;
+}
+
+#button-novo-cliente{
+  background-color:limegreen;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid limegreen;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+}
+
+#button-novo-cliente:hover{
+  background-color: rgb(32, 130, 32);
+}
+
+#button-editar{  
+  background-color:#CB6E00;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid #CB6E00;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+}
+
+#button-editar:hover{
+  background-color: #8e4e00;
+}
+
+#filtro-clientes {
+  background-color: white;
+  color: #646464;
+  border-radius: 5px;
+  border: 2px solid #b7b7b7;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+  margin-left: 40%;
+}
+
+.pesquisa-txt{
+  background-color: white;
+  color: #646464;  
+  width: 450px;
+  height: 45px;
+  border-radius: 5px;
+  border: 2px solid #b7b7b7;
+  font-size: 18px;
+  margin-left: 30%;
+}
+
+#button-buscar{
+  background-color:#CB6E00;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid #CB6E00;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+  margin-left: 49%;
+}
+
+#button-buscar:hover{
+  background-color: #8e4e00;
+}
+
+.tabela-cliente{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 1816px;
+  height: 500px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
+  
+}
+
+.cabecalho-cliente{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  border-collapse: collapse;
+}
+
+.cabecalho-cliente2{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+}
+
+.colunas-cliente{
+  text-align: center;
+  border-right: 3px solid black;
+  border-collapse: collapse;
+  padding: 4px 2px 4px 2px;
+}
+
+.colunas-cliente2{
+  text-align: center;
+  padding: 4px 2px 4px 2px;
+}
+
+.destaque:hover{
+  background-color: #CB6E00;
+  color: white;
+}
+
+#button-nova-taxa{
+  background-color:limegreen;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid limegreen;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+}
+
+#button-nova-taxa:hover{
+  background-color:  rgb(32, 130, 32);
+}
+
+#button-editar-taxa{  
+  background-color:#CB6E00;
+  color:white;
+  border-radius: 5px;
+  border: 5px solid #CB6E00;
+  width: 300px;
+  height:50px;
+  font-size: 18px;
+}
+
+#button-editar-taxa:hover{
+  background-color: #8e4e00;
+}
+
+#cor-taxa {
+  color: #CB6E00;
+}
+
+.tabela-taxa{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 800px;
+  height: 500px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
+}
+
+.cabecalho-taxa{
+  text-align: left;
+  font-weight: bolder;
+  font-size: 20px;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  border-collapse: collapse;
+}
+
+.cabecalho-taxa2{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  padding: 4px 16px 4px 16px;  
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  border-collapse: collapse;
+}
+
+.cabecalho-taxa3{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  border-bottom: 3px solid black;
+  border-collapse: collapse;
+}
+
+.colunas-taxa{
+  text-align:left;
+  border-right: 3px solid black;
+  border-collapse: collapse;
+  padding: 4px 2px 4px 2px;
+}
+
+.colunas-taxa2{
+  text-align:right;
+  border-right: 3px solid black;
+  padding: 4px 2px 4px 2px;
+}
+
+.colunas-taxa3{
+  text-align:right;
+  padding: 4px 2px 4px 2px;
+}
+
+.destaque2:hover{
+  background-color: #CB6E00;
+  color: white;
+}
+
+#detalhe-button{
+  color:white;
+}
+
+#modal-novo-cliente{
+  display: flex;
+}
+
+.modal-cliente{
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.modal-content{
+  background-color: white;
+  border: 3px solid #b7b7b7;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 48vh;
+  margin-left: 800px;
+  margin-top: 250px;
+}
+
+.modal-body, .modal-footer{
+  padding: 10px;
+}
+
+.modal-footer{
+  margin-left: 140px;
+}
+
+.titulo-novo-cliente{
+  text-align: center;
+}
+
+
+.form-add-cliente{
+  float: center;
+  text-align:right;
+  margin-right: 35px;
+}
+
+.format-input-addcliente{
+  background-color:#E0E0E0;
+  border-radius: 10px;
+  width: 300px;
+  height: 20px;
+  border: 2px solid #ccc;
+}
+
+.button-cancelar, .button-salvar-cliente{
+  color:white;
+  border-radius: 5px;
+  width: 100px;
+  height:30px;
+  font-size: 15px;
+}
+
+.button-salvar-cliente{
+  background-color:#CB6E00; 
+  color: white;
+  border: 5px solid #CB6E00;
+}
+
+.button-cancelar{
+  background-color:#b7b7b7;
+  color: white;
+  border: 5px solid #b7b7b7;
+}
+
+.button-salvar-cliente:hover{
+  background-color: #8e4e00;
+}
+
+.button-cancelar:hover{
+  background-color: #9b9999;
+}
+
+.form-add-taxa{
+  float: center;
+  text-align:right;
+  margin-right: 15px;
+}
+
+#modal-nova-taxa{
+  display: none;
+}
+
+.modal-taxa{
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+

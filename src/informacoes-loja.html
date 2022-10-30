@@ -194,15 +194,33 @@
     </ul>
   </nav>
   <main class="conteudo">
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
+    <h1>éBatata / <a id="cor-nome"> "Nome da Loja"</a></h1>
 
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
+    <form class="format-form">
+      <fieldset class="fundo-form">
 
-      Bom trabalho a todos! s2 --->
-    <h1>éBatata</h1>
+        <h1 id="titulo">Informações sobre a loja <button id="button-salvar"><a href="" id="detalhe-button">Salvar</a></button><br><br></h1>
+        
+        <br><br><a id="foto"> Foto:</a> <a id="imgPhoto"></a> <img src="/docs/img/photo-camera.svg" alt="" style="width: 1.5rem;" ><br><br><br><br><br>
+
+        <div class="container-a">
+          
+          Nome fantasia: <input type="text" name="nome" class="input-format"><br><br><br>
+          Telefone principal: <input type="number" name="telefone" class="input-format-tel"><br><br><br>
+          Endereço: <input type="text" name="end" class="input-format-end"> Número: <input type="number" name="numero" class="input-format-num"><br><br><br>
+          Bairro: <input type="text" name="bairro" class="input-format"><br><br><br>
+          Cidade: <input type="text" name="cidade" class="input-format">
+        </div><div class="container-b">
+          CNPJ: <input type="number" name="cnpj" class="input-format3"><br><br><br>
+          Insc. Est.: <input type="number" name="insc" class="input-format3"><br><br><br>
+          Compl.:<input type="text" name="compl" class="input-format3"><br><br><br>
+          CEP: <input type="number" name="cep" class="input-format3"><br><br><br>
+          UF: <input type="text" name="uf" class="input-format3">
+        </div>
+          
+    
+      </fieldset>
+    </form>
   </main>
   <script type="text/javascript" src="/src/js/navbar.js"></script>
 </body>
