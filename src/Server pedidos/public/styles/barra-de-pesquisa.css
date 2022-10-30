@@ -1,0 +1,143 @@
+.pesquisa {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: flex-end;
+  overflow: hidden;
+  float: right;
+  margin-top: 100px;
+}
+
+.filtros {
+  display: flex;
+  width: 210px;
+  flex-direction: column;
+  font-size: 100%;
+
+}
+
+.filtros .container-opcoes {
+  background: white;
+  color: #646464;
+  max-height: 0;
+  width: 100%;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transition: all 0.2s;
+  border-radius: 8px;
+  overflow: hidden;
+  order: 1;
+}
+
+.selecionado {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 43px;
+  background: #ffffff;
+  border-style: solid;
+  border-color: #b7b7b7;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #646464;
+  overflow: hidden;
+  order: 0;
+}
+
+.opcao-atual {
+  margin: 0;
+  align-self: center;
+
+}
+
+.seta-filtro {
+  width: 1.5rem;
+  transition: 200ms;
+}
+
+.seta-filtro.ativo {
+  transform: rotate(-180deg);
+}
+
+.filtros .container-opcoes.ativo {
+  max-height: 100px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.filtros .container-opcoes::-webkit-scrollbar {
+  width: 8px;
+  background: #646464;
+  border-radius: 0 8px 8px 0;
+}
+
+.filtros .container-opcoes::-webkit-scrollbar-thumb {
+  background: #CB6E00;
+  border-radius: 0 8px 8px 0;
+}
+
+
+.selecionado {
+  padding: 0px 15px;
+  cursor: pointer;
+}
+
+.opcao p {
+  padding: 14px 18px;
+  margin: 0;
+}
+
+.opcao .seta-filtro {
+  display: none;
+}
+
+.filtros .opcao:hover {
+  background: #CB6E00;
+  color: white;
+}
+
+.filtros label {
+  cursor: pointer;
+}
+
+.filtros .opcao .radio {
+  display: none;
+}
+
+.barra-de-pesquisa {
+  margin-left: 1rem;
+  background-color: white;
+  border-style: solid;
+  border-color: #b7b7b7;
+  border-radius: 8px;
+  width: 300px;
+  height: 43px
+}
+
+.texto-busca {
+  float: left;
+  background-color: transparent;
+  padding-left: 5px;
+  border: none;
+  height: 40px;
+  width: 290px;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #646464;
+}
+
+.botao-busca {
+  margin-left: 1rem;
+  border: none;
+  color: white;
+  height: 47px;
+  border-radius: 8px;
+  width: 110px;
+  background: #CB6E00;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+}
