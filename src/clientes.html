@@ -194,15 +194,270 @@
     </ul>
   </nav>
   <main class="conteudo">
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
+    <h1>éBatata / <a id="cor-nome">"Nome da loja"</a></h1>
 
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
+    <div>
+      <fieldset class="fieldset-clientes">
+        <h1 class="titulo-cliente"> Clientes </h1>
+      </fieldset>      
+    </div>
 
-      Bom trabalho a todos! s2 --->
-    <h1>éBatata</h1>
+    <br><br>
+
+    <div>
+      
+      <button id="button-novo-cliente" onclick="openModal('modal-novo-cliente')"><a href="#" id="detalhe-button"> Novo Cliente</a></button>
+    </div>
+    
+    <div>
+      <button id="button-editar"><a href="" id="detalhe-button">Editar</a></button>
+    </div>
+
+    <div>
+      <select name="Filtros" id="filtro-clientes"> 
+        <option value="Filtros">Filtros</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+    </div>
+    
+    <div>
+      <input class="pesquisa-txt" type="text" name="" placeholder="Buscar cliente"> 
+    </div>
+
+    <div>
+      <button id="button-buscar"><a href="" id="detalhe-button">Buscar</a></button>
+    </div>
+
+    <br><br>
+
+    <main>
+      <table class="tabela-cliente">
+        <thead>
+          
+          <tr>
+            
+            <th class="cabecalho-cliente">Nome</th>
+            <th class="cabecalho-cliente">Telefone</th>
+            <th class="cabecalho-cliente">Telefone sec</th>
+            <th class="cabecalho-cliente">Endereço</th>
+            <th class="cabecalho-cliente">Num</th>
+            <th class="cabecalho-cliente">Bairro</th>
+            <th class="cabecalho-cliente2">Qtd. Pedidos</th>
+            
+          </tr>
+          
+        </thead>
+        
+        
+        <tbody>
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+
+          <tr class="destaque">
+            <td class="colunas-cliente">Nome</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">(xx) xxxxx-xxxx</td>
+            <td class="colunas-cliente">xxxxxxxxxxxxxxx</td>
+            <td class="colunas-cliente">xxxx</td>
+            <td class="colunas-cliente">xxxxxx xxxxxxx</td>
+            <td class="colunas-cliente2">xxx</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <div id="modal-novo-cliente" class="modal-cliente">
+      <div class="modal-content">
+  
+          <div class="modal-body">
+            <h1 class="titulo-novo-cliente">Novo Cliente</h1>
+            <form class="form-add-cliente">            
+              Nome: <input type="text" name="nome" class="format-input-addcliente"><br><br>
+              Telefone: <input type="tel" name="telefone" class="format-input-addcliente"><br><br>
+              Telefone sec.:<input type="tel" name="telefone-sec" class="format-input-addcliente"><br><br>
+              Endereço: <input type="text" name="endereco" class="format-input-addcliente"><br><br>
+              Número: <input type="number" name="numero" class="format-input-addcliente"><br><br>
+              Bairro: <input type="text" name="bairro" class="format-input-addcliente"><br><br>
+              Qtd. Pedidos: <input type="number" name="qtd-pedidos" class="format-input-addcliente"><br><br>            
+            </form>          
+          </div>
+
+          <div class="modal-footer">
+            <button class="button-salvar-cliente"><a href="#" id="detalhe-button">Salvar</a></button>
+            <button class="button-cancelar" onclick="closeModal('modal-novo-cliente')"><a href="#" id="detalhe-button">Cancelar</a></button>
+          </div>
+        
+      </div>
+    </div>
   </main>
   <script type="text/javascript" src="/src/js/navbar.js"></script>
 </body>
