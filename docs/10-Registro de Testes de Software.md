@@ -2,11 +2,10 @@
 
 <span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>, <a href="8-Plano de Testes de Software.md"> Plano de Testes de Software</a>
 
-Relatório com as evidências dos testes de software realizados no sistema pela equipe, baseado em um plano de testes pré-definido.
+## CT-07
 
-## Avaliação
+Este teste consiste na tentativa de criar um pedido, o usuário necessita selecionar um determinado cliente ou criar um novo cliente, caso ele não se encontre na base de dados.
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
-
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+![Captura de Tela 2022-10-30 às 18 29 16](https://user-images.githubusercontent.com/98955531/198902486-6e67c045-6606-474c-82bf-25aa92229a0a.png)
+![Captura de Tela 2022-10-30 às 18 29 31](https://user-images.githubusercontent.com/98955531/198902488-0ab2bfb1-bc53-45f0-9510-0bcb3702ac76.png)
+![Captura de Tela 2022-10-30 às 18 40 28](https://user-images.githubusercontent.com/98955531/198902796-54a501ba-a6da-47d0-b26a-3e191a5e057c.png)
