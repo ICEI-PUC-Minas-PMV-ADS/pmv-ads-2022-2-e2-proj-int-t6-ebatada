@@ -19,8 +19,6 @@ const clientes = require("../models/clientes");
     let bairro = req.body.bairro;
     let complemento = req.body.complemento;
     let referencia = req.body.referencia;
-    console.log(req);
-    console.log(res);
 
     clientes.novoCliente(nome, telefoneprimario, telefonesecundario, rua, numero, bairro, complemento, referencia);
 
