@@ -1,11 +1,12 @@
 const pg = require('pg');
 
 const client = new pg.Client({
-  host: 'localhost',
-  port: 5432,
+  host: 'ebatata.postgres.database.azure.com',
+  user: 'ebatata',
+  password: 'eTeste321',
   database: 'eBatata',
-  user: 'postgres',
-  password: 'ebatata',
+  port: 5432,
+  ssl: true
 })
 
 client.connect();
