@@ -38,7 +38,7 @@ A nova cliente já esta salva e já pode realizar um pedido.
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas.
 
-![Captura de Tela 2022-10-02 às 18 22 08](https://user-images.githubusercontent.com/98955531/193477877-e83df3d8-cc41-40db-b41b-2cd3b38586aa.png)
+![Captura de Tela 2022-10-28 às 14 20 10](https://user-images.githubusercontent.com/98955531/200703968-7c9e5b02-dee1-4d21-9f0e-e875370ea9be.png)
 
 
 
