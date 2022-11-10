@@ -197,10 +197,63 @@
 
   <main class="table-container">
 
+    <div class="title-container">
     <div class="title-order">
-      <span>Histórico de pedidos</span>
+      <span id="history-title">Histórico de pedidos</span>
+    </div>
     </div>
 
+    <div class="check-box-group">
+      <label class="custom-checkbox" for="recent">
+        <input type="checkbox" id="recent" name="recent">
+        <span class="checkmark"></span>
+        <span class="span-text">Exibir mais recentes</span>
+      </label>
+    
+      
+      <label class="custom-checkbox" for="period">
+        <input type="checkbox" id="period" name="period">
+        <span class="checkmark"></span>
+        <span class="span-text">Filtrar por período de:</span>
+      </label>
+      <div class="separator">
+      <select class="select-mm">
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <option value="março">Março</option>
+        <option value="abril">Abril</option>
+        <option value="maio">Maio</option>
+        <option value="junho">Junho</option>
+        <option value="julho">Julho</option>
+        <option value="agosto">Agosto</option>
+        <option value="setembro">setembro</option>
+        <option value="outubro">Outubro</option>
+        <option value="novembro">Novembro</option>
+        <option value="dezembro">Dezembro</option>
+      </select>
+      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31">
+      </div>
+      <span>À</span>
+      <div class="separator">
+      <select class="select-mm">
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <option value="março">Março</option>
+        <option value="abril">Abril</option>
+        <option value="maio">Maio</option>
+        <option value="junho">Junho</option>
+        <option value="julho">Julho</option>
+        <option value="agosto">Agosto</option>
+        <option value="setembro">setembro</option>
+        <option value="outubro">Outubro</option>
+        <option value="novembro">Novembro</option>
+        <option value="dezembro">Dezembro</option>
+      </select>
+      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31"> 
+    </div>
+    </div>
+    
+    
    <table class="table">
      <thead>
      	<tr>
@@ -218,131 +271,139 @@
      </thead>
      <tbody>
      	  <tr>
-     	  	  <td data-label="S.No">1</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
-            <td data-label="S.No">xxxx</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxxxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
+     	  	  <td data-label="id">1</td>
+     	  	  <td data-label="data">xxxx</td>
+     	  	  <td data-label="cliente">xxxx</td>
+     	  	  <td data-label="telefone">xxxx</td>
+     	  	  <td data-label="endereço">xxxx</td>
+            <td data-label="status">xxxx</td>
+     	  	  <td data-label="pago">xxxx</td>
+     	  	  <td data-label="itens">xxxx</td>
+     	  	  <td data-label="desconto">xxxxxxx</td>
+     	  	  <td data-label="total">xxxx</td>
      	  </tr>
 
      	  <tr>
-     	  	  <td data-label="S.No">2</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
-            <td data-label="S.No">xxxx</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxxxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
+     	  	  <td data-label="id">2</td>
+     	  	  <td data-label="data">xxxx</td>
+     	  	  <td data-label="cliente">xxxx</td>
+     	  	  <td data-label="telefone">xxxx</td>
+     	  	  <td data-label="endereço">xxxx</td>
+            <td data-label="status">xxxx</td>
+     	  	  <td data-label="pago">xxxx</td>
+     	  	  <td data-label="itens">xxxx</td>
+     	  	  <td data-label="desconto">xxxxxxx</td>
+     	  	  <td data-label="total">xxxx</td>
      	  </tr>
 
      	  <tr>
-     	  	  <td data-label="S.No">3</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
-            <td data-label="S.No">xxxx</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxxxxx</td>
-     	  	  <td data-label="Staus">xxxxxx</td>
+     	  	  <td data-label="id">3</td>
+     	  	  <td data-label="data">xxxx</td>
+     	  	  <td data-label=cliente">xxxx</td>
+     	  	  <td data-label="telefone">xxxx</td>
+     	  	  <td data-label="endereço">xxxx</td>
+            <td data-label="status">xxxx</td>
+     	  	  <td data-label="pago">xxxx</td>
+     	  	  <td data-label="itens">xxxx</td>
+     	  	  <td data-label="desconto">xxxxxxx</td>
+     	  	  <td data-label="total">xxxxxx</td>
      	  </tr>
 
      	  <tr>
-     	  	  <td data-label="S.No">4</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
-            <td data-label="S.No">xxxx</td>
-     	  	  <td data-label="Name">xxxx</td>
-     	  	  <td data-label="Age">xxxx</td>
-     	  	  <td data-label="Marks%">xxxx</td>
-     	  	  <td data-label="Staus">xxxx</td>
+     	  	  <td data-label="id">4</td>
+     	  	  <td data-label="data">xxxx</td>
+     	  	  <td data-label="cliente">xxxx</td>
+     	  	  <td data-label="telefone">xxxx</td>
+     	  	  <td data-label="endereço">xxxx</td>
+            <td data-label="status">xxxx</td>
+     	  	  <td data-label="pago">xxxx</td>
+     	  	  <td data-label="itens">xxxx</td>
+     	  	  <td data-label="desconto">xxxx</td>
+     	  	  <td data-label="total">xxxx</td>
      	  </tr>
          <tr>
-          <td data-label="S.No">5</td>
-          <td data-label="Name">xxxx</td>
-          <td data-label="Age">xxxx</td>
-          <td data-label="Marks%">xxxxxxxx</td>
-          <td data-label="Staus">xxxx</td>
-         <td data-label="S.No">xxxx</td>
-          <td data-label="Name">xxxx</td>
-          <td data-label="Age">xxxx</td>
-          <td data-label="Marks%">xxxx</td>
-          <td data-label="Staus">xxxx</td>
+          <td data-label="id">5</td>
+          <td data-label="data">xxxx</td>
+          <td data-label="cliente">xxxx</td>
+          <td data-label="telefone">xxxxxxxx</td>
+          <td data-label="endereço">xxxx</td>
+         <td data-label="status">xxxx</td>
+          <td data-label="pago">xxxx</td>
+          <td data-label="itens">xxxx</td>
+          <td data-label="desconto">xxxx</td>
+          <td data-label="total">xxxx</td>
       </tr>
       <tr>
-        <td data-label="S.No">6</td>
-        <td data-label="Name">xxxx</td>
-        <td data-label="Age">xxxx</td>
-        <td data-label="Marks%">xxxxxxx</td>
-        <td data-label="Staus">xxxx</td>
-       <td data-label="S.No">xxxx</td>
-        <td data-label="Name">xxxx</td>
-        <td data-label="Age">xxxx</td>
-        <td data-label="Marks%">xxxxxxxx</td>
-        <td data-label="Staus">xxxx</td>
+        <td data-label="id">6</td>
+        <td data-label="data">xxxx</td>
+        <td data-label="cliente">xxxx</td>
+        <td data-label="telefone">xxxxxxx</td>
+        <td data-label="endereço">xxxx</td>
+       <td data-label="status">xxxx</td>
+        <td data-label="pago">xxxx</td>
+        <td data-label="itens">xxxx</td>
+        <td data-label="desconto">xxxxxxxx</td>
+        <td data-label="total">xxxx</td>
     </tr>
     <tr>
-      <td data-label="S.No">7</td>
-      <td data-label="Name">xxxx</td>
-      <td data-label="Age">xxxx</td>
-      <td data-label="Marks%">xxxx</td>
-      <td data-label="Staus">xxxx</td>
-     <td data-label="S.No">xxxx</td>
-      <td data-label="Name">xxxx</td>
-      <td data-label="Age">xxxxxx</td>
-      <td data-label="Marks%">xxxx</td>
-      <td data-label="Staus">xxxx</td>
+      <td data-label="id">7</td>
+      <td data-label="data">xxxx</td>
+      <td data-label="cliente">xxxx</td>
+      <td data-label="telefone">xxxx</td>
+      <td data-label="endereço">xxxx</td>
+     <td data-label="status">xxxx</td>
+      <td data-label="pago">xxxx</td>
+      <td data-label="itens">xxxxxx</td>
+      <td data-label="desconto">xxxx</td>
+      <td data-label="total">xxxx</td>
   </tr>
   <tr>
-    <td data-label="S.No">8</td>
-    <td data-label="Name">xxxx</td>
-    <td data-label="Age">xxxx</td>
-    <td data-label="Marks%">xxxx</td>
-    <td data-label="Staus">xxxx</td>
-   <td data-label="S.No">xxxx</td>
-    <td data-label="Name">xxxx</td>
-    <td data-label="Age">xxxx</td>
-    <td data-label="Marks%">xxxx</td>
-    <td data-label="Staus">xxxx</td>
+    <td data-label="id">8</td>
+    <td data-label="data">xxxx</td>
+    <td data-label="cliente">xxxx</td>
+    <td data-label="telefone">xxxx</td>
+    <td data-label="endereço">xxxx</td>
+   <td data-label="status">xxxx</td>
+    <td data-label="pago">xxxx</td>
+    <td data-label="itens">xxxx</td>
+    <td data-label="desconto">xxxx</td>
+    <td data-label="total">xxxx</td>
 </tr>
 <tr>
-  <td data-label="S.No">9</td>
-  <td data-label="Name">xxxx</td>
-  <td data-label="Age">xxxx</td>
-  <td data-label="Marks%">xxxx</td>
-  <td data-label="Staus">xxxx</td>
-  <td data-label="S.No">xxxx</td>
-  <td data-label="Name">xxxx</td>
-  <td data-label="Age">xxxx</td>
-  <td data-label="Marks%">xxxx</td>
-  <td data-label="Staus">xxxx</td>
+  <td data-label="id">9</td>
+  <td data-label="data">xxxx</td>
+  <td data-label="cliente">xxxx</td>
+  <td data-label="telefone">xxxx</td>
+  <td data-label="endereço">xxxx</td>
+  <td data-label="status">xxxx</td>
+  <td data-label="pago">xxxx</td>
+  <td data-label="itens">xxxx</td>
+  <td data-label="desconto">xxxx</td>
+  <td data-label="total">xxxx</td>
 </tr>
 <tr>
-  <td data-label="S.No">10</td>
-  <td data-label="Name">xxxx</td>
-  <td data-label="Age">xxxx</td>
-  <td data-label="Marks%">xxxx</td>
-  <td data-label="Staus">xxxx</td>
-  <td data-label="S.No">xxxx</td>
-  <td data-label="Name">xxxx</td>
-  <td data-label="Age">xxxx</td>
-  <td data-label="Marks%">xxxx</td>
-  <td data-label="Staus">xxxx</td>
+  <td data-label="id">10</td>
+  <td data-label="data">xxxx</td>
+  <td data-label="cliente">xxxx</td>
+  <td data-label="telefone">xxxx</td>
+  <td data-label="endereço">xxxx</td>
+  <td data-label="status">xxxx</td>
+  <td data-label="pago">xxxx</td>
+  <td data-label="itens">xxxx</td>
+  <td data-label="desconto">xxxx</td>
+  <td data-label="total">xxxx</td>
 </tr>
      </tbody>
+     
    </table>
 
+  <div class="button">
+   <button id="view">
+    <a>Visualizar</a>
+   </button>
+  </div>
+
+  </div>
 </body>
 </html>
 
