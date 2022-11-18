@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Impressoras - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="/src/public/css/impressoras.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
@@ -194,14 +195,164 @@
     </ul>
   </nav>
   <main class="conteudo">
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
-
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
-
-      Bom trabalho a todos! s2 --->
+    <div class="impressoras">
+    <table class="table">
+      <div class="title-container">
+        <div class="title-order">
+          <span id="history-title">Imprimir Relátorio</span>
+        </div>
+      <tr>
+        <th>Apelido</th>
+        <th>Impressora</th>
+        <th>Tipo</th>
+        <th>Largura</th>
+        <th>Descrição</th>
+      </tr>
+      <tr>
+        <td>      
+          <input class="select-mm" placeholder="Ex. Balcão">
+        </td>
+        <td>
+          <div class="impressora">
+            <select class="select-mm">
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+            </select>
+        </td>
+        <td>
+          <div class="tipo">
+            <select class="select-mm">
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+            </select>
+        </td>
+        <td>
+          <div class="largura">
+            <select class="select-mm">
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+            </select>
+        </td>
+        <td>
+          <div class="check-box-group">
+            <label class="custom-checkbox" for="recent">
+              <input type="checkbox" id="recent" name="recent">
+              <span class="checkmark"></span>
+              <span class="span-text">Incluir a impressora</span>
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>      
+          <input class="select-mm" placeholder="Ex. Balcão">
+        </td>
+        <td>
+          <div class="impressora">
+            <select class="select-mm">
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+            </select>
+        </td>
+        <td>
+          <div class="tipo">
+            <select class="select-mm">
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+            </select>
+        </td>
+        <td>
+          <div class="largura">
+            <select class="select-mm">
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+            </select>
+        </td>
+        <td>
+          <div class="check-box-group">
+            <label class="custom-checkbox" for="recent">
+              <input type="checkbox" id="recent" name="recent">
+              <span class="checkmark"></span>
+              <span class="span-text">Incluir a impressora</span>
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>      
+          <input class="select-mm" placeholder="Ex. Balcão">
+        </td>
+        <td>
+          <div class="impressora">
+            <select class="select-mm">
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+              <option value="Selecione a impressora">Selecione a impressora</option>
+            </select>
+        </td>
+        <td>
+          <div class="tipo">
+            <select class="select-mm">
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+              <option value="Completa">Completa</option>
+            </select>
+        </td>
+        <td>
+          <div class="largura">
+            <select class="select-mm">
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+              <option value="79mm">79mm</option>
+            </select>
+        </td>
+        <td>
+          <div class="check-box-group" class="select-mm">
+            <label class="custom-checkbox" for="recent">
+              <input type="checkbox" id="recent" name="recent">
+              <span class="checkmark"></span>
+              <span class="span-text">Incluir a impressora</span>
+            </label>
+          </div>
+        </td>
+      </tr>
+    </div>
+  </div>
+    </table>
+  </div>
     <h1>éBatata</h1>
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
