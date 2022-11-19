@@ -6,13 +6,15 @@
   flex-direction: column;
   margin: auto;
   margin-top: 10vh;
-  width: 60%;
+  width: 90%;
   background: white;
 }
 
 .table {
+  display: flex;
+  width: 100%;
+  justify-content: center;
   background: white;
-  margin-left: 17vh;
 }
 
 .table td,
@@ -20,6 +22,7 @@
   padding: 5px 5px;
   text-align: center;
   font-size: 16px;
+  width: 100%;
 }
 
 .table th {
@@ -28,37 +31,54 @@
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: white;
+  background-color: red;
 }
 
 /*responsive*/
+/*pai botão */
+.adjust-btn {
+  width: 100%;
+}
+/* botão */
+#user-btn {
+  width: 25%;
+  height: 12vh;
+  border: solid #8a4c00;
+  border-radius: 5px;
+  background: #cb6e00;
+  cursor: pointer;
+}
 
-@media (max-width: 500px) {
-  .table thead {
-    display: none;
-  }
+#user-btn {
+  margin: 60px;
+  margin-left: 10%;
+}
+/* botão impressora */
+#impressora-btn {
+  width: 25%;
+  height: 12vh;
+  border-radius: 5px;
+  background: white;
+  border: solid #cb6e00;
+}
 
-  .table,
-  .table tbody,
-  .table tr,
-  .table td {
-    display: block;
-  }
-  .table tr {
-    margin-bottom: 15px;
-  }
-  .table td {
-    text-align: right;
-    padding-left: 50%;
-    text-align: right;
-    position: relative;
-  }
+#impressora-btn {
+  margin: 60px;
+  margin-right: 10%;
+}
+
+#impressora-btn:hover {
+  border: solid #8a4c00;
+  background: #cb6e00;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .title-container {
   width: 25%;
   text-align: center;
   background: #cb6e00;
+  border: solid #8a4c00;
   padding: 30px;
   margin-left: 17vh;
   border-radius: 5px;
@@ -113,7 +133,9 @@
   border: 2px solid #222;
   display: inline-block;
   border-radius: 3px;
-  background: #cb6e00 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  background: #cb6e00
+    url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png)
+    center/1250% no-repeat;
   transition: background-size 0.2s ease;
 }
 
@@ -137,22 +159,70 @@
 }
 
 #view {
- color:#cb6e00;
- width: 60%;
- border-color: #cb6e00;
- background: white;
- padding:30px;
- border-radius: 10px;
- cursor: pointer;
-}
-
-#view-gene {
-  color:#cb6e00;
+  color: #cb6e00;
   width: 60%;
   border-color: #cb6e00;
   background: white;
-  padding:30px;
+  padding: 30px;
   border-radius: 10px;
- }
+  cursor: pointer;
+}
 
-/* .filter-container #recent #period .select-mm
+#view-gene {
+  color: #cb6e00;
+  width: 60%;
+  border-color: #cb6e00;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.adjust-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+}
+
+@media (max-width: 400px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    background: blue;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+}
