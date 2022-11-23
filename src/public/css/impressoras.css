@@ -6,8 +6,9 @@
   flex-direction: column;
   margin: auto;
   margin-top: 10vh;
-  width: 90%;
+  width: 70%;
   background: white;
+  border-radius: 5px;
 }
 
 .table {
@@ -19,19 +20,15 @@
 
 .table td,
 .table th {
-  padding: 5px 5px;
+
   text-align: center;
   font-size: 16px;
-  width: 100%;
+
 }
 
 .table th {
   background-color: white;
   color: black;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: red;
 }
 
 /*responsive*/
@@ -41,8 +38,8 @@
 }
 /* botão */
 #user-btn {
-  width: 25%;
-  height: 12vh;
+  width: 20%;
+  height: 10vh;
   border: solid #8a4c00;
   border-radius: 5px;
   background: #cb6e00;
@@ -55,8 +52,8 @@
 }
 /* botão impressora */
 #impressora-btn {
-  width: 25%;
-  height: 12vh;
+  width: 20%;
+  height: 10vh;
   border-radius: 5px;
   background: white;
   border: solid #cb6e00;
@@ -104,12 +101,11 @@
   background: orange;
   padding: 50px;
 }
-
 .check-box-group {
-  padding: 12px 15px;
-  background: white;
+  padding: 20px 10px 20px 0px;
+  margin-left: 2px;
   border-radius: 5px;
-  margin-top: 5vh;
+
 }
 
 .span-text {
@@ -120,11 +116,6 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-.custom-checkbox .label {
-  font-size: 1.2em;
-  margin: 0 10px;
 }
 
 .custom-checkbox .checkmark {
@@ -140,6 +131,7 @@
 }
 
 .custom-checkbox input:checked + .checkmark {
+  background-size: 60%;
   transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
 }
 
@@ -147,7 +139,9 @@
   display: none;
 }
 
+
 .select-mm {
+  padding: 12px 15px;
   background: white;
   border-color: #cb6e00;
   border-radius: 5px;
@@ -160,7 +154,7 @@
 
 #view {
   color: #cb6e00;
-  width: 60%;
+  width: 30%;
   border-color: #cb6e00;
   background: white;
   padding: 30px;
@@ -170,7 +164,7 @@
 
 #view-gene {
   color: #cb6e00;
-  width: 60%;
+  width: 30%;
   border-color: #cb6e00;
   background: white;
   padding: 30px;
@@ -193,9 +187,11 @@
   .table td {
     display: block;
   }
+  
   .table tr {
     margin-bottom: 15px;
   }
+
   .table td {
     text-align: right;
     padding-left: 50%;
@@ -216,9 +212,11 @@
     display: block;
     background: blue;
   }
+
   .table tr {
     margin-bottom: 15px;
   }
+
   .table td {
     text-align: right;
     padding-left: 50%;
