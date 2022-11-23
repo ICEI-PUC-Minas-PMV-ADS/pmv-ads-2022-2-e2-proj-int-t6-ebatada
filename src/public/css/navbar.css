@@ -713,3 +713,42 @@ div{
   height: 100vh;
 }
 
+
+
+.caixa-fechado{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 300px;
+  height: 550px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
+}
+
+.texto-titulo{
+  color: red;
+}
+
+.button-abrir-caixa{
+  background-color: yellowgreen;
+  border-radius: 5px;
+  width: 100px;
+  height:30px;
+  font-size: 15px;
+  margin-left: 190px;
+}
+.format-input-saldo{
+  background-color: #9b9999b7;
+  border-radius: 5px;
+  width: 150px;
+  height:30px;
+  font-size: 15px;
+}
+
+.format-input-observação{
+  background-color: #9b9999b7;
+  border-radius: 5px;
+  width: 280px;
+  height:220px;
+  font-size: 15px;
+}
