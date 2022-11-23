@@ -6,7 +6,7 @@
   flex-direction: column;
   margin: auto;
   margin-top: 10vh;
-  width: 70%;
+  width: 50%;
   background: white;
   border-radius: 5px;
 }
@@ -38,30 +38,29 @@
 }
 /* botão */
 #user-btn {
-  width: 20%;
-  height: 10vh;
+  width: 50%;
   border: solid #8a4c00;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #cb6e00;
   cursor: pointer;
 }
 
 #user-btn {
   margin: 60px;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 /* botão impressora */
 #impressora-btn {
-  width: 20%;
-  height: 10vh;
-  border-radius: 5px;
+  width: 50%;
+  height: 5vh;
+  border-radius: 10px;
   background: white;
   border: solid #cb6e00;
 }
 
 #impressora-btn {
   margin: 60px;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 #impressora-btn:hover {
@@ -154,20 +153,20 @@
 
 #view {
   color: #cb6e00;
-  width: 30%;
+  width: 100%;
   border-color: #cb6e00;
   background: white;
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 #view-gene {
   color: #cb6e00;
-  width: 30%;
+  width: 100%;
   border-color: #cb6e00;
   background: white;
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
 }
 
