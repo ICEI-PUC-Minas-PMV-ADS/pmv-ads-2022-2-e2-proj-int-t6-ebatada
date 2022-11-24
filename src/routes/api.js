@@ -1,9 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const clientes = require("../models/clientes");
+const bd = require("../models/db")
+
+const initModels = require("../models/init-models");
+const models = initModels(bd);
 
 (async () => {
+
+  router.get("/pedidos", async (req, res) => {
+    await models.pedidos.findAll({
+      order: [['idpedido', 'DESC']],
+      include: ["cliente_cliente", "taxaentrega_taxasentrega"],
+    }).then((pedidos) => {
+      return res.json(pedidos)
+    }).catch((error) => {
+      return res.json({
+        mensagem: "Houve algum erro ao encontrar os pedidos",
+        Erro: error,
+      })
+    }
+    )
+  });
 
   router.get("/clientes", async (req, res) => {
     const todosClientes = await clientes.pegarClientes();
