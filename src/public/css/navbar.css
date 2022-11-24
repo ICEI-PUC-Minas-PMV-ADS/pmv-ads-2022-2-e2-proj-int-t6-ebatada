@@ -713,3 +713,129 @@ div{
   height: 100vh;
 }
 
+
+
+.caixa-fechado, .caixa-aberto{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 300px;
+  height: 550px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
+}
+
+.texto-titulo, .observacao{
+  color: red;
+}
+
+.button-abrir-caixa{
+  background-color: yellowgreen;
+  border-radius: 5px;
+  width: 100px;
+  height:30px;
+  font-size: 15px;
+  margin-left: 190px;
+}
+
+.button-fechar-caixa{
+  background-color: red;
+  border-radius: 5px;
+  width: 120px;
+  height:30px;
+  font-size: 15px;
+  margin-left: 175px;
+  margin-top: 30px;
+}
+.format-input-saldo{
+  background-color: #9b9999b7;
+  border-radius: 5px;
+  width: 150px;
+  height:30px;
+  font-size: 15px;
+}
+
+.format-input-observação{
+  background-color: #9b9999b7;
+  border-radius: 5px;
+  width: 280px;
+  height:220px;
+  font-size: 15px;
+}
+
+#div-caixa-aberto, #div-caixa-aberto2{
+  display: inline-block;
+}
+
+#div-caixa-aberto2{
+  align-items: center;
+  margin-left: 300px;
+  margin-top: 150px;
+  position: absolute;
+}
+
+#button-acessar-admin{
+  background-color: #CB6E00;
+  border-radius: 5px;
+  width: 160px;
+  height:30px;
+  font-size: 15px;
+  margin-left: 175px;
+}
+
+#modal-fechar-caixa{
+  display: none;
+}
+
+.modal-caixa{
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 100vh;
+  display: flex;
+}
+
+.modal-content-caixa{
+  background-color: white;
+  border: 3px solid #b7b7b7;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 300px;
+  margin-left: 500px;
+  margin-top: 250px;
+}
+
+.format-input-caixa{
+  background-color: #9b9999b7;
+  border-radius: 5px;
+  width: 400px;
+  height: 25px;
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.modal-body-caixa, .modal-footer-caixa{
+  padding: 10px;
+}
+
+.modal-footer-caixa{
+  margin-left: 200px;
+}
+
+.titulo-login{
+  text-align: center;
+  margin-left: 10px;
+}
+
+#button-entrar-admin{
+  background-color: #CB6E00;
+  border-radius: 5px;
+  width: 160px;
+  height:30px;
+  font-size: 15px;
+}

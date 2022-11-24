@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Logins Administrativos - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
+  <title> Caixa - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,6 +194,8 @@
     </ul>
   </nav>
   <main class="conteudo">
+
+    
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
       tente seguir as convenções de codificação para html, css e js
@@ -202,55 +204,53 @@
       ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
 
       Bom trabalho a todos! s2 --->
-    <h1>éBatata / configurações /<a id="cor-taxa"> taxas de entrega </a></h1><br><br><br><br>
+    <h1>éBatata / caixa</h1>
 
-      <div>
-        <button id="button-nova-taxa">Novo login</button>
+    <main>
+    <div id="div-caixa-aberto">
+      <form class="caixa-aberto" >
+      
+      <h1 class="caixa-titulo"> Caixa Aberto</h1>
+
+      <h3>DATA/HORA DE ABERTURA:</h3>
+      <time>00/00/0000 00:00</time><br><br><br><br><br><br><br><br><br><br>
+
+      <h3>Saldo Final</h3>
+      <input type="number" name="saldo" class="format-input-saldo" placeholder="0,00">
+      <h5 class="observacao">*Digite o saldo final para fechar o caixa</h5><br>
+
+      <button class="button-fechar-caixa" onclick="openModal('modal-fechar-caixa')">Fechar Caixa</button>
+
+    </form>      
+    </div>
+
+    <div id="div-caixa-aberto2">
+      <h2> Para visualizar mais detalhes do caixa </h2>
+      <h2>e adicionar entradas ou saídas, você deve fornecer</h2>
+        <h2>um login de administrador.</h2>     
+
+        <button id="button-acessar-admin">Acessar como Admin</button>
+    </div>
+  </main>
+
+    <div id="modal-fechar-caixa" class="modal-caixa">
+      <div class="modal-content-caixa">
+  
+          <div class="modal-body-caixa">
+            <h4 class="titulo-login">É preciso ter a permissão de um administrador para executar esta operação</h4>
+            <form class="form-fechar-caixa">            
+              <input type="text" name="login" class="format-input-caixa" placeholder="login"><br><br>
+              <input type="text" name="senha" class="format-input-caixa" placeholder="senha"><br><br>        
+            </form>          
+          </div>
+
+          <div class="modal-footer-caixa">
+            <button id="button-entrar-admin" onclick="closeModal('modal-fechar-caixa')">Entrar</button>
+          </div>
       </div>
-  
-      <div>
-        <button id="button-editar-taxa"><a href="" id="detalhe-button">Editar</a></button>
-      </div>
-  
-      <br><br>
-  
-      <main>
-        <table class="tabela-taxa">
-          <thead>
-            
-            <tr>
-              
-              <th class="cabecalho-taxa">Nome</th>
-              <th class="cabecalho-taxa2">Login</th>
-              
-            </tr>
-            
-          </thead>
-  
-          <tbody>
-            <tr class="destaque2">
-              <td class="colunas-taxa">João Lucas Pinheiro</td>
-              <td class="colunas-taxa2">João</td>
-            </tr>
-  
-            <tr class="destaque2">
-              <td class="colunas-taxa">Carlos Eduardo</td>
-              <td class="colunas-taxa2">Carlos</td>
-            </tr>
-  
-            <tr class="destaque2">
-              <td class="colunas-taxa">Letícia Isabela</td>
-              <td class="colunas-taxa2">Letícia</td>
-            </tr>
-  
-            <tr class="destaque2">
-              <td class="colunas-taxa">Jéssica Serqueira</td>
-              <td class="colunas-taxa2">Jéssica</td>
-            </tr>
-  
-          </tbody>
-          </table>
-      </main>
+    </div>
+
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
+  <script type="text/javascript" src="./scripts/modal-fechar-caixa.js"></script>
 </body>
