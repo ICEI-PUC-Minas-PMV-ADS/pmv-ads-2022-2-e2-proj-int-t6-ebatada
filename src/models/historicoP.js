@@ -1,24 +1,16 @@
 module.exports = {
-  orders: [
-    {
-      id: 1,
-      emissao: "00/00/00",
-      cliente: "teste1",
-      telefone: "00000000",
-      endereco: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total_final: "R$ 00,00",
-    },
-  ],
-
-  getALL() {
-    return this.orders;
+  async pushOrders() {
+    try {
+      const allOrders = await db.query("SELECT * FROM orderhistory");
+      console.log("Pedidos encontrados");
+      return allOrders.rows;
+    } catch (error) {
+      console.log("error ocurred" + error);
+    }
   },
 
-  newOrder(
+  async newOrder(
+    id,
     emissao,
     cliente,
     telefone,
@@ -29,21 +21,38 @@ module.exports = {
     desconto,
     total_final
   ) {
-    this.orders.push({
-      id: generateID(),
-      emissao,
-      cliente,
-      telefone,
-      endereco,
-      status,
-      pago,
-      itens,
-      desconto,
-      total_final,
-    });
+    try {
+      await db.query(
+        "INSERT INTO orderhistory VALUES ('" +
+          gerarID() +
+          "','" +
+          emissao +
+          "','" +
+          cliente +
+          "','" +
+          telefone +
+          "','" +
+          endereco +
+          "','" +
+          status +
+          "','" +
+          pago +
+          "','" +
+          itens +
+          "','" +
+          desconto +
+          "','" +
+          total_final +
+          "' ) "
+      );
+    } catch (error) {
+      console.log("error ocurred" + error);
+    }
   },
 };
 
-function generateID() {
-  return Math.random().toString(36).subStr(2, 9);
+const db = require("../Postgres/database");
+
+function gerarID() {
+  return Math.random().toString(36).substring(2, 7);
 }
