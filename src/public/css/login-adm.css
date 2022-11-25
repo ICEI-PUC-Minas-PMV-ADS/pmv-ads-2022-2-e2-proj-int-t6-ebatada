@@ -1,0 +1,84 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45%;
+  height: 45%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  color: #cb6e00;
+}
+
+h1 {
+  margin: 50px 150px;
+  color: black;
+  font-family: 'Ubuntu';
+  font-size: 16px;
+  text-align: center;
+}
+
+div {
+  display: block;
+}
+.select-mm {
+  align-items: center;
+  position: relative;
+  margin: 10px 150px 30px;
+  width: 500px;
+  border: 2px solid #B7B7B7;
+  border-top: 0ch;
+  border-left: 0ch;
+  border-right: 0ch;
+}
+
+.button {
+  align-items: center;
+  margin: 10px 150px;
+}
+
+.day-div {
+  border-color: #cb6e00;
+  border-radius: 5px;
+}
+
+#view {
+  color: white;
+  width: 50%;
+  font-style: normal;
+  background: #cb6e00 ;
+  padding: 10px;
+  border-bottom: #cb6e00;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.adjust-btn {
+  align-items: center;
+  display: inline-block;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+
+  .day-div,
+  .select-mm,
+  .button,
+  .container {
+    display: none;
+  }
+
+  .container {
+    margin-bottom: 15px;
+  }
+
+  .day-div,
+  .select-mm,
+  .button,
+  .container {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+}
