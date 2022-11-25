@@ -80,6 +80,7 @@
 .separator {
   opacity: 0;
   visibility: hidden;
+  transition: 0.2s;
 }
 
 .separator.ativo {
@@ -125,6 +126,7 @@
     flex-direction: column;
     width: 100%;
   }
+
   .table tr {
     margin-bottom: 15px;
   }
@@ -179,6 +181,7 @@
     margin-top: 5vh;
   }
 }
+
 @media (max-width: 500px) {
   .table thead {
     display: none;
@@ -193,6 +196,7 @@
     flex-direction: column;
     width: 100%;
   }
+
   .table tr {
     margin-bottom: 15px;
   }
@@ -262,6 +266,7 @@
     flex-direction: column;
     width: 100%;
   }
+
   .table tr {
     margin-bottom: 15px;
   }
