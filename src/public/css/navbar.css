@@ -740,6 +740,8 @@ div{
 
 .button-fechar-caixa{
   background-color: red;
+  color: white;
+  border: 2px solid red;
   border-radius: 5px;
   width: 120px;
   height:30px;
@@ -747,6 +749,7 @@ div{
   margin-left: 175px;
   margin-top: 30px;
 }
+
 .format-input-saldo{
   background-color: #9b9999b7;
   border-radius: 5px;
@@ -763,7 +766,7 @@ div{
   font-size: 15px;
 }
 
-#div-caixa-aberto, #div-caixa-aberto2{
+#div-caixa-aberto, #div-caixa-aberto2, #caixa-aberto-admin, #saldo, #caixa-aberto-admin2{
   display: inline-block;
 }
 
@@ -781,6 +784,16 @@ div{
   height:30px;
   font-size: 15px;
   margin-left: 175px;
+}
+
+#caixa-aberto-admin2{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 300px;
+  height: 550px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
 }
 
 #modal-fechar-caixa{
@@ -819,7 +832,7 @@ div{
   font-size: 15px;
   margin-top: 20px;
 }
-.modal-body-caixa, .modal-footer-caixa{
+.modal-body-caixa, .modal-footer-caixa, .modal-footer-caixa-admin{
   padding: 10px;
 }
 
@@ -832,10 +845,237 @@ div{
   margin-left: 10px;
 }
 
+.conteudo1{
+  border-top: 100px;
+}
+
+#titulo-caixa{
+  font-size: 30px;
+}
+
+.button-adicionar{
+  margin-left: 140px;
+  background-color: #CB6E00;
+  color: white;
+  border: 2px solid #CB6E00;
+  border-radius: 5px;
+  width: 210px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.button-imprimir{
+  margin-left: 110px;
+  background-color: #CB6E00;
+  color: white;
+  border: 2px solid #CB6E00;
+  border-radius: 5px;
+  width: 210px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.button-imprimir2{
+  margin-left: 105px;
+  background-color: #CB6E00;
+  color: white;
+  border: 2px solid #CB6E00;
+  border-radius: 5px;
+  width: 210px;
+  height: 30px;
+  font-size: 15px;
+}
+
 #button-entrar-admin{
   background-color: #CB6E00;
   border-radius: 5px;
   width: 160px;
   height:30px;
   font-size: 15px;
+}
+
+#caixa-aberto-admin{
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 500px;
+  height: 565px;
+  border: 2px solid #ccc;
+  padding: 5px 2px 5px 30px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+#saldo{
+  background-color: #e49f4c;
+  border-radius: 5px;
+  width: 300px;
+  height: 550px;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.cabecalho-caixa{
+  text-align: center;
+  font-weight: bolder;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  font-size: 15px;
+}
+
+.cabecalho-caixa2{
+  text-align: center;
+  font-weight: bolder; 
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  font-size: 15px;
+}
+
+.cabecalho-caixa3{
+  text-align: center;
+  font-weight: bolder;
+  border-bottom: 3px solid black;
+  font-size: 15px;
+}
+
+#saldo-caixa{
+  margin-left: 10px;
+}
+
+.button-excluir-lancamento{
+  margin-right: 400px;
+  margin-left: 675px;
+  background-color: #CB6E00;
+  color: white;
+  border: 2px solid #CB6E00;
+  border-radius: 5px;
+  width: 210px;
+  height: 30px;
+  font-size: 15px;
+}
+
+#modal-adicionar-entrada{
+  display: none;
+}
+
+.modal-content-adicionar{
+  background-color: white;
+  border: 3px solid #b7b7b7;
+  border-radius: 10px;
+  position: fixed;
+  text-align: left;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 750px;
+  margin-left: 500px;
+  margin-top: 150px;
+}
+
+
+#button-adicionar-entrada{
+  margin-top: 10px;
+  background-color:rgb(61, 183, 61);
+  color: white;
+  border: 2px solid rgb(61, 183, 61);
+  border-radius: 5px;
+  width: 160px;
+  height: 30px;
+  font-size: 15px;
+  margin-left: 248px;
+}
+
+#button-adicionar-saida{
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: 2px solid red;
+  border-radius: 5px;
+  width: 160px;
+  height: 30px;
+  font-size: 15px;
+  margin-left: 248px;
+}
+
+.format-input-adicionar{
+  background-color: #9b9999f3;
+  border-radius: 5px;
+  border: 2px solid #9b9999f3;
+  width: 130px;
+  height: 20px;
+  font-size: 15px;
+}
+
+.format-input-observacao{
+  background-color: #9b9999f3;
+  border-radius: 5px;
+  border: 2px solid #9b9999f3;
+  width: 400px;
+  height: 100px;
+  font-size: 15px;
+}
+
+.form-fechar-caixa-admin{
+  margin-left: 35px;
+}
+
+#modal-fechar-caixa{
+  display: none;
+}
+
+.modal-content-fechar{
+  background-color: white;
+  border: 3px solid #b7b7b7;
+  border-radius: 10px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  margin-left: 500px;
+  margin-top: 150px;
+}
+
+.format-input-valor{
+  background-color: #9b9999f3;
+  border-radius: 5px;
+  border: 2px solid #9b9999f3;
+  width: 180px;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.format-input-valor2{
+  background-color: rgb(61, 183, 61);
+  border-radius: 5px;
+  border: 2px solid rgb(61, 183, 61);
+  width: 180px;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#button-fechar-imprimir{
+  margin-top: 50px;
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  width: 160px;
+  height: 30px;
+  font-size: 15px;
+  margin-right: 290px;
+}
+
+#button-fechar-caixa2{
+  background-color: red;
+  color: white;
+  border: 2px solid red;
+  border-radius: 5px;
+  width: 160px;
+  height: 30px;
+  font-size: 15px;
+  margin-left: 280px;
 }
