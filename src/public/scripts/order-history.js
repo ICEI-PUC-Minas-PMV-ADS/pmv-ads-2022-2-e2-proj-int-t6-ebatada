@@ -1,175 +1,86 @@
-var registerList = {
-  lastIdGenerated: 0,
-  user: [
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste1",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste2",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste3",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste4",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste5",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste6",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste7",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste8",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste9",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-    {
-      id: 1,
-      data: "00/00/00",
-      cliente: "teste10",
-      fone: "00000000",
-      adress: "rua xd xd",
-      status: "finalizado",
-      pago: "pago",
-      itens: "teste",
-      desconto: "teste",
-      total: "R$ 00,00",
-    },
-  ],
-};
-
-function render() {
-  const tbody = document.getElementById("registerListBody");
-  if (tbody) {
-    tbody.innerHTML = registerList.user
-      .map((usuario) => {
-        return `<tr>
-            <td>${usuario.id}</td>
-            <td>${usuario.data}</td>
-            <td>${usuario.cliente}</td>
-            <td>${usuario.fone}</td>
-            <td>${usuario.adress}</td>
-            <td>${usuario.status}</td>
-            <td>${usuario.pago}</td>
-            <td>${usuario.itens}</td>
-            <td>${usuario.desconto}</td>
-            <td>${usuario.total}</td>
-            
-            </tr>`;
+function updateOrders() {
+  if (document.querySelector("#radiOne").checked) {
+    fetch("http://localhost:5000/api/pedidos")
+      .then((res) => {
+        return res.json();
       })
-      .join("");
+      .then((json) => {
+        let elementsOrder = "";
+        let orders = json;
+        orders.forEach((order) => {
+          let elementOrder = `<tr class="found-orders">
+      <td data-label="id">${order.idpedido}</td>
+      <td data-label="emissao">00/00/00</td>
+      <td data-label="cliente">${order.cliente_cliente.nome}</td>
+      <td data-label="telefone">${order.cliente_cliente.telefoneprimario}</td>
+      <td data-label="endereco">${order.cliente_cliente.rua}, ${order.cliente_cliente.numero},  ${order.cliente_cliente.bairro}</td>
+      <td data-label="status">---</td>
+      <td data-label="pago">${order.pago}</td>
+      <td data-label="total_final">0000</td>
+  </tr>`;
+          elementsOrder += elementOrder;
+        });
+        document.querySelector("#registerListBody").innerHTML = elementsOrder;
+      });
+  } else if (document.querySelector("#radioTwo").checked) {
+    var selectMes = document.querySelector("#select-mes");
+    var mes = selectMes.options[selectMes.selectedIndex].value;
+    var dia = parseInt(document.querySelector("#day-dia").value);
+    var selectAmes = document.querySelector("#select-a-mes");
+    var ames = selectAmes.options[selectAmes.selectedIndex].value;
+    var adia = parseInt(document.querySelector("#day-a-dia").value);
+    fetch(
+      "http://localhost:5000/api/pedidosdata?mes=" +
+        mes +
+        "&dia=" +
+        dia +
+        "&ames=" +
+        ames +
+        "&adia=" +
+        adia +
+        ""
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        let elementsOrder = "";
+        let orders = json;
+        orders.forEach((order) => {
+          let elementOrder = `<tr class="found-orders">
+       <td data-label="id">${order.idpedido}</td>
+       <td data-label="emissao">00/00/00</td>
+       <td data-label="cliente">${order.cliente_cliente.nome}</td>
+       <td data-label="telefone">${order.cliente_cliente.telefoneprimario}</td>
+       <td data-label="endereco">${order.cliente_cliente.rua}, ${order.cliente_cliente.numero}, ${order.cliente_cliente.bairro}</td>
+       <td data-label="status">---</td>
+       <td data-label="pago">${order.pago}</td>
+       <td data-label="total_final">0000</td>
+  </tr>`;
+          elementsOrder += elementOrder;
+        });
+        document.querySelector("#registerListBody").innerHTML = elementsOrder;
+      });
   }
 }
 
-function insertUser(
-  data,
-  cliente,
-  fone,
-  adress,
-  status,
-  pago,
-  itens,
-  desconto,
-  total
-) {
-  const id = registerList.lastIdGenerated + 1;
-  registerList.user.push({
-    id,
-    cliente,
-    fone,
-  });
-}
+updateOrders();
 
-function editUser(id, cliente, fone) {}
+document.querySelector("#view").addEventListener("click", () => {
+  document.querySelector("#registerListBody").innerHTML = "";
+  updateOrders();
+});
 
-function deleteUser(id) {}
+document.querySelector("#radioTwo").addEventListener("click", () => {
+  const container = document.querySelectorAll(".separator");
+  for (var i = 0; i < container.length; i++) {
+    container[i].classList.add("ativo");
+  }
+});
 
-window.addEventListener("load", () => {
-  render();
+document.querySelector("#radiOne").addEventListener("click", () => {
+  const container = document.querySelectorAll(".separator");
+  for (var i = 0; i < container.length; i++) {
+    container[i].classList.remove("ativo");
+  }
 });

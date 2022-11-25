@@ -351,6 +351,10 @@
 
     <div class="primeiro-fade"></div>
     <div class="fade-novocliente"></div>
+    <div class="fade-novo-produto"></div>
+    <div class="fade-tamanhos"></div>
+    <div class="fade-personalizar"></div>
+
     <div class="novo-pedido">
 
       <div class="titulo-novo">
@@ -394,6 +398,155 @@
 
         </div>
         <div class="produtos-pedido">
+          <button class="botao-novo-produto">Novo produto</button>
+          <div class="carrinho-produtos">
+            <table class="tabela-carrinho">
+              <thead>
+                <tr>
+                  <th>Produto</th>
+                  <th>Qnt.</th>
+                  <th>Preço unit.</th>
+                  <th>Subtotal</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="produto-tamanho">
+                      <img src="./assets/angle-double-right.svg" alt="">
+                      <h4>(Pizza: Média)</h4>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="acoes-carrinho">
+                      <img src="./assets/editar.svg" alt="">
+                      <img src="./assets/lixo-vermelho.svg" alt="">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="meio-a-meio">
+                      <img src="./assets/metade.png" alt="">
+                      <p>A moda</p>
+                    </div>
+                  </td>
+                  <td>1/4</td>
+                  <td>36,00</td>
+                  <td>9,00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="meio-a-meio">
+                      <img src="./assets/metade.png" alt="">
+                      <p>Calabresa</p>
+                    </div>
+                  </td>
+                  <td>1/4</td>
+                  <td>34,00</td>
+                  <td>8,50</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="meio-a-meio">
+                      <img src="./assets/metade.png" alt="">
+                      <p>Especial</p>
+                    </div>
+                  </td>
+                  <td>1/4</td>
+                  <td>38,00</td>
+                  <td>9,50</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="meio-a-meio">
+                      <img src="./assets/metade.png" alt="">
+                      <p>Bacon</p>
+                    </div>
+                  </td>
+                  <td>1/4</td>
+                  <td>40,00</td>
+                  <td>10,00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="complemento-produto">
+                      <img src="./assets/adicionar-verde.svg" alt="">
+                      <p>Borda de cheddar</p>
+                    </div>
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    5,00
+                  </td>
+                  <td>
+                    5,00
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="complemento-produto">
+                      <img src="./assets/adicionar-verde.svg" alt="">
+                      <p>Tomate</p>
+                    </div>
+                  </td>
+                  <td>
+                    2
+                  </td>
+                  <td>
+                    5,00
+                  </td>
+                  <td>
+                    10,00
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="observacoes-produto">
+                      <img src="./assets/checkbox-red.svg" alt="">
+                      <p>Sem cebola, Sem
+                        azeitona</p>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="produto-tamanho">
+                      <img src="./assets/angle-double-right.svg" alt="">
+                      <h4>(Refrigerante: 2L) Kuat</h4>
+                    </div>
+                  </td>
+                  <td>1</td>
+                  <td>8,00</td>
+                  <td>8,00</td>
+                  <td>
+                    <div class="acoes-carrinho">
+                      <img src="./assets/editar.svg" alt="">
+                      <img src="./assets/lixo-vermelho.svg" alt="">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
         </div>
         <div class="botoes-pedido">
@@ -423,7 +576,8 @@
           </div>
           <button class="botao-novo-cliente">Novo cliente</button>
           <button id="trocar-cliente">Pesquisa avançada</button>
-          <!--- Cliente Selecionado
+
+          <!--- CÓDIGO PARA QUANDO UM CLIENTE É SELECIONADO
             <div id="nome-cliente-pedido">
             <h4>João Lucas</h4>
           </div>
@@ -529,6 +683,284 @@
         </div>
 
       </div>
+    </div>
+    <div class="novo-produto">
+      <div class="titulo-produto">
+        <h2>Novo produto</h2>
+        <button class="botao-fechar-produto">
+          <img src="./assets/fechar-laranja.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
+      <div class="pesquisa-produto">
+        <div class="filtros-produto">
+          <div class="container-opcoes-produto">
+            <div class="opcao-produto">
+              <input type="radio" class="radio-produto" id="nome-produto" name="categoria" />
+              <label for="nome-produto">
+                <p>Nome do produto</p>
+              </label>
+            </div>
+            <div class="opcao-produto">
+              <input type="radio" class="radio-produto" id="codigo-produto" name="categoria" />
+              <label for="codigo-produto">
+                <p>Código do produto</p>
+              </label>
+            </div>
+          </div>
+          <div class="filtro-produto-selecionado">
+            <div class="opcao-atual-filtro-produto">
+              <p>Selecione o filtro</p>
+            </div>
+            <img src="./assets/seta-cinza.svg" alt="" class="seta-filtro-produto">
+          </div>
+        </div>
+        <div class="barra-de-pesquisa-produto">
+          <input type="text" class="texto-busca-produto" placeholder="Buscar..." />
+        </div>
+        <button class="botao-busca-produto">Buscar</button>
+      </div>
+      <div class="lista-produtos">
+        <table class="tabela-produtos">
+          <thead>
+            <tr>
+              <th>Cod.</th>
+              <th>Produto</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody class="produtos-tabela">
+            <tr>
+              <td>001</td>
+              <td>Pizza A moda</td>
+              <td>
+                <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
+              </td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Pizza Calabresa</td>
+              <td>
+                <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
+              </td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>Pizza Especial</td>
+              <td>
+                <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
+              </td>
+            </tr>
+            <tr>
+              <td>004</td>
+              <td>Pizza Bacon</td>
+              <td>
+                <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="selecione-tamanho">
+      <div class="titulo-tamanho">
+        <h2>Selecione o tamanho</h2>
+        <button class="botao-fechar-tamanho">
+          <img src="./assets/fechar-laranja.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
+      <div class="tipos-pedido">
+        <h4 class="nome-produto">Pizza A moda</h4>
+        <div class="container-tamanhos">
+          <input type="radio" name="select-tamanho" id="tamanho-1" checked>
+          <label for="tamanho-1" class="tamanho tamanho-1">
+            <div class="dot-2"></div>
+            <span>P - Pequena - 26,00</span>
+          </label>
+
+          <input type="radio" name="select-tamanho" id="tamanho-2">
+          <label for="tamanho-2" class="tamanho tamanho-2">
+            <div class="dot-2"></div>
+            <span>M - Média - 36,00</span>
+          </label>
+
+          <input type="radio" name="select-tamanho" id="tamanho-3">
+          <label for="tamanho-3" class="tamanho tamanho-3">
+            <div class="dot-2"></div>
+            <span>G - Gigante - 48,00</span>
+          </label>
+
+          <input type="radio" name="select-tamanho" id="tamanho-4">
+          <label for="tamanho-4" class="tamanho tamanho-4">
+            <div class="dot-2"></div>
+            <span>F - Família - 55,00</span>
+          </label>
+          
+        </div>
+      </div>
+      <button class="botao-selecionar-tamanho">Selecionar</button>
+    </div>
+
+    <div class="personalizar-produto">
+      <div class="titulo-personalizar">
+        <h2>Adicionar no pedido "Pizza A Moda"</h2>
+        <button class="botao-fechar-personalizar">
+          <img src="./assets/fechar-branco.svg" alt="Fechar" class="icone-fechar">
+        </button>
+      </div>
+      <div class="personalizacao">
+        <div class="quantidade-tamanho">
+          <div class="quantidade">
+            <input type="number" min="1" max="50" step="1" value="1">
+          </div>
+          <div class="radios-tamanhos">
+
+            <input type="radio" id="tamanho0-personalizar" name="tamanho" checked>
+            <label for="tamanho0-personalizar">P - Pequena - 26,00</label>
+
+            <input type="radio" id="tamanho1-personalizar" name="tamanho">
+            <label for="tamanho1-personalizar">M - Média - 36,00</label>
+
+            <input type="radio" id="tamanho2-personalizar" name="tamanho">
+            <label for="tamanho2-personalizar">G - Gigante - 48,00</label>
+
+            <input type="radio" id="tamanho3-personalizar" name="tamanho">
+            <label for="tamanho3-personalizar">F - Família - 55,00</label>
+
+          </div>
+
+        </div>
+        <div class="personalizar-meio-meio">
+          <h4>'Meio a meio'</h4>
+          <p>Personalizar 'meio a meio'
+            com varios sabores</p>
+          <div class="container-meio-meio">
+            <button class="botao-meio-meio">
+              <img src="./assets/lixo-white.svg" alt="Lixo">
+              <p>1/4 A moda</p>
+            </button>
+            <button class="botao-meio-meio">
+              <img src="./assets/lixo-white.svg" alt="Lixo">
+              <p>1/4 Calabresa</p>
+            </button>
+            <button class="botao-meio-meio">
+              <img src="./assets/lixo-white.svg" alt="Lixo">
+              <p>1/4 Especial</p>
+            </button>
+            <button class="botao-meio-meio">
+              <img src="./assets/lixo-white.svg" alt="Lixo">
+              <p>1/4 Bacon</p>
+            </button>
+          </div>
+          <button class="personalizar-meio">Personalizar <br>Meio a Meio</button>
+        </div>
+
+        <div class="personalizar-observacoes">
+          <h4>Observações</h4>
+          <div class="container-observacoes">
+            <div>
+              <input type="checkbox" id="sem-cebola" name="cebola">
+              <label for="sem-cebola">Sem cebola</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-pimentao" name="pimentao">
+              <label for="sem-pimentao">Sem pimentão</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-tomate" name="tomate">
+              <label for="sem-tomate">Sem tomate</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-milho" name="milho">
+              <label for="sem-milho">Sem milho</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-azeitona" name="azeitona">
+              <label for="sem-azeitona">Sem azeitona</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-presunto" name="presunto">
+              <label for="sem-presunto">Sem presunto</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-frango" name="frango">
+              <label for="sem-frango">Sem frango</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-mussarela" name="mussarela">
+              <label for="sem-mussarela">Sem mussarela</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sem-orégano" name="orégano">
+              <label for="sem-orégano">Sem orégano</label>
+            </div>
+          </div>
+          <button class="obs-pers">Obs.Personalizada</button>
+        </div>
+
+        <div class="personalizar-complementos">
+          <h4>Complementos</h4>
+          <div class="container-complementos">
+            <div>
+              <input type="checkbox" id="cebola" name="cebola">
+              <label for="cebola">Cebola</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="pimentao" name="pimentao">
+              <label for="pimentao">Pimentão</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="tomate" name="tomate">
+              <label for="tomate">Tomate</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="milho" name="milho">
+              <label for="milho">Milho</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="azeitona" name="azeitona">
+              <label for="azeitona">Azeitona</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="presunto" name="presunto">
+              <label for="presunto">Presunto</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="frango" name="frango">
+              <label for="frango">Frango</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="mussarela" name="mussarela">
+              <label for="mussarela">Mussarela</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="borda-cheddar" name="borda-cheddar">
+              <label for="borda-cheddar">Borda de cheddar</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="palmito" name="palmito">
+              <label for="palmito">Palmito</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+            <div>
+              <input type="checkbox" id="barbecue" name="barbecue">
+              <label for="barbecue">Barbecue</label>
+              <span class="preco-complemento">5,00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="botão-adicionar-personalizacao">Adicionar</button>
     </div>
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
