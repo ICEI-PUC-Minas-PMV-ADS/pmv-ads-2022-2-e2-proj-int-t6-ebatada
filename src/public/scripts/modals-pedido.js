@@ -63,7 +63,13 @@ listaEnderecos.forEach(o => {
   });
 });*/
 
-
+var mes = 11;
+var dia = 20;
+var ames = 11;
+var adia = 25;
+function renderHistorico(){
+  fetch('http://localhost:5000/api/pedidosdata?mes='+mes+'&dia='+dia+'&ames='+ames+'&adia='+adia+'');
+}
 
 
 

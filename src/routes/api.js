@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bd = require("../models/db")
 
 const initModels = require("../models/init-models");
+const sequelize = require('../models/db');
 const models = initModels(bd);
 
 (async () => {
@@ -22,6 +23,22 @@ const models = initModels(bd);
     }
     )
   });
+
+
+  router.get("/pedidosdata", async (req, res) => {
+    let mes = req.query.mes;
+    let dia = req.query.dia;
+    let ames = req.query.ames;
+    let adia = req.query.adia;
+    let dataAtual = new Date();
+    dataAtual.getFullYear();
+
+    let pedidos = await sequelize.query("select * from pedidos where abertoem between '" + dataAtual.getFullYear() + "-" + mes + "-" + dia + "' and '" + dataAtual.getFullYear() + "-" + ames + "-" + adia + "'");
+
+    res.json(pedidos);
+  }
+  );
+
 
   router.get("/clientes", async (req, res) => {
     const todosClientes = await clientes.pegarClientes();
