@@ -205,52 +205,54 @@
     </div>
 
     <div class="check-box-group">
-      <label class="custom-checkbox" for="recent">
-        <input type="checkbox" id="recent" name="recent">
-        <span class="checkmark"></span>
-        <span class="span-text">Exibir mais recentes</span>
-      </label>
-    
-      
-      <label class="custom-checkbox" for="period">
-        <input type="checkbox" id="period" name="period">
-        <span class="checkmark"></span>
-        <span class="span-text">Filtrar por período de:</span>
-      </label>
-      <div class="separator">
-      <select class="select-mm">
-        <option value="janeiro">Janeiro</option>
-        <option value="fevereiro">Fevereiro</option>
-        <option value="março">Março</option>
-        <option value="abril">Abril</option>
-        <option value="maio">Maio</option>
-        <option value="junho">Junho</option>
-        <option value="julho">Julho</option>
-        <option value="agosto">Agosto</option>
-        <option value="setembro">setembro</option>
-        <option value="outubro">Outubro</option>
-        <option value="novembro">Novembro</option>
-        <option value="dezembro">Dezembro</option>
-      </select>
-      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31">
+
+      <div class="form-group">
+        <input class="radio" name="theradio" id="radiOne" type="radio" checked>
+        <label for="radiOne">Exibir mais recentes</label>
       </div>
-      <span>À</span>
+
+      <div class="form-group">
+        <input class="radio" name="theradio" id="radioTwo" type="radio">
+        <label for="radioTwo">Filtrar por período de:</label>
+      </div>
+
+      
+      
       <div class="separator">
-      <select class="select-mm">
-        <option value="janeiro">Janeiro</option>
-        <option value="fevereiro">Fevereiro</option>
-        <option value="março">Março</option>
-        <option value="abril">Abril</option>
-        <option value="maio">Maio</option>
-        <option value="junho">Junho</option>
-        <option value="julho">Julho</option>
-        <option value="agosto">Agosto</option>
-        <option value="setembro">setembro</option>
-        <option value="outubro">Outubro</option>
-        <option value="novembro">Novembro</option>
-        <option value="dezembro">Dezembro</option>
+      <select class="select-mm" id="select-mes">
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
       </select>
-      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31"> 
+      <input class="day-div" type="number" name="dia" maxlength="2" min="1" max="31" id="day-dia" value="1">
+      <span id="a">À</span>
+      </div>
+      
+      <div class="separator">
+      <select class="select-mm" id="select-a-mes">
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+      </select>
+      <input class="day-div" type="number" name="dia" maxlength="2" min="1" max="31" id="day-a-dia" value="1"> 
     </div>
     </div>
     
@@ -265,8 +267,6 @@
      	 <th>Endereço</th>
        <th>Status</th>
      	 <th>Pago?</th>
-     	 <th>Itens</th>
-     	 <th>Desconto</th>
      	 <th>Total Final</th>
      	</tr>
      </thead>
@@ -279,8 +279,6 @@
      	  	  <td data-label="endereco"></td>
             <td data-label="status"></td>
      	  	  <td data-label="pago"></td>
-     	  	  <td data-label="itens"></td>
-     	  	  <td data-label="desconto"></td>
      	  	  <td data-label="total_final"></td>
      	  </tr>
 

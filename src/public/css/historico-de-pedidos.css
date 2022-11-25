@@ -73,36 +73,18 @@
   margin-left: 5px;
 }
 
-.custom-checkbox {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+#a {
+  margin-left: 55px;
 }
 
-.custom-checkbox .label {
-  font-size: 1.2em;
-  margin: 0 10px;
+.separator {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.custom-checkbox .checkmark {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #222;
-  display: inline-block;
-  border-radius: 3px;
-  background: #cb6e00
-    url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png)
-    center/1250% no-repeat;
-  transition: background-size 0.2s ease;
-}
-
-.custom-checkbox input:checked + .checkmark {
-  background-size: 60%;
-  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
-}
-
-.custom-checkbox input {
-  display: none;
+.separator.ativo {
+  opacity: 1;
+  visibility: visible;
 }
 
 .select-mm {
