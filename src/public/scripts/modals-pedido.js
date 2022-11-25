@@ -63,32 +63,28 @@ listaEnderecos.forEach(o => {
   });
 });*/
 
-var mes = 11;
-var dia = 20;
-var ames = 11;
-var adia = 25;
-function renderHistorico(){
-  fetch('http://localhost:5000/api/pedidosdata?mes='+mes+'&dia='+dia+'&ames='+ames+'&adia='+adia+'');
-}
+
+function abrirModal(fade, modal) {
+  let fundo = document.querySelector(fade);
+  let janela = document.querySelector(modal);
+
+  fundo.classList.add('ativo');
+  janela.classList.add('ativo');
+};
 
 
+function renderPedidosCriados() {
+  fetch('http://localhost:5000/api/pedidos').then(res => {
+    return res.json();
+  }).then(json => {
+    let pedidos = json;
+    let containerPedidos = "";
 
-class Pedido {
-  constructor() {
+    pedidos.forEach(pedido => {
+      let abertoEm = new Date(pedido.abertoem);
 
-  }
-
-  renderPedidosCriados() {
-    fetch('http://localhost:5000/api/pedidos').then(res => {
-      return res.json();
-    }).then(json => {
-      let pedidos = json;
-      let containerPedidos = "";
-      pedidos.forEach(pedido => {
-        let abertoEm = new Date(pedido.abertoem);
-
-        let cardPedido =
-          `<div class="card">
+      let cardPedido =
+        `<div class="card">
         <div class="info-pedido">
           <div class="id-pedido">
             <h4>#${pedido.idpedido}</h4>
@@ -132,16 +128,26 @@ class Pedido {
           <button class="botao-detalhes">Detalhes</button>
         </div>
       </div>`;
-        containerPedidos += cardPedido;
+      containerPedidos += cardPedido;
+
+      document.querySelector('.botao-detalhes').addEventListener('click', () => {
+        abrirModal(".primeiro-fade", ".novo-pedido");
       })
-      document.querySelector(".container-cards").innerHTML = containerPedidos;
     })
-  }
+
+    document.querySelector(".container-cards").innerHTML = containerPedidos;
+
+
+
+  })
 }
 
+renderPedidosCriados();
 
-const renderPedidos = new Pedido();
-renderPedidos.renderPedidosCriados();
+function visualizarpedidos() {
+
+}
+
 
 
 

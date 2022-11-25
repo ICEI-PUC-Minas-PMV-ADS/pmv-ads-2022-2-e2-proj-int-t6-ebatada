@@ -6,6 +6,7 @@ const bd = require("../models/db")
 const initModels = require("../models/init-models");
 const sequelize = require('../models/db');
 const models = initModels(bd);
+const { Op } = require("sequelize");
 
 (async () => {
 
@@ -31,11 +32,29 @@ const models = initModels(bd);
     let ames = req.query.ames;
     let adia = req.query.adia;
     let dataAtual = new Date();
-    dataAtual.getFullYear();
+    let data = new Date(mes + " " + dia + " " + dataAtual.getFullYear());
+    let adata = new Date(ames + " " + adia + " " + dataAtual.getFullYear());
 
-    let pedidos = await sequelize.query("select * from pedidos where abertoem between '" + dataAtual.getFullYear() + "-" + mes + "-" + dia + "' and '" + dataAtual.getFullYear() + "-" + ames + "-" + adia + "'");
+    console.log(data)
 
-    res.json(pedidos);
+    await models.pedidos.findAll({
+      order: [['idpedido', 'DESC']],
+      include: ["cliente_cliente", "taxaentrega_taxasentrega"],
+      where: {
+        abertoem: {
+          [Op.between]: [data, adata],
+        }
+      },
+
+    }).then((pedidos) => {
+      return res.json(pedidos)
+    }).catch((error) => {
+      return res.json({
+        mensagem: "Houve algum erro ao encontrar os pedidos",
+        Erro: error,
+      })
+    }
+    )
   }
   );
 
