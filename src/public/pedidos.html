@@ -358,7 +358,7 @@
     <div class="novo-pedido">
 
       <div class="titulo-novo">
-        <h2>Novo pedido</h2>
+        <h2 id="titulo-pedido">Novo pedido</h2>
         <button class="botao-fechar">
           <img src="./assets/fechar-branco.svg" alt="Fechar" class="icone-fechar">
         </button>
@@ -410,141 +410,143 @@
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="produto-tamanho">
-                      <img src="./assets/angle-double-right.svg" alt="">
-                      <h4>(Pizza: Média)</h4>
-                    </div>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="acoes-carrinho">
-                      <img src="./assets/editar.svg" alt="">
-                      <img src="./assets/lixo-vermelho.svg" alt="">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meio-a-meio">
-                      <img src="./assets/metade.png" alt="">
-                      <p>A moda</p>
-                    </div>
-                  </td>
-                  <td>1/4</td>
-                  <td>36,00</td>
-                  <td>9,00</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meio-a-meio">
-                      <img src="./assets/metade.png" alt="">
-                      <p>Calabresa</p>
-                    </div>
-                  </td>
-                  <td>1/4</td>
-                  <td>34,00</td>
-                  <td>8,50</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meio-a-meio">
-                      <img src="./assets/metade.png" alt="">
-                      <p>Especial</p>
-                    </div>
-                  </td>
-                  <td>1/4</td>
-                  <td>38,00</td>
-                  <td>9,50</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meio-a-meio">
-                      <img src="./assets/metade.png" alt="">
-                      <p>Bacon</p>
-                    </div>
-                  </td>
-                  <td>1/4</td>
-                  <td>40,00</td>
-                  <td>10,00</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="complemento-produto">
-                      <img src="./assets/adicionar-verde.svg" alt="">
-                      <p>Borda de cheddar</p>
-                    </div>
-                  </td>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    5,00
-                  </td>
-                  <td>
-                    5,00
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="complemento-produto">
-                      <img src="./assets/adicionar-verde.svg" alt="">
-                      <p>Tomate</p>
-                    </div>
-                  </td>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    5,00
-                  </td>
-                  <td>
-                    10,00
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="observacoes-produto">
-                      <img src="./assets/checkbox-red.svg" alt="">
-                      <p>Sem cebola, Sem
-                        azeitona</p>
-                    </div>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="produto-tamanho">
-                      <img src="./assets/angle-double-right.svg" alt="">
-                      <h4>(Refrigerante: 2L) Kuat</h4>
-                    </div>
-                  </td>
-                  <td>1</td>
-                  <td>8,00</td>
-                  <td>8,00</td>
-                  <td>
-                    <div class="acoes-carrinho">
-                      <img src="./assets/editar.svg" alt="">
-                      <img src="./assets/lixo-vermelho.svg" alt="">
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
+              <div class="container-produtos">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="produto-tamanho">
+                        <img src="./assets/angle-double-right.svg" alt="">
+                        <h4>(Pizza: Média)</h4>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <div class="acoes-carrinho">
+                        <img src="./assets/editar.svg" alt="">
+                        <img src="./assets/lixo-vermelho.svg" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="meio-a-meio">
+                        <img src="./assets/metade.png" alt="">
+                        <p>A moda</p>
+                      </div>
+                    </td>
+                    <td>1/4</td>
+                    <td>36,00</td>
+                    <td>9,00</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="meio-a-meio">
+                        <img src="./assets/metade.png" alt="">
+                        <p>Calabresa</p>
+                      </div>
+                    </td>
+                    <td>1/4</td>
+                    <td>34,00</td>
+                    <td>8,50</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="meio-a-meio">
+                        <img src="./assets/metade.png" alt="">
+                        <p>Especial</p>
+                      </div>
+                    </td>
+                    <td>1/4</td>
+                    <td>38,00</td>
+                    <td>9,50</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="meio-a-meio">
+                        <img src="./assets/metade.png" alt="">
+                        <p>Bacon</p>
+                      </div>
+                    </td>
+                    <td>1/4</td>
+                    <td>40,00</td>
+                    <td>10,00</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="complemento-produto">
+                        <img src="./assets/adicionar-verde.svg" alt="">
+                        <p>Borda de cheddar</p>
+                      </div>
+                    </td>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      5,00
+                    </td>
+                    <td>
+                      5,00
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="complemento-produto">
+                        <img src="./assets/adicionar-verde.svg" alt="">
+                        <p>Tomate</p>
+                      </div>
+                    </td>
+                    <td>
+                      2
+                    </td>
+                    <td>
+                      5,00
+                    </td>
+                    <td>
+                      10,00
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="observacoes-produto">
+                        <img src="./assets/checkbox-red.svg" alt="">
+                        <p>Sem cebola, Sem
+                          azeitona</p>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="produto-tamanho">
+                        <img src="./assets/angle-double-right.svg" alt="">
+                        <h4>(Refrigerante: 2L) Kuat</h4>
+                      </div>
+                    </td>
+                    <td>1</td>
+                    <td>8,00</td>
+                    <td>8,00</td>
+                    <td>
+                      <div class="acoes-carrinho">
+                        <img src="./assets/editar.svg" alt="">
+                        <img src="./assets/lixo-vermelho.svg" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </div>
             </table>
           </div>
 
@@ -795,7 +797,7 @@
             <div class="dot-2"></div>
             <span>F - Família - 55,00</span>
           </label>
-          
+
         </div>
       </div>
       <button class="botao-selecionar-tamanho">Selecionar</button>

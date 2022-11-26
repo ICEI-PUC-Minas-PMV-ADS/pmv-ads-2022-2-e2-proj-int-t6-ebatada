@@ -70,6 +70,16 @@ function abrirModal(fade, modal) {
 
   fundo.classList.add('ativo');
   janela.classList.add('ativo');
+
+};
+
+function fecharModal(fade, modal) {
+  let fundo = document.querySelector(fade);
+  let janela = document.querySelector(modal);
+
+  fundo.classList.remove('ativo');
+  janela.classList.remove('ativo');
+
 };
 
 
@@ -77,65 +87,205 @@ function renderPedidosCriados() {
   fetch('http://localhost:5000/api/pedidos').then(res => {
     return res.json();
   }).then(json => {
-    let pedidos = json;
+    var pedidos = json;
+    console.log(pedidos)
+    //Configurando cards 
     let containerPedidos = "";
 
-    pedidos.forEach(pedido => {
-      let abertoEm = new Date(pedido.abertoem);
+    for (var p = 0; p < Object.keys(pedidos).length; p++) {
+      let abertoEm = new Date(pedidos[p].abertoem);
 
       let cardPedido =
         `<div class="card">
-        <div class="info-pedido">
-          <div class="id-pedido">
-            <h4>#${pedido.idpedido}</h4>
-          </div>
-          <div class="data-pedido">
-            <h4>${abertoEm.getDate()}/${abertoEm.getMonth() + 1}/${abertoEm.getFullYear()}</h4>
-          </div>
-          <div class="tipo-pedido">
-            <h4>${pedido.tipopedido}</h4>
-          </div>
-          <div class="horas-pedido">
-            <h4>${abertoEm.getHours()}:${abertoEm.getMinutes()}</h4>
-          </div>
-        </div>
-        <div class="info-cliente">
-          <img src="./assets/user.svg" alt="Usuário" class="icone-usuario">
-          <div class="nome-cliente-card">
-            <h4>${pedido.cliente_cliente.nome}</h4>
-          </div>
-          <div class="pedidos-cliente">
-            <p>Número de pedidos: #</p>
-          </div>
-        </div>
-        <div class="entrega">
-          <img src="./assets/marker.svg" alt="Local" class="icone-local">
-          <div class="endereco-cliente">
-            <p>${pedido.cliente_cliente.rua},${pedido.cliente_cliente.numero},${pedido.cliente_cliente.bairro}</p>
-          </div>
-        </div>
-        <div class="status">
-          <img src="./assets/interrogation.svg" alt="Interrogação" class="icone-interrogacao">
-          <div class="status-pedido">
-            <h4>Em aberto</h4>
-          </div>
-          <div class="tempo-entrega">
-            <h4>Tempo em aberto:</h4>
-          </div>
-        </div>
-        <div class="navegacao">
-          <button class="botao-finalizar">Finalizar</button>
-          <button class="botao-detalhes">Detalhes</button>
-        </div>
-      </div>`;
+<div class="info-pedido">
+  <div class="id-pedido">
+    <h4>#${pedidos[p].idpedido}</h4>
+  </div>
+  <div class="data-pedido">
+    <h4>${abertoEm.getDate()}/${abertoEm.getMonth() + 1}/${abertoEm.getFullYear()}</h4>
+  </div>
+  <div class="tipo-pedido">
+    <h4>${pedidos[p].tipopedido}</h4>
+  </div>
+  <div class="horas-pedido">
+    <h4>${abertoEm.getHours()}:${abertoEm.getMinutes()}</h4>
+  </div>
+</div>
+<div class="info-cliente">
+  <img src="./assets/user.svg" alt="Usuário" class="icone-usuario">
+  <div class="nome-cliente-card">
+    <h4>${pedidos[p].cliente_cliente.nome}</h4>
+  </div>
+  <div class="pedidos-cliente">
+    <p>Número de pedidos: #</p>
+  </div>
+</div>
+<div class="entrega">
+  <img src="./assets/marker.svg" alt="Local" class="icone-local">
+  <div class="endereco-cliente">
+    <p>${pedidos[p].cliente_cliente.rua},${pedidos[p].cliente_cliente.numero},${pedidos[p].cliente_cliente.bairro}</p>
+  </div>
+</div>
+<div class="status">
+  <img src="./assets/interrogation.svg" alt="Interrogação" class="icone-interrogacao">
+  <div class="status-pedido">
+    <h4>Em aberto</h4>
+  </div>
+  <div class="tempo-entrega">
+    <h4>Tempo em aberto:</h4>
+  </div>
+</div>
+<div class="navegacao">
+  <button class="botao-finalizar">Finalizar</button>
+  <button value="${p}" class="botao-detalhes">Detalhes</button>
+</div>
+</div>`;
       containerPedidos += cardPedido;
 
-      document.querySelector('.botao-detalhes').addEventListener('click', () => {
-        abrirModal(".primeiro-fade", ".novo-pedido");
-      })
-    })
+    }
+
+
 
     document.querySelector(".container-cards").innerHTML = containerPedidos;
+
+
+
+    //Configurando botão detalhes
+    const botoesDetalhes = document.querySelectorAll('.botao-detalhes');
+
+    for (var b = 0; b < botoesDetalhes.length; b++) {
+      let botao = botoesDetalhes[b];
+      botao.addEventListener('click', () => {
+        detalhesPedido(botao.value);
+      })
+
+    };
+
+
+
+
+
+
+
+
+    //Personalizando modals
+    function detalhesPedido(i) {
+      abrirModal(".primeiro-fade", ".novo-pedido");
+      //titulo
+      document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedidos[i].idpedido}`;
+      //detalhes pedido
+      document.querySelector('.numero-pedido').innerHTML = `
+          <h4>Pedido Nº${pedidos[i].idpedido}</h4>
+          <p>Número Personalizado: ${pedidos[i].numeropersonalizado}</p>
+          <div id="tempo-pedido">
+            <img src="./assets/clock-white.svg" alt="Relógio">
+            <p>00h00min</p>
+          </div>
+          <button class="botao-excluir">
+            <img src="./assets/lixo-white.svg" alt="Lixo">
+            <p>Excluir</p>
+          </button>
+    `;
+
+      //tipo pedido
+      if (pedidos[i].tipopedido == 'delivery') {
+        document.getElementById("option-1").checked = true;
+      }
+      else if (pedidos[i].tipopedido == 'balcao') {
+        document.getElementById("option-2").checked = true;
+      }
+
+      //cliente
+      document.querySelector('.cliente-pedido').innerHTML = `
+<div id="nome-cliente-pedido">
+            <h4>${pedidos[i].cliente_cliente.nome}</h4>
+          </div>
+          <div id="telefones-cliente">
+            <div id="telefone-primario">
+              <h4>Telefone primário</h4>
+              <p>${pedidos[i].cliente_cliente.telefoneprimario}</p>
+            </div>
+            <div id="telefone-secundario">
+              <h4>Telefone secundário</h4>
+              <p>${pedidos[i].cliente_cliente.telefonesecundario}</p>
+            </div>
+          </div>
+          <div id="enderecos-cliente">
+            <div class="enderecos-cadastrados">
+              <div class="container-enderecos">
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-primario" name="endereco" />
+                  <label for="endereco-primario">
+                    <p>Endereço primário</p>
+                  </label>
+                </div>
+                <div class="endereco">
+                  <input type="radio" class="radio" id="endereco-secundario" name="endereco" />
+                  <label for="endereco-secundario">
+                    <p>Endereço secundário</p>
+                  </label>
+                </div>
+              </div>
+              <div class="endereco-selecionado">
+                <div class="endereco-atual">
+                  <p>Endereço principal</p>
+                </div>
+                <img src="./assets/seta-cinza.svg" alt="" class="seta-endereco">
+              </div>
+            </div>
+            <div id="caixa-endereco">
+              <p>${pedidos[i].cliente_cliente.rua},${pedidos[i].cliente_cliente.numero},${pedidos[i].cliente_cliente.bairro}
+              </p>
+            </div>
+          </div>
+
+          <button id="editar-cliente">Editar cliente</button>
+          <button id="trocar-cliente">Trocar cliente</button>
+`;
+      //Produtos
+      let containerCarrinho = "";
+      for (var c = 0; c < pedidos[i].produtospedidos.length; c++) {
+        let itemCarrinho = pedidos[i].produtospedidos[c];
+
+        let linhaTabela
+
+
+
+        function tipoProduto() {
+          if (itemCarrinho.idproduto_produto.idcategoria_categoria.meioame == true && itemCarrinho.meiomeios.length != 0) {
+            if (itemCarrinho.meiomeios[0].segundametade != null) {
+              console.log("Pizza 2 sabores")
+            }
+            else if (itemCarrinho.meiomeios[0].segundoterco != null) {
+              console.log("Pizza 3 sabores")
+            }
+            else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
+              console.log("Pizza 4 sabores")
+            }
+
+          }
+
+        }
+
+        tipoProduto();
+      }
+
+
+
+
+
+
+
+
+
+
+    };
+
+
+
+
+
+
 
 
 
@@ -144,9 +294,6 @@ function renderPedidosCriados() {
 
 renderPedidosCriados();
 
-function visualizarpedidos() {
-
-}
 
 
 

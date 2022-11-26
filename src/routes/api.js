@@ -7,13 +7,95 @@ const initModels = require("../models/init-models");
 const sequelize = require('../models/db');
 const models = initModels(bd);
 const { Op } = require("sequelize");
+const categorias = require('../models/categorias');
+
+
 
 (async () => {
+  router.get("/teste", async (req, res) => {
+    (async () => {
+      let pedidosBd = await models.pedidos.findAll({
+        order: [['idpedido', 'DESC']],
+        include: [
+          {
+            model: models.produtospedidos,
+            as: "produtospedidos",
+          },
+          {
+            model: models.clientes,
+            as: "cliente_cliente"
+          },
+          {
+            model: models.taxasentrega,
+            as: "taxaentrega_taxasentrega"
+          }
+        ]
+      })
+      let relacao = await models.relacaoprodutotamanho.findAll()
+      let pedidosJson = JSON.stringify(pedidosBd);
+      let pedidos = JSON.parse(pedidosJson)
+
+      console.log(pedidos);
+
+      for (i = 0; i < Object.keys(pedidos).length; i++) {
+        for (p = 0; p < pedidos[i].produtospedidos.length; p++) {
+          let idproduto = pedidos[i].produtospedidos[p].idprodutopedido
+          let idtamanho = pedidos[i].produtospedidos[p].idtamanhopedidos
+          console.log(idproduto);
+        }
+
+        //pedidos[i].push({})
+      }
+
+      let juncao = [];
+
+
+
+      return pedidos
+    })().then((pedidos) => {
+      return res.json(pedidos)
+    }).catch((error) => {
+      return res.json({
+        mensagem: "Houve algum erro ao encontrar os pedidos",
+        Erro: error,
+      })
+    }
+    )
+  });
+
+
+
 
   router.get("/pedidos", async (req, res) => {
     await models.pedidos.findAll({
       order: [['idpedido', 'DESC']],
-      include: ["cliente_cliente", "taxaentrega_taxasentrega"],
+      include: [
+        {
+          model: models.produtospedidos,
+          as: "produtospedidos",
+          include: [
+            {
+              model: models.relacaoprodutotamanho,
+              as: "idprodutopedido_relacaoprodutotamanho",
+              where: {
+                idprodutorelacao: idprodutopedido
+              }
+            }
+          ]
+          ,
+
+
+
+        },
+        {
+          model: models.clientes,
+          as: "cliente_cliente"
+        },
+        {
+          model: models.taxasentrega,
+          as: "taxaentrega_taxasentrega"
+        }
+      ]
     }).then((pedidos) => {
       return res.json(pedidos)
     }).catch((error) => {
