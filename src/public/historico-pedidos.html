@@ -8,9 +8,9 @@
   <title> Histórico de pedidos - éBatata </title>
   <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/order-history.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./css/historico-de-pedidos.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -195,160 +195,115 @@
       </li>
     </ul>
   </nav>
-  <main class="table-container conteudo">
-    <div class="header-table">
-      <h1>Histórico de pedidos</h1>
+
+  <main class="table-container">
+
+    <div class="title-container">
+    <div class="title-order">
+      <span id="history-title">Histórico de pedidos</span>
+    </div>
     </div>
 
-    <table class="main-table">
+    <div class="check-box-group">
 
-      <tr>
-        <th>ID</th>
-        <th>DATA</th>
-        <th>CLIENTE</th>
-        <th>TELEFONE</th>
-        <th>ENDEREÇO</th>
-        <th>STATUS</th>
-        <th>PAGO</th>
-        <th>ITENS</th>
-        <th>DESCONTO</th>
-        <th>TOTAL FINAL</th>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-      <tr>
-        <td>xxx</td>
-        <td>xxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-        <td>xxxxxx</td>
-      </tr>
-    </table>
+      <div class="form-group">
+        <input class="radio" name="theradio" id="radiOne" type="radio" checked>
+        <label for="radiOne">Exibir mais recentes</label>
+      </div>
+
+      <div class="form-group">
+        <input class="radio" name="theradio" id="radioTwo" type="radio">
+        <label for="radioTwo">Filtrar por período de:</label>
+      </div>
+
+      
+      
+      <div class="separator">
+      <select class="select-mm" id="select-mes">
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+      </select>
+      <input class="day-div" type="number" name="dia" maxlength="2" min="1" max="31" id="day-dia" value="1">
+      <span id="a">À</span>
+      </div>
+      
+      <div class="separator">
+      <select class="select-mm" id="select-a-mes">
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+      </select>
+      <input class="day-div" type="number" name="dia" maxlength="2" min="1" max="31" id="day-a-dia" value="1"> 
+    </div>
+    </div>
+    
+    
+   <table class="table">
+     <thead>
+     	<tr>
+     	 <th>ID</th>
+     	 <th>Data</th>
+     	 <th>Cliente</th>
+     	 <th>Telefone</th>
+     	 <th>Endereço</th>
+       <th>Status</th>
+     	 <th>Pago?</th>
+     	 <th>Total Final</th>
+     	</tr>
+     </thead>
+     <tbody id="registerListBody">
+     	  <tr class="found-orders">
+     	  	  <td data-label="id"></td>
+     	  	  <td data-label="emissao"></td>
+     	  	  <td data-label="cliente"></td>
+     	  	  <td data-label="telefone"></td>
+     	  	  <td data-label="endereco"></td>
+            <td data-label="status"></td>
+     	  	  <td data-label="pago"></td>
+     	  	  <td data-label="total_final"></td>
+     	  </tr>
+
+         
+     </tbody>
+     
+   </table>
+
+  <div class="button">
+   <button id="view">
+    <a>Visualizar Detalhes</a>
+   </button>
+  </div>
+  </div>
+
+
+    
 
 
 
-
-
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
-
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
-
-      Bom trabalho a todos! s2 --->
-
-  </main>
+    
   <script type="text/javascript" src="./scripts/navbar.js"></script>
+  <script type="text/javascript" src="./scripts/order-history.js"></script>
+
+  
+  
+ 
 </body>

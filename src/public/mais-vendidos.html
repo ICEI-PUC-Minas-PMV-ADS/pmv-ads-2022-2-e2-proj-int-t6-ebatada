@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Produtos mais vendidos - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/mais-vendidos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
@@ -194,6 +195,179 @@
     </ul>
   </nav>
   <main class="conteudo">
+
+   <div class="products-banner">
+    <span>Produtos mais vendidos</span>
+   </div>
+
+   <div class="position">
+   
+    
+    <div class="products-table">
+
+      <div class="check-box-group">
+       <div class="separator"> 
+        <label class="label-container" for="period">
+          <span class="span-text">Filtrar por período de:</span>
+        </label>
+        <select class="select-mm">
+          <option value="janeiro">Janeiro</option>
+          <option value="fevereiro">Fevereiro</option>
+          <option value="março">Março</option>
+          <option value="abril">Abril</option>
+          <option value="maio">Maio</option>
+          <option value="junho">Junho</option>
+          <option value="julho">Julho</option>
+          <option value="agosto">Agosto</option>
+          <option value="setembro">setembro</option>
+          <option value="outubro">Outubro</option>
+          <option value="novembro">Novembro</option>
+          <option value="dezembro">Dezembro</option>
+        </select>
+        <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31">
+        </div><br>
+        <div class="separator">
+        <div class="separator-dois"></div>
+        <span class="span-text">À:</span>
+        <select class="select-mm">
+          <option value="janeiro">Janeiro</option>
+          <option value="fevereiro">Fevereiro</option>
+          <option value="março">Março</option>
+          <option value="abril">Abril</option>
+          <option value="maio">Maio</option>
+          <option value="junho">Junho</option>
+          <option value="julho">Julho</option>
+          <option value="agosto">Agosto</option>
+          <option value="setembro">setembro</option>
+          <option value="outubro">Outubro</option>
+          <option value="novembro">Novembro</option>
+          <option value="dezembro">Dezembro</option>
+        </select>
+        <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31">
+      </div> 
+      <div class="buttons-group">
+        <div class="buttons-separator">
+        <button class="buttons-menu-dois"><span>Hoje</span>
+        </button>
+        <button class="buttons-menu-dois"><span>Anteontem</span>
+        </button>
+        </div><br>
+        <div class="buttons-separator">
+        <button class="buttons-menu"><span class="span-dois">Ontem</span>
+        </button>
+        <button class="buttons-menu"><span class="span-dois">Últimos sete dias</span>
+        </button>
+      </div>
+      </div>
+      <div class="pesquisar-menu">
+        <input type="text" class="search-text" placeholder="pesquisar...">
+        <button class="search-btn">
+          <span>Buscar</span>
+        </button>
+      </div>
+      
+      </div>
+      
+      </div>
+      <div class="products-view">
+        <table class="table">
+          <thead>
+            <tr>
+             <th>Produto</th>
+             <th>Categoria</th>
+             <th>Quantidade</th>
+             <th>Venda total</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td data-label="produto">1</td>
+                  <td data-label="categoria">xxxx</td>
+                  <td data-label="quantidade">xxxx</td>
+                  <td data-label="total">xxxx</td>
+              </tr>
+      
+              <tr>
+                <td data-label="produto">1</td>
+                <td data-label="categoria">xxxx</td>
+                <td data-label="quantidade">xxxx</td>
+                <td data-label="total">xxxx</td>
+            </tr>
+            <tr>
+              <td data-label="produto">1</td>
+              <td data-label="categoria">xxxx</td>
+              <td data-label="quantidade">xxxx</td>
+              <td data-label="total">xxxx</td>
+          </tr>
+          <tr>
+            <td data-label="produto">1</td>
+            <td data-label="categoria">xxxx</td>
+            <td data-label="quantidade">xxxx</td>
+            <td data-label="total">xxxx</td>
+        </tr>
+        <tr>
+          <td data-label="produto">1</td>
+          <td data-label="categoria">xxxx</td>
+          <td data-label="quantidade">xxxx</td>
+          <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      <tr>
+        <td data-label="produto">1</td>
+        <td data-label="categoria">xxxx</td>
+        <td data-label="quantidade">xxxx</td>
+        <td data-label="total">xxxx</td>
+      </tr>
+      
+              
+          </tbody>
+          
+        </table>
+      
+       
+      </div>
+      
+    </div>
+    </div>
+</div>
+
+<div class="button-dois">
+  <button id="view-btn">
+   <a>Visualizar Detalhes</a>
+  </button>
+</div>
+
+
+    
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
       tente seguir as convenções de codificação para html, css e js
@@ -202,7 +376,7 @@
       ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
 
       Bom trabalho a todos! s2 --->
-    <h1>éBatata</h1>
+   
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
 </body>
