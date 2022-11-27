@@ -118,7 +118,7 @@ A tela selecione o tamanho é uma extenção da tela novo produto. Nela é possi
 - `componente Selecionar`: Confirma o tamanho que foi selecionado pelo usuário e abre a janela de 
 adicionar ao pedido;
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/80a80c90dce1c08bc012621ba0f63c9e9aa89b92/docs/img/wireframes/selecione%20o%20tamanho.png" width="900">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/987a407664e42558e2fec81bde6913ea82c2f343/docs/img/wireframes/selecionetamanho.png" width="900">
 
 ### Tela - Adicionar ao pedido
 
@@ -157,7 +157,7 @@ A tela produtos permite o usuário criar uma série de categorias para cadastrar
 - `componente Botão de editar`: Abre uma janela onde é possível editar os tamanhos;
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/80a80c90dce1c08bc012621ba0f63c9e9aa89b92/docs/img/wireframes/produtos.png" width="900">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Produtos_corrigido_dois.png" with="600">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/987a407664e42558e2fec81bde6913ea82c2f343/docs/img/wireframes/produto2.png" with="600">
 
 ### Tela - Editar tamanho
 
