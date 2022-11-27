@@ -88,7 +88,8 @@ function renderPedidosCriados() {
     return res.json();
   }).then(json => {
     var pedidos = json;
-    console.log(pedidos)
+
+
     //Configurando cards 
     let containerPedidos = "";
 
@@ -244,56 +245,311 @@ function renderPedidosCriados() {
 `;
       //Produtos
       let containerCarrinho = "";
+      let cabecalhoTabela = `<thead>
+      <tr>
+        <th>Produto</th>
+        <th>Qnt.</th>
+        <th>Preço unit.</th>
+        <th>Subtotal</th>
+        <th>Ações</th>
+      </tr>
+    </thead>`;
       for (var c = 0; c < pedidos[i].produtospedidos.length; c++) {
         let itemCarrinho = pedidos[i].produtospedidos[c];
+        let categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
+        let nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
+        let tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
+        let valorItemCarrinho = itemCarrinho.relacaoprodutotamanho.valor;
+        let quatidadeItemCarrinho = itemCarrinho.quantidade;
 
-        let linhaTabela
+        if (itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio == true && itemCarrinho.meiomeios.length != 0) {
+          if (itemCarrinho.meiomeios[0].segundametade != null) {
+            let itemDoisSabores = `<tbody>
+            <tr>
+              <td>
+                <div class="produto-tamanho">
+                  <img src="./assets/angle-double-right.svg" alt="">
+                  <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+                </div>
+              </td>
+              <td>${quatidadeItemCarrinho}</td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="acoes-carrinho">
+                  <img src="./assets/editar.svg" alt="">
+                  <img src="./assets/lixo-vermelho.svg" alt="">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${nomeItemCarrinho}</p>
+                </div>
+              </td>
+              <td>1/2</td>
+              <td>${valorItemCarrinho}</td>
+              <td>${(parseFloat(valorItemCarrinho) / 2).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].segundametade_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/2</td>
+              <td>${itemCarrinho.meiomeios[0].segundametade_produto.relacaomeiotamanho.valor}</td>
+              <td>${parseFloat(itemCarrinho.meiomeios[0].segundametade_produto.relacaomeiotamanho.valor).toFixed(2) / 2}</td>
+              <td></td>
+            </tr>                              
+          </tbody>`
 
-
-
-        function tipoProduto() {
-          if (itemCarrinho.idproduto_produto.idcategoria_categoria.meioame == true && itemCarrinho.meiomeios.length != 0) {
-            if (itemCarrinho.meiomeios[0].segundametade != null) {
-              console.log("Pizza 2 sabores")
-            }
-            else if (itemCarrinho.meiomeios[0].segundoterco != null) {
-              console.log("Pizza 3 sabores")
-            }
-            else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
-              console.log("Pizza 4 sabores")
-            }
-
+            containerCarrinho += itemDoisSabores
           }
+          else if (itemCarrinho.meiomeios[0].segundoterco != null) {
+            let itemTresSabores = `<tbody>
+            <tr>
+              <td>
+                <div class="produto-tamanho">
+                  <img src="./assets/angle-double-right.svg" alt="">
+                  <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+                </div>
+              </td>
+              <td>${quatidadeItemCarrinho}</td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="acoes-carrinho">
+                  <img src="./assets/editar.svg" alt="">
+                  <img src="./assets/lixo-vermelho.svg" alt="">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${nomeItemCarrinho}</p>
+                </div>
+              </td>
+              <td>1/3</td>
+              <td>${valorItemCarrinho}</td>
+              <td>${(parseFloat(valorItemCarrinho) / 3).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].segundoterco_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/3</td>
+              <td>${itemCarrinho.meiomeios[0].segundoterco_produto.relacaomeiotamanho.valor}</td>
+              <td>${(parseFloat(itemCarrinho.meiomeios[0].segundoterco_produto.relacaomeiotamanho.valor) / 3).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].terceiroterco_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/3</td>
+              <td>${itemCarrinho.meiomeios[0].terceiroterco_produto.relacaomeiotamanho.valor}</td>
+              <td>${(parseFloat(itemCarrinho.meiomeios[0].terceiroterco_produto.relacaomeiotamanho.valor) / 3).toFixed(2)}</td>
+              <td></td>
+            </tr>                     
+          </tbody>`
 
+            containerCarrinho += itemTresSabores
+          }
+          else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
+            let itemQuatroSabores = `<tbody>
+            <tr>
+              <td>
+                <div class="produto-tamanho">
+                  <img src="./assets/angle-double-right.svg" alt="">
+                  <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+                </div>
+              </td>
+              <td>${quatidadeItemCarrinho}</td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="acoes-carrinho">
+                  <img src="./assets/editar.svg" alt="">
+                  <img src="./assets/lixo-vermelho.svg" alt="">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${nomeItemCarrinho}</p>
+                </div>
+              </td>
+              <td>1/4</td>
+              <td>${valorItemCarrinho}</td>
+              <td>${(parseFloat(valorItemCarrinho) / 4).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].segundoquarto_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/4</td>
+              <td>${itemCarrinho.meiomeios[0].segundoquarto_produto.relacaomeiotamanho.valor}</td>
+              <td>${(parseFloat(itemCarrinho.meiomeios[0].segundoquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].terceiroquarto_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/4</td>
+              <td>${itemCarrinho.meiomeios[0].terceiroquarto_produto.relacaomeiotamanho.valor}</td>
+              <td>${(parseFloat(itemCarrinho.meiomeios[0].terceiroquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="meio-a-meio">
+                  <img src="./assets/metade.png" alt="">
+                  <p>${itemCarrinho.meiomeios[0].quartoquarto_produto.nome}</p>
+                </div>
+              </td>
+              <td>1/4</td>
+              <td>${itemCarrinho.meiomeios[0].quartoquarto_produto.relacaomeiotamanho.valor}</td>
+              <td>${(parseFloat(itemCarrinho.meiomeios[0].quartoquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
+              <td></td>
+            </tr>          
+          </tbody>`
+
+            containerCarrinho += itemQuatroSabores
+          }
         }
+        else {
+          let ItemUmSabor = `
+          <tbody>
+                  <tr>
+                    <td>
+                      <div class="produto-tamanho">
+                        <img src="./assets/angle-double-right.svg" alt="">
+                        <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho}) ${nomeItemCarrinho}</h4>
+                      </div>
+                    </td>
+                    <td>${quatidadeItemCarrinho}</td>
+                    <td>${valorItemCarrinho}</td>
+                    <td>${valorItemCarrinho}</td>
+                    <td>
+                      <div class="acoes-carrinho">
+                        <img src="./assets/editar.svg" alt="">
+                        <img src="./assets/lixo-vermelho.svg" alt="">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+          `
+          containerCarrinho += ItemUmSabor
+        };
+      };
 
-        tipoProduto();
-      }
+      document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
 
-
-
-
-
-
-
-
-
+      //Novo produto
+      novoProduto();
 
     };
-
-
-
-
-
-
-
-
-
   })
 }
 
 renderPedidosCriados();
 
+function novoProduto() {
+  fetch('http://localhost:5000/api/produtos').then(res => {
+    return res.json();
+  }).then(json => {
+    const produtoBd = json;
+
+    const containerProdutos = document.querySelector(".produtos-tabela");
+    let produtos = '';
+
+    produtoBd.forEach((item) => {
+      let produto = `
+                <tr>
+                  <td>${item.codigo}</td>
+                  <td>${item.nome}</td>
+                  <td>
+                    <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
+                  </td>
+                </tr>
+    `
+      produtos += produto
+      containerProdutos.innerHTML = produtos;
+
+      document.querySelector('.novo-produto').addEventListener('click', () => {
+        for (var i = 0; i < produtoBd.length; i++) {
+          let tamanhosRender = '';
+          const containerTamanhos = document.querySelector(".container-tamanhos");
+          const containerNomeProduto = document.querySelector(".nome-produto");
+          const tamanhos = produtoBd[i].idtamanhorelacao_tamanhos;
+          const nomeProduto = produtoBd[i].nome;
+          let contador = i;
+
+          const adicionarProduto = document.querySelectorAll(".adicionar-produto");
+          adicionarProduto[contador].addEventListener('click', () => {
+            abrirModal(".fade-tamanhos", ".selecione-tamanho");
+
+            for (var o = 0; o < tamanhos.length; o++) {
+              const tamanho = tamanhos[o];
+              let contadorTamanhos = o + 1;
+
+              let tamanhoRender = `
+                <input type="radio" name="select-tamanho" class="inputs-tamanhos" id="tamanho-${contadorTamanhos}" value="${tamanho.idtamanho}">
+                <label for="tamanho-${contadorTamanhos}" class="tamanho tamanho-${contadorTamanhos}">
+                  <div class="dot-2"></div>
+                  <span>${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</span>
+                </label>
+             `
+              tamanhosRender += tamanhoRender;
+              containerTamanhos.innerHTML = tamanhosRender;
+              containerNomeProduto.innerHTML = nomeProduto;
+
+
+            }
+
+
+
+
+
+
+
+
+
+          });
+
+
+        };
+      })
+
+
+    })
+
+  })
+}
 
 
 
