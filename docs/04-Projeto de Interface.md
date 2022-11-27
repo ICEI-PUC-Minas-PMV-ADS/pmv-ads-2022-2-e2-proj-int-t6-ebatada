@@ -56,67 +56,7 @@ A tela de recuperação de senha é uma janela onde o usuário podera recuperar 
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Recuperar_senha.png" width="900">
 
-### Tela - Caixa fechado
 
-A tela de caixa fechado é onde o usuário pode inicializar a contabilidade de todo saldo adquirido no dia, podendo anexar uma mensagem de observação.
-
-- `Componente Abrir caixa`: Botão caso o usuário deseje iniciar a contabilidade do saldo adquirido no dia;
-- `Componente Saldo inicial`: Caixa de texto onde o usuário podera visualizar o saldo inicial em dinheiro ao abrir o caixa;
-- `Componente Observação`: Caixa de texto onde o usuário queira anexar uma mensagem para outro possível usuário;
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_fechado.png" width="900">
-
-### Tela - Caixa aberto
-
-A tela de caixa aberto é onde o usuário podera finalizar a contabilidade do saldo adquirido no dia, nela haverá um botão chamado "acessar como admin" onde o usuário
-tera acesso a funções extras.
-
-- `Componente saldo inicial`: Caixa de texto onde o usuário podera visualizar o saldo final em dinheiro ao fechar o caixa; 
-- `Componente Fechar caixa`: Botão caso o usupario deseje finalizar a contabilidade do saldo no dia;
-- `Componente Acessar como admin`: Botão que da acesso a opções de administrador;
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto.png" width="900">
-
-### Tela - Login administrador
-
-A tela permissão de administrador permite o acesso a determinadas funções apenas ao administrador com acesso mediante somente com login e senha.
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_login_admin.png" width="900">
-
-### Tela - Caixa aberto (Administrador)
-- `componente Saldo inicial`: Caixa de texto inalterável que exibi o saldo inicial;
-- `componente Observação`: Caixa de texto inalterável que exibi as observaçôes que o usuário realizou ao abrir o caixa;
-- `componente Fechar caixa`: Abre a janela de confirmação de fechamento de caixa;
-- `componente Adicionar entradas / sáidas`: Abre uma janela onde é possível adicionar entradas ou saídas ao caixa;
-- `componente Imprimir relatório`: Gera um documento imprimivel com toda a movimentação do caixa;
-- `componente Imprimir resumo`: Imprimi o resumo do caixa que pode ser visualizado em alaranjado na parte direita da tela;
-- `componente Excluir lançamento`: Abre uma janela de confirmação para excluir o lançamento(entrada ou saída) que está
-selecionado na tabela de movimentações;
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_admin.png" width="900">
-
-### Tela - Adição de entrada/saida (Administrador)
-
-- `componente Valor`: Caixa de texto onde é digitado o valor a ser adionado na entrada ou saída;
-- `componente Observação`: Caixa de texto onde é digitado pelo usuário qualquer observação em relação ao lançamento;
-- `componente Adicionar entrada`: Adiciona a entrada ao caixa com base nos dados digitados pelo usuário;
-- `componente Adicionar entrada`: Adiciona a saída ao caixa com base nos dados digitados pelo usuário;
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_E.S.png" witdh="600">
-
-### Tela - Deseja realmente fechar o caixa? (Administrador)
-
-- `componente Saldo (apenas dinheiro)`: Caixa de texto inalterável que exibi o saldo final em dinheiro no caixa;
-- `componente Saldo Final`: Caixa de texto inalterável que exibi o saldo final total no caixa, incluindo todas entradas e saídas;
-- `componente Fechar e imprimir`: Confirma o fechamento do caixa e imprimi um resumo do mesmo;
-- `componente Fechar caixa`: Confirma o fechamento do caixa;
-
-Saldo (apenas dinheiro): Caixa de texto inalterável que exibi o saldo final em dinheiro no caixa
-Saldo Final: Caixa de texto inalterável que exibi o saldo final total no caixa, incluindo todas entradas e saídas.
-Fechar e imprimir: Confirma o fechamento do caixa e imprimi um resumo do mesmo.
-Fechar caixa: Confirma o fechamento do caixa.
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Caixa_aberto_F.png" witdh="600">
 
 ### Tela - Pedidos
 
@@ -229,54 +169,17 @@ A tela editar tamanho é uma extenção da tela produtos onde o usuário podera 
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_tamanho.png" width="900">
 
-### Tela - Clientes
-
-Tela que lista todos os clientes cadastrados no sistema em forma de tabela. Nela também é possível criar novos clientes
-e editar os já existentes. 
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Clientes.png" width="900">
-
 ### Tela - Taxas de entrega
 
 A tela taxas de entregas é onde se atribui o valor da taxação a ser incluida aos pedidos podendo ser modificada a qualquer momento.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Editar_taxas.png" width="900">
 
-### Tela - Cardápio online
-
-A tela cardápio online é possivel editar a pagina de cardápio disponivel na internet.
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Cardápio_online_configuração.png" width="900">
-
-### Tela - Histórico de caixa
-
-A tela histórico de caixa lista em forma de tabela todos os caixas que foram abertos e fechados no sistema, sendo possível filtrá-las por período ou até mesmo visualizar os detalhes de cada caixa. 
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_online.png" width="900">
-
 ### Tela - Histórico de pedidos
 
 A teela histórico de pedidos lista em forma de tabela todos os pedidos que foram feitos no sistema, sendo possível filtrá-los por período ou até mesmo visualizar os detalhes de cada cada um.
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_pedidos.png" width="900">
-
-### Tela - Relatório de pedidos
-
-A tela Relatório de pedidos exibi os detalhes do pedido que foi selecionado na tela de “Histórico de Pedidos”. Nela é possível visualizar os produtos daquele pedido, os detalhes do pagamento, o cliente que realizou o pedido, dentre outros.
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Histórico_de_pedidos_pedidos.png" width="900">
-
-### Tela - Produtos mais vendidos
-
-A tela Relatório de pedidos exibi os produtos mais vendidos em um determinado período de tempo que é determinado pelo usuário. A exibição é feita através de uma tabela, e os produtos podem ser filtrados através de uma barra de pesquisa.  
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/Relatório_produtos_mais_vendidos.png" width="900">
-
-### Tela - Logins Administrativos
-
-A tela logins administrativos é possivel cadastrar novos usuários sem a necessidade de criar uma nova conta vinculada ao email. Permitindo criar e editar usuários que tem acesso as funcionalidades administrativas do sistema.   
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/wireframe_images/login_config.png" width="900">
 
 ### Tela - Impressora
 
