@@ -277,7 +277,7 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img src="./assets/editar.svg" alt="">
+                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
                   <img src="./assets/lixo-vermelho.svg" alt="">
                 </div>
               </td>
@@ -324,7 +324,7 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img src="./assets/editar.svg" alt="">
+                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
                   <img src="./assets/lixo-vermelho.svg" alt="">
                 </div>
               </td>
@@ -383,7 +383,7 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img src="./assets/editar.svg" alt="">
+                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
                   <img src="./assets/lixo-vermelho.svg" alt="">
                 </div>
               </td>
@@ -456,7 +456,7 @@ function renderPedidosCriados() {
                     <td>${valorItemCarrinho}</td>
                     <td>
                       <div class="acoes-carrinho">
-                        <img src="./assets/editar.svg" alt="">
+                        <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
                         <img src="./assets/lixo-vermelho.svg" alt="">
                       </div>
                     </td>
@@ -465,6 +465,13 @@ function renderPedidosCriados() {
           `
           containerCarrinho += ItemUmSabor
         };
+
+        //Editar item do carrinho
+        document.querySelectorAll('.botao-editar-produto')[i].addEventListener('click', () => {
+          abrirModal(".fade-personalizar", ".personalizar-produto");
+
+        })
+
       };
 
       document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
