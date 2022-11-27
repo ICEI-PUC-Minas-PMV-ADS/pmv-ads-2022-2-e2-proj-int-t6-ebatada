@@ -14,8 +14,7 @@ ambientes com seu respectivo propósito é apresentada na tabela que se segue.
 |---------------------------------|-----------------------------------------------------------------------------------------------------------|
 |Repositório de código fonte      |[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata)          |
 |Documentos do projeto            |[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata)          |
-|Projeto de Interface             |[Figma](https://www.figma.com/file/jJy3yx68H78VreGmsXI07a/userflow-eBatata)                      |
-|Wireframes                       |[Figma](https://www.figma.com/file/kLLoy6ks4U78nZB4u0Rzsm/eBatata-wireframes?node-id=0%3A1)                     |
+|Projeto de Interface e Wireframes          |[Figma](https://www.figma.com/file/jJy3yx68H78VreGmsXI07a/userflow-eBatata)                      |
 |Gerenciamento do Projeto         |[GitHub](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/161/views/1)                                                            |
 
 ## Gestão de código fonte
