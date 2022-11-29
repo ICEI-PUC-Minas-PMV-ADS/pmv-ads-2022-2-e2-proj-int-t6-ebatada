@@ -1,3 +1,6 @@
+const usersRoutes = require("../src/routes/routes");
+//
+
 const PORT = 5000;
 const express = require("express");
 const app = express();
@@ -13,6 +16,15 @@ app.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT);
 });
 
+//
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
+app.use(express.json());
+app.use("/api/v1/users", usersRoutes);
+
+//
 app.use("/api", apiRoute);
 app.use("/orders", orderRoute);
 app.use(express.static("public"));
