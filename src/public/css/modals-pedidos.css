@@ -338,9 +338,14 @@
 }
 
 .adicionar-produto {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.adicionar-produto img {
   height: 100%;
   width: 20px;
-  cursor: pointer;
 }
 
 .carrinho-produtos {
@@ -390,6 +395,18 @@ td {
 .produto-tamanho img {
   height: 100%;
   width: 20px;
+}
+
+.botao-editar-produto {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.botao-excluir-produto {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
 }
 
 .produto-tamanho h4 {
@@ -462,7 +479,6 @@ td {
 .acoes-carrinho img {
   height: 100%;
   width: 20px;
-  cursor: pointer;
 }
 
 
@@ -976,10 +992,12 @@ td {
 
 .radios-tamanhos {
   margin-left: 1rem;
+
 }
 
 .radios-tamanhos>input {
   margin-left: 1rem;
+
 }
 
 
@@ -1271,7 +1289,7 @@ td {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 7;
+  z-index: 15;
   visibility: hidden;
   opacity: 0;
   transition: 200ms;
@@ -1289,7 +1307,7 @@ td {
   max-width: 90%;
   height: 550px;
   border-radius: 8px;
-  z-index: 8;
+  z-index: 16;
   background-color: white;
   visibility: hidden;
   opacity: 0;
@@ -1423,4 +1441,101 @@ td {
 #salvar-cliente img {
   height: 30px;
   margin-right: 0.5rem;
+}
+
+.fade-meio-meio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 15;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.modal-meio-meio {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-width: 90%;
+  height: 600px;
+  border-radius: 8px;
+  z-index: 16;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: 200ms;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.fade-meio-meio.ativo,
+.modal-meio-meio.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.titulo-meio-meio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.titulo-meio-meio h2 {
+  color: #CB6E00;
+  margin: 0;
+}
+
+.botao-fechar-meio {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.container-personalizar-meio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.botao-salvar-meio {
+  width: 10rem;
+  min-height: 50px;
+  background-color: #45B500;
+  color: white;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: none;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.botao-radio-tamanho {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+
 }

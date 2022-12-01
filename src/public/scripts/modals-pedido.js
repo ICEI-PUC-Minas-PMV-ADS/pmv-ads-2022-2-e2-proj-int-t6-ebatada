@@ -1,3 +1,5 @@
+
+
 class Fade {
   constructor(fade, modal, botaoAbrir, botaoFechar, botaoFechar2) {
     this.fade = document.querySelector(fade);
@@ -37,10 +39,10 @@ const modalNovoProduto = new Fade(".fade-novo-produto", ".novo-produto", ".botao
 modalNovoProduto.renderModal();
 
 const modalSelecionarTamanho = new Fade(".fade-tamanhos", ".selecione-tamanho", ".adicionar-produto", ".botao-fechar-tamanho", ".botão-adicionar-personalizacao");
-modalSelecionarTamanho.renderModal();
+//modalSelecionarTamanho.renderModal();
 
 const modalPersonalizarPedido = new Fade(".fade-personalizar", ".personalizar-produto", ".botao-selecionar-tamanho", ".botao-fechar-personalizar", ".botão-adicionar-personalizacao");
-modalPersonalizarPedido.renderModal();
+//modalPersonalizarPedido.renderModal();
 
 
 /*CÓDIGO PARA QUANDO UM CLIENTE É SELECIONADO
@@ -157,7 +159,14 @@ function renderPedidosCriados() {
     for (var b = 0; b < botoesDetalhes.length; b++) {
       let botao = botoesDetalhes[b];
       botao.addEventListener('click', () => {
+
         detalhesPedido(botao.value);
+
+
+
+
+
+
       })
 
     };
@@ -244,8 +253,9 @@ function renderPedidosCriados() {
           <button id="trocar-cliente">Trocar cliente</button>
 `;
       //Produtos
-      let containerCarrinho = "";
-      let cabecalhoTabela = `<thead>
+      function carregarCarrinho() {
+        let containerCarrinho = "";
+        let cabecalhoTabela = `<thead>
       <tr>
         <th>Produto</th>
         <th>Qnt.</th>
@@ -254,17 +264,17 @@ function renderPedidosCriados() {
         <th>Ações</th>
       </tr>
     </thead>`;
-      for (var c = 0; c < pedidos[i].produtospedidos.length; c++) {
-        let itemCarrinho = pedidos[i].produtospedidos[c];
-        let categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
-        let nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
-        let tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
-        let valorItemCarrinho = itemCarrinho.relacaoprodutotamanho.valor;
-        let quatidadeItemCarrinho = itemCarrinho.quantidade;
+        for (var c = 0; c < pedidos[i].produtospedidos.length; c++) {
+          let itemCarrinho = pedidos[i].produtospedidos[c];
+          let categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
+          let nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
+          let tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
+          let valorItemCarrinho = itemCarrinho.relacaoprodutotamanho.valor;
+          let quatidadeItemCarrinho = itemCarrinho.quantidade;
 
-        if (itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio == true && itemCarrinho.meiomeios.length != 0) {
-          if (itemCarrinho.meiomeios[0].segundametade != null) {
-            let itemDoisSabores = `<tbody>
+          if (itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio == true && itemCarrinho.meiomeios.length != 0) {
+            if (itemCarrinho.meiomeios[0].segundametade != null) {
+              let itemDoisSabores = `<tbody>
             <tr>
               <td>
                 <div class="produto-tamanho">
@@ -277,8 +287,8 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
-                  <img src="./assets/lixo-vermelho.svg" alt="">
+                <button value="${itemCarrinho.idprodutopedido}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                <button class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
                 </div>
               </td>
             </tr>
@@ -308,10 +318,10 @@ function renderPedidosCriados() {
             </tr>                              
           </tbody>`
 
-            containerCarrinho += itemDoisSabores
-          }
-          else if (itemCarrinho.meiomeios[0].segundoterco != null) {
-            let itemTresSabores = `<tbody>
+              containerCarrinho += itemDoisSabores
+            }
+            else if (itemCarrinho.meiomeios[0].segundoterco != null) {
+              let itemTresSabores = `<tbody>
             <tr>
               <td>
                 <div class="produto-tamanho">
@@ -324,8 +334,8 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
-                  <img src="./assets/lixo-vermelho.svg" alt="">
+                <button value="${itemCarrinho.idprodutopedido}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                <button class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
                 </div>
               </td>
             </tr>
@@ -367,10 +377,10 @@ function renderPedidosCriados() {
             </tr>                     
           </tbody>`
 
-            containerCarrinho += itemTresSabores
-          }
-          else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
-            let itemQuatroSabores = `<tbody>
+              containerCarrinho += itemTresSabores
+            }
+            else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
+              let itemQuatroSabores = `<tbody>
             <tr>
               <td>
                 <div class="produto-tamanho">
@@ -383,8 +393,8 @@ function renderPedidosCriados() {
               <td></td>
               <td>
                 <div class="acoes-carrinho">
-                  <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
-                  <img src="./assets/lixo-vermelho.svg" alt="">
+                <button value="${itemCarrinho.idprodutopedido}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                <button class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
                 </div>
               </td>
             </tr>
@@ -438,11 +448,11 @@ function renderPedidosCriados() {
             </tr>          
           </tbody>`
 
-            containerCarrinho += itemQuatroSabores
+              containerCarrinho += itemQuatroSabores
+            }
           }
-        }
-        else {
-          let ItemUmSabor = `
+          else {
+            let ItemUmSabor = `
           <tbody>
                   <tr>
                     <td>
@@ -456,107 +466,622 @@ function renderPedidosCriados() {
                     <td>${valorItemCarrinho}</td>
                     <td>
                       <div class="acoes-carrinho">
-                        <img class="botao-editar-produto" src="./assets/editar.svg" alt="">
-                        <img src="./assets/lixo-vermelho.svg" alt="">
+                      <button value="${itemCarrinho.idprodutopedido}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                      <button class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
                       </div>
                     </td>
                   </tr>
                 </tbody>
           `
-          containerCarrinho += ItemUmSabor
+            containerCarrinho += ItemUmSabor
+          };
+
+
+
+
+
+
         };
 
-        //Editar item do carrinho
-        document.querySelectorAll('.botao-editar-produto')[i].addEventListener('click', () => {
-          abrirModal(".fade-personalizar", ".personalizar-produto");
+        document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
+      }
 
-        })
 
-      };
+      function renderProduto() {
+        fetch('http://localhost:5000/api/produtos').then(res => {
+          return res.json();
+        }).then(json => {
+          const produtoBd = json;
 
-      document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
+          let ordemExecucaoTamanhos = new Promise(() => {
+            carregarProdutos();
+          })
 
-      //Novo produto
-      novoProduto();
+          ordemExecucaoTamanhos.then(gambiarra());
 
-    };
-  })
-}
 
-renderPedidosCriados();
 
-function novoProduto() {
-  fetch('http://localhost:5000/api/produtos').then(res => {
-    return res.json();
-  }).then(json => {
-    const produtoBd = json;
 
-    const containerProdutos = document.querySelector(".produtos-tabela");
-    let produtos = '';
+          function carregarProdutos() {
+            const containerProdutos = document.querySelector(".produtos-tabela");
+            let produtos = '';
+            for (p = 0; p < produtoBd.length; p++) {
+              let produto = `
+              <tr>
+                <td>${produtoBd[p].codigo}</td>
+                <td>${produtoBd[p].nome}</td>
+                <td>
+                  <button value="${produtoBd[p].idproduto}" class="adicionar-produto"> <img src="./assets/adicionar-verde.svg" alt=""> </button>
+                </td>
+              </tr>
+  `
+              produtos += produto
+              containerProdutos.innerHTML = produtos;
+            }
 
-    produtoBd.forEach((item) => {
-      let produto = `
-                <tr>
-                  <td>${item.codigo}</td>
-                  <td>${item.nome}</td>
-                  <td>
-                    <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
-                  </td>
-                </tr>
-    `
-      produtos += produto
-      containerProdutos.innerHTML = produtos;
+          }
 
-      document.querySelector('.novo-produto').addEventListener('click', () => {
-        for (var i = 0; i < produtoBd.length; i++) {
-          let tamanhosRender = '';
-          const containerTamanhos = document.querySelector(".container-tamanhos");
-          const containerNomeProduto = document.querySelector(".nome-produto");
-          const tamanhos = produtoBd[i].idtamanhorelacao_tamanhos;
-          const nomeProduto = produtoBd[i].nome;
-          let contador = i;
 
-          const adicionarProduto = document.querySelectorAll(".adicionar-produto");
-          adicionarProduto[contador].addEventListener('click', () => {
-            abrirModal(".fade-tamanhos", ".selecione-tamanho");
 
-            for (var o = 0; o < tamanhos.length; o++) {
-              const tamanho = tamanhos[o];
-              let contadorTamanhos = o + 1;
+          function carregarTamanhos() {
+            for (var i = 0; i < produtoBd.length; i++) {
+              let tamanhosRender = '';
+              const containerTamanhos = document.querySelector(".container-tamanhos");
+              const containerNomeProduto = document.querySelector(".nome-produto");
+              const tamanhos = produtoBd[i].idtamanhorelacao_tamanhos;
+              const nomeProduto = produtoBd[i].nome;
+              let contador = i;
 
-              let tamanhoRender = `
-                <input type="radio" name="select-tamanho" class="inputs-tamanhos" id="tamanho-${contadorTamanhos}" value="${tamanho.idtamanho}">
-                <label for="tamanho-${contadorTamanhos}" class="tamanho tamanho-${contadorTamanhos}">
-                  <div class="dot-2"></div>
-                  <span>${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</span>
-                </label>
-             `
-              tamanhosRender += tamanhoRender;
-              containerTamanhos.innerHTML = tamanhosRender;
-              containerNomeProduto.innerHTML = nomeProduto;
 
+
+              const adicionarProduto = document.querySelectorAll(".adicionar-produto");
+              adicionarProduto[contador].addEventListener('click', () => {
+                abrirModal(".fade-tamanhos", ".selecione-tamanho");
+
+                for (var o = 0; o < tamanhos.length; o++) {
+                  const tamanho = tamanhos[o];
+                  let contadorTamanhos = o + 1;
+
+                  let tamanhoRender = `
+                    <input type="radio" name="select-tamanho" class="inputs-tamanhos" id="tamanho-${contadorTamanhos}" value="${tamanho.idtamanho}">
+                    <label for="tamanho-${contadorTamanhos}" class="tamanho tamanho-${contadorTamanhos}">
+                      <div class="dot-2"></div>
+                      <span>${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</span>
+                    </label>
+                 `
+                  tamanhosRender += tamanhoRender;
+                  containerTamanhos.innerHTML = tamanhosRender;
+                  containerNomeProduto.innerHTML = nomeProduto;
+                }
+              });
+              document.querySelector('.botao-fechar-tamanho').addEventListener('click', () => {
+                fecharModal(".fade-tamanhos", ".selecione-tamanho")
+                tamanhosRender = ""
+              })
+
+            };
+
+          };
+
+
+
+          ///Editar produto carrinho
+          function editarCarrinho() {
+            let produtosPedidos = pedidos[i].produtospedidos
+            for (var e = 0; e < produtosPedidos.length; e++) {
+              let contador = e;
+              let itemCarrinho = produtosPedidos[contador]
+              const botaoEditar = document.querySelectorAll('.botao-editar-produto')
+              let idProdutoCarrinho = botaoEditar[e].value
+              let renderTamanhos = ``
+
+              const containerTamanhos = document.querySelector(".radios-tamanhos");
+              botaoEditar[e].addEventListener('click', () => {
+                abrirModal(".fade-personalizar", ".personalizar-produto")
+
+
+
+                //Tamanhos do produto 
+                function renderTamanhosPersonalizar() {
+                  let produto = produtoBd.find((produto) => {
+                    return produto.idproduto == idProdutoCarrinho
+                  })
+
+
+                  for (t = 0; t < produto.idtamanhorelacao_tamanhos.length; t++) {
+
+                    let tamanho = produto.idtamanhorelacao_tamanhos[t]
+
+                    let tamanhoAtual = () => {
+                      if (itemCarrinho.idtamanhopedido == tamanho.idtamanho) {
+                        return "checked"
+                      }
+
+                      else {
+                        return ""
+                      }
+                    }
+
+                    let renderTamanho = `
+                  <button class="botao-radio-tamanho" value="${tamanho.idtamanho}">
+                  <input type="radio" id="tamanho${t}-personalizar" name="tamanho" ${tamanhoAtual()} >
+                  <label for="tamanho${t}-personalizar">${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</label>
+                  </button>
+                  `
+
+                    renderTamanhos += renderTamanho
+                    containerTamanhos.innerHTML = renderTamanhos
+                  }
+                }
+
+                function alterarTamanhosPersonalizar() {
+                  const botaoRadioTamanho = document.querySelectorAll('.botao-radio-tamanho')
+                  const containerMeioMeio = document.querySelector('.container-meio-meio')
+
+                  for (i = 0; i < botaoRadioTamanho.length; i++) {
+                    let botao = botaoRadioTamanho[i]
+                    botao.addEventListener('click', () => {
+                      novoProduto.idtamanhopedido = botao.value;
+                      novoProduto.meiomeios = [];
+                      carregarMeio();
+
+                    })
+
+                  }
+                }
+
+                let ordemExecucaoTamanhosPersonalizar = new Promise(() => {
+                  renderTamanhosPersonalizar()
+                })
+                ordemExecucaoTamanhosPersonalizar.then(alterarTamanhosPersonalizar())
+
+
+                //Meio a meio
+                function carregarMeio() {
+                  const personalizarMeioMeio = document.querySelector('.container-meio-meio')
+
+                  if (itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio == false) {
+
+                    personalizarMeioMeio.innerHTML = "<h4>Não é possível realizar meio a meio com esse produto</h4>"
+                  }
+
+
+                  else {
+
+                    if (novoProduto.meiomeios.length != 0) {
+
+                      if (novoProduto.meiomeios[0].segundametade != null) {
+                        let nomePrimeiraMetade = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
+                        let nomeSegundaMetade = novoProduto.meiomeios[0].segundametade_produto.nome
+                        personalizarMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/2 ${nomePrimeiraMetade}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/2 ${nomeSegundaMetade}</p>
+                                            </button>
+                                          
+                                          `
+                      }
+
+                      else if (novoProduto.meiomeios[0].segundoterco != null) {
+                        let nomePrimeiroTerco = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
+                        let nomeSegundoTerco = novoProduto.meiomeios[0].segundoterco_produto.nome
+                        let nomeTerceiroTerco = novoProduto.meiomeios[0].terceiroterco_produto.nome
+                        personalizarMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomePrimeiroTerco}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomeSegundoTerco}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomeTerceiroTerco}</p>
+                                            </button>
+                                            
+                                          `
+                      }
+
+                      else if (novoProduto.meiomeios[0].segundoquarto != null) {
+                        let nomePrimeiroQuarto = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
+                        let nomeSegundoQuarto = novoProduto.meiomeios[0].segundoquarto_produto.nome
+                        let nomeTerceiroQuarto = novoProduto.meiomeios[0].terceiroquarto_produto.nome
+                        let nomeQuartoQuarto = novoProduto.meiomeios[0].quartoquarto_produto.nome
+                        personalizarMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomePrimeiroQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeSegundoQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeTerceiroQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeQuartoQuarto}</p>
+                                            </button>                                         
+                                          `
+                      }
+                    }
+
+
+                    else {
+                      personalizarMeioMeio.innerHTML = ""
+                    }
+                  }
+
+                }
+
+                carregarMeio();
+
+
+
+                //Trocar meio a meio
+
+                function EditarMeio() {
+
+
+                  const containerPersonalizarMeio = document.querySelector('.container-personalizar-meio')
+                  let renderProdutosMeio = ''
+                  let produtosMeio = produtoBd.filter((produto) => {
+                    return produto.idcategoria == itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria && produto.idproduto != itemCarrinho.idprodutopedido
+                  })
+
+                  for (k = 0; k < produtosMeio.length; k++) {
+                    for (u = 0; u < produtosMeio[k].idtamanhorelacao_tamanhos.length; u++) {
+                      if (produtosMeio[k].idtamanhorelacao_tamanhos[u].idtamanho == novoProduto.idtamanhopedido) {
+                        let produtoAtual = produtosMeio[k]
+
+                        function checkarMeio() {
+                          if (novoProduto.meiomeios.length != 0) {
+
+                            if (novoProduto.meiomeios[0].segundametade == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else if (novoProduto.meiomeios[0].segundoterco == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else if (novoProduto.meiomeios[0].terceiroterco == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else if (novoProduto.meiomeios[0].segundoquarto == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else if (novoProduto.meiomeios[0].terceiroquarto == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else if (novoProduto.meiomeios[0].quartoquarto == produtoAtual.idproduto) {
+                              return "checked"
+                            }
+                            else {
+                              return ""
+                            }
+                          }
+                        }
+
+                        let produto = `
+                          <div>
+                            <input type="checkbox" class="checkboxes-meio" id="meio-${produtoAtual.nome}" name="meiomeio" value="${produtoAtual.idproduto}" ${checkarMeio()}>
+                            <label for="meio-${produtoAtual.nome}">${produtoAtual.nome}</label>
+                         </div>
+                          `
+                        renderProdutosMeio += produto
+                        containerPersonalizarMeio.innerHTML = renderProdutosMeio
+                      }
+                    }
+                  }
+
+
+
+
+
+
+                  document.querySelector('.botao-salvar-meio').addEventListener('click', () => {
+                    let checkboxes = document.querySelectorAll('.checkboxes-meio');
+
+                    let contadorCheckboxes = 0;
+
+
+                    for (n = 0; n < checkboxes.length; n++) {
+                      if (checkboxes[n].checked) { contadorCheckboxes++ }
+                    }
+
+
+
+                    let meioMeiosTres = [{
+                      "segundametade": null,
+                      "segundoterco": null,
+                      "terceiroterco": null,
+                      "segundoquarto": null,
+                      "terceiroquarto": null,
+                      "quartoquarto": null,
+                    }];
+
+                    let meioMeiosQuatro = [{
+                      "segundametade": null,
+                      "segundoterco": null,
+                      "terceiroterco": null,
+                      "segundoquarto": null,
+                      "terceiroquarto": null,
+                      "quartoquarto": null,
+                    }];
+
+                    for (c = 0; c < checkboxes.length; c++) {
+                      let checkboxAtual = checkboxes[c];
+
+                      if (contadorCheckboxes == 0) {
+                        novoProduto.meiomeios = [];
+                      }
+                      else if (contadorCheckboxes == 1) {
+                        if (checkboxAtual.checked) {
+                          novoProduto.meiomeios = [{
+                            "segundametade": checkboxAtual.value,
+                            "segundoterco": null,
+                            "terceiroterco": null,
+                            "segundoquarto": null,
+                            "terceiroquarto": null,
+                            "quartoquarto": null,
+                          }];
+
+
+                        }
+                      }
+
+                      else if (contadorCheckboxes == 2) {
+
+                        if (checkboxAtual.checked) {
+                          if (meioMeiosTres[0].segundoterco == null) {
+                            meioMeiosTres[0].segundoterco = checkboxAtual.value
+                          }
+
+                          else if (meioMeiosTres[0].terceiroterco == null) {
+                            meioMeiosTres[0].terceiroterco = checkboxAtual.value
+                          }
+
+                        };
+                        novoProduto.meiomeios = meioMeiosTres
+                      }
+
+                      else if (contadorCheckboxes == 3) {
+
+                        if (checkboxAtual.checked) {
+                          if (meioMeiosQuatro[0].segundoquarto == null) {
+                            meioMeiosQuatro[0].segundoquarto = checkboxAtual.value
+                          }
+
+                          else if (meioMeiosQuatro[0].terceiroquarto == null) {
+                            meioMeiosQuatro[0].terceiroquarto = checkboxAtual.value
+                          }
+
+                          else if (meioMeiosQuatro[0].quartoquarto == null) {
+                            meioMeiosQuatro[0].quartoquarto = checkboxAtual.value
+                          }
+
+                        };
+                        novoProduto.meiomeios = meioMeiosQuatro
+                      }
+                    }
+
+
+
+                    fecharModal(".fade-meio-meio", ".modal-meio-meio")
+
+                    function acharNomeProdutoMeio(i) {
+                      let produto = produtoBd.find((produto) => {
+                        return produto.idproduto == i
+                      })
+                      return produto.nome
+                    }
+
+                    let containerMeioMeio = document.querySelector('.container-meio-meio')
+                    if (novoProduto.meiomeios.length != 0) {
+
+                      if (novoProduto.meiomeios[0].segundametade != null) {
+                        let nomePrimeiraMetade = acharNomeProdutoMeio(novoProduto.idprodutopedido)
+                        let nomeSegundaMetade = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundametade)
+                        containerMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/2 ${nomePrimeiraMetade}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/2 ${nomeSegundaMetade}</p>
+                                            </button>
+                                         `
+                      }
+
+                      else if (novoProduto.meiomeios[0].segundoterco != null) {
+                        let nomePrimeiroTerco = acharNomeProdutoMeio(novoProduto.idprodutopedido)
+                        let nomeSegundoTerco = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundoterco)
+                        let nomeTerceiroTerco = acharNomeProdutoMeio(novoProduto.meiomeios[0].terceiroterco)
+                        containerMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomePrimeiroTerco}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomeSegundoTerco}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/3 ${nomeTerceiroTerco}</p>
+                                            </button>
+                                            
+                                          `
+                      }
+
+                      else if (novoProduto.meiomeios[0].segundoquarto != null) {
+                        let nomePrimeiroQuarto = acharNomeProdutoMeio(novoProduto.idprodutopedido)
+                        let nomeSegundoQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundoquarto)
+                        let nomeTerceiroQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].terceiroquarto)
+                        let nomeQuartoQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].quartoquarto)
+                        containerMeioMeio.innerHTML = `
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomePrimeiroQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeSegundoQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeTerceiroQuarto}</p>
+                                            </button>
+                                            <button class="botao-meio-meio">
+                                              <img src="./assets/lixo-white.svg" alt="Lixo">
+                                              <p>1/4 ${nomeQuartoQuarto}</p>
+                                            </button>                                         
+                                          `
+                      }
+                    }
+
+
+                    else {
+                      containerMeioMeio.innerHTML = ``
+                    }
+                  })
+
+                }
+                document.querySelector('.personalizar-meio').addEventListener('click', () => {
+                  abrirModal(".fade-meio-meio", ".modal-meio-meio")
+                  EditarMeio();
+
+                })
+
+
+                //Quantidade
+                const containerQuantidade = document.querySelector('.quantidade');
+                const quantidade = novoProduto.quantidade
+                containerQuantidade.innerHTML = `<input type="number" class="input-quantidade" min="1" max="50" step="1" value="${quantidade}">`
+                const inputQuantidade = document.querySelector('.input-quantidade')
+
+                inputQuantidade.addEventListener('change', () => {
+                  novoProduto.quantidade = inputQuantidade.value
+
+                })
+
+
+              })
+              //Fechar a modal
+              document.querySelector('.botao-fechar-personalizar').addEventListener('click', () => {
+                fecharModal(".fade-personalizar", ".personalizar-produto")
+                renderTamanhos = '';
+                novoProduto.idpedido = itemCarrinho.idpedido,
+                  novoProduto.idprodutopedido = itemCarrinho.idprodutopedido,
+                  novoProduto.idtamanhopedido = itemCarrinho.idtamanhopedido,
+                  novoProduto.quantidade = itemCarrinho.quantidade,
+                  novoProduto.meiomeios = itemCarrinho.meiomeios
+              })
+
+
+              let novoProduto = {
+                "idpedido": itemCarrinho.idpedido,
+                "idprodutopedido": itemCarrinho.idprodutopedido,
+                "idtamanhopedido": itemCarrinho.idtamanhopedido,
+                "quantidade": itemCarrinho.quantidade,
+                "meiomeios": itemCarrinho.meiomeios
+              };
+
+
+              let botaoAdicionar = document.querySelectorAll('.adicionar-produto')
+              for (i = 0; i < botaoAdicionar.length; i++) {
+                let botao = botaoAdicionar[i]
+                botao.addEventListener('click', () => {
+                  novoProduto.idprodutopedido = botao.value
+                })
+              }
+
+              let botaoSelecionarTamanho = document.querySelector(".botao-selecionar-tamanho");
+              botaoSelecionarTamanho.addEventListener('click', () => {
+
+                let renderTamanhos = ``
+
+
+
+                abrirModal(".fade-personalizar", ".personalizar-produto");
+
+
+
+                let produto = produtoBd.find((produto) => {
+                  return produto.idproduto == novoProduto.idprodutopedido
+                })
+
+
+                for (t = 0; t < produto.idtamanhorelacao_tamanhos.length; t++) {
+
+                  let tamanho = produto.idtamanhorelacao_tamanhos[t]
+
+                  let tamanhoAtual = () => {
+                    if (novoProduto.idtamanhopedido == tamanho.idtamanho) {
+                      return "checked"
+                    }
+
+                    else {
+                      return ""
+                    }
+                  }
+
+                  let renderTamanho = `
+                    <input type="radio" id="tamanho${t}-personalizar" name="tamanho" ${tamanhoAtual()} >
+                    <label for="tamanho${t}-personalizar">${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</label>
+                    `
+
+                  renderTamanhos += renderTamanho
+                  containerTamanhos.innerHTML = renderTamanhos
+                }
+
+
+              })
+
+              document.querySelector('.botão-adicionar-personalizacao').addEventListener('click', () => {
+                console.log(novoProduto);
+              })
 
             }
 
 
+          }
+
+          function gambiarra() {
+            carregarTamanhos();
+            editarCarrinho();
+
+          }
+        })
+      }
 
 
 
 
 
+      const ordemExecucaoPedido = new Promise(() => {
+        carregarCarrinho();
 
-
-          });
-
-
-        };
       })
+      ordemExecucaoPedido.then(renderProduto());
 
 
-    })
-
+    };
   })
 }
+addEventListener('DOMContentLoaded', () => {
+  renderPedidosCriados();
+}
+
+);
+
 
 
 

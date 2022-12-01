@@ -354,6 +354,7 @@
     <div class="fade-novo-produto"></div>
     <div class="fade-tamanhos"></div>
     <div class="fade-personalizar"></div>
+    <div class="fade-meio-meio"></div>
 
     <div class="novo-pedido">
 
@@ -424,8 +425,8 @@
                     <td></td>
                     <td>
                       <div class="acoes-carrinho">
-                        <img src="./assets/editar.svg" alt="">
-                        <img src="./assets/lixo-vermelho.svg" alt="">
+                        <button class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                        <button class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
                       </div>
                     </td>
                   </tr>
@@ -963,6 +964,25 @@
 
       </div>
       <button class="botão-adicionar-personalizacao">Adicionar</button>
+    </div>
+
+    <div class="modal-meio-meio">
+      <div class="titulo-meio-meio">
+        <h2>Personalizar meio a meio</h2>
+        <!--<button class="botao-fechar-meio">
+          <img src="./assets/fechar-laranja.svg" alt="Fechar" class="icone-fechar">
+        </button>-->
+      </div>
+      <h4>Selecione até 3 sabores diferentes:</h4>
+      <div class="container-personalizar-meio">
+        <div>
+          <input type="checkbox" class="checkboxes-meio" id="meio-calabresa" name="meiomeio" value="">
+          <label for="meio-calabresa">Calabresa</label>
+        </div>
+
+
+      </div>
+      <button class="botao-salvar-meio">Salvar</button>
     </div>
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 

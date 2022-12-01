@@ -8,6 +8,8 @@ const sequelize = require('../models/db');
 const models = initModels(bd);
 const { Op } = require("sequelize");
 const categorias = require('../models/categorias');
+const clientesantigo = require('../models/clientesantigo');
+
 
 
 
@@ -203,7 +205,7 @@ const categorias = require('../models/categorias');
 
 
   router.get("/clientes", async (req, res) => {
-    const todosClientes = await clientes.pegarClientes();
+    const todosClientes = await clientesantigo.pegarClientes();
     res.json(JSON.stringify(todosClientes));
   });
 
@@ -217,7 +219,7 @@ const categorias = require('../models/categorias');
     let complemento = req.body.complemento;
     let referencia = req.body.referencia;
 
-    clientes.novoCliente(nome, telefoneprimario, telefonesecundario, rua, numero, bairro, complemento, referencia);
+    clientesantigo.novoCliente(nome, telefoneprimario, telefonesecundario, rua, numero, bairro, complemento, referencia);
 
     res.send("Cliente criado com sucesso")
   });
