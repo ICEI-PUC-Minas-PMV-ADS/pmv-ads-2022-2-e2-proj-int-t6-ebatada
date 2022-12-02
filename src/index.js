@@ -1,29 +1,24 @@
 const usersRoutes = require("../src/routes/routes");
-//
-
+const bodyParser = require("body-parser");
 const PORT = 5000;
 const express = require("express");
 const app = express();
 const apiRoute = require("./routes/api");
 const orderRoute = require("./routes/orders");
 const path = require("path");
-
+//
 app.get("/historicoDePedidos", function (req, res) {
   res.sendFile(__dirname + "/public/historico-pedidos.html");
 });
 
+//
 app.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT);
 });
-
 //
-app.get("/", (req, res) => {
-  res.send("hello");
-});
 
 app.use(express.json());
-app.use("/api/v1/users", usersRoutes);
-
+app.use("/users", usersRoutes);
 //
 app.use("/api", apiRoute);
 app.use("/orders", orderRoute);

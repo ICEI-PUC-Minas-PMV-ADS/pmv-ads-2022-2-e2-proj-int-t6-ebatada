@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "ubuntu" sans-serif;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* adicionar categorias */
+
+.add-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10vh;
+  width: 90%;
+  height: 50vh;
+  background: white;
+}
+
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-inputs {
+  width: 70%;
+}
+
+input {
+  width: 100%;
+  background: rgba(128, 128, 128, 0.185);
+  border: 2px solid rgba(128, 128, 128, 0.445);
+  border-radius: 5px;
+}
+
+.text-inputs {
+  margin-left: 5%;
+}
+
+#name-edit {
+  height: 6vh;
+}
+
+#descricao-edit {
+  height: 30vh;
+  margin-top: 5vh;
+}
+
+/* zona de categorias*/
+
+p {
+  width: 80%;
+}
+
+.title-session {
+  margin-left: 40px;
+}
+
+.categoria-descricao {
+  width: 100%;
+  margin: 20px;
+}
+
+.categoria-title {
+  margin: 20px;
+}
+
+.seta-adjust {
+  display: flex;
+}
+
+.botao-fechar {
+  background: white;
+  border: none;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 110vh;
+  margin-top: 10vh;
+  border-radius: 5px;
+  background: white;
+}
+
+.tamanho-container {
+  overflow: hidden;
+}
+/* btn's */
+
+.tamanho-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.btn-adjusts {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-add {
+  padding: 30%;
+  margin-left: 10vh;
+  border: solid #cb6e00 2px;
+  border-radius: 5px;
+  color: #cb6e00;
+  background: white;
+  cursor: pointer;
+}
+
+.btn-edit {
+  width: 100px;
+  height: 5vh;
+  background: #cb6e00;
+  color: white;
+  border-radius: 5px;
+  border: solid #cb6e00 1px;
+  margin-top: 5vh;
+  cursor: pointer;
+}
+
+.centralizer {
+  width: 100%;
+}
+
+.btn-addFinal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 5vh;
+  margin-top: 10vh;
+  margin-left: 15%;
+  border: solid #cb6e00 2px;
+  border-radius: 5px;
+  color: #cb6e00;
+  background: white;
+  cursor: pointer;
+}
+
+/* valores */
+
+.valores-adjust {
+  display: flex;
+  width: 100%;
+  margin-left: 40px;
+  margin-top: 10vh;
+  flex-direction: column;
+}
+
+.descricao-v {
+  width: 60%;
+}
+
+form input {
+  font-size: 30px;
+  padding: 0;
+  border: 2px solid #ccc;
+  border-left: 0;
+  width: 100%;
+  color: #999;
+  border-radius: 0 7px 7px 0;
+}
+
+form input:focus {
+  outline: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+}
+.flex input {
+  max-width: 150px;
+  flex: 1 1 300px;
+}
+.flex .currency {
+  font-size: 20px;
+  padding: 0 10px 0 20px;
+  color: #999;
+  border: 2px solid #ccc;
+  border-right: 0;
+  line-height: 2.5;
+  border-radius: 7px 0 0 7px;
+  background: white;
+}
+
+.valores {
+  display: flex;
+  width: 100%;
+}
+
+.separator {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.seta-criar {
+  width: 3rem;
+  transition: 200ms;
+}
+
+.titulo-criados.ativo .seta-criar {
+  transform: rotate(-180deg);
+}
+
+.seta-criar {
+  width: 3rem;
+  transition: 200ms;
+}
+
+.titulo-criar.ativo .seta-criar {
+  transform: rotate(-180deg);
+}
