@@ -224,7 +224,7 @@
 
 
     <!-- zona de categorias -->
-    <div class="products-container">
+    <div class="products-container" id="productsContainer">
 
       <div class="categoria-descricao">
 
@@ -233,21 +233,20 @@
           <h1 id="text-c">
           Categoria nome teste
           </h1>
-          <button class="botao-fechar" id="collapse">
-            <img src="./assets/seta-laranja.svg" alt="" class="seta-criar">
+          <button class="botao-fechar" id="collapse" >
+            <img src="./assets/seta-laranja.svg" alt="" class="seta-criar" id="seta">
           </button>
         </div>
 
       </div>
-
+      <div class="animation" id="animationDois">
         <div class="categoria-descricao">
 
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo fugit consequuntur reiciendis quos voluptatum odit accusantium facere, asperiores excepturi perspiciatis laboriosam rerum provident libero. Cum officiis earum consectetur odio est.</p>
 
         </div>
-
       </div>
-<div class="animation"></div>
+<div class="animation" id="animation">
       <div class="tamanho-container" for="collapse">
 
         <div class="title-session">
@@ -279,39 +278,40 @@
              <div class="title-v"><h2>teste teste</h2></div>
              <div class="descricao-v"><p>dsadsaodaskopdsakoasdkodkasodkosadkosakosadskaodsakodsakodsaokdaskokoads</p></div>
          </div>
+         </div>
 
         <div class="valores">
           <div class="separator">
 
-            <form id="form" action="" method="">
+            <form id="form" action="" method="" class="caixa">
               <div class="flex">
                   <span class="currency">$</span>
                   <input id="amount" name="amount" type="text" maxlength="15"/>
               </div>
             </form>
 
-            <form id="form" action="" method="">
+            <form id="form" action="" method="" class="caixa">
               <div class="flex">
                   <span class="currency">$</span>
                   <input id="amount" name="amount" type="text" maxlength="15"/>
               </div>
             </form>
 
-            <form id="form" action="" method="">
+            <form id="form" action="" method="" class="caixa">
               <div class="flex">
                   <span class="currency">$</span>
                   <input id="amount" name="amount" type="text" maxlength="15"/>
               </div>
             </form>
 
-            <form id="form" action="" method="">
+            <form id="form" action="" method="" class="caixa">
               <div class="flex">
                   <span class="currency">$</span>
                   <input id="amount" name="amount" type="text" maxlength="15"/>
               </div>
             </form>
 
-            <form id="form" action="" method="">
+            <form id="form" action="" method="" class="caixa">
               <div class="flex">
                   <span class="currency">$</span>
                   <input id="amount" name="amount" type="text" maxlength="15"/>
@@ -323,6 +323,7 @@
       <div class="centralizer">
       <button class="btn-addFinal"><span>adicionar item</span></button>
     </div>
+  
     </div>
 
       
@@ -331,5 +332,5 @@
     
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
-  <script type="text/javascript" src="./scripts/menu-cascata.js"></script>
+  <script type="text/javascript" src="./scripts/menu-cascata-alternative.js"></script>
 </body>

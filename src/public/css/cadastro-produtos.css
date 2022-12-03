@@ -64,6 +64,8 @@ p {
 }
 
 .categoria-descricao {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 20px;
 }
@@ -79,6 +81,7 @@ p {
 .botao-fechar {
   background: white;
   border: none;
+  cursor: pointer;
 }
 
 .products-container {
@@ -136,10 +139,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 30%;
   height: 5vh;
   margin-top: 10vh;
-  margin-left: 15%;
   border: solid #cb6e00 2px;
   border-radius: 5px;
   color: #cb6e00;
@@ -199,10 +201,14 @@ form input:focus {
   width: 100%;
 }
 
+.valores-container {
+  display: flex;
+}
+
 .separator {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
+  width: 95%;
   margin-top: 10vh;
 }
 
