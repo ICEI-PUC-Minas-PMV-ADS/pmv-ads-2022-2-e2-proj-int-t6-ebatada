@@ -15,13 +15,162 @@ const clientesantigo = require('../models/clientesantigo');
 
 (async () => {
 
+  router.put("/trocarclientepedido", bodyParser.json(), async (req, res) => {
+    (async () => {
+      let idPedido = req.body.idpedido;
+      let idCliente = req.body.idcliente;
+
+      await models.pedidos.update({ cliente: idCliente }, { where: { idpedido: idPedido } });
+
+
+    })().then(() => {
+      return res.json({
+        mensagem: "cliente do pedido alterado com sucesso",
+        requisicao: req.body
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao alterar o cliente",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+  })
+
+  router.delete("/excluirproduto", bodyParser.json(), async (req, res) => {
+    (async () => {
+      let idProdutoCarrinho = req.body.idprodutocarrinho
+
+      const linhaMeio = await models.meiomeio.findOne({
+        where: { idprodutocarrinho: idProdutoCarrinho },
+      });
+
+      if (linhaMeio != null) {
+        await models.meiomeio.destroy({ where: { idprodutocarrinho: idProdutoCarrinho } })
+      }
+
+      await models.produtospedidos.destroy({ where: { idprodutocarrinho: idProdutoCarrinho } })
+
+    })().then(() => {
+      return res.json({
+        mensagem: "produto excluido com sucesso",
+        requisicao: req.body
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao excluir o produto",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+  })
+
+  router.post("/adicionarproduto", bodyParser.json(), async (req, res) => {
+    (async () => {
+      let idPedido = req.body.idpedido;
+      let idProdutoPedido = req.body.idprodutopedido;
+      let idTamanhoPedido = req.body.idtamanhopedido;
+      let quantidade = req.body.quantidade;
+      let segundaMetade = req.body.meiomeios[0].segundametade
+      let segundoTerco = req.body.meiomeios[0].segundoterco
+      let terceiroTerco = req.body.meiomeios[0].terceiroterco
+      let segundoQuarto = req.body.meiomeios[0].segundoquarto
+      let terceiroQuarto = req.body.meiomeios[0].terceiroquarto
+      let quartoQuarto = req.body.meiomeios[0].quartoquarto
+
+      await models.produtospedidos.findOrCreate({
+        where: { idpedido: idPedido, idprodutopedido: idProdutoPedido, idtamanhopedido: idTamanhoPedido, quantidade: quantidade }
+      })
+
+      const produtoPedidoBd = await models.produtospedidos.findOne({
+        where: { idpedido: idPedido, idprodutopedido: idProdutoPedido, idtamanhopedido: idTamanhoPedido, quantidade: quantidade }
+      })
+
+      let produtoPedidoJson = JSON.stringify(produtoPedidoBd);
+      let produtoPedido = JSON.parse(produtoPedidoJson)
+
+      console.log(produtoPedido)
+
+      let idProdutoCarrinho = produtoPedido.idprodutocarrinho
+
+
+
+      await models.meiomeio.findOrCreate({
+        where: { idprodutocarrinho: idProdutoCarrinho },
+        defaults: { segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }
+      })
+
+    })().then(() => {
+      return res.json({
+        mensagem: "produto adicionado com sucesso",
+        requisicao: req.body
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao adicionar o produto",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+  })
+
+  router.put("/editarprodutocarrinho", bodyParser.json(), async (req, res) => {
+    (async () => {
+      let idProdutoCarrinho = req.body.idprodutocarrinho;
+      let idProdutoPedido = req.body.idprodutopedido;
+      let idTamanhoPedido = req.body.idtamanhopedido;
+      let quantidade = req.body.quantidade;
+      let segundaMetade = req.body.meiomeios[0].segundametade
+      let segundoTerco = req.body.meiomeios[0].segundoterco
+      let terceiroTerco = req.body.meiomeios[0].terceiroterco
+      let segundoQuarto = req.body.meiomeios[0].segundoquarto
+      let terceiroQuarto = req.body.meiomeios[0].terceiroquarto
+      let quartoQuarto = req.body.meiomeios[0].quartoquarto
+
+      await models.produtospedidos.update({ idprodutopedido: idProdutoPedido, idtamanhopedido: idTamanhoPedido, quantidade: quantidade }, { where: { idprodutocarrinho: idProdutoCarrinho } })
+
+      await models.meiomeio.findOrCreate({
+        where: { idprodutocarrinho: idProdutoCarrinho },
+        defaults: { segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }
+      })
+
+      await models.meiomeio.update({ segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }, { where: { idprodutocarrinho: idProdutoCarrinho } })
+
+    })().then(() => {
+      return res.json({
+        mensagem: "produto editado com sucesso",
+        requisicao: req.body
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao editar o produto",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+  })
+
 
   router.get("/produtos", async (req, res) => {
     await models.produtos.findAll({
-      include: {
+      include: [{
         model: models.tamanhos,
         as: 'idtamanhorelacao_tamanhos'
+      },
+      {
+        model: models.categorias,
+        as: 'idcategoria_categoria'
       }
+
+      ]
     })
       .then((produtos) => {
         return res.json(produtos)
@@ -203,26 +352,55 @@ const clientesantigo = require('../models/clientesantigo');
   }
   );
 
-
   router.get("/clientes", async (req, res) => {
-    const todosClientes = await clientesantigo.pegarClientes();
-    res.json(JSON.stringify(todosClientes));
+    await models.clientes.findAll()
+      .then((clientes) => {
+        return res.json(clientes)
+      }).catch((error) => {
+        return res.json({
+          mensagem: "Houve algum erro ao encontrar os clientes",
+          Erro: error,
+        })
+      });
   });
 
-  router.post("/novocliente", bodyParser.json(), (req, res) => {
-    let nome = req.body.nome;
-    let telefoneprimario = req.body.telefoneprimario;
-    let telefonesecundario = req.body.telefonesecundario;
-    let rua = req.body.rua;
-    let numero = req.body.numero;
-    let bairro = req.body.bairro;
-    let complemento = req.body.complemento;
-    let referencia = req.body.referencia;
 
-    clientesantigo.novoCliente(nome, telefoneprimario, telefonesecundario, rua, numero, bairro, complemento, referencia);
 
-    res.send("Cliente criado com sucesso")
+  router.post("/novocliente", bodyParser.json(), async (req, res) => {
+    (async () => {
+      let nome = req.body.nome;
+      let telefoneprimario = req.body.telefoneprimario;
+      let telefonesecundario = req.body.telefonesecundario;
+      let rua = req.body.rua;
+      let numero = req.body.numero;
+      let bairro = req.body.bairro;
+      let complemento = req.body.complemento;
+      let referencia = req.body.referencia;
+
+      await models.clientes.create({ nome: nome, telefoneprimario: telefoneprimario, telefonesecundario: telefonesecundario, rua: rua, numero: numero, bairro: bairro, complemento: complemento, referencia: referencia })
+
+      const cliente = await models.clientes.findOne({
+        where: { nome: nome, telefoneprimario: telefoneprimario, telefonesecundario: telefonesecundario, rua: rua, numero: numero, bairro: bairro, complemento: complemento, referencia: referencia },
+      })
+
+      return cliente
+    })().then((cliente) => {
+      return res.json({
+        mensagem: "cliente cadastrado com sucesso",
+        cliente: cliente
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao cadastrar o cliente",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+
   });
+
 })();
 
 

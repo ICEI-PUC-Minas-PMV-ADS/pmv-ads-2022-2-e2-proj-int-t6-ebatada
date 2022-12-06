@@ -1238,6 +1238,12 @@ td {
 
 }
 
+.botao-selecionar-cliente {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
 .cliente-encontrado {
   background: #f0f0f0;
   border-radius: 8px;
