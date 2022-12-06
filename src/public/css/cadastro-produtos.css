@@ -21,6 +21,7 @@
   margin-top: 10vh;
   width: 90%;
   height: 50vh;
+  border-radius: 5px;
   background: white;
 }
 
@@ -50,7 +51,6 @@ input {
 
 #descricao-edit {
   height: 30vh;
-  margin-top: 5vh;
 }
 
 /* zona de categorias*/
@@ -105,9 +105,17 @@ p {
   margin-top: 5vh;
 }
 
+.btn-container {
+  display: flex;
+  margin-top: 5vh;
+  width: 100%;
+  align-items: center;
+}
+
 .btn-adjusts {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .btn-add {
@@ -121,14 +129,18 @@ p {
 }
 
 .btn-edit {
-  width: 100px;
+  width: 30%;
   height: 5vh;
   background: #cb6e00;
   color: white;
   border-radius: 5px;
   border: solid #cb6e00 1px;
-  margin-top: 5vh;
+
   cursor: pointer;
+}
+
+.labelEdit {
+  margin-left: 1rem;
 }
 
 .centralizer {
@@ -232,4 +244,131 @@ form input:focus {
 
 .titulo-criar.ativo .seta-criar {
   transform: rotate(-180deg);
+}
+
+/* modal*/
+
+.hide {
+  background: white;
+  width: 50%;
+  height: 30rem;
+  border-radius: 5px;
+}
+
+#modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.adjust-modal {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 6vh;
+  width: 70%;
+}
+
+#amountt {
+  border: 1px gray;
+  height: 5vh;
+  width: 60%;
+  display: flex;
+}
+
+.checkbox-adjust {
+  display: flex;
+  margin-top: 30px;
+}
+
+#scales {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.sabores-adjuste {
+  display: flex;
+  margin-top: 5vh;
+}
+
+.sabores {
+  width: 20%;
+  height: 5vh;
+  margin-left: 30px;
+  border: #cb6e00 solid 2px;
+  background: white;
+}
+
+.descri {
+  margin-top: 2vh;
+}
+.btn-adjust {
+  display: flex;
+  margin-top: 5vh;
+}
+
+#amountD {
+  border: 1px gray;
+  height: 5vh;
+  width: 50%;
+  margin-left: 30px;
+  display: flex;
+}
+
+.btn-adjust {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+
+.number-adjust {
+  display: flex;
+  margin-top: 5vh;
+}
+
+.excluir {
+  width: 40%;
+  height: 5vh;
+  background: white;
+  border: red solid 2px;
+  border-radius: 5px;
+}
+
+.save {
+  width: 40%;
+  height: 5vh;
+  border: rgb(0, 199, 0) solid 2px;
+  border-radius: 5px;
+  background: white;
+}
+
+.modal-header {
+  width: 100%;
+  display: flex;
+}
+
+.fechar {
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: #cb6e00;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+#fade.hide,
+#modal.hide {
+  display: none;
 }

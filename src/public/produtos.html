@@ -202,13 +202,14 @@
       
       <div class="text-inputs">
         <div class="name">
+          <span>Titulo:</span>
           <input id="name-edit" type="text" required="required">
-          <span></span>
+          
         </div>
-        
         <div class="descricao">
+          <span>Descrição:</span>
           <input id="descricao-edit" type="text" required="required">
-          <span></span>
+          
         </div>
       </div>
 
@@ -259,11 +260,33 @@
 
           <div class="btn-adjusts">
           
-          <button class="btn-edit"><span>Editar</span></button>
-          <button class="btn-edit"><span>Editar</span></button>
-          <button class="btn-edit"><span>Editar</span></button>
-          <button class="btn-edit"><span>Editar</span></button>
-          <button class="btn-edit"><span>Editar</span></button>
+       <div class="btn-container">
+          <button class="btn-edit" value="editar"><span>Editar</span></button>
+          <label class="labelEdit">tamanho</label>
+       </div>
+
+       <div class="btn-container">
+        <button class="btn-edit" value="editar"><span>Editar</span></button>
+        <label class="labelEdit">tamanho</label>
+     </div>
+
+     <div class="btn-container">
+      <button class="btn-edit" value="editar"><span>Editar</span></button>
+      <label class="labelEdit">tamanho</label>
+   </div>
+
+   <div class="btn-container">
+    <button class="btn-edit" value="editar"><span>Editar</span></button>
+    <label class="labelEdit">tamanho</label>
+ </div>
+
+ <div class="btn-container">
+  <button class="btn-edit" value="editar"><span>Editar</span></button>
+  <label class="labelEdit">tamanho</label>
+</div>
+
+       
+          
 
 
           </div>
@@ -325,7 +348,42 @@
     </div>
   
     </div>
+    <div id="fade" class="hide" for="buttonEdit"></div>
+    <div id="modal" class="hide" for="buttonEdit">
+      <spam class="fechar" id="closeModal">X</spam>
+      <div class="adjust-modal">
+      <div class="modal-header">
+        <h2>Editar tamanho</h2>
+        
+      </div>
+      <div class="descri">
+        <span class="currency">Descrição tamanho:</span>
+        <input id="amountt" name="amount" type="text"/>
+      </div>
+      <div class="meioAmeio">
+        <div class="checkbox-adjust">
+        <input type="checkbox" id="scales" name="scales" checked>
+        <span class="edit">Permitir personalizar ‘meio a meio’ com vários sabores
+          em produtos do mesmo tamanho e categoria.</span>
+        
+      </div>
 
+      <div class="sabores-adjuste">
+        <span>Quantidade maxima de sabores:</span>
+        <input class="sabores" type="number" name="sabores" value="1">
+      </div>
+      <div class="number-adjust">
+        <span class="cobrar">Cobrar pelo 'meio a meio':</span>
+        <input id="amountD" name="amount" type="text" maxlength="15"/>
+      </div>
+      <div class="btn-adjust">
+      <button class="excluir"><span>Excluir</span></button>
+      <button class="save"><span>Salvar</span></button>
+    </div>
+
+    </div>
+    </div>
+    </div>
       
 
     
@@ -333,4 +391,5 @@
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
   <script type="text/javascript" src="./scripts/menu-cascata-alternative.js"></script>
+  <script type="text/javascript" src="./produtos.html"></script>
 </body>
