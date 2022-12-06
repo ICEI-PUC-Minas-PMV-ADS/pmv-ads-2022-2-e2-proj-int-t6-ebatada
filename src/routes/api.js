@@ -2,18 +2,157 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const bd = require("../models/db")
-
 const initModels = require("../models/init-models");
-const sequelize = require('../models/db');
 const models = initModels(bd);
 const { Op } = require("sequelize");
-const categorias = require('../models/categorias');
-const clientesantigo = require('../models/clientesantigo');
+const pedidos = require('../models/pedidos');
+
 
 
 
 
 (async () => {
+
+  async function pedidos() {
+    let pedidosBd = await models.pedidos.findAll({
+      order: [['idpedido', 'DESC']],
+      include: [
+        {
+          model: models.produtospedidos,
+          as: "produtospedidos",
+          include: {
+            model: models.meiomeio,
+            as: "meiomeios",
+            include: [
+              {
+                model: models.produtos,
+                as: "segundametade_produto"
+              },
+              {
+                model: models.produtos,
+                as: "segundoterco_produto"
+              },
+              {
+                model: models.produtos,
+                as: "terceiroterco_produto"
+              },
+              {
+                model: models.produtos,
+                as: "segundoquarto_produto"
+              },
+              {
+                model: models.produtos,
+                as: "terceiroquarto_produto"
+              },
+              {
+                model: models.produtos,
+                as: "quartoquarto_produto"
+              }
+            ]
+          }
+        },
+        {
+          model: models.clientes,
+          as: "cliente_cliente"
+        },
+        {
+          model: models.taxasentrega,
+          as: "taxaentrega_taxasentrega"
+        }
+      ]
+    })
+
+    let pedidosJson = JSON.stringify(pedidosBd);
+    let pedidos = JSON.parse(pedidosJson)
+
+
+    for (i = 0; i < Object.keys(pedidos).length; i++) { //Para cada pedido
+      for (p = 0; p < pedidos[i].produtospedidos.length; p++) { //Para cada produto do pedido
+        let idprodutopedido = pedidos[i].produtospedidos[p].idprodutopedido;
+        let idtamanhopedido = pedidos[i].produtospedidos[p].idtamanhopedido;
+        //Configurando relação entre produto e tamanho de cada item do pedido
+        let relacaoBd = await models.relacaoprodutotamanho.findOne({
+          where: { idprodutorelacao: idprodutopedido, idtamanhorelacao: idtamanhopedido },
+          include: [
+            {
+              model: models.tamanhos,
+              as: "idtamanhorelacao_tamanho"
+            },
+            {
+              model: models.produtos,
+              as: "idprodutorelacao_produto",
+              include: {
+                model: models.categorias,
+                as: "idcategoria_categoria"
+              }
+            }
+          ]
+        });
+        let relacaoJson = JSON.stringify(relacaoBd);
+        let relacao = JSON.parse(relacaoJson)
+        pedidos[i].produtospedidos[p].relacaoprodutotamanho = relacao
+        //Configurando relação entre meio a meio, produto e tamanho
+
+        if (pedidos[i].produtospedidos[p].meiomeios.length != 0) {
+          if (pedidos[i].produtospedidos[p].meiomeios[0].segundametade != null) {
+            let idprodutometade = pedidos[i].produtospedidos[p].meiomeios[0].segundametade_produto.idproduto
+            let relacaomeioBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idprodutometade, idtamanhorelacao: idtamanhopedido } });
+            let relacaoMeioJson = JSON.stringify(relacaomeioBd);
+            let relacaoMeio = JSON.parse(relacaoMeioJson)
+            pedidos[i].produtospedidos[p].meiomeios[0].segundametade_produto.relacaomeiotamanho = relacaoMeio
+          }
+          else if (pedidos[i].produtospedidos[p].meiomeios[0].segundoterco != null) {
+            let idProdutoSegundoTerco = pedidos[i].produtospedidos[p].meiomeios[0].segundoterco_produto.idproduto
+            let idProdutoTerceiroTerco = pedidos[i].produtospedidos[p].meiomeios[0].terceiroterco_produto.idproduto
+            let relacaoSegundoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoSegundoTerco, idtamanhorelacao: idtamanhopedido } });
+            let relacaoTerceiroBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoTerceiroTerco, idtamanhorelacao: idtamanhopedido } });
+            let relacaoSegundoJson = JSON.stringify(relacaoSegundoBd);
+            let relacaoTerceiroJson = JSON.stringify(relacaoTerceiroBd);
+            let relacaoSegundo = JSON.parse(relacaoSegundoJson)
+            let relacaoTerceiro = JSON.parse(relacaoTerceiroJson)
+            pedidos[i].produtospedidos[p].meiomeios[0].segundoterco_produto.relacaomeiotamanho = relacaoSegundo
+            pedidos[i].produtospedidos[p].meiomeios[0].terceiroterco_produto.relacaomeiotamanho = relacaoTerceiro
+          }
+          else if (pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto != null) {
+            let idProdutoSegundoQuarto = pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto_produto.idproduto
+            let idProdutoTerceiroQuarto = pedidos[i].produtospedidos[p].meiomeios[0].terceiroquarto_produto.idproduto
+            let idProdutoQuartoQuarto = pedidos[i].produtospedidos[p].meiomeios[0].quartoquarto_produto.idproduto
+            let relacaoSegundoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoSegundoQuarto, idtamanhorelacao: idtamanhopedido } });
+            let relacaoTerceiroBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoTerceiroQuarto, idtamanhorelacao: idtamanhopedido } });
+            let relacaoQuartoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoQuartoQuarto, idtamanhorelacao: idtamanhopedido } });
+            let relacaoSegundoJson = JSON.stringify(relacaoSegundoBd);
+            let relacaoTerceiroJson = JSON.stringify(relacaoTerceiroBd);
+            let relacaoQuartoJson = JSON.stringify(relacaoQuartoBd);
+            let relacaoSegundo = JSON.parse(relacaoSegundoJson)
+            let relacaoTerceiro = JSON.parse(relacaoTerceiroJson)
+            let relacaoQuarto = JSON.parse(relacaoQuartoJson)
+            pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto_produto.relacaomeiotamanho = relacaoSegundo
+            pedidos[i].produtospedidos[p].meiomeios[0].terceiroquarto_produto.relacaomeiotamanho = relacaoTerceiro
+            pedidos[i].produtospedidos[p].meiomeios[0].quartoquarto_produto.relacaomeiotamanho = relacaoQuarto
+          }
+        }
+      }
+    }
+    return pedidos
+  }
+
+
+  async function produtos() {
+    const produtos = await models.produtos.findAll({
+      include: [{
+        model: models.tamanhos,
+        as: 'idtamanhorelacao_tamanhos'
+      },
+      {
+        model: models.categorias,
+        as: 'idcategoria_categoria'
+      }
+
+      ]
+    })
+
+    return produtos
+  }
 
   router.put("/trocarclientepedido", bodyParser.json(), async (req, res) => {
     (async () => {
@@ -23,10 +162,12 @@ const clientesantigo = require('../models/clientesantigo');
       await models.pedidos.update({ cliente: idCliente }, { where: { idpedido: idPedido } });
 
 
-    })().then(() => {
+    })().then(async () => {
+      let pedidosAtualizados = await pedidos();
       return res.json({
         mensagem: "cliente do pedido alterado com sucesso",
-        requisicao: req.body
+        requisicao: req.body,
+        pedidos: pedidosAtualizados
       })
     }
 
@@ -53,10 +194,12 @@ const clientesantigo = require('../models/clientesantigo');
 
       await models.produtospedidos.destroy({ where: { idprodutocarrinho: idProdutoCarrinho } })
 
-    })().then(() => {
+    })().then(async () => {
+      let pedidosAtualizados = await pedidos();
       return res.json({
         mensagem: "produto excluido com sucesso",
-        requisicao: req.body
+        requisicao: req.body,
+        pedidos: pedidosAtualizados
       })
     }
 
@@ -104,10 +247,12 @@ const clientesantigo = require('../models/clientesantigo');
         defaults: { segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }
       })
 
-    })().then(() => {
+    })().then(async () => {
+      let pedidosAtualizados = await pedidos();
       return res.json({
         mensagem: "produto adicionado com sucesso",
-        requisicao: req.body
+        requisicao: req.body,
+        pedidos: pedidosAtualizados
       })
     }
 
@@ -142,10 +287,14 @@ const clientesantigo = require('../models/clientesantigo');
 
       await models.meiomeio.update({ segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }, { where: { idprodutocarrinho: idProdutoCarrinho } })
 
-    })().then(() => {
+
+
+    })().then(async () => {
+      let pedidosAtualizados = await pedidos();
       return res.json({
         mensagem: "produto editado com sucesso",
-        requisicao: req.body
+        requisicao: req.body,
+        pedidos: pedidosAtualizados
       })
     }
 
@@ -160,26 +309,16 @@ const clientesantigo = require('../models/clientesantigo');
 
 
   router.get("/produtos", async (req, res) => {
-    await models.produtos.findAll({
-      include: [{
-        model: models.tamanhos,
-        as: 'idtamanhorelacao_tamanhos'
-      },
-      {
-        model: models.categorias,
-        as: 'idcategoria_categoria'
-      }
-
-      ]
-    })
-      .then((produtos) => {
-        return res.json(produtos)
-      }).catch((error) => {
-        return res.json({
-          mensagem: "Houve algum erro ao encontrar os pedidos",
-          Erro: error,
-        })
-      });
+    (async () => {
+      return produtos();
+    })().then((produtos) => {
+      return res.json(produtos)
+    }).catch((error) => {
+      return res.json({
+        mensagem: "Houve algum erro ao encontrar os pedidos",
+        Erro: error,
+      })
+    });
   });
 
 
@@ -187,126 +326,7 @@ const clientesantigo = require('../models/clientesantigo');
 
   router.get("/pedidos", async (req, res) => {
     (async () => {
-      let pedidosBd = await models.pedidos.findAll({
-        order: [['idpedido', 'DESC']],
-        include: [
-          {
-            model: models.produtospedidos,
-            as: "produtospedidos",
-            include: {
-              model: models.meiomeio,
-              as: "meiomeios",
-              include: [
-                {
-                  model: models.produtos,
-                  as: "segundametade_produto"
-                },
-                {
-                  model: models.produtos,
-                  as: "segundoterco_produto"
-                },
-                {
-                  model: models.produtos,
-                  as: "terceiroterco_produto"
-                },
-                {
-                  model: models.produtos,
-                  as: "segundoquarto_produto"
-                },
-                {
-                  model: models.produtos,
-                  as: "terceiroquarto_produto"
-                },
-                {
-                  model: models.produtos,
-                  as: "quartoquarto_produto"
-                }
-              ]
-            }
-          },
-          {
-            model: models.clientes,
-            as: "cliente_cliente"
-          },
-          {
-            model: models.taxasentrega,
-            as: "taxaentrega_taxasentrega"
-          }
-        ]
-      })
-
-      let pedidosJson = JSON.stringify(pedidosBd);
-      let pedidos = JSON.parse(pedidosJson)
-
-
-      for (i = 0; i < Object.keys(pedidos).length; i++) { //Para cada pedido
-        for (p = 0; p < pedidos[i].produtospedidos.length; p++) { //Para cada produto do pedido
-          let idprodutopedido = pedidos[i].produtospedidos[p].idprodutopedido;
-          let idtamanhopedido = pedidos[i].produtospedidos[p].idtamanhopedido;
-          //Configurando relação entre produto e tamanho de cada item do pedido
-          let relacaoBd = await models.relacaoprodutotamanho.findOne({
-            where: { idprodutorelacao: idprodutopedido, idtamanhorelacao: idtamanhopedido },
-            include: [
-              {
-                model: models.tamanhos,
-                as: "idtamanhorelacao_tamanho"
-              },
-              {
-                model: models.produtos,
-                as: "idprodutorelacao_produto",
-                include: {
-                  model: models.categorias,
-                  as: "idcategoria_categoria"
-                }
-              }
-            ]
-          });
-          let relacaoJson = JSON.stringify(relacaoBd);
-          let relacao = JSON.parse(relacaoJson)
-          pedidos[i].produtospedidos[p].relacaoprodutotamanho = relacao
-          //Configurando relação entre meio a meio, produto e tamanho
-
-          if (pedidos[i].produtospedidos[p].meiomeios.length != 0) {
-            if (pedidos[i].produtospedidos[p].meiomeios[0].segundametade != null) {
-              let idprodutometade = pedidos[i].produtospedidos[p].meiomeios[0].segundametade_produto.idproduto
-              let relacaomeioBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idprodutometade, idtamanhorelacao: idtamanhopedido } });
-              let relacaoMeioJson = JSON.stringify(relacaomeioBd);
-              let relacaoMeio = JSON.parse(relacaoMeioJson)
-              pedidos[i].produtospedidos[p].meiomeios[0].segundametade_produto.relacaomeiotamanho = relacaoMeio
-            }
-            else if (pedidos[i].produtospedidos[p].meiomeios[0].segundoterco != null) {
-              let idProdutoSegundoTerco = pedidos[i].produtospedidos[p].meiomeios[0].segundoterco_produto.idproduto
-              let idProdutoTerceiroTerco = pedidos[i].produtospedidos[p].meiomeios[0].terceiroterco_produto.idproduto
-              let relacaoSegundoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoSegundoTerco, idtamanhorelacao: idtamanhopedido } });
-              let relacaoTerceiroBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoTerceiroTerco, idtamanhorelacao: idtamanhopedido } });
-              let relacaoSegundoJson = JSON.stringify(relacaoSegundoBd);
-              let relacaoTerceiroJson = JSON.stringify(relacaoTerceiroBd);
-              let relacaoSegundo = JSON.parse(relacaoSegundoJson)
-              let relacaoTerceiro = JSON.parse(relacaoTerceiroJson)
-              pedidos[i].produtospedidos[p].meiomeios[0].segundoterco_produto.relacaomeiotamanho = relacaoSegundo
-              pedidos[i].produtospedidos[p].meiomeios[0].terceiroterco_produto.relacaomeiotamanho = relacaoTerceiro
-            }
-            else if (pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto != null) {
-              let idProdutoSegundoQuarto = pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto_produto.idproduto
-              let idProdutoTerceiroQuarto = pedidos[i].produtospedidos[p].meiomeios[0].terceiroquarto_produto.idproduto
-              let idProdutoQuartoQuarto = pedidos[i].produtospedidos[p].meiomeios[0].quartoquarto_produto.idproduto
-              let relacaoSegundoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoSegundoQuarto, idtamanhorelacao: idtamanhopedido } });
-              let relacaoTerceiroBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoTerceiroQuarto, idtamanhorelacao: idtamanhopedido } });
-              let relacaoQuartoBd = await models.relacaoprodutotamanho.findOne({ where: { idprodutorelacao: idProdutoQuartoQuarto, idtamanhorelacao: idtamanhopedido } });
-              let relacaoSegundoJson = JSON.stringify(relacaoSegundoBd);
-              let relacaoTerceiroJson = JSON.stringify(relacaoTerceiroBd);
-              let relacaoQuartoJson = JSON.stringify(relacaoQuartoBd);
-              let relacaoSegundo = JSON.parse(relacaoSegundoJson)
-              let relacaoTerceiro = JSON.parse(relacaoTerceiroJson)
-              let relacaoQuarto = JSON.parse(relacaoQuartoJson)
-              pedidos[i].produtospedidos[p].meiomeios[0].segundoquarto_produto.relacaomeiotamanho = relacaoSegundo
-              pedidos[i].produtospedidos[p].meiomeios[0].terceiroquarto_produto.relacaomeiotamanho = relacaoTerceiro
-              pedidos[i].produtospedidos[p].meiomeios[0].quartoquarto_produto.relacaomeiotamanho = relacaoQuarto
-            }
-          }
-        }
-      }
-      return pedidos
+      return pedidos();
     })().then((pedidos) => {
       return res.json(pedidos)
     }).catch((error) => {
@@ -384,10 +404,12 @@ const clientesantigo = require('../models/clientesantigo');
       })
 
       return cliente
-    })().then((cliente) => {
+    })().then(async (cliente) => {
+      let clientesAtualizados = await models.clientes.findAll();
       return res.json({
         mensagem: "cliente cadastrado com sucesso",
-        cliente: cliente
+        cliente: cliente,
+        clientes: clientesAtualizados
       })
     }
 

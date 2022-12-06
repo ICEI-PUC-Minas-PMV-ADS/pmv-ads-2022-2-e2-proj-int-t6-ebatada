@@ -123,7 +123,7 @@ function novoCliente(idPedido) {
 
       return res.json()
     }).then(json => {
-      console.log(json);
+      trocarClientePedido(idPedido, json.cliente.id)
     })
   });
 }
@@ -148,7 +148,8 @@ function trocarClientePedido(idPedido, idCliente) {
     return res.json()
 
   }).then(json => {
-    console.log(json)
+    pedidosRenderizados = json.pedidos
+    renderizarClientes(json.requisicao.idpedido)
   })
 }
 
@@ -160,16 +161,19 @@ function uparProdutoEditado() {
     body: JSON.stringify(produtoEditado)
   };
 
-  console.log(produtoEditado)
+
 
   fetch('http://localhost:5000/api/editarprodutocarrinho', opcoes).then(res => {
-
 
 
     return res.json()
 
   }).then(json => {
-    console.log(json)
+    fecharModal(".fade-personalizar", ".personalizar-produto");
+    pedidosRenderizados = json.pedidos
+    renderCarrinho(json.requisicao.idpedido)
+
+
   })
 }
 
@@ -190,13 +194,19 @@ function adicionarProdutoBD() {
     return res.json()
 
   }).then(json => {
-    console.log(json)
+    pedidosRenderizados = json.pedidos
+    renderCarrinho(json.requisicao.idpedido)
+    fecharModal(".fade-personalizar", ".personalizar-produto");
+    fecharModal(".fade-tamanhos", ".selecione-tamanho");
+    fecharModal(".fade-novo-produto", ".novo-produto");
+
   })
 }
 
-function excluirProdutoCarrinho(idProdutoCarrinho) {
+function excluirProdutoCarrinho(idProdutoCarrinho, idPedido) {
   const requisicao = {
-    idprodutocarrinho: idProdutoCarrinho
+    idprodutocarrinho: idProdutoCarrinho,
+    idpedido: idPedido
   }
 
   const opcoes = {
@@ -214,7 +224,8 @@ function excluirProdutoCarrinho(idProdutoCarrinho) {
     return res.json()
 
   }).then(json => {
-    console.log(json)
+    pedidosRenderizados = json.pedidos
+    renderCarrinho(json.requisicao.idpedido)
   })
 }
 
@@ -223,35 +234,38 @@ function carregarClientes() {
     return res.json();
   }).then(json => {
     clientesBd = json
-    console.log(clientesBd)
+
+  })
+}
+
+function carregarPedidos() {
+  fetch('http://localhost:5000/api/pedidos').then(res => {
+    return res.json();
+  }).then(json => {
+
+    pedidosRenderizados = json;
+    renderPedidosCriados();
   })
 }
 
 function renderPedidosCriados() {
-  fetch('http://localhost:5000/api/pedidos').then(res => {
-    return res.json();
-  }).then(json => {
-    var pedidosAtualizados = json;
-    pedidosRenderizados = pedidosAtualizados;
+  //Configurando cards 
+  let containerPedidos = "";
 
+  for (var p = 0; p < Object.keys(pedidosRenderizados).length; p++) {
+    let abertoEm = new Date(pedidosRenderizados[p].abertoem);
 
-    //Configurando cards 
-    let containerPedidos = "";
-
-    for (var p = 0; p < Object.keys(pedidosAtualizados).length; p++) {
-      let abertoEm = new Date(pedidosAtualizados[p].abertoem);
-
-      let cardPedido =
-        `<div class="card">
+    let cardPedido =
+      `<div class="card">
 <div class="info-pedido">
   <div class="id-pedido">
-    <h4>#${pedidosAtualizados[p].idpedido}</h4>
+    <h4>#${pedidosRenderizados[p].idpedido}</h4>
   </div>
   <div class="data-pedido">
     <h4>${abertoEm.getDate()}/${abertoEm.getMonth() + 1}/${abertoEm.getFullYear()}</h4>
   </div>
   <div class="tipo-pedido">
-    <h4>${pedidosAtualizados[p].tipopedido}</h4>
+    <h4>${pedidosRenderizados[p].tipopedido}</h4>
   </div>
   <div class="horas-pedido">
     <h4>${abertoEm.getHours()}:${abertoEm.getMinutes()}</h4>
@@ -260,7 +274,7 @@ function renderPedidosCriados() {
 <div class="info-cliente">
   <img src="./assets/user.svg" alt="Usuário" class="icone-usuario">
   <div class="nome-cliente-card">
-    <h4>${pedidosAtualizados[p].cliente_cliente.nome}</h4>
+    <h4>${pedidosRenderizados[p].cliente_cliente.nome}</h4>
   </div>
   <div class="pedidos-cliente">
     <p>Número de pedidos: #</p>
@@ -269,7 +283,7 @@ function renderPedidosCriados() {
 <div class="entrega">
   <img src="./assets/marker.svg" alt="Local" class="icone-local">
   <div class="endereco-cliente">
-    <p>${pedidosAtualizados[p].cliente_cliente.rua},${pedidosAtualizados[p].cliente_cliente.numero},${pedidosAtualizados[p].cliente_cliente.bairro}</p>
+    <p>${pedidosRenderizados[p].cliente_cliente.rua},${pedidosRenderizados[p].cliente_cliente.numero},${pedidosRenderizados[p].cliente_cliente.bairro}</p>
   </div>
 </div>
 <div class="status">
@@ -283,36 +297,36 @@ function renderPedidosCriados() {
 </div>
 <div class="navegacao">
   <button class="botao-finalizar">Finalizar</button>
-  <button value="${p}" class="botao-detalhes">Detalhes</button>
+  <button value="${pedidosRenderizados[p].idpedido}" class="botao-detalhes">Detalhes</button>
 </div>
 </div>`;
-      containerPedidos += cardPedido;
+    containerPedidos += cardPedido;
 
-    }
-
-
-
-    document.querySelector(".container-cards").innerHTML = containerPedidos;
+  }
 
 
 
-    //Configurando botão detalhes
-    const botoesDetalhes = document.querySelectorAll('.botao-detalhes');
+  document.querySelector(".container-cards").innerHTML = containerPedidos;
 
-    for (var b = 0; b < botoesDetalhes.length; b++) {
-      let botao = botoesDetalhes[b];
-      botao.addEventListener('click', () => {
 
-        detalhesPedido(botao.value);
 
-      })
-    };
-  })
+  //Configurando botão detalhes
+  const botoesDetalhes = document.querySelectorAll('.botao-detalhes');
+
+  for (var b = 0; b < botoesDetalhes.length; b++) {
+    let botao = botoesDetalhes[b];
+    botao.addEventListener('click', () => {
+
+      detalhesPedido(botao.value);
+
+    })
+  };
+
 }
 
 //Buscando produtos do banco de dados
 function carregarProdutos() {
-  fetch('http://localhost:5000/api/produtos').then(res => {
+  return fetch('http://localhost:5000/api/produtos').then(res => {
     return res.json();
   }).then(json => {
     const produtosBd = json;
@@ -866,50 +880,65 @@ function adicionarProdutoCarrinho(idpedido) {
   }
 };
 
+function tituloPedido(id) {
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == id
+  }
+  )
 
-//Abrindo modal de edição de um produto já criado
-function detalhesPedido(i) {
-  const idPedido = pedidosRenderizados[i].idpedido;
-  //Abrindo modal de edição
-  abrirModal(".primeiro-fade", ".novo-pedido");
-  //titulo
-  document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedidosRenderizados[i].idpedido}`;
-  //detalhes pedido
+  document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedido.idpedido}`;
+}
+
+function infosPedido(id) {
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == id
+  }
+  )
   document.querySelector('.numero-pedido').innerHTML = `
-      <h4>Pedido Nº${pedidosRenderizados[i].idpedido}</h4>
-      <p>Número Personalizado: ${pedidosRenderizados[i].numeropersonalizado}</p>
-      <div id="tempo-pedido">
-        <img src="./assets/clock-white.svg" alt="Relógio">
-        <p>00h00min</p>
-      </div>
-      <button class="botao-excluir">
-        <img src="./assets/lixo-white.svg" alt="Lixo">
-        <p>Excluir</p>
-      </button>
+  <h4>Pedido Nº${pedido.idpedido}</h4>
+  <p>Número Personalizado: ${pedido.numeropersonalizado}</p>
+  <div id="tempo-pedido">
+    <img src="./assets/clock-white.svg" alt="Relógio">
+    <p>00h00min</p>
+  </div>
+  <button class="botao-excluir">
+    <img src="./assets/lixo-white.svg" alt="Lixo">
+    <p>Excluir</p>
+  </button>
 `;
+}
 
-  //tipo pedido
-  if (pedidosRenderizados[i].tipopedido == 'delivery') {
+function tipoPedido(id) {
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == id
+  }
+  )
+  if (pedido.tipopedido == 'delivery') {
     document.getElementById("option-1").checked = true;
   }
-  else if (pedidosRenderizados[i].tipopedido == 'balcao') {
+  else if (pedido.tipopedido == 'balcao') {
     document.getElementById("option-2").checked = true;
   }
+}
 
-  //cliente
+function renderizarClientes(idPedido) {
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == idPedido
+  }
+  )
   const clientePedido = document.querySelector('.cliente-pedido')
   clientePedido.innerHTML = `
 <div id="nome-cliente-pedido">
-        <h4>${pedidosRenderizados[i].cliente_cliente.nome}</h4>
+        <h4>${pedido.cliente_cliente.nome}</h4>
       </div>
       <div id="telefones-cliente">
         <div id="telefone-primario">
           <h4>Telefone primário</h4>
-          <p>${pedidosRenderizados[i].cliente_cliente.telefoneprimario}</p>
+          <p>${pedido.cliente_cliente.telefoneprimario}</p>
         </div>
         <div id="telefone-secundario">
           <h4>Telefone secundário</h4>
-          <p>${pedidosRenderizados[i].cliente_cliente.telefonesecundario}</p>
+          <p>${pedido.cliente_cliente.telefonesecundario}</p>
         </div>
       </div>
       <div id="enderecos-cliente">
@@ -936,7 +965,7 @@ function detalhesPedido(i) {
           </div>
         </div>
         <div id="caixa-endereco">
-          <p>${pedidosRenderizados[i].cliente_cliente.rua},${pedidosRenderizados[i].cliente_cliente.numero},${pedidosRenderizados[i].cliente_cliente.bairro}
+          <p>${pedido.cliente_cliente.rua},${pedido.cliente_cliente.numero},${pedido.cliente_cliente.bairro}
           </p>
         </div>
       </div>
@@ -945,70 +974,13 @@ function detalhesPedido(i) {
       <button id="trocar-cliente">Trocar cliente</button>
 `;
 
-  document.querySelector('#trocar-cliente').addEventListener('click', () => {
+}
 
-    let ordemExecucaoClientes = new Promise(() => {
-      clientePedido.innerHTML = `<div id="nome-cliente-pedido">
-<h4>Cliente</h4>
-<h4>(Nenhum cliente selecionado)</h4>
-</div>
-<div class="pesquisa-cliente">
-<img src="./assets/search-orange.svg" id="icone-lupa" alt="Lupa">
-<input type="text" class="texto-busca-cliente" placeholder="Buscar cliente por telefone" />
-</div>
-<div id="container-encontrados">
-</div>
-<button class="botao-novo-cliente">Novo cliente</button>
-<button id="trocar-cliente">Pesquisa avançada</button>`
-    })
-
-
-    ordemExecucaoClientes.then(renderizarClientes()).then(selecionarNovoCliente())
-
-    function renderizarClientes() {
-      let elementosClientes = "";
-      clientesBd.forEach(cliente => {
-        let elementoCliente = `
-        <div class="cliente-encontrado">
-        <button class="botao-selecionar-cliente" value="${cliente.id}">
-      <h4>${cliente.nome}</h1>
-        <h4>${cliente.telefoneprimario}</h4>
-        <p>${cliente.rua}, ${cliente.numero}, ${cliente.bairro}</p>
-        </button>
-    </div>
-    `;
-        elementosClientes += elementoCliente;
-      })
-
-      document.querySelector("#container-encontrados").innerHTML = elementosClientes;
-    }
-
-    function selecionarNovoCliente() {
-      const botaoSelecionar = document.querySelectorAll('.botao-selecionar-cliente');
-      for (b = 0; b < botaoSelecionar.length; b++) {
-        botaoAtual = botaoSelecionar[b]
-        let idCliente = botaoAtual.value
-        botaoAtual.addEventListener('click', () => {
-          trocarClientePedido(idPedido, idCliente);
-
-        })
-      }
-
-      const botaoNovo = document.querySelector('.botao-novo-cliente');
-      botaoNovo.addEventListener('click', () => {
-        abrirModal(".fade-novocliente", ".novo-cliente");
-        novoCliente(idPedido);
-
-      })
-
-    }
-
-
-
-
-
+function renderCarrinho(idPedido) {
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == idPedido
   })
-  //Produtos
+
 
   let containerCarrinho = "";
   let cabecalhoTabela = `<thead>
@@ -1020,8 +992,8 @@ function detalhesPedido(i) {
     <th>Ações</th>
   </tr>
 </thead>`;
-  for (var c = 0; c < pedidosRenderizados[i].produtospedidos.length; c++) {
-    let itemCarrinho = pedidosRenderizados[i].produtospedidos[c];
+  for (var c = 0; c < pedido.produtospedidos.length; c++) {
+    let itemCarrinho = pedido.produtospedidos[c];
     let categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
     let nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
     let tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
@@ -1266,7 +1238,6 @@ function detalhesPedido(i) {
 
   document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
 
-
   //Excluir produto carrinho
   const botaoExluir = document.querySelectorAll('.botao-excluir-produto');
   for (var e = 0; e < botaoExluir.length; e++) {
@@ -1274,14 +1245,115 @@ function detalhesPedido(i) {
 
     botaoExluir[contador].addEventListener('click', () => {
       let idProdutoCarrinho = botaoExluir[contador].value
-      excluirProdutoCarrinho(idProdutoCarrinho);
+      excluirProdutoCarrinho(idProdutoCarrinho, idPedido);
     })
   }
 
 
+}
+
+//Abrindo modal de edição de um produto já criado
+function detalhesPedido(id) {
+
+  let pedido = pedidosRenderizados.find((item) => {
+    return item.idpedido == id
+  })
+
+  const idPedido = pedido.idpedido;
+
+  //Abrindo modal de edição
+  abrirModal(".primeiro-fade", ".novo-pedido");
+
+  //Titulo
+  tituloPedido(id);
+
+  //detalhes pedido
+  infosPedido(id);
+
+  //tipo pedido
+  tipoPedido(id);
+
+  //renderizar cliente
+  renderizarClientes(id);
+
+  //renderizar carrinho
+
+  renderCarrinho(id);
+
+
+
+
+  document.querySelector('#trocar-cliente').addEventListener('click', () => {
+    const clientePedido = document.querySelector('.cliente-pedido')
+
+    let ordemExecucaoClientes = new Promise(() => {
+      clientePedido.innerHTML = `<div id="nome-cliente-pedido">
+<h4>Cliente</h4>
+<h4>(Nenhum cliente selecionado)</h4>
+</div>
+<div class="pesquisa-cliente">
+<img src="./assets/search-orange.svg" id="icone-lupa" alt="Lupa">
+<input type="text" class="texto-busca-cliente" placeholder="Buscar cliente por telefone" />
+</div>
+<div id="container-encontrados">
+</div>
+<button class="botao-novo-cliente">Novo cliente</button>
+<button id="trocar-cliente">Pesquisa avançada</button>`
+    })
+
+
+    ordemExecucaoClientes.then(renderizarClientes()).then(selecionarNovoCliente())
+
+    function renderizarClientes() {
+      let elementosClientes = "";
+      clientesBd.forEach(cliente => {
+        let elementoCliente = `
+        <div class="cliente-encontrado">
+        <button class="botao-selecionar-cliente" value="${cliente.id}">
+      <h4>${cliente.nome}</h1>
+        <h4>${cliente.telefoneprimario}</h4>
+        <p>${cliente.rua}, ${cliente.numero}, ${cliente.bairro}</p>
+        </button>
+    </div>
+    `;
+        elementosClientes += elementoCliente;
+      })
+
+      document.querySelector("#container-encontrados").innerHTML = elementosClientes;
+    }
+
+    function selecionarNovoCliente() {
+      const botaoSelecionar = document.querySelectorAll('.botao-selecionar-cliente');
+      for (b = 0; b < botaoSelecionar.length; b++) {
+        botaoAtual = botaoSelecionar[b]
+        let idCliente = botaoAtual.value
+        botaoAtual.addEventListener('click', () => {
+          trocarClientePedido(idPedido, idCliente);
+
+        })
+      }
+
+      const botaoNovo = document.querySelector('.botao-novo-cliente');
+      botaoNovo.addEventListener('click', () => {
+        abrirModal(".fade-novocliente", ".novo-cliente");
+        novoCliente(idPedido);
+
+      })
+
+    }
+
+
+
+
+
+  })
+  //Produtos
+
+
+
 
   ///Editar produto carrinho
-  let produtosPedidos = pedidosRenderizados[i].produtospedidos
+  let produtosPedidos = pedido.produtospedidos
   const botaoEditar = document.querySelectorAll('.botao-editar-produto')
   for (var e = 0; e < botaoEditar.length; e++) {
     let contador = e;
@@ -1801,7 +1873,7 @@ function detalhesPedido(i) {
 
 
 addEventListener('DOMContentLoaded', () => {
-  renderPedidosCriados();
+  carregarPedidos();
   carregarProdutos();
   carregarClientes();
 }
