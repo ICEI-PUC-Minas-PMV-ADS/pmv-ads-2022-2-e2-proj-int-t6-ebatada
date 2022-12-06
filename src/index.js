@@ -2,46 +2,93 @@ const usersRoutes = require("../src/routes/routes");
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const express = require("express");
-
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { eAdmin } = require("./middlewares/auth");
+const User = require("./models/User");
 const app = express();
 const apiRoute = require("./routes/api");
 const orderRoute = require("./routes/orders");
 const path = require("path");
-const pool = require("./Postgres/db");
 
 //
 
-const users = [];
+app.use(express.json());
 
-app.get("/users", (req, res) => {
-  res.json(users);
+app.get("/", eAdmin, async (req, res) => {
+  await User.findAll({
+    attributes: ["id", "name", "email"],
+    order: [["id", "DESC"]],
+  })
+    .then((users) => {
+      return res.json({
+        erro: false,
+        users,
+        id_usuario_logado: req.userId,
+      });
+    })
+    .catch(() => {
+      return res.status(400).json({
+        erro: true,
+        mensagem: "Erro: Nenhum usuário encontrado!",
+      });
+    });
 });
 
-app.post("/users", async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const user = { name: req.body.name, password: hashedPassword };
-    users.push(user);
-    res.status(201).send();
-  } catch {
-    res.status(500).send();
-  }
+app.post("/cadastrar", async (req, res) => {
+  var dados = req.body;
+
+  dados.password = await bcrypt.hash(dados.password, 8);
+
+  await User.create(dados)
+    .then(() => {
+      return res.json({
+        erro: false,
+        mensagem: "Usuário cadastrado com sucesso!",
+      });
+    })
+    .catch(() => {
+      return res.status(400).json({
+        erro: true,
+        mensagem: "Erro: Usuário não cadastrado com sucesso!",
+      });
+    });
 });
 
-app.post("/users/login", async (req, res) => {
-  const user = users.find((user) => user.name === req.body.name);
-  if (user == null) {
-    return res.status(400).send("Cannot find user");
+app.post("/login", async (req, res) => {
+  const user = await User.findOne({
+    attributes: ["id", "name", "email", "password"],
+    where: {
+      email: req.body.email,
+    },
+  });
+
+  if (user === null) {
+    return res.status(400).json({
+      erro: true,
+      mensagem:
+        "Erro: Usuário ou a senha incorreta! Nenhum usuário com este e-mail",
+    });
   }
-  try {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send("Success");
-    } else {
-      res.send("Not Allowed");
-    }
-  } catch {
-    res.status(500).send();
+
+  if (!(await bcrypt.compare(req.body.password, user.password))) {
+    return res.status(400).json({
+      erro: true,
+      mensagem: "Erro: Usuário ou a senha incorreta! Senha incorreta!",
+    });
   }
+
+  var token = jwt.sign({ id: user.id }, "D62ST92Y7A6V7K5C6W9ZU6W8KS3", {
+    //expiresIn: 600 //10 min
+    //expiresIn: 60 //1 min
+    expiresIn: "7d", // 7 dia
+  });
+
+  return res.json({
+    erro: false,
+    mensagem: "Login realizado com sucesso!",
+    token,
+  });
 });
 
 app.get("/historicoDePedidos", function (req, res) {
@@ -54,7 +101,6 @@ app.listen(PORT, () => {
 });
 //
 
-app.use(express.json());
 app.use("/users", usersRoutes);
 
 //
