@@ -1,4 +1,3 @@
-const usersRoutes = require("../src/routes/routes");
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const express = require("express");
@@ -14,6 +13,10 @@ const path = require("path");
 //
 
 app.use(express.json());
+
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 app.get("/", eAdmin, async (req, res) => {
   await User.findAll({
@@ -55,11 +58,12 @@ app.post("/cadastrar", async (req, res) => {
     });
 });
 
-app.post("/login", async (req, res) => {
+app.post("/login", bodyParser.json(), async (req, res) => {
+  let email = req.body.email;
   const user = await User.findOne({
     attributes: ["id", "name", "email", "password"],
     where: {
-      email: req.body.email,
+      email: email,
     },
   });
 
@@ -79,9 +83,7 @@ app.post("/login", async (req, res) => {
   }
 
   var token = jwt.sign({ id: user.id }, "D62ST92Y7A6V7K5C6W9ZU6W8KS3", {
-    //expiresIn: 600 //10 min
-    //expiresIn: 60 //1 min
-    expiresIn: "7d", // 7 dia
+    expiresIn: "7d",
   });
 
   return res.json({
@@ -101,12 +103,10 @@ app.listen(PORT, () => {
 });
 //
 
-app.use("/users", usersRoutes);
-
 //
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", apiRoute);
 app.use("/orders", orderRoute);
 app.use(express.static("public"));
-app.use("/", express.static(path.join(__dirname, "public")));
+//app.use("/", express.static(path.join(__dirname, "public")));

@@ -15,9 +15,8 @@ document.querySelector("#salvar").addEventListener("click", () => {
     body: JSON.stringify(cadastro),
   };
 
-  fetch("http://localhost:5000/users", opcoes).then((res) => {
+  fetch("http://localhost:5000/cadastrar", opcoes).then((res) => {
     console.log(res);
-
     document.querySelector("#name").value = "";
     document.querySelector("#email").value = "";
     document.querySelector("#password").value = "";

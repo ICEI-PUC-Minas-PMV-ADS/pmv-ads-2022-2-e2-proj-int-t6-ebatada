@@ -11,15 +11,21 @@
     <div class="center">
       <h1>Bem vindo ao éBatata!</h1>
       <h2>Seu gerenciador de pedidos!</h2>
-      <form action="/login" method="post">
+      <form>
         <div class="txt_field">
-          <input type="text" name="name" required />
+          <input type="text" name="name" id="name" required />
           <span></span>
           <label for="name">Username</label>
         </div>
 
         <div class="txt_field">
-          <input type="text" name="password" required />
+          <input type="text" name="email" id="email" required />
+          <span></span>
+          <label for="email">email</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="text" name="password" id="password" required />
           <span></span>
           <label for="password">Senha</label>
         </div>
@@ -28,7 +34,9 @@
           <a href="forgot-password.html">Esqueci minha senha:(</a>
         </div>
 
-        <input type="submit" onclick="logar()" value="Entrar" />
+        <button id="logar">
+          <span>entrar</span>
+        </button>
 
         <div class="singnup_link">
           Deseja cadastrar sua empresa?
@@ -37,6 +45,5 @@
       </form>
     </div>
     <script src="./scripts/valid.js"></script>
-    <script src="scripts/registration.js"></script>
   </body>
 </html>

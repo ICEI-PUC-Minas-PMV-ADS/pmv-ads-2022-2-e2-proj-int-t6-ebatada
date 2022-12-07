@@ -1,28 +1,30 @@
-function logar() {
-  var name = document.getElementById("name").value;
-  var password = document.getElementById("password").value;
-
-  console.log(
-    JSON.stringify({
-      name: name,
-      password: password,
-    })
-  );
-
-  fetch("/login", {
+document.querySelector("#logar").addEventListener("click", () => {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  const require = {
+    name: name,
+    email: email,
+    password: password,
+  };
+  console.log(require);
+  const opcoes = {
     method: "POST",
-    body: JSON.stringify({
-      name: name,
-      password: password,
-    }),
-    headers: { "Content-Type": "application/json" },
-  }).then(async (resp) => {
-    var status = await resp.text();
-    console.log(status);
-    if (status == "conectado") {
-      location.href = "/acesso-restrito/acesso.html";
-    } else {
-      alert("nome e senha invalidos!!");
-    }
-  });
-}
+    body: JSON.stringify(require),
+
+    headers: new Headers({ "content-type": "application/json" }),
+  };
+  fetch("http://localhost:5000/login", opcoes)
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      let logado = json.erro;
+      console.log(json);
+      if (logado == true) {
+        //window.location.href = "./pedidos.html";
+      } else {
+        console.log(json.mensagem);
+      }
+    });
+});
