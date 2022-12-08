@@ -13,7 +13,7 @@ body {
   font-family: "ubuntu", sans-serif;
   height: 100vh;
   overflow: hidden;
-  background-image: url("/src/public/assets/ebatata_background.jpg");
+
   background-color: #ffcc8d;
   background-repeat: no-repeat;
   background-position: center;
@@ -76,7 +76,6 @@ form .txt_field {
 }
 
 .txt_field span::before {
-  content: "";
   position: absolute;
   top: 40px;
   left: 0;

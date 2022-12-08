@@ -11,7 +11,7 @@ const orderRoute = require("./routes/orders");
 const path = require("path");
 
 //
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", function (req, res) {
@@ -58,7 +58,7 @@ app.post("/cadastrar", async (req, res) => {
     });
 });
 
-app.post("/login", bodyParser.json(), async (req, res) => {
+app.post("/login", async (req, res) => {
   let email = req.body.email;
   const user = await User.findOne({
     attributes: ["id", "name", "email", "password"],
@@ -68,7 +68,7 @@ app.post("/login", bodyParser.json(), async (req, res) => {
   });
 
   if (user === null) {
-    return res.status(400).json({
+    return res.json({
       erro: true,
       mensagem:
         "Erro: Usuário ou a senha incorreta! Nenhum usuário com este e-mail",
@@ -76,7 +76,7 @@ app.post("/login", bodyParser.json(), async (req, res) => {
   }
 
   if (!(await bcrypt.compare(req.body.password, user.password))) {
-    return res.status(400).json({
+    return res.json({
       erro: true,
       mensagem: "Erro: Usuário ou a senha incorreta! Senha incorreta!",
     });
@@ -105,8 +105,6 @@ app.listen(PORT, () => {
 
 //
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", apiRoute);
 app.use("/orders", orderRoute);
 app.use(express.static("public"));
-//app.use("/", express.static(path.join(__dirname, "public")));
