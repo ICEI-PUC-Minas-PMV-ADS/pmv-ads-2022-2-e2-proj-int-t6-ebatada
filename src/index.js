@@ -14,10 +14,6 @@ const path = require("path");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
-
 app.get("/", eAdmin, async (req, res) => {
   await User.findAll({
     attributes: ["id", "name", "email"],
@@ -91,6 +87,10 @@ app.post("/login", async (req, res) => {
     mensagem: "Login realizado com sucesso!",
     token,
   });
+});
+
+app.get("/login", function (req, res) {
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.get("/historicoDePedidos", function (req, res) {

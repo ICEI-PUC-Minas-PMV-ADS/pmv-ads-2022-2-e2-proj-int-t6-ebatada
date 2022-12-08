@@ -11,7 +11,6 @@ document.querySelector("#logar").addEventListener("click", () => {
   const opcoes = {
     method: "POST",
     body: JSON.stringify(require),
-
     headers: new Headers({ "content-type": "application/json" }),
   };
   fetch("http://localhost:5000/login", opcoes)
@@ -21,7 +20,8 @@ document.querySelector("#logar").addEventListener("click", () => {
     .then((json) => {
       let logado = json.erro;
       console.log(json);
-      if (logado == true) {
+      if (logado == false) {
+        location.href = "/historico-pedidos.html";
       } else {
         console.log(json.mensagem);
       }
