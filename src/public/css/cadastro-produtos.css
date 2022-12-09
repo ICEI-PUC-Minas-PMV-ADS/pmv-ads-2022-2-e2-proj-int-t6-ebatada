@@ -368,7 +368,7 @@ form input:focus {
   font-size: 30px;
 }
 
-#fade.hide,
+/*#fade.hide,
 #modal.hide {
   display: none;
 }

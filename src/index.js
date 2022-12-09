@@ -8,7 +8,6 @@ const User = require("./models/User");
 const app = express();
 const apiRoute = require("./routes/api");
 const orderRoute = require("./routes/orders");
-const path = require("path");
 
 //
 app.use(bodyParser.urlencoded({ extended: false }));

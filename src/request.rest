@@ -1,20 +1,11 @@
-POST http://localhost:5000/login
+POST http://localhost:5000/produtos
 Content-Type: application/json
 
 {
-    "name": "testee",
-    "email": "testee@teste.com",
-    "password": "123456"
+    "nome": "testee",
+    "meioameio": "testee@teste.com",
+    "codigo": "123456"
 }
 
 ###
-
-Post http://localhost:5000/cadastrar
-Content-Type: application/json
-
-{
-    "name": "testee",
-    "email": "testee@teste.com",
-    "password": "123456"
-}
 
