@@ -1,9 +1,9 @@
-const PORT = 3000;
+const PORT = 5000;
 const express = require('express');
 const app = express();
 const apiRoute = require('./routes/api');
 
-app.listen( () => {
+app.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT)
 })
 

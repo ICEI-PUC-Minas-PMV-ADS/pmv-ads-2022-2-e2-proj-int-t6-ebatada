@@ -1,4 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/842db352-7c42-477c-9d27-702852e1b57b/AppServices/subscriptions/842db352-7c42-477c-9d27-702852e1b57b/resourceGroups/eBatata_group/providers/Microsoft.Web/sites/eBatata",
-  "appService.deploySubpath": "src"
-}

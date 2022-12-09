@@ -84,6 +84,103 @@ function fecharModal(fade, modal) {
 
 };
 
+function criarNovoPedido() {
+  document.querySelector('.botao-novo').addEventListener('click', () => {
+    document.querySelector('.novo-pedido').innerHTML = `
+
+    <div class="titulo-novo">
+      <h2 id="titulo-pedido">Novo pedido</h2>
+      <button class="botao-fechar">
+        <img src="./assets/fechar-branco.svg" alt="Fechar" class="icone-fechar">
+      </button>
+    </div>
+
+    <div class="container-criacao">
+      <div class="numero-pedido">
+        <h4>Novo pedido</h4>
+        <p>Número Personalizado: </p>
+        <div id="tempo-pedido">
+          <img src="./assets/clock-white.svg" alt="Relógio">
+          <p>00h00min</p>
+        </div>
+        <button class="botao-excluir">
+          <img src="./assets/lixo-white.svg" alt="Lixo">
+          <p>Excluir</p>
+        </button>
+
+      </div>
+      <div class="tipos-pedido">
+        <h4>Tipo de pedido:</h4>
+        <div class="wrapper">
+          <input type="radio" name="select" id="option-1" checked>
+          <input type="radio" name="select" id="option-2">
+          <label for="option-1" class="option option-1">
+            <div class="dot"></div>
+            <span>Delivery</span>
+          </label>
+          <label for="option-2" class="option option-2">
+            <div class="dot"></div>
+            <span>Retirada no Balcão</span>
+          </label>
+        </div>
+      </div>
+      <div class="taxa-entrega">
+
+      </div>
+      <div class="produtos-pedido">
+        <button class="botao-novo-produto">Novo produto</button>
+        <div class="carrinho-produtos">
+          <table class="tabela-carrinho">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Qnt.</th>
+                <th>Preço unit.</th>
+                <th>Subtotal</th>
+                <th>Ações</th>
+              </tr>
+            </thead>            
+          </table>
+        </div>
+
+      </div>
+      <div class="botoes-pedido">
+
+      </div>
+      <div class="cliente-pedido">
+        <div id="nome-cliente-pedido">
+          <h4>Cliente</h4>
+          <h4>(Nenhum cliente selecionado)</h4>
+        </div>
+        <div class="pesquisa-cliente">
+          <img src="./assets/search-orange.svg" id="icone-lupa" alt="Lupa">
+          <input type="text" class="texto-busca-cliente" placeholder="Buscar cliente por telefone" />
+        </div>
+        <div id="container-encontrados">
+        
+        </div>
+        <button class="botao-novo-cliente">Novo cliente</button>
+        <button id="trocar-cliente">Pesquisa avançada</button>     
+      </div>
+      <div class="observacao-pedido">
+      </div>
+    </div>`
+
+
+    detalhesPedido(null);
+  })
+}
+criarNovoPedido();
+
+
+
+let novoPedido = [{
+  "numeropersonalizado": null,
+  "tipopedido": null,
+  "cliente": null,
+  "taxaentrega": null,
+  "observacoes": null
+}];
 
 let pedidosRenderizados = [];
 let produtoEditado = {};
@@ -185,7 +282,7 @@ function adicionarProdutoBD() {
     body: JSON.stringify(novoProduto)
   };
 
-  console.log(novoProduto)
+  
 
   fetch('http://localhost:5000/api/adicionarproduto', opcoes).then(res => {
 
@@ -881,20 +978,44 @@ function adicionarProdutoCarrinho(idpedido) {
 };
 
 function tituloPedido(id) {
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == id
-  }
-  )
 
-  document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedido.idpedido}`;
+  if (id == null) {
+    pedido = novoPedido
+    document.querySelector('#titulo-pedido').innerHTML = `Novo pedido`
+  }
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == id
+    })
+
+    document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedido.idpedido}`
+  }
+
+  let pedido = ""
 }
 
 function infosPedido(id) {
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == id
+  if (id == null) {
+    pedido = novoPedido
+    document.querySelector('.numero-pedido').innerHTML = `
+  <h4>Novo pedido</h4>
+  <p>Número Personalizado:</p>
+  <div id="tempo-pedido">
+    <img src="./assets/clock-white.svg" alt="Relógio">
+    <p>00h00min</p>
+  </div>
+  <button class="botao-excluir">
+    <img src="./assets/lixo-white.svg" alt="Lixo">
+    <p>Excluir</p>
+  </button>
+`;
   }
-  )
-  document.querySelector('.numero-pedido').innerHTML = `
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == id
+    })
+
+    document.querySelector('.numero-pedido').innerHTML = `
   <h4>Pedido Nº${pedido.idpedido}</h4>
   <p>Número Personalizado: ${pedido.numeropersonalizado}</p>
   <div id="tempo-pedido">
@@ -906,6 +1027,11 @@ function infosPedido(id) {
     <p>Excluir</p>
   </button>
 `;
+  }
+
+  let pedido = ""
+
+
 }
 
 function tipoPedido(id) {
@@ -1255,11 +1381,19 @@ function renderCarrinho(idPedido) {
 //Abrindo modal de edição de um produto já criado
 function detalhesPedido(id) {
 
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == id
-  })
+  if (id == null) {
+    pedido = novoPedido
+  }
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == id
+    })
+  }
+
+  let pedido = ""
 
   const idPedido = pedido.idpedido;
+
 
   //Abrindo modal de edição
   abrirModal(".primeiro-fade", ".novo-pedido");

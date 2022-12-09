@@ -5,10 +5,6 @@ const bd = require("../models/db")
 const initModels = require("../models/init-models");
 const models = initModels(bd);
 const { Op } = require("sequelize");
-const pedidos = require('../models/pedidos');
-
-
-
 
 
 (async () => {
@@ -158,6 +154,8 @@ const pedidos = require('../models/pedidos');
     (async () => {
       let idPedido = req.body.idpedido;
       let idCliente = req.body.idcliente;
+
+
 
       await models.pedidos.update({ cliente: idCliente }, { where: { idpedido: idPedido } });
 
