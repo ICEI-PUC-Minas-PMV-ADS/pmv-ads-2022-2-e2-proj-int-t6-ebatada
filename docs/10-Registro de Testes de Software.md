@@ -14,6 +14,12 @@ Este teste consiste em criar um usuário valido. Efetuando o preenchimento de to
 
 ## CT-02
 
+Este teste consiste em validade o login do usuário.
+
+
+https://user-images.githubusercontent.com/98955531/206878121-a021d485-75d0-4319-ab21-44fb259438b2.mp4
+
+
 ## CT-03
 
 Este consiste em validar a funcionalidade de troca de senha.
