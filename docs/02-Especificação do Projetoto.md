@@ -146,7 +146,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-14| O sistema deve permitir a adição de comentários/observações aos pedidos para a personalização dos mesmos. |Média
 |RF-15| A página de gestão da loja deve permitir a visualização do histórico de pedidos |Baixo
 |RF-16| A página de gestão da loja deve permitir a impressão de pedidos. |Médio
-|RF-16| A página de gestão da loja deve permitir a visualização de pedidos realizados no dia, bem como possibilitar a reedição dos mesmos. |Médio
+|RF-17| A página de gestão da loja deve permitir a visualização de pedidos realizados no dia, bem como possibilitar a reedição dos mesmos. |Médio
 
 
 ### Requisitos não Funcionais
