@@ -38,3 +38,13 @@ Este consiste em validar a funcionalidade de fechamento de caixa.
 ![Captura de Tela 2022-12-09 às 22 40 19](https://user-images.githubusercontent.com/98955531/206822521-32f9df73-f18d-44da-9ff0-970bcdb121c7.png)
 
 
+## CT-06
+
+Neste teste é validado os úsuarios admins.
+
+
+![Captura de Tela 2022-12-09 às 22 42 40](https://user-images.githubusercontent.com/98955531/206822627-e76e7001-5b5f-4bfc-bed1-b9cbeb26ddc3.png)
+
+
+
+
