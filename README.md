@@ -16,7 +16,7 @@ O objetivo desse projeto é criar um ambiente mais acessível e igualitário ent
 * Carlos Eduardo Lobo 
 * Daniel Silva
 * Jade Guimarães 
-* Jessica Serqueira
+* Jessica Serqueira P
 * João Lucas Pinheiro de Torres
 * Letícia Isabela
  
