@@ -27,10 +27,6 @@ CT-05:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-05.png" width="500">
 
-CT-06:
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-06.png" width="500">
-
 CT-09:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-09.png" width="500">
