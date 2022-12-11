@@ -23,44 +23,37 @@ CT-05:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-05.png" width="500">
 
-CT-09:
+CT-06
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-09.png" width="500">
+![Captura de Tela 2022-12-11 às 13 54 42](https://user-images.githubusercontent.com/98955531/206917301-d6c3eda7-a6c9-4ac2-9415-e702b3a1b221.png)
 
-CT-11:
+CT-07
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-11.png" width="500">
+![Captura de Tela 2022-12-11 às 13 55 24](https://user-images.githubusercontent.com/98955531/206917324-b2cd3031-dfc2-4393-899c-ee1d7d78f6ed.png)
 
-CT-13:
+CT-08
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-13.png" width="500">
+![Captura de Tela 2022-12-11 às 13 55 45](https://user-images.githubusercontent.com/98955531/206917353-b98e34cb-d532-4a9d-9b0f-abc5449f4d53.png)
 
-CT-20:
+CT-09
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-20.png" width="500">
+![Captura de Tela 2022-12-11 às 13 56 47](https://user-images.githubusercontent.com/98955531/206917405-d7792bc6-0915-4aa9-ab40-ddff6e7b8b0f.png)
 
-CT-21:
+CT-10
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-21.png" width="500">
+![Captura de Tela 2022-12-11 às 13 57 13](https://user-images.githubusercontent.com/98955531/206917427-a8f56f46-fb1a-4f5c-81ea-effa31a5f96f.png)
 
-CT-22:
+CT-11 
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-22.png" width="500">
+![Captura de Tela 2022-12-11 às 13 57 35](https://user-images.githubusercontent.com/98955531/206917445-f71ea7d7-ca78-49af-8801-59d23c7cda63.png)
 
-CT-25:
+CT-12
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-25.png" width="500">
+![Captura de Tela 2022-12-11 às 13 57 56](https://user-images.githubusercontent.com/98955531/206917463-61200c53-5e25-4750-bce9-9aa21e813083.png)
 
-CT-27:
+CT-13
 
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-27.png" width="500">
-
-CT-28:
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-28.png" width="500">
-
-
-
+![Captura de Tela 2022-12-11 às 13 58 21](https://user-images.githubusercontent.com/98955531/206917476-43ee8a26-bb8b-400f-815b-c72e0184f7e9.png)
 
 ### - Plano de teste de usabilidade
 
