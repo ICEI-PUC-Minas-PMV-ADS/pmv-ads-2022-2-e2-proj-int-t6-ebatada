@@ -15,10 +15,6 @@ CT-02:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-02.png" width="500">
 
-CT-05:
-
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-05.png" width="500">
-
 CT-06
 
 ![Captura de Tela 2022-12-11 às 13 54 42](https://user-images.githubusercontent.com/98955531/206917301-d6c3eda7-a6c9-4ac2-9415-e702b3a1b221.png)
