@@ -15,22 +15,22 @@ CT-02:
 
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata/blob/main/docs/img/Casos_de_teste/CT-02.png" width="500">
 
+CT-03
+
+![Captura de Tela 2022-12-11 às 16 00 31](https://user-images.githubusercontent.com/98955531/206923377-a9bba40d-1bb2-4a7a-b0c8-49555cb244e6.png)
+
+CT-04
+
+![Captura de Tela 2022-12-11 às 16 01 02](https://user-images.githubusercontent.com/98955531/206923390-b9e4d071-e7d2-4757-943b-faa3cba08b91.png)
+
+CT-05
+
+![Captura de Tela 2022-12-11 às 16 01 20](https://user-images.githubusercontent.com/98955531/206923402-3a1df622-b73d-42df-8afe-fa3a45c844a3.png)
+
 CT-06
 
-![Captura de Tela 2022-12-11 às 13 54 42](https://user-images.githubusercontent.com/98955531/206917301-d6c3eda7-a6c9-4ac2-9415-e702b3a1b221.png)
+![Captura de Tela 2022-12-11 às 16 02 27](https://user-images.githubusercontent.com/98955531/206923447-d8262802-1362-4679-b235-c917e82464ca.png)
 
-CT-07
-
-![Captura de Tela 2022-12-11 às 13 55 24](https://user-images.githubusercontent.com/98955531/206917324-b2cd3031-dfc2-4393-899c-ee1d7d78f6ed.png)
-
-CT-09
-
-![Captura de Tela 2022-12-11 às 13 56 47](https://user-images.githubusercontent.com/98955531/206917405-d7792bc6-0915-4aa9-ab40-ddff6e7b8b0f.png)
-
-
-CT-13
-
-![Captura de Tela 2022-12-11 às 15 53 26](https://user-images.githubusercontent.com/98955531/206923027-1ef6e145-0309-486a-bb70-fc061b0cfec3.png)
 
 
 
