@@ -12,27 +12,29 @@
     <div class="center">
       <h1>Cadastrar-se</h1>
 
-      <form method="post">
+      <form action="index.html" method="post">
         <div class="txt_field">
-          <input type="text" name="txtFantasy" required />
+          <input type="text" name="txtFantasy" id="name" required />
           <span></span>
           <label>Nome do estabelecimento</label>
         </div>
         <div class="txt_field">
-          <input type="text" name="txtEmail" required />
+          <input type="text" name="txtEmail" id="email" required />
           <span></span>
           <label>email</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="txtPassword" required />
+          <input type="password" name="txtPassword" id="password" required />
           <span></span>
           <label>Senha</label>
         </div>
-
-        <input type="submit" value="Entrar" />
       </form>
+      <button id="salvar"><span>Salvar</span></button>
+      <div class="voltar">
+        <a href="index.html">Voltar</a>
+      </div>
     </div>
 
-    <script href="js/register.js"></script>
+    <script type="text/javascript" src="./scripts/registration.js"></script>
   </body>
 </html>
