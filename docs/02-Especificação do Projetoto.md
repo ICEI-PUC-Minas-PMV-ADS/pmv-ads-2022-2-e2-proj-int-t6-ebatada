@@ -109,15 +109,9 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`                                 |PARA ... `MOTIVO/VALOR`                                              |
 |--------------------|--------------------------------------------------------------------|---------------------------------------------------------------------|
 |Maycon Lucas        | Criar pedidos                                                      | Realizar vendas                                                     |
-|Maycon Lucas        | Imprimir os pedidos                                                | Criação do produto                                                  |
-|Maycon Lucas        | Adição de complementos aos produtos                                | Criação personalizada de pedidos                                    |
-|Maycon Lucas        | Adição de observações aos pedidos                                  | Criação personalizada de pedidos                                    |
-|Maycon Lucas        | Opções de pagamento pré-definidas                                  | Facilitar a criação de pedido                                       |
 |Maycon Lucas        | Possibilidade de cadastrar e atualizar o cliente no ato de criação do pedido | Facilitar o atendimento                                   |  
 |Maycon Lucas        | Opção meio a meio para pizzas                                      | facilitar o atendimento e melhorar a organização                    | 
 |Filipe Fidelis      | Visualizar pedidos realizados no dia                               | Consultas posteriores                                               |  
-|Filipe Fidelis      | Visualizar a quantidade de pedidos de cada cliente                 | obter feedback                                                      |
-|Filipe Fidelis      | Taxas de entrega pré-cadastrada                                    | para facilitar no ato da venda e obter melhor controle administrativo e financeiro | 
 |Filipe Fidelis      | Produtos pré-cadastrados separados por categoria, tipo e tamanho   | facilitar no ato da venda, obter melhor controle administrativo e financeiro | 
 |Filipe Fidelis      | Ter um sistema de login                                        | que os dados do estabelcimento sejam mantidos em segurança |
 
