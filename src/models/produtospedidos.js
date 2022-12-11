@@ -15,20 +15,20 @@ module.exports = function(sequelize, DataTypes) {
         key: 'idpedido'
       }
     },
-    idproduto: {
+    idprodutopedido: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'produtos',
-        key: 'idproduto'
+        model: 'relacaoprodutotamanho',
+        key: 'idtamanhorelacao'
       }
     },
-    idtamanho: {
+    idtamanhopedido: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'tamanhos',
-        key: 'idtamanho'
+        model: 'relacaoprodutotamanho',
+        key: 'idtamanhorelacao'
       }
     },
     quantidade: {
