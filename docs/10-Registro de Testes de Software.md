@@ -18,23 +18,3 @@ Este teste consiste em validade o login do usuário.
 
 
 https://user-images.githubusercontent.com/98955531/206878121-a021d485-75d0-4319-ab21-44fb259438b2.mp4
-
-
-## CT-04
-
-Este consiste em validar a funcionalidade permisionamento de úsuario para a tela de detalhes de caixa.
-
-
-![Captura de Tela 2022-12-09 às 22 36 30](https://user-images.githubusercontent.com/98955531/206822395-e539ffc8-c911-49fd-b666-c265e573ef7d.png)
-
-
-## CT-05
-
-Este consiste em validar a funcionalidade de fechamento de caixa.
-
-
-![Captura de Tela 2022-12-09 às 22 40 19](https://user-images.githubusercontent.com/98955531/206822521-32f9df73-f18d-44da-9ff0-970bcdb121c7.png)
-
-
-
-
