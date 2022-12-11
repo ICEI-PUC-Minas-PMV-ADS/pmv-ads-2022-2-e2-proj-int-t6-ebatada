@@ -23,10 +23,6 @@ CT-07
 
 ![Captura de Tela 2022-12-11 às 13 55 24](https://user-images.githubusercontent.com/98955531/206917324-b2cd3031-dfc2-4393-899c-ee1d7d78f6ed.png)
 
-CT-08
-
-![Captura de Tela 2022-12-11 às 13 55 45](https://user-images.githubusercontent.com/98955531/206917353-b98e34cb-d532-4a9d-9b0f-abc5449f4d53.png)
-
 CT-09
 
 ![Captura de Tela 2022-12-11 às 13 56 47](https://user-images.githubusercontent.com/98955531/206917405-d7792bc6-0915-4aa9-ab40-ddff6e7b8b0f.png)
