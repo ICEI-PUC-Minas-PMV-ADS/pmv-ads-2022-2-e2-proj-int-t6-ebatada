@@ -33,10 +33,6 @@ CT-11
 ![Captura de Tela 2022-12-11 às 13 57 35](https://user-images.githubusercontent.com/98955531/206917445-f71ea7d7-ca78-49af-8801-59d23c7cda63.png)
 
 
-CT-13
-
-![Captura de Tela 2022-12-11 às 13 58 21](https://user-images.githubusercontent.com/98955531/206917476-43ee8a26-bb8b-400f-815b-c72e0184f7e9.png)
-
 ### - Plano de teste de usabilidade
 
 Cálculo da Pontuação
