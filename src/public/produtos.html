@@ -8,6 +8,7 @@
   <title> Produtos - éBatata </title>
   <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/cadastro-produtos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
@@ -195,15 +196,200 @@
     </ul>
   </nav>
   <main class="conteudo">
-    <!--- desenvolva o conteúdo aqui :)
-      crie uma branch no github 
-      tente seguir as convenções de codificação para html, css e js
-      tente criar um modulo para cada funcionalidade e as mantenha sempre dentro do namespace correto para que todos possam reaproveitar seu codigo :D
+  
+    <!-- Adicionar produtos -->
+    <div class="add-container">
+      
+      <div class="text-inputs">
+        <div class="name">
+          <span>Titulo:</span>
+          <input id="name-edit" type="text" required="required">
+          
+        </div>
+        <div class="descricao">
+          <span>Descrição:</span>
+          <input id="descricao-edit" type="text" required="required">
+          
+        </div>
+      </div>
 
-      ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
 
-      Bom trabalho a todos! s2 --->
-    <h1>éBatata</h1>
+<div class="btns-div">
+     
+      <div class="btn-adjust">
+      <button class="btn-add"><span>adicionar</span></button>
+    </div>
+  </div>
+
+    </div>
+
+
+    <!-- zona de categorias -->
+    <div class="products-container" id="productsContainer">
+
+      <div class="categoria-descricao">
+
+        <div class="categoria-title">
+        <div class="seta-adjust">
+          <h1 id="text-c">
+          Categoria nome teste
+          </h1>
+          <button class="botao-fechar" id="collapse" >
+            <img src="./assets/seta-laranja.svg" alt="" class="seta-criar" id="seta">
+          </button>
+        </div>
+
+      </div>
+      <div class="animation" id="animationDois">
+        <div class="categoria-descricao">
+
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo fugit consequuntur reiciendis quos voluptatum odit accusantium facere, asperiores excepturi perspiciatis laboriosam rerum provident libero. Cum officiis earum consectetur odio est.</p>
+
+        </div>
+      </div>
+<div class="animation" id="animation">
+      <div class="tamanho-container" for="collapse">
+
+        <div class="title-session">
+
+          <h2>Tamanhos</h2>
+
+        </div>
+
+        <div class="btn-tamanho">
+
+          <div class="btn-adjusts">
+          
+       <div class="btn-container">
+          <button class="btn-edit" value="editar"><span>Editar</span></button>
+          <label class="labelEdit">tamanho</label>
+       </div>
+
+       <div class="btn-container">
+        <button class="btn-edit" value="editar"><span>Editar</span></button>
+        <label class="labelEdit">tamanho</label>
+     </div>
+
+     <div class="btn-container">
+      <button class="btn-edit" value="editar"><span>Editar</span></button>
+      <label class="labelEdit">tamanho</label>
+   </div>
+
+   <div class="btn-container">
+    <button class="btn-edit" value="editar"><span>Editar</span></button>
+    <label class="labelEdit">tamanho</label>
+ </div>
+
+ <div class="btn-container">
+  <button class="btn-edit" value="editar"><span>Editar</span></button>
+  <label class="labelEdit">tamanho</label>
+</div>
+
+       
+          
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="valores-container">
+
+          <div class="valores-adjust">
+             <div class="title-v"><h2>teste teste</h2></div>
+             <div class="descricao-v"><p>dsadsaodaskopdsakoasdkodkasodkosadkosakosadskaodsakodsakodsaokdaskokoads</p></div>
+         </div>
+         </div>
+
+        <div class="valores">
+          <div class="separator">
+
+            <form id="form" action="" method="" class="caixa">
+              <div class="flex">
+                  <span class="currency">$</span>
+                  <input id="amount" name="amount" type="text" maxlength="15"/>
+              </div>
+            </form>
+
+            <form id="form" action="" method="" class="caixa">
+              <div class="flex">
+                  <span class="currency">$</span>
+                  <input id="amount" name="amount" type="text" maxlength="15"/>
+              </div>
+            </form>
+
+            <form id="form" action="" method="" class="caixa">
+              <div class="flex">
+                  <span class="currency">$</span>
+                  <input id="amount" name="amount" type="text" maxlength="15"/>
+              </div>
+            </form>
+
+            <form id="form" action="" method="" class="caixa">
+              <div class="flex">
+                  <span class="currency">$</span>
+                  <input id="amount" name="amount" type="text" maxlength="15"/>
+              </div>
+            </form>
+
+            <form id="form" action="" method="" class="caixa">
+              <div class="flex">
+                  <span class="currency">$</span>
+                  <input id="amount" name="amount" type="text" maxlength="15"/>
+              </div>
+            </form>
+          
+        </div>
+      </div>
+      <div class="centralizer">
+      <button class="btn-addFinal"><span>adicionar item</span></button>
+    </div>
+  
+    </div>
+    <div id="fade" class="hide" for="buttonEdit"></div>
+    <div id="modal" class="hide" for="buttonEdit">
+      <spam class="fechar" id="closeModal">X</spam>
+      <div class="adjust-modal">
+      <div class="modal-header">
+        <h2>Editar tamanho</h2>
+        
+      </div>
+      <div class="descri">
+        <span class="currency">Descrição tamanho:</span>
+        <input id="amountt" name="amount" type="text"/>
+      </div>
+      <div class="meioAmeio">
+        <div class="checkbox-adjust">
+        <input type="checkbox" id="scales" name="scales" checked>
+        <span class="edit">Permitir personalizar ‘meio a meio’ com vários sabores
+          em produtos do mesmo tamanho e categoria.</span>
+        
+      </div>
+
+      <div class="sabores-adjuste">
+        <span>Quantidade maxima de sabores:</span>
+        <input class="sabores" type="number" name="sabores" value="1">
+      </div>
+      <div class="number-adjust">
+        <span class="cobrar">Cobrar pelo 'meio a meio':</span>
+        <input id="amountD" name="amount" type="text" maxlength="15"/>
+      </div>
+      <div class="btn-adjust">
+      <button class="excluir"><span>Excluir</span></button>
+      <button class="save"><span>Salvar</span></button>
+    </div>
+
+    </div>
+    </div>
+    </div>
+      
+
+    
+    
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
+  <script type="text/javascript" src="./scripts/menu-cascata-alternative.js"></script>
+  <script type="text/javascript" src="./produtos.html"></script>
 </body>
