@@ -102,3 +102,19 @@ input[type="submit"]:hover {
   border-color: #ffb253;
   transform: 0.5s;
 }
+
+.voltar {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.voltar a {
+  color: #cb6e00;
+  text-decoration: none;
+}
+
+.voltar a:hover {
+  text-decoration: underline;
+}

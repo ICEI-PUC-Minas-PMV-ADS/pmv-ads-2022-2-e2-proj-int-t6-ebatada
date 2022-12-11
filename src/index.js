@@ -10,6 +10,7 @@ const apiRoute = require("./routes/api");
 const orderRoute = require("./routes/orders");
 
 //
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -104,6 +105,7 @@ app.get("/historicoDePedidos", function (req, res) {
 app.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT);
 });
+
 //
 
 //

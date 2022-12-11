@@ -21,7 +21,7 @@ document.querySelector("#logar").addEventListener("click", () => {
       let logado = json.erro;
       console.log(json);
       if (logado == false) {
-        location.href = "/historico-pedidos.html";
+        location.href = "/pedidos.html";
       } else {
         console.log(json.mensagem);
       }
