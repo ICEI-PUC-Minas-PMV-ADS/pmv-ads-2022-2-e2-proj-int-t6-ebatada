@@ -45,27 +45,6 @@ const modalPersonalizarPedido = new Fade(".fade-personalizar", ".personalizar-pr
 //modalPersonalizarPedido.renderModal();
 
 
-/*CÓDIGO PARA QUANDO UM CLIENTE É SELECIONADO
-const enderecoSelecionado = document.querySelector(".endereco-selecionado");
-const enderecoAtual = document.querySelector(".endereco-atual");
-const enderecosContainer = document.querySelector(".container-enderecos");
-const setaEndereco = document.querySelector(".seta-endereco");
-const listaEnderecos = document.querySelectorAll(".endereco");
-
-enderecoSelecionado.addEventListener("click", () => {
-  enderecosContainer.classList.toggle("ativo");
-  setaEndereco.classList.toggle("ativo");
-});
-
-listaEnderecos.forEach(o => {
-  o.addEventListener("click", () => {
-    enderecoAtual.innerHTML = o.querySelector("label").innerHTML;
-    enderecosContainer.classList.remove("ativo");
-    setaEndereco.classList.remove("ativo");
-  });
-});*/
-
-
 function abrirModal(fade, modal) {
   let fundo = document.querySelector(fade);
   let janela = document.querySelector(modal);
@@ -85,7 +64,8 @@ function fecharModal(fade, modal) {
 };
 
 function criarNovoPedido() {
-  document.querySelector('.botao-novo').addEventListener('click', () => {
+  const botaoNovoPedido = document.querySelector('.botao-novo')
+  botaoNovoPedido.addEventListener('click', function novo() {
     document.querySelector('.novo-pedido').innerHTML = `
 
     <div class="titulo-novo">
@@ -167,20 +147,33 @@ function criarNovoPedido() {
     </div>`
 
 
-    detalhesPedido(null);
+
+    let ordemExecucao = new Promise(() => {
+      detalhesPedido(null);
+    })
+    ordemExecucao.then(renderizarClientes()).then(selecionarNovoCliente(null));
+
+
+    botaoNovoPedido.removeEventListener('click', novo);
   })
+
+
+
 }
 criarNovoPedido();
 
+let produtosPedidos = []
 
-
-let novoPedido = [{
+let novoPedido = {
   "numeropersonalizado": null,
-  "tipopedido": null,
+  "tipopedido": "delivery",
   "cliente": null,
   "taxaentrega": null,
-  "observacoes": null
-}];
+  "observacoes": null,
+  "produtospedidos": produtosPedidos
+};
+
+
 
 let pedidosRenderizados = [];
 let produtoEditado = {};
@@ -189,7 +182,7 @@ let clientesBd = []
 
 function novoCliente(idPedido) {
   let botaoCriarCliente = document.querySelector("#salvar-cliente");
-  botaoCriarCliente.addEventListener('click', () => {
+  botaoCriarCliente.addEventListener('click', function novo() {
     let nome = document.querySelector("#nome").value;
     let telefoneprimario = document.querySelector("#telefone-prim").value;
     let telefonesecundario = document.querySelector("#telefone-sec").value;
@@ -222,6 +215,7 @@ function novoCliente(idPedido) {
     }).then(json => {
       trocarClientePedido(idPedido, json.cliente.id)
     })
+    botaoCriarCliente.removeEventListener('click', novo);
   });
 }
 
@@ -245,11 +239,14 @@ function trocarClientePedido(idPedido, idCliente) {
     return res.json()
 
   }).then(json => {
+    console.log(json)
     pedidosRenderizados = json.pedidos
-    renderizarClientes(json.requisicao.idpedido)
+    renderizarCliente(json.requisicao.idpedido)
+    renderPedidosCriados()
   })
 }
-
+const data = new Date()
+console.log(new Date(new Date().setHours(0, 0, 0, 0)))
 function uparProdutoEditado() {
 
   const opcoes = {
@@ -272,6 +269,32 @@ function uparProdutoEditado() {
 
 
   })
+} function novoPedidoBd() {
+
+  const opcoes = {
+    method: "POST",
+    headers: new Headers({ 'content-type': 'application/json' }),
+    body: JSON.stringify(novoPedido)
+  };
+
+  console.log(novoPedido)
+
+  fetch('http://localhost:5000/api/novopedido', opcoes).then(res => {
+
+
+
+    return res.json()
+
+  }).then(json => {
+    console.log(json)
+    pedidosRenderizados = json.pedidos
+    renderCarrinho(json.requisicao.idpedido)
+    fecharModal(".fade-personalizar", ".personalizar-produto");
+    fecharModal(".fade-tamanhos", ".selecione-tamanho");
+    fecharModal(".fade-novo-produto", ".novo-produto");
+    renderPedidosCriados()
+
+  })
 }
 
 function adicionarProdutoBD() {
@@ -282,7 +305,7 @@ function adicionarProdutoBD() {
     body: JSON.stringify(novoProduto)
   };
 
-  
+
 
   fetch('http://localhost:5000/api/adicionarproduto', opcoes).then(res => {
 
@@ -291,6 +314,7 @@ function adicionarProdutoBD() {
     return res.json()
 
   }).then(json => {
+    console.log(json)
     pedidosRenderizados = json.pedidos
     renderCarrinho(json.requisicao.idpedido)
     fecharModal(".fade-personalizar", ".personalizar-produto");
@@ -412,17 +436,17 @@ function renderPedidosCriados() {
 
   for (var b = 0; b < botoesDetalhes.length; b++) {
     let botao = botoesDetalhes[b];
-    botao.addEventListener('click', () => {
+    botao.addEventListener('click', function click() {
 
       detalhesPedido(botao.value);
-
+      botao.removeEventListener('click', click)
     })
   };
 
 }
 
 //Buscando produtos do banco de dados
-function carregarProdutos() {
+async function carregarProdutos() {
   return fetch('http://localhost:5000/api/produtos').then(res => {
     return res.json();
   }).then(json => {
@@ -440,10 +464,14 @@ let novoProduto = {
   "idprodutopedido": null,
   "idtamanhopedido": null,
   "quantidade": 1,
-  "meiomeios": []
+  "meiomeios": [
+
+  ]
 }
 
+
 function adicionarProdutoCarrinho(idpedido) {
+
   //Ordem de execução da função
   let ordemExecucaoTamanhos = new Promise(() => {
     carregarProdutos();
@@ -453,6 +481,7 @@ function adicionarProdutoCarrinho(idpedido) {
 
   novoProduto.idpedido = idpedido
 
+  abrirModal(".fade-novo-produto", ".novo-produto");
 
   function carregarProdutos() {
     const containerProdutos = document.querySelector(".produtos-tabela");
@@ -487,10 +516,11 @@ function adicionarProdutoCarrinho(idpedido) {
 
 
       const adicionarProduto = document.querySelectorAll(".adicionar-produto");
-      adicionarProduto[contador].addEventListener('click', () => {
+      adicionarProduto[contador].addEventListener('click', function click() {
         abrirModal(".fade-tamanhos", ".selecione-tamanho");
 
-        novoProduto.idprodutopedido = idProduto;
+
+        novoProduto.idprodutopedido = idProduto
 
         for (var o = 0; o < tamanhos.length; o++) {
           const tamanho = tamanhos[o];
@@ -508,10 +538,14 @@ function adicionarProdutoCarrinho(idpedido) {
           containerNomeProduto.innerHTML = nomeProduto;
 
         }
+        adicionarProduto[contador].removeEventListener('click', click)
       });
-      document.querySelector('.botao-fechar-tamanho').addEventListener('click', () => {
+      const botaoFecharTamanho = document.querySelector('.botao-fechar-tamanho')
+      botaoFecharTamanho.addEventListener('click', function click() {
         fecharModal(".fade-tamanhos", ".selecione-tamanho")
         tamanhosRender = ""
+
+        botaoFecharTamanho.removeEventListener('click', click)
       })
 
     };
@@ -521,7 +555,7 @@ function adicionarProdutoCarrinho(idpedido) {
   //Selecionando o tamanho e abrindo a modal de personalizar
 
   const botaoSelecionarTamanho = document.querySelector('.botao-selecionar-tamanho');
-  botaoSelecionarTamanho.addEventListener('click', () => {
+  botaoSelecionarTamanho.addEventListener('click', function selecionar() {
     const inputsTamanhos = document.querySelectorAll('.inputs-tamanhos');
     for (i = 0; i < inputsTamanhos.length; i++) {
       let inputAtual = inputsTamanhos[i];
@@ -531,6 +565,7 @@ function adicionarProdutoCarrinho(idpedido) {
     }
 
     personalizarNovoProduto();
+    botaoSelecionarTamanho.removeEventListener('click', selecionar)
   })
 
 
@@ -542,6 +577,7 @@ function adicionarProdutoCarrinho(idpedido) {
     let itemCarrinho = produtoBd.find((produto) => {
       return produto.idproduto == novoProduto.idprodutopedido
     })
+    console.log(itemCarrinho)
 
     let renderTamanhos = ``
     const containerTamanhos = document.querySelector(".radios-tamanhos");
@@ -583,7 +619,7 @@ function adicionarProdutoCarrinho(idpedido) {
 
       for (i = 0; i < botaoRadioTamanho.length; i++) {
         let botao = botaoRadioTamanho[i]
-        botao.addEventListener('click', () => {
+        botao.addEventListener('click', function click() {
           novoProduto.idtamanhopedido = botao.value;
           novoProduto.meiomeios = [{
             "segundametade": null,
@@ -596,6 +632,8 @@ function adicionarProdutoCarrinho(idpedido) {
           containerMeioMeio.innerHTML = ""
 
 
+
+          botao.removeEventListener('click', click);
         })
 
       }
@@ -752,8 +790,8 @@ function adicionarProdutoCarrinho(idpedido) {
         }
       }
 
-
-      document.querySelector('.botao-salvar-meio').addEventListener('click', () => {
+      const botaoSalvarMeio = document.querySelector('.botao-salvar-meio')
+      botaoSalvarMeio.addEventListener('click', function click() {
         let checkboxes = document.querySelectorAll('.checkboxes-meio');
 
         let contadorCheckboxes = 0;
@@ -929,15 +967,17 @@ function adicionarProdutoCarrinho(idpedido) {
           containerMeioMeio.innerHTML = ``
         }
 
-
+        botaoSalvarMeio.removeEventListener('click', click)
       })
 
     }
 
-    document.querySelector('.personalizar-meio').addEventListener('click', () => {
+    const personalizarMeio = document.querySelector('.personalizar-meio')
+    personalizarMeio.addEventListener('click', function click() {
       abrirModal(".fade-meio-meio", ".modal-meio-meio")
       EditarMeio();
 
+      personalizarMeio.removeEventListener('click', click)
     })
 
 
@@ -955,7 +995,8 @@ function adicionarProdutoCarrinho(idpedido) {
 
 
     //Fechar a modal e descartar alterações
-    document.querySelector('.botao-fechar-personalizar').addEventListener('click', () => {
+    const botaoFecharPersonalizar = document.querySelector('.botao-fechar-personalizar')
+    botaoFecharPersonalizar.addEventListener('click', function click() {
       fecharModal(".fade-personalizar", ".personalizar-produto")
       renderTamanhos = '';
 
@@ -965,19 +1006,45 @@ function adicionarProdutoCarrinho(idpedido) {
 
 
 
-    //Fechar a modal e salvar alterações
-    document.querySelector('.botão-adicionar-personalizacao').addEventListener('click', () => {
-      adicionarProdutoBD();
 
-
-
-    })
 
 
   }
+  //Fechar a modal e salvar alterações
+  const botaoAdicionarPersonalizacao = document.querySelector('.botão-adicionar-personalizacao')
+  botaoAdicionarPersonalizacao.addEventListener('click', function salvar() {
+
+
+    if (idpedido == null) {
+
+
+
+      produtosPedidos.push(JSON.parse(JSON.stringify(novoProduto)))
+
+      detalhesPedido(null);
+
+
+      if (novoPedido.cliente != null && novoPedido.produtospedidos.length != 0) {
+
+
+
+        novoPedidoBd();
+      }
+
+    }
+
+    else {
+
+      adicionarProdutoBD();
+
+    }
+
+    botaoAdicionarPersonalizacao.removeEventListener('click', salvar)
+  })
 };
 
 function tituloPedido(id) {
+  let pedido = ""
 
   if (id == null) {
     pedido = novoPedido
@@ -991,10 +1058,11 @@ function tituloPedido(id) {
     document.querySelector('#titulo-pedido').innerHTML = `Pedido Nº${pedido.idpedido}`
   }
 
-  let pedido = ""
+
 }
 
 function infosPedido(id) {
+  let pedido = ""
   if (id == null) {
     pedido = novoPedido
     document.querySelector('.numero-pedido').innerHTML = `
@@ -1029,16 +1097,24 @@ function infosPedido(id) {
 `;
   }
 
-  let pedido = ""
+
 
 
 }
 
 function tipoPedido(id) {
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == id
+  let pedido = ""
+
+  if (id == null) {
+    pedido = novoPedido
   }
-  )
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == id
+    })
+  }
+
+
   if (pedido.tipopedido == 'delivery') {
     document.getElementById("option-1").checked = true;
   }
@@ -1047,13 +1123,72 @@ function tipoPedido(id) {
   }
 }
 
-function renderizarClientes(idPedido) {
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == idPedido
+function renderizarCliente(idPedido) {
+  let pedido = ""
+  const clientePedido = document.querySelector('.cliente-pedido');
+
+  if (idPedido == null) {
+    pedido = novoPedido
+    if (pedido.cliente != null) {
+      let idCliente = pedido.cliente;
+      let cliente = clientesBd.find((item) => {
+        return item.id == idCliente
+      })
+      clientePedido.innerHTML = `
+      <div id="nome-cliente-pedido">
+              <h4>${cliente.nome}</h4>
+            </div>
+            <div id="telefones-cliente">
+              <div id="telefone-primario">
+                <h4>Telefone primário</h4>
+                <p>${cliente.telefoneprimario}</p>
+              </div>
+              <div id="telefone-secundario">
+                <h4>Telefone secundário</h4>
+                <p>${cliente.telefonesecundario}</p>
+              </div>
+            </div>
+            <div id="enderecos-cliente">
+              <div class="enderecos-cadastrados">
+                <div class="container-enderecos">
+                  <div class="endereco">
+                    <input type="radio" class="radio" id="endereco-primario" name="endereco" />
+                    <label for="endereco-primario">
+                      <p>Endereço primário</p>
+                    </label>
+                  </div>
+                  <div class="endereco">
+                    <input type="radio" class="radio" id="endereco-secundario" name="endereco" />
+                    <label for="endereco-secundario">
+                      <p>Endereço secundário</p>
+                    </label>
+                  </div>
+                </div>
+                <div class="endereco-selecionado">
+                  <div class="endereco-atual">
+                    <p>Endereço principal</p>
+                  </div>
+                  <img src="./assets/seta-cinza.svg" alt="" class="seta-endereco">
+                </div>
+              </div>
+              <div id="caixa-endereco">
+                <p>${cliente.rua},${cliente.numero},${cliente.bairro}
+                </p>
+              </div>
+            </div>
+      
+            <button id="editar-cliente">Editar cliente</button>
+            <button id="trocar-cliente">Trocar cliente</button>
+      `;
+    }
+
   }
-  )
-  const clientePedido = document.querySelector('.cliente-pedido')
-  clientePedido.innerHTML = `
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == idPedido
+    })
+
+    clientePedido.innerHTML = `
 <div id="nome-cliente-pedido">
         <h4>${pedido.cliente_cliente.nome}</h4>
       </div>
@@ -1099,13 +1234,26 @@ function renderizarClientes(idPedido) {
       <button id="editar-cliente">Editar cliente</button>
       <button id="trocar-cliente">Trocar cliente</button>
 `;
+  }
+
+
+
 
 }
 
 function renderCarrinho(idPedido) {
-  let pedido = pedidosRenderizados.find((item) => {
-    return item.idpedido == idPedido
-  })
+  let pedido = ""
+
+  if (idPedido == null) {
+    pedido = novoPedido
+  }
+  else {
+    pedido = pedidosRenderizados.find((item) => {
+      return item.idpedido == idPedido
+    })
+  }
+
+
 
 
   let containerCarrinho = "";
@@ -1118,220 +1266,226 @@ function renderCarrinho(idPedido) {
     <th>Ações</th>
   </tr>
 </thead>`;
-  for (var c = 0; c < pedido.produtospedidos.length; c++) {
-    let itemCarrinho = pedido.produtospedidos[c];
-    let categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
-    let nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
-    let tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
-    let valorItemCarrinho = itemCarrinho.relacaoprodutotamanho.valor;
-    let quatidadeItemCarrinho = itemCarrinho.quantidade;
 
-    if (itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio == true && itemCarrinho.meiomeios.length != 0) {
-      if (itemCarrinho.meiomeios[0].segundametade != null) {
-        let itemDoisSabores = `<tbody>
-        <tr>
-          <td>
-            <div class="produto-tamanho">
-              <img src="./assets/angle-double-right.svg" alt="">
-              <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
-            </div>
-          </td>
-          <td>${quatidadeItemCarrinho}</td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="acoes-carrinho">
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${nomeItemCarrinho}</p>
-            </div>
-          </td>
-          <td>1/2</td>
-          <td>${valorItemCarrinho}</td>
-          <td>${(parseFloat(valorItemCarrinho) / 2).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].segundametade_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/2</td>
-          <td>${itemCarrinho.meiomeios[0].segundametade_produto.relacaomeiotamanho.valor}</td>
-          <td>${parseFloat(itemCarrinho.meiomeios[0].segundametade_produto.relacaomeiotamanho.valor).toFixed(2) / 2}</td>
-          <td></td>
-        </tr>                              
-      </tbody>`
+  if (pedido.produtospedidos != null) {
+    for (var c = 0; c < pedido.produtospedidos.length; c++) {
+      let itemCarrinho = pedido.produtospedidos[c];
+      let categoriaItemCarrinho = ""
+      let nomeItemCarrinho = ""
+      let tamanhoItemCarrinho = ""
+      let idTamanhoProduto = itemCarrinho.idtamanhopedido;
+      let valorItemCarrinho = ""
+      let itemMeioMeio = ""
+      let quatidadeItemCarrinho = itemCarrinho.quantidade;
 
-        containerCarrinho += itemDoisSabores
-      }
-      else if (itemCarrinho.meiomeios[0].segundoterco != null) {
-        let itemTresSabores = `<tbody>
-        <tr>
-          <td>
-            <div class="produto-tamanho">
-              <img src="./assets/angle-double-right.svg" alt="">
-              <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
-            </div>
-          </td>
-          <td>${quatidadeItemCarrinho}</td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="acoes-carrinho">
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${nomeItemCarrinho}</p>
-            </div>
-          </td>
-          <td>1/3</td>
-          <td>${valorItemCarrinho}</td>
-          <td>${(parseFloat(valorItemCarrinho) / 3).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].segundoterco_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/3</td>
-          <td>${itemCarrinho.meiomeios[0].segundoterco_produto.relacaomeiotamanho.valor}</td>
-          <td>${(parseFloat(itemCarrinho.meiomeios[0].segundoterco_produto.relacaomeiotamanho.valor) / 3).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].terceiroterco_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/3</td>
-          <td>${itemCarrinho.meiomeios[0].terceiroterco_produto.relacaomeiotamanho.valor}</td>
-          <td>${(parseFloat(itemCarrinho.meiomeios[0].terceiroterco_produto.relacaomeiotamanho.valor) / 3).toFixed(2)}</td>
-          <td></td>
-        </tr>                     
-      </tbody>`
+      if (idPedido == null) {
+        let produto = produtoBd.find((item) => {
+          return item.idproduto == itemCarrinho.idprodutopedido
+        })
 
-        containerCarrinho += itemTresSabores
-      }
-      else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
-        let itemQuatroSabores = `<tbody>
-        <tr>
-          <td>
-            <div class="produto-tamanho">
-              <img src="./assets/angle-double-right.svg" alt="">
-              <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
-            </div>
-          </td>
-          <td>${quatidadeItemCarrinho}</td>
-          <td></td>
-          <td></td>
-          <td>
-            <div class="acoes-carrinho">
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
-            <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${nomeItemCarrinho}</p>
-            </div>
-          </td>
-          <td>1/4</td>
-          <td>${valorItemCarrinho}</td>
-          <td>${(parseFloat(valorItemCarrinho) / 4).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].segundoquarto_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/4</td>
-          <td>${itemCarrinho.meiomeios[0].segundoquarto_produto.relacaomeiotamanho.valor}</td>
-          <td>${(parseFloat(itemCarrinho.meiomeios[0].segundoquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].terceiroquarto_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/4</td>
-          <td>${itemCarrinho.meiomeios[0].terceiroquarto_produto.relacaomeiotamanho.valor}</td>
-          <td>${(parseFloat(itemCarrinho.meiomeios[0].terceiroquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="meio-a-meio">
-              <img src="./assets/metade.png" alt="">
-              <p>${itemCarrinho.meiomeios[0].quartoquarto_produto.nome}</p>
-            </div>
-          </td>
-          <td>1/4</td>
-          <td>${itemCarrinho.meiomeios[0].quartoquarto_produto.relacaomeiotamanho.valor}</td>
-          <td>${(parseFloat(itemCarrinho.meiomeios[0].quartoquarto_produto.relacaomeiotamanho.valor) / 4).toFixed(2)}</td>
-          <td></td>
-        </tr>          
-      </tbody>`
+        categoriaItemCarrinho = produto.idcategoria_categoria.nome
+        itemMeioMeio = produto.idcategoria_categoria.meioameio
+        nomeItemCarrinho = produto.nome
 
-        containerCarrinho += itemQuatroSabores
+        let tamanho = produto.idtamanhorelacao_tamanhos.find((item) => {
+          return item.idtamanho == itemCarrinho.idtamanhopedido
+        })
+
+        tamanhoItemCarrinho = tamanho.nome
+        valorItemCarrinho = tamanho.relacaoprodutotamanho.valor
       }
 
-      else if (itemCarrinho.meiomeios[0].segundametade == null || itemCarrinho.meiomeios[0].segundoterco == null || itemCarrinho.meiomeios[0].segundoquarto == null) {
-        let ItemUmSabor = `
-        <tbody>
-                <tr>
-                  <td>
-                    <div class="produto-tamanho">
-                      <img src="./assets/angle-double-right.svg" alt="">
-                      <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho}) ${nomeItemCarrinho}</h4>
-                    </div>
-                  </td>
-                  <td>${quatidadeItemCarrinho}</td>
-                  <td>${valorItemCarrinho}</td>
-                  <td>${valorItemCarrinho}</td>
-                  <td>
-                    <div class="acoes-carrinho">
-                    <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
-                    <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-        `
-        containerCarrinho += ItemUmSabor
+      else {
+        categoriaItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.nome;
+        nomeItemCarrinho = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome;
+        tamanhoItemCarrinho = itemCarrinho.relacaoprodutotamanho.idtamanhorelacao_tamanho.nome;
+        valorItemCarrinho = itemCarrinho.relacaoprodutotamanho.valor;
+        itemMeioMeio = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.idcategoria_categoria.meioameio
+
       }
-    }
-    else {
-      let ItemUmSabor = `
+
+
+      if (itemMeioMeio == true && itemCarrinho.meiomeios.length != 0) {
+        if (itemCarrinho.meiomeios[0].segundametade != null) {
+          let itemDoisSabores = `<tbody>
+      <tr>
+        <td>
+          <div class="produto-tamanho">
+            <img src="./assets/angle-double-right.svg" alt="">
+            <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+          </div>
+        </td>
+        <td>${quatidadeItemCarrinho}</td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="acoes-carrinho">
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${nomeItemCarrinho}</p>
+          </div>
+        </td>
+        <td>1/2</td>
+        <td>${valorItemCarrinho}</td>
+        <td>${(parseFloat(valorItemCarrinho) / 2).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].segundametade)}</p>
+          </div>
+        </td>
+        <td>1/2</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].segundametade)}</td>
+        <td>${parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].segundametade)).toFixed(2) / 2}</td>
+        <td></td>
+      </tr>                              
+    </tbody>`
+
+          containerCarrinho += itemDoisSabores
+        }
+        else if (itemCarrinho.meiomeios[0].segundoterco != null) {
+          let itemTresSabores = `<tbody>
+      <tr>
+        <td>
+          <div class="produto-tamanho">
+            <img src="./assets/angle-double-right.svg" alt="">
+            <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+          </div>
+        </td>
+        <td>${quatidadeItemCarrinho}</td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="acoes-carrinho">
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${nomeItemCarrinho}</p>
+          </div>
+        </td>
+        <td>1/3</td>
+        <td>${valorItemCarrinho}</td>
+        <td>${(parseFloat(valorItemCarrinho) / 3).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].segundoterco)}</p>
+          </div>
+        </td>
+        <td>1/3</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].segundoterco)}</td>
+        <td>${(parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].segundoterco)) / 3).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].terceiroterco)}</p>
+          </div>
+        </td>
+        <td>1/3</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].terceiroterco)}</td>
+        <td>${(parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].terceiroterco)) / 3).toFixed(2)}</td>
+        <td></td>
+      </tr>                     
+    </tbody>`
+
+          containerCarrinho += itemTresSabores
+        }
+        else if (itemCarrinho.meiomeios[0].segundoquarto != null) {
+          let itemQuatroSabores = `<tbody>
+      <tr>
+        <td>
+          <div class="produto-tamanho">
+            <img src="./assets/angle-double-right.svg" alt="">
+            <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho})</h4>
+          </div>
+        </td>
+        <td>${quatidadeItemCarrinho}</td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="acoes-carrinho">
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+          <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${nomeItemCarrinho}</p>
+          </div>
+        </td>
+        <td>1/4</td>
+        <td>${valorItemCarrinho}</td>
+        <td>${(parseFloat(valorItemCarrinho) / 4).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].segundoquarto)}</p>
+          </div>
+        </td>
+        <td>1/4</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].segundoquarto)}</td>
+        <td>${(parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].segundoquarto)) / 4).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].terceiroquarto)}</p>
+          </div>
+        </td>
+        <td>1/4</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].terceiroquarto)}</td>
+        <td>${(parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].terceiroquarto)) / 4).toFixed(2)}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="meio-a-meio">
+            <img src="./assets/metade.png" alt="">
+            <p>${acharNomeMeio(itemCarrinho.meiomeios[0].quartoquarto)}</p>
+          </div>
+        </td>
+        <td>1/4</td>
+        <td>${acharValorMeio(itemCarrinho.meiomeios[0].quartoquarto)}</td>
+        <td>${(parseFloat(acharValorMeio(itemCarrinho.meiomeios[0].quartoquarto)) / 4).toFixed(2)}</td>
+        <td></td>
+      </tr>          
+    </tbody>`
+
+          containerCarrinho += itemQuatroSabores
+        }
+
+        else if (itemCarrinho.meiomeios[0].segundametade == null || itemCarrinho.meiomeios[0].segundoterco == null || itemCarrinho.meiomeios[0].segundoquarto == null) {
+          let ItemUmSabor = `
       <tbody>
               <tr>
                 <td>
@@ -1352,34 +1506,146 @@ function renderCarrinho(idPedido) {
               </tr>
             </tbody>
       `
-      containerCarrinho += ItemUmSabor
-    };
+          containerCarrinho += ItemUmSabor
+        }
+      }
+      else {
+        let ItemUmSabor = `
+    <tbody>
+            <tr>
+              <td>
+                <div class="produto-tamanho">
+                  <img src="./assets/angle-double-right.svg" alt="">
+                  <h4>(${categoriaItemCarrinho}: ${tamanhoItemCarrinho}) ${nomeItemCarrinho}</h4>
+                </div>
+              </td>
+              <td>${quatidadeItemCarrinho}</td>
+              <td>${valorItemCarrinho}</td>
+              <td>${valorItemCarrinho}</td>
+              <td>
+                <div class="acoes-carrinho">
+                <button value="${itemCarrinho.idprodutocarrinho}" class="botao-editar-produto"><img src="./assets/editar.svg" alt=""></button>
+                <button value="${itemCarrinho.idprodutocarrinho}" class="botao-excluir-produto"><img src="./assets/lixo-vermelho.svg" alt=""></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+    `
+        containerCarrinho += ItemUmSabor
+      };
+
+      function acharNomeMeio(idMeio) {
+        let produto = produtoBd.find((item) => {
+          return item.idproduto == idMeio
+        })
+        return produto.nome
+      }
+
+      function acharValorMeio(idMeio) {
+        let produto = produtoBd.find((item) => {
+          return item.idproduto == idMeio
+        })
+        let tamanho = produto.idtamanhorelacao_tamanhos.find((item) => {
+          return item.idtamanho == idTamanhoProduto
+        })
+        return tamanho.relacaoprodutotamanho.valor
+
+      }
+    }
 
 
 
-
-
-
+    document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
   };
-
-  document.querySelector('.tabela-carrinho').innerHTML = cabecalhoTabela + containerCarrinho;
-
-  //Excluir produto carrinho
-  const botaoExluir = document.querySelectorAll('.botao-excluir-produto');
-  for (var e = 0; e < botaoExluir.length; e++) {
-    let contador = e;
-
-    botaoExluir[contador].addEventListener('click', () => {
-      let idProdutoCarrinho = botaoExluir[contador].value
-      excluirProdutoCarrinho(idProdutoCarrinho, idPedido);
-    })
-  }
-
 
 }
 
+
+
+
+
+//Excluir produto carrinho
+function excluirProduto(idPedido) {
+  if (idPedido != null) {
+    const botaoExluir = document.querySelectorAll('.botao-excluir-produto');
+    for (var e = 0; e < botaoExluir.length; e++) {
+      let contador = e;
+
+      botaoExluir[contador].addEventListener('click', function click() {
+        let idProdutoCarrinho = botaoExluir[contador].value
+        excluirProdutoCarrinho(idProdutoCarrinho, idPedido);
+
+        botaoExluir[contador].removeEventListener('click', click)
+      })
+    }
+  }
+}
+
+
+
+
+
+function renderizarClientes() {
+  let elementosClientes = "";
+  clientesBd.forEach(cliente => {
+    let elementoCliente = `
+    <div class="cliente-encontrado">
+    <button class="botao-selecionar-cliente" value="${cliente.id}">
+  <h4>${cliente.nome}</h1>
+    <h4>${cliente.telefoneprimario}</h4>
+    <p>${cliente.rua}, ${cliente.numero}, ${cliente.bairro}</p>
+    </button>
+</div>
+`;
+    elementosClientes += elementoCliente;
+  })
+
+  document.querySelector("#container-encontrados").innerHTML = elementosClientes;
+}
+
+
+
+function selecionarNovoCliente(idPedido) {
+  const botaoSelecionar = document.querySelectorAll('.botao-selecionar-cliente');
+  for (b = 0; b < botaoSelecionar.length; b++) {
+    botaoAtual = botaoSelecionar[b]
+    let idCliente = botaoAtual.value
+    botaoAtual.addEventListener('click', () => {
+      if (idPedido == null) {
+        novoPedido.cliente = idCliente
+        renderizarCliente(null);
+      }
+      else {
+        trocarClientePedido(idPedido, idCliente);
+      }
+
+
+    })
+  }
+
+  const botaoNovo = document.querySelector('.botao-novo-cliente');
+  botaoNovo.addEventListener('click', () => {
+    abrirModal(".fade-novocliente", ".novo-cliente");
+    novoCliente(idPedido);
+
+  })
+
+}
+
+//Adicionar novo produto ao pedido
+function abrirNovoProduto(idPedido) {
+  const botaoNovoProduto = document.querySelector('.botao-novo-produto');
+  botaoNovoProduto.addEventListener('click', function abrir() {
+    adicionarProdutoCarrinho(idPedido)
+    botaoNovoProduto.removeEventListener('click', abrir)
+  })
+
+}
+
+
 //Abrindo modal de edição de um produto já criado
 function detalhesPedido(id) {
+  let pedido = ""
 
   if (id == null) {
     pedido = novoPedido
@@ -1390,9 +1656,9 @@ function detalhesPedido(id) {
     })
   }
 
-  let pedido = ""
+  
 
-  const idPedido = pedido.idpedido;
+
 
 
   //Abrindo modal de edição
@@ -1408,11 +1674,17 @@ function detalhesPedido(id) {
   tipoPedido(id);
 
   //renderizar cliente
-  renderizarClientes(id);
+  renderizarCliente(id);
 
   //renderizar carrinho
 
   renderCarrinho(id);
+
+  //Excluir produto
+  excluirProduto(id);
+
+  //Adicionar novo produto
+  abrirNovoProduto(id);
 
 
 
@@ -1436,45 +1708,9 @@ function detalhesPedido(id) {
     })
 
 
-    ordemExecucaoClientes.then(renderizarClientes()).then(selecionarNovoCliente())
+    ordemExecucaoClientes.then(renderizarClientes()).then(selecionarNovoCliente(id))
 
-    function renderizarClientes() {
-      let elementosClientes = "";
-      clientesBd.forEach(cliente => {
-        let elementoCliente = `
-        <div class="cliente-encontrado">
-        <button class="botao-selecionar-cliente" value="${cliente.id}">
-      <h4>${cliente.nome}</h1>
-        <h4>${cliente.telefoneprimario}</h4>
-        <p>${cliente.rua}, ${cliente.numero}, ${cliente.bairro}</p>
-        </button>
-    </div>
-    `;
-        elementosClientes += elementoCliente;
-      })
 
-      document.querySelector("#container-encontrados").innerHTML = elementosClientes;
-    }
-
-    function selecionarNovoCliente() {
-      const botaoSelecionar = document.querySelectorAll('.botao-selecionar-cliente');
-      for (b = 0; b < botaoSelecionar.length; b++) {
-        botaoAtual = botaoSelecionar[b]
-        let idCliente = botaoAtual.value
-        botaoAtual.addEventListener('click', () => {
-          trocarClientePedido(idPedido, idCliente);
-
-        })
-      }
-
-      const botaoNovo = document.querySelector('.botao-novo-cliente');
-      botaoNovo.addEventListener('click', () => {
-        abrirModal(".fade-novocliente", ".novo-cliente");
-        novoCliente(idPedido);
-
-      })
-
-    }
 
 
 
@@ -1510,7 +1746,7 @@ function detalhesPedido(id) {
     let renderTamanhos = ``
     const containerTamanhos = document.querySelector(".radios-tamanhos");
 
-    let novoProduto = {
+    let produtoEditar = {
       "idprodutocarrinho": idProdutoCarrinho,
       "idpedido": itemCarrinho.idpedido,
       "idprodutopedido": itemCarrinho.idprodutopedido,
@@ -1559,8 +1795,8 @@ function detalhesPedido(id) {
       for (i = 0; i < botaoRadioTamanho.length; i++) {
         let botao = botaoRadioTamanho[i]
         botao.addEventListener('click', () => {
-          novoProduto.idtamanhopedido = botao.value;
-          novoProduto.meiomeios = [{
+          produtoEditar.idtamanhopedido = botao.value;
+          produtoEditar.meiomeios = [{
             "segundametade": null,
             "segundoterco": null,
             "terceiroterco": null,
@@ -1593,11 +1829,11 @@ function detalhesPedido(id) {
 
     else {
 
-      if (novoProduto.meiomeios.length != 0) {
+      if (produtoEditar.meiomeios.length != 0) {
 
-        if (novoProduto.meiomeios[0].segundametade != null) {
+        if (produtoEditar.meiomeios[0].segundametade != null) {
           let nomePrimeiraMetade = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
-          let nomeSegundaMetade = novoProduto.meiomeios[0].segundametade_produto.nome
+          let nomeSegundaMetade = produtoEditar.meiomeios[0].segundametade_produto.nome
           personalizarMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1611,10 +1847,10 @@ function detalhesPedido(id) {
                                       `
         }
 
-        else if (novoProduto.meiomeios[0].segundoterco != null) {
+        else if (produtoEditar.meiomeios[0].segundoterco != null) {
           let nomePrimeiroTerco = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
-          let nomeSegundoTerco = novoProduto.meiomeios[0].segundoterco_produto.nome
-          let nomeTerceiroTerco = novoProduto.meiomeios[0].terceiroterco_produto.nome
+          let nomeSegundoTerco = produtoEditar.meiomeios[0].segundoterco_produto.nome
+          let nomeTerceiroTerco = produtoEditar.meiomeios[0].terceiroterco_produto.nome
           personalizarMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1632,11 +1868,11 @@ function detalhesPedido(id) {
                                       `
         }
 
-        else if (novoProduto.meiomeios[0].segundoquarto != null) {
+        else if (produtoEditar.meiomeios[0].segundoquarto != null) {
           let nomePrimeiroQuarto = itemCarrinho.relacaoprodutotamanho.idprodutorelacao_produto.nome
-          let nomeSegundoQuarto = novoProduto.meiomeios[0].segundoquarto_produto.nome
-          let nomeTerceiroQuarto = novoProduto.meiomeios[0].terceiroquarto_produto.nome
-          let nomeQuartoQuarto = novoProduto.meiomeios[0].quartoquarto_produto.nome
+          let nomeSegundoQuarto = produtoEditar.meiomeios[0].segundoquarto_produto.nome
+          let nomeTerceiroQuarto = produtoEditar.meiomeios[0].terceiroquarto_produto.nome
+          let nomeQuartoQuarto = produtoEditar.meiomeios[0].quartoquarto_produto.nome
           personalizarMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1677,28 +1913,28 @@ function detalhesPedido(id) {
 
       for (k = 0; k < produtosMeio.length; k++) {
         for (u = 0; u < produtosMeio[k].idtamanhorelacao_tamanhos.length; u++) {
-          if (produtosMeio[k].idtamanhorelacao_tamanhos[u].idtamanho == novoProduto.idtamanhopedido) {
+          if (produtosMeio[k].idtamanhorelacao_tamanhos[u].idtamanho == produtoEditar.idtamanhopedido) {
             let produtoAtual = produtosMeio[k]
 
             function checkarMeio() {
-              if (novoProduto.meiomeios.length != 0) {
+              if (produtoEditar.meiomeios.length != 0) {
 
-                if (novoProduto.meiomeios[0].segundametade == produtoAtual.idproduto) {
+                if (produtoEditar.meiomeios[0].segundametade == produtoAtual.idproduto) {
                   return "checked"
                 }
-                else if (novoProduto.meiomeios[0].segundoterco == produtoAtual.idproduto) {
+                else if (produtoEditar.meiomeios[0].segundoterco == produtoAtual.idproduto) {
                   return "checked"
                 }
-                else if (novoProduto.meiomeios[0].terceiroterco == produtoAtual.idproduto) {
+                else if (produtoEditar.meiomeios[0].terceiroterco == produtoAtual.idproduto) {
                   return "checked"
                 }
-                else if (novoProduto.meiomeios[0].segundoquarto == produtoAtual.idproduto) {
+                else if (produtoEditar.meiomeios[0].segundoquarto == produtoAtual.idproduto) {
                   return "checked"
                 }
-                else if (novoProduto.meiomeios[0].terceiroquarto == produtoAtual.idproduto) {
+                else if (produtoEditar.meiomeios[0].terceiroquarto == produtoAtual.idproduto) {
                   return "checked"
                 }
-                else if (novoProduto.meiomeios[0].quartoquarto == produtoAtual.idproduto) {
+                else if (produtoEditar.meiomeios[0].quartoquarto == produtoAtual.idproduto) {
                   return "checked"
                 }
                 else {
@@ -1763,11 +1999,11 @@ function detalhesPedido(id) {
           let checkboxAtual = checkboxes[c];
 
           if (contadorCheckboxes == 0) {
-            novoProduto.meiomeios = semMeioMeio;
+            produtoEditar.meiomeios = semMeioMeio;
           }
           else if (contadorCheckboxes == 1) {
             if (checkboxAtual.checked) {
-              novoProduto.meiomeios = [{
+              produtoEditar.meiomeios = [{
                 "segundametade": checkboxAtual.value,
                 "segundoterco": null,
                 "terceiroterco": null,
@@ -1792,7 +2028,7 @@ function detalhesPedido(id) {
               }
 
             };
-            novoProduto.meiomeios = meioMeiosTres
+            produtoEditar.meiomeios = meioMeiosTres
           }
 
           else if (contadorCheckboxes == 3) {
@@ -1811,7 +2047,7 @@ function detalhesPedido(id) {
               }
 
             };
-            novoProduto.meiomeios = meioMeiosQuatro
+            produtoEditar.meiomeios = meioMeiosQuatro
           }
         }
 
@@ -1827,11 +2063,11 @@ function detalhesPedido(id) {
         }
 
         let containerMeioMeio = document.querySelector('.container-meio-meio')
-        if (novoProduto.meiomeios.length != 0) {
+        if (produtoEditar.meiomeios.length != 0) {
 
-          if (novoProduto.meiomeios[0].segundametade != null) {
-            let nomePrimeiraMetade = acharNomeProdutoMeio(novoProduto.idprodutopedido)
-            let nomeSegundaMetade = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundametade)
+          if (produtoEditar.meiomeios[0].segundametade != null) {
+            let nomePrimeiraMetade = acharNomeProdutoMeio(produtoEditar.idprodutopedido)
+            let nomeSegundaMetade = acharNomeProdutoMeio(produtoEditar.meiomeios[0].segundametade)
             containerMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1844,10 +2080,10 @@ function detalhesPedido(id) {
                                      `
           }
 
-          else if (novoProduto.meiomeios[0].segundoterco != null) {
-            let nomePrimeiroTerco = acharNomeProdutoMeio(novoProduto.idprodutopedido)
-            let nomeSegundoTerco = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundoterco)
-            let nomeTerceiroTerco = acharNomeProdutoMeio(novoProduto.meiomeios[0].terceiroterco)
+          else if (produtoEditar.meiomeios[0].segundoterco != null) {
+            let nomePrimeiroTerco = acharNomeProdutoMeio(produtoEditar.idprodutopedido)
+            let nomeSegundoTerco = acharNomeProdutoMeio(produtoEditar.meiomeios[0].segundoterco)
+            let nomeTerceiroTerco = acharNomeProdutoMeio(produtoEditar.meiomeios[0].terceiroterco)
             containerMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1865,11 +2101,11 @@ function detalhesPedido(id) {
                                       `
           }
 
-          else if (novoProduto.meiomeios[0].segundoquarto != null) {
-            let nomePrimeiroQuarto = acharNomeProdutoMeio(novoProduto.idprodutopedido)
-            let nomeSegundoQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].segundoquarto)
-            let nomeTerceiroQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].terceiroquarto)
-            let nomeQuartoQuarto = acharNomeProdutoMeio(novoProduto.meiomeios[0].quartoquarto)
+          else if (produtoEditar.meiomeios[0].segundoquarto != null) {
+            let nomePrimeiroQuarto = acharNomeProdutoMeio(produtoEditar.idprodutopedido)
+            let nomeSegundoQuarto = acharNomeProdutoMeio(produtoEditar.meiomeios[0].segundoquarto)
+            let nomeTerceiroQuarto = acharNomeProdutoMeio(produtoEditar.meiomeios[0].terceiroquarto)
+            let nomeQuartoQuarto = acharNomeProdutoMeio(produtoEditar.meiomeios[0].quartoquarto)
             containerMeioMeio.innerHTML = `
                                         <button class="botao-meio-meio">
                                           <img src="./assets/lixo-white.svg" alt="Lixo">
@@ -1910,12 +2146,12 @@ function detalhesPedido(id) {
 
     //Renderizar quantidade atual e editar
     const containerQuantidade = document.querySelector('.quantidade');
-    const quantidade = novoProduto.quantidade
+    const quantidade = produtoEditar.quantidade
     containerQuantidade.innerHTML = `<input type="number" class="input-quantidade" min="1" max="50" step="1" value="${quantidade}">`
     const inputQuantidade = document.querySelector('.input-quantidade')
 
     inputQuantidade.addEventListener('change', () => {
-      novoProduto.quantidade = inputQuantidade.value
+      produtoEditar.quantidade = inputQuantidade.value
 
     })
 
@@ -1925,81 +2161,29 @@ function detalhesPedido(id) {
     document.querySelector('.botao-fechar-personalizar').addEventListener('click', () => {
       fecharModal(".fade-personalizar", ".personalizar-produto")
       renderTamanhos = '';
-      novoProduto.idpedido = itemCarrinho.idpedido,
-        novoProduto.idprodutopedido = itemCarrinho.idprodutopedido,
-        novoProduto.idtamanhopedido = itemCarrinho.idtamanhopedido,
-        novoProduto.quantidade = itemCarrinho.quantidade,
-        novoProduto.meiomeios = itemCarrinho.meiomeios
+      produtoEditar.idpedido = itemCarrinho.idpedido,
+        produtoEditar.idprodutopedido = itemCarrinho.idprodutopedido,
+        produtoEditar.idtamanhopedido = itemCarrinho.idtamanhopedido,
+        produtoEditar.quantidade = itemCarrinho.quantidade,
+        produtoEditar.meiomeios = itemCarrinho.meiomeios
     })
 
 
 
     //Fechar a modal e salvar alterações
     document.querySelector('.botão-adicionar-personalizacao').addEventListener('click', () => {
-      produtoEditado = novoProduto
+      produtoEditado = produtoEditar
 
       uparProdutoEditado();
 
     })
 
-    /*
-                  let botaoAdicionar = document.querySelectorAll('.adicionar-produto')
-                  for (i = 0; i < botaoAdicionar.length; i++) {
-                    let botao = botaoAdicionar[i]
-                    botao.addEventListener('click', () => {
-                      novoProduto.idprodutopedido = botao.value
-                    })
-                  }
-    
-                  let botaoSelecionarTamanho = document.querySelector(".botao-selecionar-tamanho");
-                  botaoSelecionarTamanho.addEventListener('click', () => {
-    
-                    let renderTamanhos = ``
-    
-    
-    
-                    abrirModal(".fade-personalizar", ".personalizar-produto");
-    
-    
-    
-                    let produto = produtoBd.find((produto) => {
-                      return produto.idproduto == novoProduto.idprodutopedido
-                    })
-    
-    
-                    for (t = 0; t < produto.idtamanhorelacao_tamanhos.length; t++) {
-    
-                      let tamanho = produto.idtamanhorelacao_tamanhos[t]
-    
-                      let tamanhoAtual = () => {
-                        if (novoProduto.idtamanhopedido == tamanho.idtamanho) {
-                          return "checked"
-                        }
-    
-                        else {
-                          return ""
-                        }
-                      }
-    
-                      let renderTamanho = `
-                        <input type="radio" id="tamanho${t}-personalizar" name="tamanho" ${tamanhoAtual()} >
-                        <label for="tamanho${t}-personalizar">${tamanho.nome} - ${tamanho.relacaoprodutotamanho.valor}</label>
-                        `
-    
-                      renderTamanhos += renderTamanho
-                      containerTamanhos.innerHTML = renderTamanhos
-                    }
-    
-    
-                  })*/
+
 
   }
 
-  //Adicionar novo produto ao pedido
-  const botaoNovoProduto = document.querySelector('.botao-novo-produto');
-  botaoNovoProduto.addEventListener('click', () => {
-    adicionarProdutoCarrinho(idPedido)
-  })
+
+
 
 
 };
@@ -2039,251 +2223,4 @@ addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-/*
-let botaoCriarCliente = document.querySelector("#salvar-cliente");
-botaoCriarCliente.addEventListener('click', () => {
-  let nome = document.querySelector("#nome").value;
-  let telefoneprimario = document.querySelector("#telefone-prim").value;
-  let telefonesecundario = document.querySelector("#telefone-sec").value;
-  let rua = document.querySelector("#nome-rua").value;
-  let numero = document.querySelector("#numero-casa").value;
-  let bairro = document.querySelector("#bairro").value;
-  let complemento = document.querySelector("#complemento-endereco").value;
-  let referencia = document.querySelector("#referencia-endereco").value;
-
-  let cliente = { nome, telefoneprimario, telefonesecundario, rua, numero, bairro, complemento, referencia };
-
-  const opcoes = {
-    method: "POST",
-    headers: new Headers({ 'content-type': 'application/json' }),
-    body: JSON.stringify(cliente)
-  };
-
-  fetch('http://localhost:5000/api/novocliente', opcoes).then(res => {
-    console.log(res);
-    atualizarClientes();
-    document.querySelector("#nome").value = "";
-    document.querySelector("#telefone-prim").value = "";
-    document.querySelector("#telefone-sec").value = "";
-    document.querySelector("#nome-rua").value = "";
-    document.querySelector("#numero-casa").value = "";
-    document.querySelector("#bairro").value = "";
-    document.querySelector("#complemento-endereco").value = "";
-    document.querySelector("#referencia-endereco").value = "";
-  })
-});
-
-
-document.addEventListener('DOMContentLoaded', atualizarClientes())
-
-
-function atualizarClientes() {
-  fetch('http://localhost:5000/api/clientes').then(res => {
-    return res.json();
-  }).then(json => {
-    let clientes = JSON.parse(json);
-    let elementosClientes = "";
-    clientes.forEach(cliente => {
-      let elementoCliente = `<div class="cliente-encontrado">
-      <h4>${cliente.nome}</h1>
-        <h4>${cliente.telefoneprimario}</h4>
-        <p>${cliente.rua}, ${cliente.numero}, ${cliente.bairro}</p>
-    </div>`;
-      elementosClientes += elementoCliente;
-    })
-    document.querySelector("#container-encontrados").innerHTML = elementosClientes;
-  })
-}
-
-
-
-
-//Renderizar pedidos Criados
-function pegarCliente(idCliente) {
-  let cliente = "";
-
-  for (var i = 0; i < clientes.length; i++) {
-    if (relacaoItemTamanho[i].iditem == idItem) {
-      tamanhosItem.push(relacaoItemTamanho[i])
-    }
-  };
-
-}
-
-pedido.forEach((pedido) => {
-  let nomeCliente = "";
-  let enderecoCliente = "";
-
-
-
-  let card = `
-<div class="container-cards">
-        <div class="card">
-          <div class="info-pedido">
-            <div class="id-pedido">
-              <h4>#${pedido.idpedido}</h4>
-            </div>
-            <div class="data-pedido">
-              <h4>${pedido.abertoEm.getDay()}/${pedido.abertoEm.getMonth()}/${pedido.abertoEm.getFullYear()}</h4>
-            </div>
-            <div class="tipo-pedido">
-              <h4>${pedido.tipoPedido}</h4>
-            </div>
-            <div class="horas-pedido">
-              <h4>${pedido.abertoEm.getHours()}:${pedido.abertoEm.getMinutes()}</h4>
-            </div>
-          </div>
-          <div class="info-cliente">
-            <img src="./assets/user.svg" alt="Usuário" class="icone-usuario">
-            <div class="nome-cliente-card">
-              <h4>João Lucas Pinheiro</h4>
-            </div>
-            <div class="pedidos-cliente">
-              <p>Número de pedidos: 56</p>
-            </div>
-          </div>
-          <div class="entrega">
-            <img src="./assets/marker.svg" alt="Local" class="icone-local">
-            <div class="endereco-cliente">
-              <p>Avenida Manoel Salvador de Oliveira, 1020, Bela Vista</p>
-            </div>
-          </div>
-          <div class="status">
-            <img src="./assets/interrogation.svg" alt="Interrogação" class="icone-interrogacao">
-            <div class="status-pedido">
-              <h4>Em aberto</h4>
-            </div>
-            <div class="tempo-entrega">
-              <h4>Tempo em aberto: 0h4min</h4>
-            </div>
-          </div>
-          <div class="navegacao">
-            <button class="botao-finalizar">Finalizar</button>
-            <button class="botao-detalhes">Detalhes</button>
-          </div>
-        </div>
-      </div>
-`
-})
-
-
-
-
-
-
-
-//Modal tabela de produtos
-function tabelaProdutos() {
-  const containerProdutos = document.querySelector(".produtos-tabela");
-  let produtos = '';
-
-  items.forEach((item) => {
-    let produto = `
-            <tr>
-              <td>${item.codigo}</td>
-              <td>${item.nome}</td>
-              <td>
-                <img src="./assets/adicionar-verde.svg" alt="" class="adicionar-produto">
-              </td>
-            </tr>
-`
-    produtos += produto
-    containerProdutos.innerHTML = produtos;
-  })
-};
-
-tabelaProdutos();
-
-//Modal para selecionar o tamanho
-function abrirModal(fade, modal) {
-  let fundo = document.querySelector(fade);
-  let janela = document.querySelector(modal);
-
-  fundo.classList.add('ativo');
-  janela.classList.add('ativo');
-};
-
-
-function carregarTamanhos(indexItem) {
-  const item = Object.values(items[indexItem]);
-  const idItem = item[0];
-  const tamanhosItem = [];
-  const nomesTamanhos = [];
-  const valoresTamanhos = [];
-  const nomeValor = [];
-  let tamanhosRender = '';
-  let tamanhosPersonalição = '';
-  const containerTamanhos = document.querySelector(".container-tamanhos");
-  const containerNomeProduto = document.querySelector(".nome-produto");
-  let nomeProduto = item[1];
-
-
-  for (var i = 0; i < relacaoItemTamanho.length; i++) {
-    if (relacaoItemTamanho[i].iditem == idItem) {
-      tamanhosItem.push(relacaoItemTamanho[i])
-    }
-  };
-
-  for (var a = 0; a < tamanhosItem.length; a++) {
-    for (var b = 0; b < tamanhos.length; b++) {
-      if (tamanhos[b].idtamanho == tamanhosItem[a].idtamanho) {
-        nomesTamanhos.push(tamanhos[b].nome)
-      }
-    }
-  };
-
-  for (var i = 0; i < tamanhosItem.length; i++) {
-    valoresTamanhos.push(tamanhosItem[i].valor);
-  };
-
-  for (var i = 0; i < nomesTamanhos.length; i++) {
-    nomeValor.push({ "idtamanho": tamanhosItem[i].idtamanho, "nome": nomesTamanhos[i], "valor": valoresTamanhos[i] },)
-  };
-
-  let contador = 0;
-
-  nomeValor.forEach((item) => {
-    contador++
-    let tamanhoRender = `
-    <input type="radio" name="select-tamanho" class="inputs-tamanhos" id="tamanho-${contador}" value="${item.idtamanho}">
-    <label for="tamanho-${contador}" class="tamanho tamanho-${contador}">
-      <div class="dot-2"></div>
-      <span>${item.nome} - ${item.valor}</span>
-    </label>
- `
-    tamanhosRender += tamanhoRender;
-    containerTamanhos.innerHTML = tamanhosRender;
-    containerNomeProduto.innerHTML = nomeProduto;
-
-    /*let tamanhoPersonalização = `
-            <input type="radio" id="tamanho${contador}personalizar" name="tamanho" value="${item.idtamanho}">
-            <label for="tamanho${contador}-personalizar">${item.nome} - ${item.valor}</label>
-    `
-  });
-
-}
-
-for (var i = 0; i < items.length; i++) {
-  let contador = i;
-  const adicionarProduto = document.querySelectorAll(".adicionar-produto");
-  adicionarProduto[contador].addEventListener('click', () => {
-    abrirModal(".fade-tamanhos", ".selecione-tamanho")
-    carregarTamanhos(contador);
-    carrinhos.iditem = items[contador].iditem;
-  });
-};
-
-//Escolhendo o tamanho
-const botaoAdicionarTamanho = document.querySelector(".botao-selecionar-tamanho");
-
-botaoAdicionarTamanho.addEventListener('click', () => {
-  var radioSelecionado = document.querySelector('input[name="select-tamanho"]:checked').value;
-  carrinhos.idtamanho = radioSelecionado;
-});
-
-
-
-*/
 

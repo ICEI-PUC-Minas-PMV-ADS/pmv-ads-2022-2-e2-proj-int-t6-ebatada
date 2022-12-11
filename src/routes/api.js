@@ -150,6 +150,86 @@ const { Op } = require("sequelize");
     return produtos
   }
 
+  router.post("/novopedido", bodyParser.json(), async (req, res) => {
+    (async () => {
+
+      let tipoPedido = req.body.tipopedido
+      let cliente = req.body.cliente
+      let produtosPedidos = req.body.produtospedidos
+      let hoje = new Date(new Date().setHours(0, 0, 0, 0))
+      let agora = new Date();
+
+
+      await models.pedidos.create({ tipopedido: tipoPedido, cliente: cliente })
+
+      let pedidosBd = await models.pedidos.findOne({
+        where: {
+          abertoem: {
+            [Op.between]: [hoje, agora],
+          },
+          cliente: cliente
+        }
+      })
+
+      let pedidoJson = JSON.stringify(pedidosBd);
+      let pedidoAtual = JSON.parse(pedidoJson)
+
+      let idPedido = pedidoAtual.idpedido
+
+      console.log(produtosPedidos)
+
+      produtosPedidos.forEach(async (element) => {
+        console.log(element)
+        let idPedidoAtual = idPedido
+        let produto = element.idprodutopedido
+        let tamanho = element.idtamanhopedido
+        let quantidade = element.quantidade
+        let segundaMetade = element.meiomeios[0].segundametade
+        let segundoTerco = element.meiomeios[0].segundoterco
+        let terceiroTerco = element.meiomeios[0].terceiroterco
+        let segundoQuarto = element.meiomeios[0].segundoquarto
+        let terceiroQuarto = element.meiomeios[0].terceiroquarto
+        let quartoQuarto = element.meiomeios[0].quartoquarto
+
+        await models.produtospedidos.create({ idpedido: idPedidoAtual, idprodutopedido: produto, idtamanhopedido: tamanho, quantidade: quantidade }
+        )
+
+        const produtoPedidoBd = await models.produtospedidos.findOne({
+          where: { idpedido: idPedidoAtual, idprodutopedido: produto, idtamanhopedido: tamanho, quantidade: quantidade }
+        })
+
+
+        let produtoPedidoJson = JSON.stringify(produtoPedidoBd);
+        let produtoPedido = JSON.parse(produtoPedidoJson)
+
+
+        let idProdutoCarrinho = produtoPedido.idprodutocarrinho
+
+
+        await models.meiomeio.create(
+          { idprodutocarrinho: idProdutoCarrinho, segundametade: segundaMetade, segundoterco: segundoTerco, terceiroterco: terceiroTerco, segundoquarto: segundoQuarto, terceiroquarto: terceiroQuarto, quartoquarto: quartoQuarto }
+        )
+
+      });
+
+    })().then(async () => {
+      let pedidosAtualizados = await pedidos();
+      return res.json({
+        mensagem: "pedido criado com sucesso",
+        requisicao: req.body,
+        pedidos: pedidosAtualizados
+      })
+    }
+
+    ).catch((error) => {
+      return res.json({
+        mensagem: "houve algum erro ao adicionar o produto",
+        Erro: error,
+        requisicao: req.body
+      })
+    })
+  })
+
   router.put("/trocarclientepedido", bodyParser.json(), async (req, res) => {
     (async () => {
       let idPedido = req.body.idpedido;
