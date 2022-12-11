@@ -132,20 +132,13 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     | Descrição do Requisito  | Prioridade |
 |-------|-----------------------------------------|----|
-|RF-01| A página de gestão da loja deve permitir criar/modificar/ excluir cadastro de clientes. |Alto
-|RF-02| A página de gestão da loja deve permitir criar/modificar/excluir cadastro de produtos por categoria, tipo e tamanho, mediante a acesso administrativo |Alto
+|RF-01| A página de gestão da loja deve permitir cadastrar clientes. |Alto
 |RF-03| O sistema deve separar os produtos por tipo. Cada tipo pode possuir diversos tamanhos (Produto: Fanta, Tipo: Refrigerante, Tamanhos: 350ml, 600ml, 1L, 2L). |Alto
 |RF-04| O sistema deve permitir que até 4 produtos com o mesmo tipo e tamanho possam ser mesclados no ato da venda, fazendo uma média entre seus preços. (Meio a meio) |Alto
-|RF-05| A página de gestão da loja deve permitir a criação de novos pedidos especificando o cliente, pedido, valor e forma de pagamento. |Alto
-|RF-06| O sistema deve possuir opções de pagamento pré-definidos. (Dinheiro, cartão de débito, cartão de crédito, pix). |Médio
-|RF-09| A página de gestão da loja deve permitir pré-cadastrar taxas de entrega para usá-las no ato da venda. |Médio
+|RF-05| A página de gestão da loja deve permitir a criação de novos pedidos especificando o cliente, pedido, valor. |Alto
 |RF-10| Para acessar o sistema, o usuário deve fornecer o login de seu restaurante, bem como poder cadastrar um novo. |Alto
-|RF-11| O sistema deve permitir que o usuário recupere a senha do login do restaurante, mediante a uma confirmação de autenticidade por email. | Alto
-|RF-12| O sistema deve permitir cadastrar opções de complementação pré-definidas aos produtos que posteriormente podem ser acessados no ato de criação do pedido.| Alto
 |RF-13| A página de gestão da loja deve possuir a opção de criar/modificar/excluir o cadastro do cliente no ato de criação de pedido. |Alto
-|RF-14| O sistema deve permitir a adição de comentários/observações aos pedidos para a personalização dos mesmos. |Média
 |RF-15| A página de gestão da loja deve permitir a visualização do histórico de pedidos |Baixo
-|RF-16| A página de gestão da loja deve permitir a impressão de pedidos. |Médio
 |RF-17| A página de gestão da loja deve permitir a visualização de pedidos realizados no dia, bem como possibilitar a reedição dos mesmos. |Médio
 
 
