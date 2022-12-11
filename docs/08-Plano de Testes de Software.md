@@ -31,9 +31,6 @@ CT-09
 
 ![Captura de Tela 2022-12-11 às 13 56 47](https://user-images.githubusercontent.com/98955531/206917405-d7792bc6-0915-4aa9-ab40-ddff6e7b8b0f.png)
 
-CT-10
-
-![Captura de Tela 2022-12-11 às 13 57 13](https://user-images.githubusercontent.com/98955531/206917427-a8f56f46-fb1a-4f5c-81ea-effa31a5f96f.png)
 
 CT-11 
 
