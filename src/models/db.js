@@ -4,7 +4,7 @@ const sequelize = new Sequelize({
   database: "eBatata",
   username: "ebatata",
   password: "eTeste321",
-  host: "ebatata.postgres.database.azure.com",
+  host: "ebatata2.postgres.database.azure.com",
   port: 5432,
   dialect: "postgres",
   dialectOptions: {
@@ -14,6 +14,8 @@ const sequelize = new Sequelize({
     }
   },
 });
+
+
 
 sequelize.authenticate()
   .then(() => {
