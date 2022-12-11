@@ -51,7 +51,7 @@ module.exports = {
   },
 };
 
-const db = require("../Postgres/db");
+const db = require("../Postgres/database");
 
 function gerarID() {
   return Math.random().toString(36).substring(2, 7);
