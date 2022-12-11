@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
   database: "eBatata",
@@ -10,18 +10,18 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false,
-    },
+      rejectUnauthorized: false
+    }
   },
 });
 
-sequelize
-  .authenticate()
+
+
+sequelize.authenticate()
   .then(() => {
-    console.log("Connection has been established successfully.");
+    console.log('Connection has been established successfully.');
+  }).catch((error) => {
+    console.log('Unable to connect to the database:', error);
   })
-  .catch((error) => {
-    console.log("Unable to connect to the database:", error);
-  });
 
 module.exports = sequelize;
