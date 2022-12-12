@@ -34,11 +34,12 @@ Este teste consite em validar a tela de historico de pedidos.
 https://user-images.githubusercontent.com/98955531/206940933-57d85f25-cd3d-4500-92b5-cf411e2e4d97.mov
 
 
-
-
 ## CT-06
 
 Este teste consite em validar a funcionalidade de fechar caixa.
+
+
+https://user-images.githubusercontent.com/98955531/206941267-44ff78a6-c6ca-4344-9c8b-8db1be7b0141.mp4
 
 
 
