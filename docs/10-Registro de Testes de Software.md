@@ -17,3 +17,26 @@ Este teste consite em realizar o login no sistema.
 
 https://user-images.githubusercontent.com/98955531/206937989-52fd0203-6d70-4ccb-bb80-2bf398ed6b18.mp4
 
+## CT-03
+
+Este teste consite em validar a funcionalidade de finalizar pedidos.
+
+
+## CT-04
+
+Este teste consite em verificar a funcionalidade de adicionar produtos ao pedido
+
+
+## CT-05
+
+Este teste consite em validar a tela de historico de pedidos.
+
+![WhatsApp Image 2022-12-11 at 18 24 49](https://user-images.githubusercontent.com/98955531/206938537-124328f5-1764-4823-bc8f-78978f8b936a.jpeg)
+
+
+## CT-06
+
+Este teste consite em validar a funcionalidade de fechar caixa.
+
+
+
