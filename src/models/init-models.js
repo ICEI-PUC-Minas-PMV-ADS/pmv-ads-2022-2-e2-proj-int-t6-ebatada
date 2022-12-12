@@ -22,8 +22,8 @@ function initModels(sequelize) {
   var tamanhos = _tamanhos(sequelize, DataTypes);
   var taxasentrega = _taxasentrega(sequelize, DataTypes);
 
-  produtos.belongsToMany(tamanhos, { as: 'idtamanhorelacao_tamanhos', through: relacaoprodutotamanho, foreignKey: "idprodutorelacao", otherKey: "idtamanhorelacao" });
-  tamanhos.belongsToMany(produtos, { as: 'idprodutorelacao_produtos', through: relacaoprodutotamanho, foreignKey: "idtamanhorelacao", otherKey: "idprodutorelacao" });
+  produtos.belongsToMany(tamanhos, { as: 'idtamanho_tamanhos', through: relacaoprodutotamanho, foreignKey: "idproduto", otherKey: "idtamanho" });
+  tamanhos.belongsToMany(produtos, { as: 'idproduto_produtos', through: relacaoprodutotamanho, foreignKey: "idtamanho", otherKey: "idproduto" });
   produtos.belongsTo(categorias, { as: "idcategoria_categoria", foreignKey: "idcategoria"});
   categorias.hasMany(produtos, { as: "produtos", foreignKey: "idcategoria"});
   tamanhos.belongsTo(categorias, { as: "idcategoria_categoria", foreignKey: "idcategoria"});
@@ -34,28 +34,16 @@ function initModels(sequelize) {
   lojas.hasMany(categorias, { as: "categoria", foreignKey: "idloja"});
   produtospedidos.belongsTo(pedidos, { as: "idpedido_pedido", foreignKey: "idpedido"});
   pedidos.hasMany(produtospedidos, { as: "produtospedidos", foreignKey: "idpedido"});
-  meiomeio.belongsTo(produtos, { as: "quartoquarto_produto", foreignKey: "quartoquarto"});
-  produtos.hasMany(meiomeio, { as: "meiomeios", foreignKey: "quartoquarto"});
-  meiomeio.belongsTo(produtos, { as: "segundametade_produto", foreignKey: "segundametade"});
-  produtos.hasMany(meiomeio, { as: "segundametade_meiomeios", foreignKey: "segundametade"});
-  meiomeio.belongsTo(produtos, { as: "segundoquarto_produto", foreignKey: "segundoquarto"});
-  produtos.hasMany(meiomeio, { as: "segundoquarto_meiomeios", foreignKey: "segundoquarto"});
-  meiomeio.belongsTo(produtos, { as: "segundoterco_produto", foreignKey: "segundoterco"});
-  produtos.hasMany(meiomeio, { as: "segundoterco_meiomeios", foreignKey: "segundoterco"});
-  meiomeio.belongsTo(produtos, { as: "terceiroquarto_produto", foreignKey: "terceiroquarto"});
-  produtos.hasMany(meiomeio, { as: "terceiroquarto_meiomeios", foreignKey: "terceiroquarto"});
-  meiomeio.belongsTo(produtos, { as: "terceiroterco_produto", foreignKey: "terceiroterco"});
-  produtos.hasMany(meiomeio, { as: "terceiroterco_meiomeios", foreignKey: "terceiroterco"});
-  relacaoprodutotamanho.belongsTo(produtos, { as: "idprodutorelacao_produto", foreignKey: "idprodutorelacao"});
-  produtos.hasMany(relacaoprodutotamanho, { as: "relacaoprodutotamanhos", foreignKey: "idprodutorelacao"});
+  produtospedidos.belongsTo(produtos, { as: "idproduto_produto", foreignKey: "idproduto"});
+  produtos.hasMany(produtospedidos, { as: "produtospedidos", foreignKey: "idproduto"});
+  relacaoprodutotamanho.belongsTo(produtos, { as: "idproduto_produto", foreignKey: "idproduto"});
+  produtos.hasMany(relacaoprodutotamanho, { as: "relacaoprodutotamanhos", foreignKey: "idproduto"});
   meiomeio.belongsTo(produtospedidos, { as: "idprodutocarrinho_produtospedido", foreignKey: "idprodutocarrinho"});
   produtospedidos.hasMany(meiomeio, { as: "meiomeios", foreignKey: "idprodutocarrinho"});
-  produtospedidos.belongsTo(relacaoprodutotamanho, { as: "idprodutopedido_relacaoprodutotamanho", foreignKey: "idprodutopedido"});
-  relacaoprodutotamanho.hasMany(produtospedidos, { as: "produtospedidos", foreignKey: "idprodutopedido"});
-  produtospedidos.belongsTo(relacaoprodutotamanho, { as: "idtamanhopedido_relacaoprodutotamanho", foreignKey: "idtamanhopedido"});
-  relacaoprodutotamanho.hasMany(produtospedidos, { as: "idtamanhopedido_produtospedidos", foreignKey: "idtamanhopedido"});
-  relacaoprodutotamanho.belongsTo(tamanhos, { as: "idtamanhorelacao_tamanho", foreignKey: "idtamanhorelacao"});
-  tamanhos.hasMany(relacaoprodutotamanho, { as: "relacaoprodutotamanhos", foreignKey: "idtamanhorelacao"});
+  produtospedidos.belongsTo(tamanhos, { as: "idtamanho_tamanho", foreignKey: "idtamanho"});
+  tamanhos.hasMany(produtospedidos, { as: "produtospedidos", foreignKey: "idtamanho"});
+  relacaoprodutotamanho.belongsTo(tamanhos, { as: "idtamanho_tamanho", foreignKey: "idtamanho"});
+  tamanhos.hasMany(relacaoprodutotamanho, { as: "relacaoprodutotamanhos", foreignKey: "idtamanho"});
   pedidos.belongsTo(taxasentrega, { as: "taxaentrega_taxasentrega", foreignKey: "taxaentrega"});
   taxasentrega.hasMany(pedidos, { as: "pedidos", foreignKey: "taxaentrega"});
 
