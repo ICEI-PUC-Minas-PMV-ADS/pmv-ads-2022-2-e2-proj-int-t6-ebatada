@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('pedidos', {
     idpedido: {
       autoIncrement: true,
@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     abertoem: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP'),
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
     },
     fechadoem: {
       type: DataTypes.DATE,
