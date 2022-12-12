@@ -10,7 +10,7 @@
   gap: 1rem;
   padding: 1rem;
   max-height: 0;
-  background: #cb6e00;
+  background: #CB6E00;
   border: solid 1px white;
   color: #646464;
   visibility: hidden;
@@ -26,7 +26,7 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  background: #cb6e00;
+  background: #CB6E00;
   border-radius: 8px;
   border: solid 1px white;
   color: #646464;
@@ -68,6 +68,7 @@
 .criar-novo .container-criar.ativo::-webkit-scrollbar-thumb {
   background: #646464;
   border-radius: 8px;
+
 }
 
 .criar-novo .titulo-criar {
@@ -88,7 +89,7 @@
   padding: 1rem;
   max-height: 0;
   background: white;
-  border: solid 1px #cb6e00;
+  border: solid 1px #CB6E00;
   color: #646464;
   visibility: hidden;
   opacity: 0;
@@ -105,7 +106,7 @@
   justify-content: space-between;
   background: white;
   border-radius: 8px;
-  border: solid 1px #cb6e00;
+  border: solid 1px #CB6E00;
   color: #646464;
   font-size: 1.5rem;
   order: 0;
@@ -121,7 +122,7 @@
 }
 
 .titulo-criados h3 {
-  color: #cb6e00;
+  color: #CB6E00;
   margin: 0;
   top: 28px;
 }
@@ -144,6 +145,7 @@
 .pedidos-criados .container-cards.ativo::-webkit-scrollbar-thumb {
   background: #646464;
   border-radius: 8px;
+
 }
 
 .pedidos-criados .titulo-criados {

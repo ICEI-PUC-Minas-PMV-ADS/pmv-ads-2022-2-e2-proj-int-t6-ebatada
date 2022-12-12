@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Histórico de caixa - éBatata </title> <!--- nao alterar o titulo devido a programação da navbar --->
   <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/historico-de-caixa.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -195,226 +193,7 @@
       </li>
     </ul>
   </nav>
-
-  <main class="table-container">
-
-    <div class="title-container">
-    <div class="title-order">
-      <span id="history-title">Histórico de Caixa</span>
-    </div>
-    </div>
-
-    <div class="check-box-group">
-      <label class="custom-checkbox" for="recent">
-        <input type="checkbox" id="recent" name="recent">
-        <span class="checkmark"></span>
-        <span class="span-text">Exibir mais recentes</span>
-      </label>
-    
-      
-      <label class="custom-checkbox" for="period">
-        <input type="checkbox" id="period" name="period">
-        <span class="checkmark"></span>
-        <span class="span-text">Filtrar por período de:</span>
-      </label>
-      <div class="separator">
-      <select class="select-mm">
-        <option value="janeiro">Janeiro</option>
-        <option value="fevereiro">Fevereiro</option>
-        <option value="março">Março</option>
-        <option value="abril">Abril</option>
-        <option value="maio">Maio</option>
-        <option value="junho">Junho</option>
-        <option value="julho">Julho</option>
-        <option value="agosto">Agosto</option>
-        <option value="setembro">setembro</option>
-        <option value="outubro">Outubro</option>
-        <option value="novembro">Novembro</option>
-        <option value="dezembro">Dezembro</option>
-      </select>
-      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31">
-      </div>
-      <span>À</span>
-      <div class="separator">
-      <select class="select-mm">
-        <option value="janeiro">Janeiro</option>
-        <option value="fevereiro">Fevereiro</option>
-        <option value="março">Março</option>
-        <option value="abril">Abril</option>
-        <option value="maio">Maio</option>
-        <option value="junho">Junho</option>
-        <option value="julho">Julho</option>
-        <option value="agosto">Agosto</option>
-        <option value="setembro">setembro</option>
-        <option value="outubro">Outubro</option>
-        <option value="novembro">Novembro</option>
-        <option value="dezembro">Dezembro</option>
-      </select>
-      <input class="day-div" type="number" name="dia" value="dd" maxlength="2" min="1" max="31"> 
-    </div>
-    </div>
-    
-    
-   <table class="table">
-     <thead>
-     	<tr>
-     	 <th>ID</th>
-     	 <th>Data</th>
-     	 <th>Cliente</th>
-     	 <th>Telefone</th>
-     	 <th>Endereço</th>
-       <th>Status</th>
-     	 <th>Pago?</th>
-     	 <th>Itens</th>
-     	 <th>Desconto</th>
-     	 <th>Total Final</th>
-     	</tr>
-     </thead>
-     <tbody>
-     	  <tr>
-     	  	  <td data-label="id">1</td>
-     	  	  <td data-label="data">xxxx</td>
-     	  	  <td data-label="cliente">xxxx</td>
-     	  	  <td data-label="telefone">xxxx</td>
-     	  	  <td data-label="endereço">xxxx</td>
-            <td data-label="status">xxxx</td>
-     	  	  <td data-label="pago">xxxx</td>
-     	  	  <td data-label="itens">xxxx</td>
-     	  	  <td data-label="desconto">xxxxxxx</td>
-     	  	  <td data-label="total">xxxx</td>
-     	  </tr>
-
-     	  <tr>
-     	  	  <td data-label="id">2</td>
-     	  	  <td data-label="data">xxxx</td>
-     	  	  <td data-label="cliente">xxxx</td>
-     	  	  <td data-label="telefone">xxxx</td>
-     	  	  <td data-label="endereço">xxxx</td>
-            <td data-label="status">xxxx</td>
-     	  	  <td data-label="pago">xxxx</td>
-     	  	  <td data-label="itens">xxxx</td>
-     	  	  <td data-label="desconto">xxxxxxx</td>
-     	  	  <td data-label="total">xxxx</td>
-     	  </tr>
-
-     	  <tr>
-     	  	  <td data-label="id">3</td>
-     	  	  <td data-label="data">xxxx</td>
-     	  	  <td data-label=cliente">xxxx</td>
-     	  	  <td data-label="telefone">xxxx</td>
-     	  	  <td data-label="endereço">xxxx</td>
-            <td data-label="status">xxxx</td>
-     	  	  <td data-label="pago">xxxx</td>
-     	  	  <td data-label="itens">xxxx</td>
-     	  	  <td data-label="desconto">xxxxxxx</td>
-     	  	  <td data-label="total">xxxxxx</td>
-     	  </tr>
-
-     	  <tr>
-     	  	  <td data-label="id">4</td>
-     	  	  <td data-label="data">xxxx</td>
-     	  	  <td data-label="cliente">xxxx</td>
-     	  	  <td data-label="telefone">xxxx</td>
-     	  	  <td data-label="endereço">xxxx</td>
-            <td data-label="status">xxxx</td>
-     	  	  <td data-label="pago">xxxx</td>
-     	  	  <td data-label="itens">xxxx</td>
-     	  	  <td data-label="desconto">xxxx</td>
-     	  	  <td data-label="total">xxxx</td>
-     	  </tr>
-         <tr>
-          <td data-label="id">5</td>
-          <td data-label="data">xxxx</td>
-          <td data-label="cliente">xxxx</td>
-          <td data-label="telefone">xxxxxxxx</td>
-          <td data-label="endereço">xxxx</td>
-         <td data-label="status">xxxx</td>
-          <td data-label="pago">xxxx</td>
-          <td data-label="itens">xxxx</td>
-          <td data-label="desconto">xxxx</td>
-          <td data-label="total">xxxx</td>
-      </tr>
-      <tr>
-        <td data-label="id">6</td>
-        <td data-label="data">xxxx</td>
-        <td data-label="cliente">xxxx</td>
-        <td data-label="telefone">xxxxxxx</td>
-        <td data-label="endereço">xxxx</td>
-       <td data-label="status">xxxx</td>
-        <td data-label="pago">xxxx</td>
-        <td data-label="itens">xxxx</td>
-        <td data-label="desconto">xxxxxxxx</td>
-        <td data-label="total">xxxx</td>
-    </tr>
-    <tr>
-      <td data-label="id">7</td>
-      <td data-label="data">xxxx</td>
-      <td data-label="cliente">xxxx</td>
-      <td data-label="telefone">xxxx</td>
-      <td data-label="endereço">xxxx</td>
-     <td data-label="status">xxxx</td>
-      <td data-label="pago">xxxx</td>
-      <td data-label="itens">xxxxxx</td>
-      <td data-label="desconto">xxxx</td>
-      <td data-label="total">xxxx</td>
-  </tr>
-  <tr>
-    <td data-label="id">8</td>
-    <td data-label="data">xxxx</td>
-    <td data-label="cliente">xxxx</td>
-    <td data-label="telefone">xxxx</td>
-    <td data-label="endereço">xxxx</td>
-   <td data-label="status">xxxx</td>
-    <td data-label="pago">xxxx</td>
-    <td data-label="itens">xxxx</td>
-    <td data-label="desconto">xxxx</td>
-    <td data-label="total">xxxx</td>
-</tr>
-<tr>
-  <td data-label="id">9</td>
-  <td data-label="data">xxxx</td>
-  <td data-label="cliente">xxxx</td>
-  <td data-label="telefone">xxxx</td>
-  <td data-label="endereço">xxxx</td>
-  <td data-label="status">xxxx</td>
-  <td data-label="pago">xxxx</td>
-  <td data-label="itens">xxxx</td>
-  <td data-label="desconto">xxxx</td>
-  <td data-label="total">xxxx</td>
-</tr>
-<tr>
-  <td data-label="id">10</td>
-  <td data-label="data">xxxx</td>
-  <td data-label="cliente">xxxx</td>
-  <td data-label="telefone">xxxx</td>
-  <td data-label="endereço">xxxx</td>
-  <td data-label="status">xxxx</td>
-  <td data-label="pago">xxxx</td>
-  <td data-label="itens">xxxx</td>
-  <td data-label="desconto">xxxx</td>
-  <td data-label="total">xxxx</td>
-</tr>
-     </tbody>
-     
-   </table>
-
- <!--- <div class="button">
-   <button id="view">
-    <a>Visualizar Detalhes</a>
-   </button>
-  </div>
-  </div>
-
-
-    
-
-
-       
-
-    
-  
-
-    
+  <main class="conteudo">
     <!--- desenvolva o conteúdo aqui :)
       crie uma branch no github 
       tente seguir as convenções de codificação para html, css e js
@@ -423,6 +202,7 @@
       ESTAMOS TODOS AQUI PARA APRENDER, NÃO TENHA MEDO DE PERGUNTAR OU ERRAR ;)
 
       Bom trabalho a todos! s2 --->
+    <h1>éBatata</h1>
   </main>
   <script type="text/javascript" src="./scripts/navbar.js"></script>
 </body>
