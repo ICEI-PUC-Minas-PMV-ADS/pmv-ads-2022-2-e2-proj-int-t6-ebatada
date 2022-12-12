@@ -31,6 +31,11 @@ Este teste consite em validar a tela de historico de pedidos.
 ![WhatsApp Image 2022-12-11 at 18 24 49](https://user-images.githubusercontent.com/98955531/206938537-124328f5-1764-4823-bc8f-78978f8b936a.jpeg)
 
 
+https://user-images.githubusercontent.com/98955531/206940933-57d85f25-cd3d-4500-92b5-cf411e2e4d97.mov
+
+
+
+
 ## CT-06
 
 Este teste consite em validar a funcionalidade de fechar caixa.
