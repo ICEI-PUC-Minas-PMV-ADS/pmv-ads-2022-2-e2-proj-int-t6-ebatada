@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
     <div class="center">
-        
+      <form method="POST">
         <h1>Bem vindo ao éBatata!</h1>
         <h2>Seu gerenciador de pedidos!</h2>
-        <form method="post">
-            <div class="txt_field">
-                <input type="text" required>
-                <span></span>
-                <label>Email</label>
-            </div>
 
-            <div class="txt_field">
-                <input type="password" required>
-                <span></span>
-                <label>Senha</label>               
-            </div>
+        <div class="txt_field">
+          <input type="text" name="name" id="name" required />
+          <span></span>
+          <label for="name">Username</label>
+        </div>
 
-            <div class="pass"><a href="forgot-password.html">Esqueci minha senha:(</a>              
-            </div>
+        <div class="txt_field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autocomplete="on"
+            required
+          />
+          <span></span>
+          <label for="email">email</label>
+        </div>
 
-            <input type="submit" value="Entrar">
-
-            <div class="singnup_link">
-               Deseja cadastrar sua empresa? <a href="cadastro-tela.html">Cadastre-se</a>
-            </div>
-
-        </form>
-
-
+        <div class="txt_field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            autocomplete="on"
+            required
+          />
+          <span></span>
+          <label for="password">Senha</label>
+        </div>
+      </form>
+      <button id="logar">
+        <span id="logspan">entrar</span>
+      </button>
+      <div class="singnup_link">
+        Deseja cadastrar sua empresa?
+        <a href="cadastro-tela.html">Cadastre-se</a>
+      </div>
     </div>
-    <script href="js/valid.js"></script>
-    
-</body>
+    <script src="./scripts/valid.js"></script>
+  </body>
 </html>
