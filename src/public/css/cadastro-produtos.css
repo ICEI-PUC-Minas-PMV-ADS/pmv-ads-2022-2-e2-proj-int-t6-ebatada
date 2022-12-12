@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "ubuntu" sans-serif;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* adicionar categorias */
+
+.add-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10vh;
+  width: 90%;
+  height: 50vh;
+  border-radius: 5px;
+  background: white;
+}
+
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-inputs {
+  width: 70%;
+}
+
+input {
+  width: 100%;
+  background: rgba(128, 128, 128, 0.185);
+  border: 2px solid rgba(128, 128, 128, 0.445);
+  border-radius: 5px;
+}
+
+.text-inputs {
+  margin-left: 5%;
+}
+
+#name-edit {
+  height: 6vh;
+}
+
+#descricao-edit {
+  height: 30vh;
+}
+
+/* zona de categorias*/
+
+p {
+  width: 80%;
+}
+
+.title-session {
+  margin-left: 40px;
+}
+
+.categoria-descricao {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px;
+}
+
+.categoria-title {
+  margin: 20px;
+}
+
+.seta-adjust {
+  display: flex;
+}
+
+.botao-fechar {
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 110vh;
+  margin-top: 10vh;
+  border-radius: 5px;
+  background: white;
+}
+
+.tamanho-container {
+  overflow: hidden;
+}
+/* btn's */
+
+.tamanho-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.btn-container {
+  display: flex;
+  margin-top: 5vh;
+  width: 100%;
+  align-items: center;
+}
+
+.btn-adjusts {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.btn-add {
+  padding: 30%;
+  margin-left: 10vh;
+  border: solid #cb6e00 2px;
+  border-radius: 5px;
+  color: #cb6e00;
+  background: white;
+  cursor: pointer;
+}
+
+.btn-edit {
+  width: 30%;
+  height: 5vh;
+  background: #cb6e00;
+  color: white;
+  border-radius: 5px;
+  border: solid #cb6e00 1px;
+
+  cursor: pointer;
+}
+
+.labelEdit {
+  margin-left: 1rem;
+}
+
+.centralizer {
+  width: 100%;
+}
+
+.btn-addFinal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 5vh;
+  margin-top: 10vh;
+  border: solid #cb6e00 2px;
+  border-radius: 5px;
+  color: #cb6e00;
+  background: white;
+  cursor: pointer;
+}
+
+/* valores */
+
+.valores-adjust {
+  display: flex;
+  width: 100%;
+  margin-left: 40px;
+  margin-top: 10vh;
+  flex-direction: column;
+}
+
+.descricao-v {
+  width: 60%;
+}
+
+form input {
+  font-size: 30px;
+  padding: 0;
+  border: 2px solid #ccc;
+  border-left: 0;
+  width: 100%;
+  color: #999;
+  border-radius: 0 7px 7px 0;
+}
+
+form input:focus {
+  outline: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+}
+.flex input {
+  max-width: 150px;
+  flex: 1 1 300px;
+}
+.flex .currency {
+  font-size: 20px;
+  padding: 0 10px 0 20px;
+  color: #999;
+  border: 2px solid #ccc;
+  border-right: 0;
+  line-height: 2.5;
+  border-radius: 7px 0 0 7px;
+  background: white;
+}
+
+.valores {
+  display: flex;
+  width: 100%;
+}
+
+.valores-container {
+  display: flex;
+}
+
+.separator {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-top: 10vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.seta-criar {
+  width: 3rem;
+  transition: 200ms;
+}
+
+.titulo-criados.ativo .seta-criar {
+  transform: rotate(-180deg);
+}
+
+.seta-criar {
+  width: 3rem;
+  transition: 200ms;
+}
+
+.titulo-criar.ativo .seta-criar {
+  transform: rotate(-180deg);
+}
+
+/* modal*/
+
+.hide {
+  background: white;
+  width: 50%;
+  height: 30rem;
+  border-radius: 5px;
+}
+
+#modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.adjust-modal {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 6vh;
+  width: 70%;
+}
+
+#amountt {
+  border: 1px gray;
+  height: 5vh;
+  width: 60%;
+  display: flex;
+}
+
+.checkbox-adjust {
+  display: flex;
+  margin-top: 30px;
+}
+
+#scales {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.sabores-adjuste {
+  display: flex;
+  margin-top: 5vh;
+}
+
+.sabores {
+  width: 20%;
+  height: 5vh;
+  margin-left: 30px;
+  border: #cb6e00 solid 2px;
+  background: white;
+}
+
+.descri {
+  margin-top: 2vh;
+}
+.btn-adjust {
+  display: flex;
+  margin-top: 5vh;
+}
+
+#amountD {
+  border: 1px gray;
+  height: 5vh;
+  width: 50%;
+  margin-left: 30px;
+  display: flex;
+}
+
+.btn-adjust {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+
+.number-adjust {
+  display: flex;
+  margin-top: 5vh;
+}
+
+.excluir {
+  width: 40%;
+  height: 5vh;
+  background: white;
+  border: red solid 2px;
+  border-radius: 5px;
+}
+
+.save {
+  width: 40%;
+  height: 5vh;
+  border: rgb(0, 199, 0) solid 2px;
+  border-radius: 5px;
+  background: white;
+}
+
+.modal-header {
+  width: 100%;
+  display: flex;
+}
+
+.fechar {
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: #cb6e00;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+/*#fade.hide,
+#modal.hide {
+  display: none;
+}

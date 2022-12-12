@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const bd = require("../models/db");
@@ -14,8 +14,47 @@ const models = initModels(bd);
         order: [["idpedido", "DESC"]],
         include: ["cliente_cliente", "taxaentrega_taxasentrega"],
       })
-    }
-    )
+      .then((pedidos) => {
+        return res.json(pedidos);
+      })
+      .catch((error) => {
+        return res.json({
+          mensagem: "Houve algum erro ao encontrar os pedidos",
+          Erro: error,
+        });
+      });
+  });
+
+  router.get("/pedidosdata", async (req, res) => {
+    let mes = req.query.mes;
+    let dia = req.query.dia;
+    let ames = req.query.ames;
+    let adia = req.query.adia;
+    let dataAtual = new Date();
+    let data = new Date(mes + " " + dia + " " + dataAtual.getFullYear());
+    let adata = new Date(ames + " " + adia + " " + dataAtual.getFullYear());
+
+    console.log(data);
+
+    await models.pedidos
+      .findAll({
+        order: [["idpedido", "DESC"]],
+        include: ["cliente_cliente", "taxaentrega_taxasentrega"],
+        where: {
+          abertoem: {
+            [Op.between]: [data, adata],
+          },
+        },
+      })
+      .then((pedidos) => {
+        return res.json(pedidos);
+      })
+      .catch((error) => {
+        return res.json({
+          mensagem: "Houve algum erro ao encontrar os pedidos",
+          Erro: error,
+        });
+      });
   });
 
   router.get("/clientes", async (req, res) => {
@@ -47,7 +86,5 @@ const models = initModels(bd);
     res.send("Cliente criado com sucesso");
   });
 })();
-
-
 
 module.exports = router;
