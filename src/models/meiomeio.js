@@ -17,27 +17,51 @@ module.exports = function(sequelize, DataTypes) {
     },
     segundametade: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     },
     segundoterco: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     },
     terceiroterco: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     },
     segundoquarto: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     },
     terceiroquarto: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     },
     quartoquarto: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'produtos',
+        key: 'idproduto'
+      }
     }
   }, {
     sequelize,

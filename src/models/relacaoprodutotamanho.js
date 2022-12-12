@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('relacaoprodutotamanho', {
-    idproduto: {
+    idprodutorelacao: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'idproduto'
       }
     },
-    idtamanho: {
+    idtamanhorelacao: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -33,8 +33,8 @@ module.exports = function(sequelize, DataTypes) {
         name: "pk_ce",
         unique: true,
         fields: [
-          { name: "idproduto" },
-          { name: "idtamanho" },
+          { name: "idprodutorelacao" },
+          { name: "idtamanhorelacao" },
         ]
       },
     ]
