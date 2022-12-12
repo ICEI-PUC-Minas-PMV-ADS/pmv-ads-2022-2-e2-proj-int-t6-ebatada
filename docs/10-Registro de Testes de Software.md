@@ -8,11 +8,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 Este teste consiste em criar um usuário valido. Efetuando o preenchimento de todos os campos do formulário. 
 
-
-
-https://user-images.githubusercontent.com/98955531/206938212-d686a146-3c54-48c1-9cb7-7324303494f4.mp4
-
-
+![WhatsApp Image 2022-12-11 at 21 24 50](https://user-images.githubusercontent.com/98955531/206938251-aaa9fcc5-baab-4b8f-be0a-6d498e89d637.jpeg)
 
 ## CT-02
 
