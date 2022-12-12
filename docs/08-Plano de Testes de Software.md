@@ -17,7 +17,7 @@ CT-02:
 
 CT-03:
 
-<img width="486" alt="Captura de Tela 2022-12-11 às 21 12 08" src="https://user-images.githubusercontent.com/98955531/206937532-ff515298-648f-45c6-9b53-77c9e4f0b748.png">
+<img width="494" alt="Captura de Tela 2022-12-11 às 21 11 59" src="https://user-images.githubusercontent.com/98955531/206937668-929d59c7-c7db-4ffc-8d8c-a173d359aeba.png">
 
 CT-04:
 
