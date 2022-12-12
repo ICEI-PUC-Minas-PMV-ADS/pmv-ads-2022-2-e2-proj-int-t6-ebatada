@@ -4,7 +4,7 @@ const sequelize = new Sequelize({
   database: "eBatata",
   username: "ebatata",
   password: "eTeste321",
-  host: "ebatata.postgres.database.azure.com",
+  host: "ebatata2.postgres.database.azure.com",
   port: 5432,
   dialect: "postgres",
   dialectOptions: {
@@ -15,12 +15,7 @@ const sequelize = new Sequelize({
   },
 });
 
-<<<<<<< HEAD
-sequelize
-  .authenticate()
-=======
 sequelize.authenticate()
->>>>>>> parent of 7d09a53 (Merge pull request #85 from ICEI-PUC-Minas-PMV-ADS/pedidos-feature)
   .then(() => {
     console.log("Connection has been established successfully.");
   })
