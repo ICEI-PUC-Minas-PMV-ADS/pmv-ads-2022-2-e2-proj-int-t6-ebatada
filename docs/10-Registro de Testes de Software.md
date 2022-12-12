@@ -17,14 +17,11 @@ Este teste consite em realizar o login no sistema.
 
 https://user-images.githubusercontent.com/98955531/206937989-52fd0203-6d70-4ccb-bb80-2bf398ed6b18.mp4
 
-## CT-03
+## CT-03, CT-04
 
-Este teste consite em validar a funcionalidade de finalizar pedidos.
+Este teste consite em verificar a funcionalidade de criar pedidos, adicionar produtos aos pedidos e finalizar pedidos.
 
-
-## CT-04
-
-Este teste consite em verificar a funcionalidade de adicionar produtos ao pedido
+https://user-images.githubusercontent.com/98955531/206940494-9375b617-5e3e-43e9-8eb1-50a854567f47.mov
 
 
 ## CT-05
