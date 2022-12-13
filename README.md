@@ -11,6 +11,8 @@
 
 O objetivo desse projeto é criar um ambiente mais acessível e igualitário entre as empresas. Espera-se criar um sistema para restaurantes completo, possuindo uma loja virtual integrada, com um preço justo e isento de qualquer tipo de taxa.
 
+<a href="https://ebatata.azurewebsites.net/"> Visite o site da nossa aplicação :)</a>
+
 ## Integrantes
 
 * Carlos Eduardo Lobo 
