@@ -54,12 +54,9 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 <li><a href="src/README.md"> Código Fonte</a></li>
 
-# Apresentação
+# Apresentação da solução
 
-
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
-
+<a href="https://ebatata.azurewebsites.net/"> Visite o site da nossa aplicação :)</a>
 
 https://user-images.githubusercontent.com/98955531/206941779-3c59f3f8-36d6-483e-a321-4b14dc32c21b.mp4
 
