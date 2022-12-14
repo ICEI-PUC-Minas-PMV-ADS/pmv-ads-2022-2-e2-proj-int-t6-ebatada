@@ -13,6 +13,8 @@ O objetivo desse projeto é criar um ambiente mais acessível e igualitário ent
 
 <a href="https://ebatata.azurewebsites.net/"> Visite o site da nossa aplicação :)</a>
 
+<a href="https://drive.google.com/file/d/1IaHamVF6p51q0YWujLmowfHwj9BxXf-A/view?usp=share_link/">Vídeo apresentação!</a>
+
 ## Integrantes
 
 * Carlos Eduardo Lobo 
