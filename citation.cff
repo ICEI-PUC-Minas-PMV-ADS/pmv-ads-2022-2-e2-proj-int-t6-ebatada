@@ -1,0 +1,25 @@
+message: Sistema para restaurantes completo, possuindo uma loja virtual integrada, com um preço justo e isento de qualquer tipo de taxa.
+title: ebatata
+authors:
+  - family-names: Pinheiro Torres
+    given-names:  João Lucas
+  - family-names: Eduardo Lobo
+    given-names: Carlos
+  - family-names: Silva
+    given-names: Daniel
+  - family-names: Guimarães
+    given-names: Jade
+  - family-names: Serqueira
+    given-names: Jessica
+  - family-names: Isabela
+    given-names: Letícia
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Jeunon de Alencar
+    given-names: Bernardo
+keywords:
+  - Gestão
+  - Restaurantes
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t6-ebatata
+version: 1.0.0
+date-released: 2022-12-14
